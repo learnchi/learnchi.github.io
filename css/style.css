@@ -1,0 +1,11 @@
+/* Left-side navigation */
+nav#side-nav .nav-link {
+    color: var(--bs-body-color);
+    background-color: transparent;
+}
+
+nav#side-nav .nav-link.active {
+    color: var(--bs-white);
+    background-color: var(--bs-secondary-color);
+}
+
