@@ -1,4 +1,8 @@
 /* Left-side navigation */
+nav#side-nav {
+    top: 1rem;
+}
+
 nav#side-nav .nav-link {
     color: var(--bs-body-color);
     background-color: transparent;
@@ -9,3 +13,10 @@ nav#side-nav .nav-link.active {
     background-color: var(--bs-secondary-color);
 }
 
+@media (min-width: 768px) {
+    nav#side-nav {
+        position: sticky;
+        max-height: calc(100vh - 2rem);
+        overflow-y: auto;
+    }
+}
