@@ -1,0 +1,9 @@
+pre code.hljs {
+    background: transparent;
+    overflow: visible;
+    padding: 0;
+}
+
+pre code {
+    display: block;
+}
