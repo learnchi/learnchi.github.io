@@ -25,7 +25,7 @@
                             <a class="nav-link" href="../noblestock.html">Noblestock</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../others.html">Others</a>
+                            <a class="nav-link" href="../about.html">About</a>
                         </li>
                     </ul>
                     <span class="navbar-text">便利なシステムでお手伝い</span>
@@ -163,6 +163,7 @@
 <p>「お知らせ」の欄はこの時点では固定です。管理画面からデータを追加することで、お知らせを追加できるようにします。<br />
 訪問者が閲覧するのは、直下のindex.htmlページだけです。</p>
 <p>CMS化するにあたり、サイト管理者がコンテンツを管理するためのページを追加します。以下の機能を実現します。</p>
+<p><img src="img/CafeChandraCMSsitestructurediagram.png" alt="CafeChandra CMS サイト構成図" style="width: 720px;"></p>
 <h2 id="item-2-2" class="m-3">プロジェクトを作る</h2>
 <p><code>cafechandra</code>プロジェクトを作成します。<code>C:\xampp\htdocs</code>（または<code>/Applications/XAMPP/xamppfiles/htdocs/</code>）に、<code>cafechandra</code>ディレクトリを作成してください。<br />
 Composerプロジェクトとして初期化します。ターミナルから<code>cafechandra</code>ディレクトリに移動し、</p>
@@ -290,8 +291,11 @@ PRIMARY KEY (id)
 
 </code></pre>
 <p>データが入っていることを確認します。</p>
+<p><img src="img/CafeChandraCMSTableNewsContents.png" alt="newsテーブルの内容" style="width:720px;"></p>
 <p><code>users</code> テーブルに登録するパスワードは、平文ではなくハッシュ化した値を使います。<br />
 XAMPP Control Panel の Shell を開いて、次のコマンドを実行してください。</p>
+<p><img src="img/CafeChandraCMSControlPanel.png" alt="XAMPP Control Panel" style="width:720px;"></p>
+
 <p>このコマンドは、文字列「admin1234」に対するハッシュ値を出力するコマンドです。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-PHP">php -r &quot;echo password_hash(&#x27;admin1234&#x27;, PASSWORD_DEFAULT), PHP_EOL;&quot;
 </code></pre>
@@ -311,6 +315,9 @@ NOW(),
 &#x27;SYSTEM&#x27;  
 );
 </code></pre>
+
+<p><img src="img/CafeChandraCMSTableUsersContents.png" alt="usersテーブルの内容" style="width:720px;"></p>
+
 <h3 id="item-2-3-5" class="m-3">接続設定を作る</h3>
 <p>Chandraでは、MySQL 接続情報を <code>ini</code> ファイルまたは環境変数から読み込めます。今回は <code>ini</code> ファイルを使う方法で接続します。<br />
 プロジェクト内に<code>config</code> ディレクトリを作り、<code>dbconfig.ini</code> を置きます。</p>
