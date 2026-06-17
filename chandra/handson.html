@@ -137,6 +137,8 @@
                                 <a class="nav-link ms-5 my-1" href="#item-2-18-1">認可について</a>
                                 <a class="nav-link ms-5 my-1" href="#item-2-18-2">【単体テスト】「お知らせ一覧の認可チェック」のテスト</a>
                                 <a class="nav-link ms-5 my-1" href="#item-2-18-3">お知らせ一覧の認可チェック</a>
+                                <a class="nav-link ms-5 my-1" href="#item-2-18-4">【単体テスト】「監査列にログインユーザーを反映する」のテスト</a>
+                                <a class="nav-link ms-5 my-1" href="#item-2-18-5">監査列にログインユーザーを反映する</a>
                             </nav>
                             <a class="nav-link" href="./quickstart.html">クイックスタート</a>
                             <a class="nav-link" href="./reference.html">リファレンス</a>
@@ -272,7 +274,7 @@ UNIQUE KEY (login_id)
 </code></pre>
 <p>カラムについて説明します。<br />
 <code>permissions</code> 列は権限管理を実現するための項目です。Chandraでは、特定のカラムから権限を管理するようロジックを構築することができます。cafechandraでは、画面名を列挙することで、その画面の権限があることを示すこととします。<br />
-監査列は<code>permissions</code>列に続く4列です。Chandraでは、作成者、作成日、更新者、更新日をそれぞれこの定義の通りに作成すれば、レコードのinsertやupdateの時に自動的に値を保管します。</p>
+監査列は<code>permissions</code>列に続く4列です。Chandraでは、作成者、作成日、更新者、更新日をそれぞれこの定義の通りに作成すれば、レコードのinsertやupdateの時に自動的に値を保管します。詳細は「<a href="#item-2-18-5">監査列にログインユーザーを反映する</a>」節を参照してください。</p>
 <p>同様に<code>news</code>テーブルを作成します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-sql">CREATE TABLE news (  
 id INT UNSIGNED AUTO_INCREMENT NOT NULL,  
@@ -3213,6 +3215,74 @@ if (!$currentUser || !$currentUser-&gt;can(&#x27;news_list&#x27;)) {
 }
 </code></pre>
 <p>ブラウザでログイン時、usersテーブルのpermissionsカラムの値から、news_listを削除すると、ログイン後に「この画面を表示する権限がありません」文字が表示されることを確認します。</p>
+
+
+<h3 id="item-2-18-4" class="m-3">【単体テスト】「監査列にログインユーザーを反映する」のテスト</h3>
+<p><code>tests\public\admin\newsInsertPageTest.php</code>の、testNewsInsertPageInsertsNewsTableWithPostedValuesテストメソッドにで、created_byカラムも検証対象とするよう修正します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">
+public function testNewsInsertPageInsertsNewsTableWithPostedValues(): void
+{
+    // 省略
+    $countRow = $this->database->fetchOne('SELECT COUNT(*) AS count FROM news');
+    $insertedRow = $this->database->fetchOne(
+        'SELECT title, body, published_at, is_published, created_by FROM news LIMIT 1'
+    );  // ★created_byを追加
+
+    $this->assertSame(1, (int)$countRow['count']);
+    $this->assertSame($insertedTitle, $insertedRow['title']);
+    $this->assertSame('inserted body', $insertedRow['body']);
+    $this->assertSame('2026-05-14', $insertedRow['published_at']);
+    $this->assertSame(0, (int)$insertedRow['is_published']);
+    $this->assertSame(self::TEST_LOGIN_ID, $insertedRow['created_by']);  // ★追加
+}
+</code></pre>
+
+<p><code>tests\public\admin\newsUpdatePageTest.php</code>の、testNewsUpdatePageUpdatesNewsTableWithPostedValuesテストメソッドにで、updated_byカラムも検証対象とするよう修正します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">
+public function testNewsUpdatePageUpdatesNewsTableWithPostedValues(): void
+{
+    // 省略
+    $updatedRow = $this->database->fetchOne(
+        'SELECT title, body, published_at, is_published, updated_by FROM news WHERE id = :id',
+        [
+            ':id' => ['value' => self::TARGET_NEWS_ID, 'datatype' => \PDO::PARAM_INT],
+        ]
+    );  // ★updated_byを追加
+
+    $this->assertSame($updatedTitle, $updatedRow['title']);
+    $this->assertSame('updated body', $updatedRow['body']);
+    $this->assertSame('2026-05-12', $updatedRow['published_at']);
+    $this->assertSame(1, (int)$updatedRow['is_published']);
+    $this->assertSame(self::TEST_LOGIN_ID, $updatedRow['updated_by']);  // ★追加
+}
+</code></pre>
+
+
+<h3 id="item-2-18-5" class="m-3">監査列にログインユーザーを反映する</h3>
+<p>Chandra の <code>Database::insert()</code> と <code>Database::update()</code> は、監査列 <code>created_at</code>、<code>created_by</code>、<code>updated_at</code>、<code>updated_by</code> を自動的に設定します。
+ここまでの実装では、実行ユーザーを <code>Database</code> に指定していないため、<code>created_by</code> や <code>updated_by</code> には既定のユーザーとして <code>SYSTEM</code> が入ります。
+ログイン後の登録・更新処理では、<code>AuthService</code> から取得したログインユーザーを <code>Database</code> に渡しておくことで、監査列に実行者を記録できます。
+<code>public\admin\news_insert.php</code> や <code>public\admin\news_update.php</code> の認証・認可チェックの後、DB更新処理より前にも追加します。</p>
+
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$database-&gt;setCurrentUserId($currentUser-&gt;getLoginId());
+</code></pre>
+<p>追加位置は次のようになります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (!$currentUser || !$currentUser-&gt;can(&#x27;news_create&#x27;)) {
+    $logger-&gt;error(basename(__FILE__).&#x27; op=auth msg=&quot;Permission denied&quot; required permission=news_create user_id=&#x27;.$currentUser?-&gt;getLoginId());
+    http_response_code(403);
+    header(&#x27;Content-Type: text/plain; charset=UTF-8&#x27;);
+    echo &quot;この画面を表示する権限がありません&quot;;
+    exit;
+}
+
+$database-&gt;setCurrentUserId($currentUser-&gt;getLoginId());
+
+// POST以外のリクエストは不正とみなしてエラーにする
+if (($_SERVER[&#x27;REQUEST_METHOD&#x27;] ?? &#x27;GET&#x27;) !== &#x27;POST&#x27;) {
+    ...
+}
+</code></pre>
+<p>これで、<code>news_insert.php</code> から登録した場合は <code>created_by</code> にログインIDが入り、<code>news_update.php</code> から更新した場合は <code>updated_by</code> にログインIDが入ります。リポジトリ側の <code>News::insert()</code> や <code>News::updateById()</code> では、監査列を明示的に指定する必要はありません。</p>
 
                         <div id="item-1" class="row gx-0 mt-5">
                             <div class="col-12 col-md-9 order-2 order-md-1">
