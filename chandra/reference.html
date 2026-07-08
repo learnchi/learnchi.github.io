@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>スタジオがう</title>
+        <title>Chandra リファレンス | スタジオがう</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/github.min.css">
         <link rel="stylesheet" href="../css/code-highlight.css">
@@ -46,6 +46,166 @@
                     <nav id="side-nav" class="h-100 flex-column align-items-stretch pe-4 border-end">
                         <nav class="nav nav-pills flex-column">
                             <a class="nav-link" href="#item-3">リファレンス</a>
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link ms-3 my-1" href="#item-3-1">はじめに</a>
+                                <a class="nav-link ms-3 my-1" href="#item-3-2">基本構成と前提</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-3">Chandra の主な機能</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-4">動作前提</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-5">Chandra を使用する場合の必須事項</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-6">設計上の前提</a>
+                                <a class="nav-link ms-3 my-1" href="#item-3-7">設定 / Config</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-8">DB 設定</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-12">メール設定</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-13">fromConfiguredSource</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-14">fromIni</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-15">fromEnv</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-16">ChandraConst</a>
+                                <a class="nav-link ms-3 my-1" href="#item-3-17">Database</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-18">Database の役割</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-19">接続の作成</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-20">読み取り系　fetchCount / fetchList / fetchOne</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-24">監査列</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-25">書き込み系　insert / update / delete</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-26">insert</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-27">update</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-28">delete</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-29">バインド値の指定方法</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-30">トランザクション</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-32">同時更新への対応</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-37">例外</a>
+                                <a class="nav-link ms-3 my-1" href="#item-3-44">認証</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-45">AuthService</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-46">UserRepositoryInterface</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-47">LoginCredentials</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-48">LoginAttempt</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-49">LoginUser</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-50">LoginGuardInterface</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-51">assertCanAttempt()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-52">recordSuccessfulLogin()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-53">recordFailedLogin()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-54">AuthService への登録</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-55">LoginGuardInterface の実装例</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-60">AuthService::login()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-68">AuthService::checkUserSession()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-69">AuthService::logout()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-70">例外</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-71">例外をキャッチする例</a>
+                                <a class="nav-link ms-3 my-1" href="#item-3-72">認可</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-73">permissions の持たせ方</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-74">UserRepositoryInterface で返す値</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-75">画面単位、または処理単位の認可の例</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-76">メニュー表示の制御の例</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-77">管理者のみ許可する例</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-78">対象データ単位の認可</a>
+                                <a class="nav-link ms-3 my-1" href="#item-3-79">Session</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-80">メソッド一覧</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-81">session_start() について</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-82">セッションキーのプレフィックス</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-83">画面単位データ</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-84">setData()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-85">getData()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-86">delData()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-87">clearDataExceptFunc()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-88">clearData()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-89">ログインユーザー情報</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-90">setUser()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-91">getUser()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-92">フラッシュメッセージ</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-93">flushError()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-94">hasFlushError()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-95">getFlushError()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-96">flushSuccess()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-97">hasFlushSuccess()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-98">getFlushSuccess()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-99">preferences</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-100">setPref()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-101">getPref()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-102">delPref()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-103">clearPref()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-104">master</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-105">setMaster()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-106">getMaster()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-107">getMasterList()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-108">セッション ID 再生成</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-109">regenerateSessionId()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-110">セッションの破棄・無効化</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-111">delSessionAll()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-112">invalidateSession()</a>
+                                <a class="nav-link ms-3 my-1" href="#item-3-113">CSRF</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-114">scope とは</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-115">メソッド一覧</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-116">HTML フォームで使う</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-117">renderCsrfHiddenInput()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-118">POST 時に検証する</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-119">validatePostedCsrfToken()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-120">validateCsrfToken()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-121">AJAX で使う</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-122">renderCsrfContainer()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-123">issueCsrfPostFields()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-124">CSRF token を個別に発行する</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-125">issueCsrfToken()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-126">CSRF フィールド名を取得する</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-127">getCsrfFieldName()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-128">getCsrfScopeFieldName()</a>
+                                <a class="nav-link ms-3 my-1" href="#item-3-129">Utility</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-130">メソッド一覧</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-131">出力エスケープ</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-132">h()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-133">文字列置換 helper</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-134">replaceStr()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-135">replacePlaceholders()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-136">入力チェック</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-137">checkNumeric()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-138">checkAlphanumeric()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-139">checkDuplicate()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-140">画像ファイル helper</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-141">checkImageName()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-142">checkImageFileSize()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-143">checkImageCreate()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-144">creatSmallImage()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-145">creatImageSize()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-146">creatImageSize34()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-147">ファイル一覧 helper</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-148">getFileName()</a>
+                                <a class="nav-link ms-3 my-1" href="#item-3-149">Cookie</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-150">メソッド一覧</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-151">Cookie を作成する</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-152">make()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-153">Cookie を取得する</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-154">get()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-155">Cookie を削除する</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-156">forget()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-157">既定のオプション</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-158">利用上の注意</a>
+                                <a class="nav-link ms-3 my-1" href="#item-3-159">Logger</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-160">Logger の作成</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-161">基本的な使い方</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-162">ログレベル</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-163">debug()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-164">info()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-165">warn()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-166">error()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-167">fatal()</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-168">出力する最小レベルを指定する</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-169">任意のログディレクトリを指定する</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-170">Database / AuthService との連携</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-171">例外処理でログを使う</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-172">ログに出してはいけない情報</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-173">Database / Auth との連携</a>
+                                <a class="nav-link ms-3 my-1" href="#item-3-174">例外処理 / エラーハンドリング</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-175">Chandra で扱う例外</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-176">catch の順序</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-177">ログレベルの使い分け</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-178">DB 取得時の例外処理</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-179">DB 更新時の例外処理</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-180">トランザクション中の例外処理</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-181">認証処理の例外処理</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-182">入力エラーとシステムエラーを分ける</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-183">リダイレクトと exit</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-184">例外を再スローする場合</a>
+                                <a class="nav-link ms-5 my-1" href="#item-3-185">エラーページを表示する場合</a>
+                                <a class="nav-link ms-3 my-1" href="#item-3-186">索引</a>
+                            </nav>
                             <a class="nav-link" href="./quickstart.html">クイックスタート</a>
                             <a class="nav-link" href="./handson.html">ハンズオン</a>
                         </nav>
@@ -57,15 +217,2668 @@
                         <div id="item-3" class="row gx-0">
                             <div class="col-12 col-md-9 order-2 order-md-1">
                                 <h1>リファレンス</h1>
-                                <p>ここでは、Chandraの各機能について詳しく説明します。</p>
-                                <p>準備中です。</p>
+                                <p>Chandra の各機能、クラス、メソッドの使い方を確認するためのリファレンスです。</p>
                             </div>
                             <div class="col-12 col-md-3 order-1 order-md-2">
                                 <img src="img/reference.svg" alt="リファレンス">
                             </div>
-
                         </div>
 
+<h1 id="item-3-1" class="m-3">はじめに</h1>
+<p>Chandra は、PHP 業務アプリで繰り返し必要になる「認証」、「DB 操作」、「セッション」、「CSRF」、「Cookie」、「ログ出力」といった基盤機能を、使いやすいサイズのライブラリとして提供しています。<br>
+フルスタックなフレームワークで想像されるようなリッチな機能ではなく、必要な機能を絞ることで、アプリケーション側が、自由度高く組み込めることを優先しています。<br>
+このリファレンスは、クイックスタートとハンズオンを読み終えたあとに、「いま使っているクラスの責務は何か」「どのメソッドを、どの前提で呼ぶのか」をすぐ引けるようにすることを目的にします。</p>
+<p>現在、v0.2.0 を公開しています。</p>
+<hr>
+<h1 id="item-3-2" class="m-3">基本構成と前提</h1>
+<h2 id="item-3-3" class="m-3">Chandra の主な機能</h2>
+<p>Chandra は以下の機能を備えています。</p>
+<ul>
+  <li><strong>Auth</strong>: 認証フロー、ログイン試行情報、ログイン済みユーザー、Guard 契約</li>
+  <li><strong>Database</strong>: PDO ベースの DB 接続と CRUD 補助</li>
+  <li><strong>Support</strong>: Session、CSRF、Cookie、出力エスケープ、入力補助</li>
+  <li><strong>Logging</strong>: ファイル出力ロガー</li>
+  <li><strong>Config</strong>: DB / Mail 設定読込、定数</li>
+</ul>
+<p>アプリケーションはこれらを使用して、実際のテーブル構造や認可ルール、ログイン制限のロジックを作成することになります。</p>
+<h3 id="item-3-4" class="m-3">動作前提</h3>
+<ul>
+  <li>PHP 8.2 以上</li>
+  <li>MySQL 8.0 以上</li>
+  <li>Apache 2.4 以上</li>
+  <li>Composer 2.6 系以上</li>
+</ul>
+<h3 id="item-3-5" class="m-3">Chandra を使用する場合の必須事項</h3>
+<ul>
+  <li><code>CookieHelper</code> を使う場合: <strong>OpenSSL</strong></li>
+  <li>画像系 Utility を使う場合: <strong>GD</strong></li>
+  <li><code>MailConfig</code> を使う場合: SMTP 設定</li>
+</ul>
+<h3 id="item-3-6" class="m-3">設計上の前提</h3>
+<ul>
+  <li><code>AuthService</code> や <code>SessionHelper</code> はセッションを利用しますが、 <code>session_start()</code> を自動では呼びません</li>
+  <li>認証本体は <code>UserRepositoryInterface</code> の実装へ委譲されます</li>
+  <li>ログイン試行制限やアカウントロックといった、認証に関わるロジックは アプリ側で実装します</li>
+  <li>2FA、ルーティング、DI コンテナは標準では提供しません</li>
+</ul>
+<hr>
+<h1 id="item-3-7" class="m-3">設定 / Config</h1>
+<p>Chandra で DB 接続を利用する場合は、DB 接続情報の設定が必要です。<br>
+また、メール送信を行うアプリでは、<code>MailConfig</code> クラスを使って SMTP 設定を読み込めます。</p>
+<p>どちらも、設定値を <strong>ini ファイルから読む方法</strong> と、<strong>環境変数から読む方法</strong> が用意されています。</p>
+<p><code>fromIni()</code> メソッドは、接続先やユーザー名などを、<code>dbconfig.ini</code> や <code>mailconfig.ini</code> のような設定ファイルに記述して読み込む方法です。</p>
+<p>ローカル開発では内容を確認しやすく、サンプル設定も用意しやすいため、扱いやすい方法です。<br>
+ただし、パスワードなどを含む実際の設定ファイルは、誤って Git 管理に含めないよう注意が必要です。</p>
+<p><code>fromEnv()</code> メソッドは、同じ設定値を環境変数から読み込む方法です。</p>
+<p>本番環境では、アプリケーションのコードや設定ファイルにパスワードを書かず、サーバー側から環境変数として渡せるため、アプリケーションの配備物と機密情報を分けやすくなります。</p>
+<p><code>fromIni()</code> と <code>fromEnv()</code> をアプリ側で直接呼び分けることもできますが、<code>fromConfiguredSource()</code> を使うと、環境変数の値によって読み込み方法を切り替えられます。</p>
+<p>DB 設定では <code>CHANDRA_DB_SOURCE</code>、メール設定では <code>CHANDRA_MAIL_SOURCE</code> が、既定の切り替え用環境変数として使われます。</p>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>設定値</th><th>読み込み方法</th></tr></thead>
+<tbody>
+<tr><td>ini</td><td>ini ファイルから読み込む</td></tr>
+<tr><td>env</td><td>環境変数から読み込む</td></tr>
+<tr><td>未設定</td><td>default_source の指定に従う。default_source も省略した場合は ini</td></tr>
+</tbody></table></div>
+<p>これにより、ローカル環境では ini ファイルを使い、本番環境では環境変数を使う、といった切り替えを、アプリ側のコードを変更せずに行えます。</p>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>対象</th><th>クラス</th><th>利用メソッド</th></tr></thead>
+<tbody>
+<tr><td>DB 接続</td><td><code>PdoConnection</code></td><td><code>fromIni()</code> / <code>fromEnv()</code> / <code>fromConfiguredSource()</code></td></tr>
+<tr><td>メール設定</td><td><code>MailConfig</code></td><td><code>fromIni()</code> / <code>fromEnv()</code> / <code>fromConfiguredSource()</code></td></tr>
+</tbody></table></div>
+<h3 id="item-3-8" class="m-3">DB 設定</h3>
+<h4 id="item-3-9">fromConfiguredSource</h4>
+<p><code>PdoConnection::fromConfiguredSource()</code> は、<code>CHANDRA_DB_SOURCE</code> の値に応じて、<code>fromIni()</code> または <code>fromEnv()</code> を呼び分けます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$connection = PdoConnection::fromIni(__DIR__ . '/config/dbconfig.ini');
+
+$connection = PdoConnection::fromConfiguredSource(
+    __DIR__ . '/config/dbconfig.ini',
+    [
+        'default_source' =&gt; 'ini',
+        'switch_env_name' =&gt; 'CHANDRA_DB_SOURCE',
+    ]
+);
+</code></pre>
+<p><code>default_source</code> は、切り替え用の環境変数が設定されていない場合に使う読み込み方法です。</p>
+<p><code>switch_env_name</code> は、切り替えに使用する環境変数名です。<br>
+省略した場合は <code>CHANDRA_DB_SOURCE</code> が使われます。</p>
+<p>そのため、既定の設定を使う場合は次のように短く書けます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$connection = PdoConnection::fromConfiguredSource(
+    __DIR__ . '/config/dbconfig.ini'
+);
+</code></pre>
+<p>ini ファイルを使う場合は、<code>CHANDRA_DB_SOURCE</code> を設定しないか、明示的に <code>ini</code> を指定します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SetEnv CHANDRA_DB_SOURCE ini
+</code></pre>
+<p>環境変数から DB 接続情報を読む場合は、<code>env</code> を指定します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SetEnv CHANDRA_DB_SOURCE env
+</code></pre>
+<p><code>env</code> を選択した場合も、アプリ側では同じ <code>fromConfiguredSource()</code> の呼び出しを使用します。  この場合、第1引数の ini ファイルは読み込まれません。</p>
+<h4 id="item-3-10">fromIni</h4>
+<p><code>fromIni()</code> は、ini ファイルから DB 接続情報を読み込みます。</p>
+<p>次のうち、<code>dbhost</code>、<code>dbname</code>、<code>dbuser</code>、<code>dbpass</code> は必須です。<br>
+<code>dbport</code> と <code>charset</code> は省略できます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-ini">dbhost=127.0.0.1
+dbname=myapp
+dbuser=myuser
+dbpass=secret
+dbport=3306
+charset=utf8mb4
+</code></pre>
+<p>直接呼び出す場合は、次のように記述します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>$connection = PdoConnection::fromIni(
+    __DIR__ . '/config/dbconfig.ini'
+);
+</code></pre>
+<p><code>charset</code> を省略した場合は、Chandra v0.2.0 の <code>PdoConnection</code> が持つ既定値 <code>utf8</code> が使われます。</p>
+<h4 id="item-3-11">fromEnv</h4>
+<p><code>fromEnv()</code> は、DB 接続情報を環境変数から読み込みます。<br>
+Chandra v0.2.0 の <code>PdoConnection</code> は、既定で次の環境変数名を使用します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_NAME=myapp
+DB_USER=myuser
+DB_PASS=secret
+DB_CHARSET=utf8mb4
+</code></pre>
+<p><code>DB_HOST</code>、<code>DB_NAME</code>、<code>DB_USER</code>、<code>DB_PASS</code> は必須です。<br>
+<code>DB_PORT</code> と <code>DB_CHARSET</code> は省略できます。</p>
+<p><code>DB_CHARSET</code> を省略した場合は、<code>PdoConnection</code> の既定値 <code>utf8</code> が使われます。</p>
+<p>PHP から直接 <code>fromEnv()</code> を呼び出す場合は、次のように記述します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>$connection = PdoConnection::fromEnv();
+$pdo = $connection-&gt;getPdo();
+</code></pre>
+<p>Apache の <code>SetEnv</code> を使って設定する場合は、次のようになります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>SetEnv CHANDRA_DB_SOURCE env
+SetEnv DB_HOST 127.0.0.1
+SetEnv DB_PORT 3306
+SetEnv DB_NAME myapp
+SetEnv DB_USER myuser
+SetEnv DB_PASS secret
+SetEnv DB_CHARSET utf8mb4
+</code></pre>
+<p>環境変数名をアプリ側の命名に合わせたい場合は、<code>fromEnv()</code> に対応表を渡せます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>$connection = PdoConnection::fromEnv([
+    'dbhost' =&gt; 'MYAPP_DB_HOST',
+    'dbport' =&gt; 'MYAPP_DB_PORT',
+    'dbname' =&gt; 'MYAPP_DB_NAME',
+    'dbuser' =&gt; 'MYAPP_DB_USER',
+    'dbpass' =&gt; 'MYAPP_DB_PASS',
+    'charset' =&gt; 'MYAPP_DB_CHARSET',
+]);
+</code></pre>
+<p><code>fromConfiguredSource()</code> から利用する場合は、<code>env_map</code> オプションに同じ対応表を指定します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>$connection = PdoConnection::fromConfiguredSource(
+    __DIR__ . '/config/dbconfig.ini',
+    [
+        'default_source' =&gt; 'ini',
+        'switch_env_name' =&gt; 'CHANDRA_DB_SOURCE',
+        'env_map' =&gt; [
+            'dbhost' =&gt; 'MYAPP_DB_HOST',
+            'dbport' =&gt; 'MYAPP_DB_PORT',
+            'dbname' =&gt; 'MYAPP_DB_NAME',
+            'dbuser' =&gt; 'MYAPP_DB_USER',
+            'dbpass' =&gt; 'MYAPP_DB_PASS',
+            'charset' =&gt; 'MYAPP_DB_CHARSET',
+        ],
+    ]
+);
+</code></pre>
+<h3 id="item-3-12" class="m-3">メール設定</h3>
+<p>メール設定は <code>MailConfig</code> クラスで扱います。</p>
+<h3 id="item-3-13" class="m-3">fromConfiguredSource</h3>
+<p><code>MailConfig::fromConfiguredSource()</code> は、<code>CHANDRA_MAIL_SOURCE</code> の値に応じて、<code>fromIni()</code> または <code>fromEnv()</code> を呼び分けます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>$mailConfig = MailConfig::fromConfiguredSource(
+    __DIR__ . '/config/mailconfig.ini',
+    [
+        'default_source' =&gt; 'ini',
+        'switch_env_name' =&gt; 'CHANDRA_MAIL_SOURCE',
+    ]
+);
+</code></pre>
+<p>既定の設定を使う場合は、次のように短く書けます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>$mailConfig = MailConfig::fromConfiguredSource(
+    __DIR__ . '/config/mailconfig.ini'
+);
+</code></pre>
+<p>ini ファイルを使う場合は、<code>CHANDRA_MAIL_SOURCE</code> を設定しないか、<code>ini</code> を指定します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>SetEnv CHANDRA_MAIL_SOURCE ini
+</code></pre>
+<p>環境変数からメール設定を読む場合は、<code>env</code> を指定します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>SetEnv CHANDRA_MAIL_SOURCE env
+</code></pre>
+<h3 id="item-3-14" class="m-3">fromIni</h3>
+<p><code>fromIni()</code> は、ini ファイルからメール設定を読み込みます。</p>
+<p><code>smtp_host</code> と <code>mail_from</code> は必須です。<br>
+SMTP 認証を使う場合は、<code>smtp_user</code> と <code>smtp_pass</code> も必要です。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>smtp_host=smtp.example.com
+smtp_port=587
+smtp_auth=true
+smtp_user=mailer
+smtp_pass=secret
+smtp_secure=tls
+mail_from=no-reply@example.com
+</code></pre>
+<p>直接呼び出す場合は、次のように記述します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>$mailConfig = MailConfig::fromIni(
+    __DIR__ . '/config/mailconfig.ini'
+);
+</code></pre>
+<p><code>smtp_port</code>、<code>smtp_auth</code>、<code>smtp_secure</code> を省略した場合は、Chandra v0.2.0 の <code>MailConfig</code> が持つ次の既定値が使われます。</p>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th></th><th></th></tr></thead>
+<tbody>
+<tr><td>設定</td><td>既定値</td></tr>
+<tr><td><code>smtp_port</code></td><td><code>587</code></td></tr>
+<tr><td><code>smtp_auth</code></td><td><code>true</code></td></tr>
+<tr><td><code>smtp_secure</code></td><td><code>tls</code></td></tr>
+</tbody></table></div>
+<p><code>smtp_auth</code> の既定値は <code>true</code> です。<br>
+そのため、SMTP 認証を使わない場合は、<code>smtp_auth=false</code> を明示します。</p>
+<h3 id="item-3-15" class="m-3">fromEnv</h3>
+<p><code>fromEnv()</code> は、メール設定を環境変数から読み込みます。</p>
+<p>Chandra v0.2.0 の <code>MailConfig</code> は、既定で次の環境変数名を使用します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>MAIL_SMTP_HOST=smtp.example.com
+MAIL_SMTP_PORT=587
+MAIL_SMTP_AUTH=true
+MAIL_SMTP_USER=mailer
+MAIL_SMTP_PASS=secret
+MAIL_SMTP_SECURE=tls
+MAIL_FROM=no-reply@example.com
+</code></pre>
+<p><code>MAIL_SMTP_HOST</code> と <code>MAIL_FROM</code> は必須です。</p>
+<p><code>MAIL_SMTP_PORT</code>、<code>MAIL_SMTP_AUTH</code>、<code>MAIL_SMTP_SECURE</code> は省略できます。<br>
+省略した場合は、<code>MailConfig</code> の既定値である <code>587</code>、<code>true</code>、<code>tls</code> が使われます。</p>
+<p>SMTP 認証が有効な場合は、<code>MAIL_SMTP_USER</code> と <code>MAIL_SMTP_PASS</code> も必要です。</p>
+<p>PHP から直接 <code>fromEnv()</code> を呼び出す場合は、次のように記述します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>$mailConfig = MailConfig::fromEnv();
+</code></pre>
+<p>Apache の <code>SetEnv</code> を使って設定する場合は、次のようになります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>SetEnv CHANDRA_MAIL_SOURCE env
+SetEnv MAIL_SMTP_HOST smtp.example.com
+SetEnv MAIL_SMTP_PORT 587
+SetEnv MAIL_SMTP_AUTH true
+SetEnv MAIL_SMTP_USER mailer
+SetEnv MAIL_SMTP_PASS secret
+SetEnv MAIL_SMTP_SECURE tls
+SetEnv MAIL_FROM no-reply@example.com
+</code></pre>
+<p>SMTP 認証を使わない場合は、<code>MAIL_SMTP_AUTH=false</code> を明示します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>SetEnv CHANDRA_MAIL_SOURCE env
+SetEnv MAIL_SMTP_HOST smtp.example.com
+SetEnv MAIL_SMTP_PORT 25
+SetEnv MAIL_SMTP_AUTH false
+SetEnv MAIL_FROM no-reply@example.com
+</code></pre>
+<p>環境変数名をアプリ側の命名に合わせたい場合は、<code>fromEnv()</code> に対応表を渡せます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>$mailConfig = MailConfig::fromEnv([
+    'smtp_host' =&gt; 'MYAPP_MAIL_SMTP_HOST',
+    'smtp_port' =&gt; 'MYAPP_MAIL_SMTP_PORT',
+    'smtp_auth' =&gt; 'MYAPP_MAIL_SMTP_AUTH',
+    'smtp_user' =&gt; 'MYAPP_MAIL_SMTP_USER',
+    'smtp_pass' =&gt; 'MYAPP_MAIL_SMTP_PASS',
+    'smtp_secure' =&gt; 'MYAPP_MAIL_SMTP_SECURE',
+    'mail_from' =&gt; 'MYAPP_MAIL_FROM',
+]);
+</code></pre>
+<h3 id="item-3-16" class="m-3">ChandraConst</h3>
+<p><code>ChandraConst</code> は、Chandra 内で使う共通定数をまとめたクラスです。</p>
+<p>Chandra v0.2.0 時点で、アプリ開発時に意識する可能性がある定数は次の二つです。</p>
+<ul>
+  <li><code>LOGIN_TIMEOUT</code></li>
+  <li><code>MAX_UPLOAD_IMAGE_SIZE</code></li>
+</ul>
+<p><code>LOGIN_TIMEOUT</code> は、認証セッションのタイムアウトに関係する定数です。<br>
+<code>MAX_UPLOAD_IMAGE_SIZE</code> は、画像アップロード補助で使われる既定のファイルサイズ上限です。</p>
+<p>アプリ側から参照する場合は、次のように <code>use</code> して使えます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>use Studiogau\Chandra\Config\ChandraConst;
+
+$maxBytes = ChandraConst::MAX_UPLOAD_IMAGE_SIZE;
+</code></pre>
+<p>ただし、<code>ChandraConst</code> は実行時にアプリ側から値を変更するための設定クラスではありません。<br>
+アプリごと・画面ごとに値を変えたい場合は、各機能が用意している引数や、アプリ側の設定値で調整します。</p>
+<hr>
+<h1 id="item-3-17" class="m-3">Database</h1>
+<h3 id="item-3-18" class="m-3">Database の役割  </h3>
+<p>Chandra は ORM ではなく、業務ロジックから安全に SQL を実行するための DB ユーティリティです。</p>
+<p><code>Database</code> は、PDO を使った読み取り・書き込み処理を、アプリケーション側から呼び出しやすい形にまとめたクラスです。<br>
+テーブル定義やモデルを自動で管理するものではなく、実行する SQL や、どのテーブルにどの値を保存するかはアプリケーション側で明示します。</p>
+<p>複雑な業務ルール、差分監査、論理削除の意味づけはアプリケーション側で実装します。</p>
+<h3 id="item-3-19" class="m-3">接続の作成</h3>
+<p><code>Database</code> は <code>PdoConnection</code> を包んでインスタンス化します。<br>
+これにより、後述する「1件取得」「一覧取得」といった読み取り系、または登録・更新・削除などの書き込み系メソッドを呼び出せるようになります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$logger = Logger::createDefault(__DIR__);
+$db = Database::fromConfiguredSource(
+    __DIR__ . '/config/dbconfig.ini',
+    $logger
+);
+</code></pre>
+<p>接続だけを直接扱いたい場合は <code>PdoConnection</code> を使います。<br>
+たとえば、トランザクションを明示的に制御したい場合や、<code>Database</code> が用意していない PDO の操作を直接使いたい場合に利用します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$connection = PdoConnection::fromConfiguredSource(
+    __DIR__ . '/config/dbconfig.ini'
+);
+
+$pdo = $connection-&gt;getPdo();
+</code></pre>
+<p>詳しくは後述の「<a href="#item-3-30">トランザクション</a>」を参照してください。</p>
+<h3 id="item-3-20" class="m-3">読み取り系　fetchCount / fetchList / fetchOne</h3>
+<p><code>Database</code> をインスタンス化すると、SQL を実行して結果を取得するための読み取り系メソッドを呼び出せます。<br>
+Chandra v0.2.0 時点での読み取りは次の三つです。</p>
+<h4 id="item-3-21">件数取得</h4>
+<p>条件に合致するレコード数を取得する場合は、<code>fetchCount()</code> を使います。<br>
+戻り値は <code>int</code> です。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$count = $db-&gt;fetchCount(
+    'SELECT COUNT(*) FROM news WHERE publish_flg = :flg',
+    [
+        ':flg' =&gt; ['value' =&gt; 1, 'datatype' =&gt; PDO::PARAM_INT],
+    ]
+);
+</code></pre>
+<p>戻り値のイメージ</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$count = 12;
+</code></pre>
+<h4 id="item-3-22">一覧取得</h4>
+<p>条件に合致するレコードを、0件以上の複数行として取得する場合は、<code>fetchList()</code> を使います。<br>
+戻り値は連想配列の配列です。該当するレコードがない場合は、空配列が返ります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$rows = $db-&gt;fetchList(
+    'SELECT id, title, publish_date
+       FROM news
+      WHERE publish_flg = :flg
+        AND publish_date &lt;= :today
+      ORDER BY publish_date DESC',
+    [
+        ':flg' =&gt; ['value' =&gt; 1, 'datatype' =&gt; PDO::PARAM_INT],
+        ':today' =&gt; ['value' =&gt; date('Y-m-d'), 'datatype' =&gt; PDO::PARAM_STR],
+    ]
+);
+</code></pre>
+<p>戻り値のイメージ</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$rows = [
+    [
+        'id' =&gt; 3,
+        'title' =&gt; '新商品のお知らせ',
+        'publish_date' =&gt; '2026-06-01',
+    ],
+    [
+        'id' =&gt; 2,
+        'title' =&gt; '営業時間変更のお知らせ',
+        'publish_date' =&gt; '2026-05-20',
+    ],
+];
+</code></pre>
+<h4 id="item-3-23">一件取得</h4>
+<p>条件に合致するレコードを1件だけ取得する場合は、<code>fetchOne()</code> を使います。<br>
+戻り値は1行分の連想配列です。<br>
+<code>fetchOne()</code> は、主キーやユニークキーなど、「必ず1件だけ取得できるはず」の条件で使うことを想定しています。<br>
+0件の場合や、複数件取得された場合は例外になります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$row = $db-&gt;fetchOne(
+    'SELECT id, title, body, updated_at FROM news WHERE id = :id',
+    [
+        ':id' =&gt; ['value' =&gt; $id, 'datatype' =&gt; PDO::PARAM_INT],
+    ]
+);
+</code></pre>
+<p>戻り値のイメージ</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$row = [
+    'id' =&gt; 3,
+    'title' =&gt; '新商品のお知らせ',
+    'body' =&gt; '新しい商品を入荷しました。',
+    'updated_at' =&gt; '2026-06-01 10:30:00',
+];
+</code></pre>
+<h3 id="item-3-24" class="m-3">監査列</h3>
+<p>Chandra は監査列として以下の項目を扱います。</p>
+<ul>
+  <li><code>created_at</code></li>
+  <li><code>created_by</code></li>
+  <li><code>updated_at</code></li>
+  <li><code>updated_by</code></li>
+</ul>
+<p>DB 挿入（<code>insert</code> ）時には作成・更新の監査列、DB 更新（<code>update</code>） 時には更新監査列が補完されます。<br>
+ログインユーザーを <code>updated_by</code> / <code>created_by</code> に反映したい場合は、更新前に <code>setCurrentUserId()</code> を呼びます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">// AuthUser は UserRepositoryInterface を実装した、アプリ側のユーザーリポジトリとします。
+$auth = new AuthService(new AuthUser($db), $logger);
+
+$user = $auth-&gt;getCurrentUser();
+$db-&gt;setCurrentUserId($user-&gt;getId());
+
+// INSERT
+// created_at / created_by / updated_at / updated_by は $values に指定しなくても自動的に設定される
+$db-&gt;insert('products', [
+    'product_name' =&gt; 'コーヒー豆',
+    'price' =&gt; 1200,
+]);
+
+// UPDATE
+// updated_at / updated_by は $values に指定しなくても自動的に設定される。
+$db-&gt;update(
+    'products',
+    [
+        'price' =&gt; 1300,
+    ],
+    [
+        'id' =&gt; 1,
+    ]
+);
+</code></pre>
+<p>設定しない場合は既定値 <code>SYSTEM</code> が使われます。</p>
+<h3 id="item-3-25" class="m-3">書き込み系　insert / update / delete</h3>
+<p>書き込み系の <code>insert()</code>、<code>update()</code>、<code>delete()</code> は、テーブルへ直接書き込むための共通ヘルパーです。<br>
+Chandra が業務ルールまでは持たないことに注意してください。たとえば「削除前に存在確認をするか」「物理削除か論理削除か」「更新前後差分を監査テーブルに残すか」はアプリ側で方針を決定する必要があります。<br>
+バインド値は、<code>['value' =&gt; 値, 'datatype' =&gt; PDO::PARAM_*]</code> 形式のほか、値だけの簡易形式でも指定できます。<br>
+テーブル名とカラム名は、英字またはアンダースコアで始まり、以降は英数字とアンダースコアのみを使う形式に制限されています。テーブル名は <code>schema.table</code> のようなドット区切りにも対応しています。また、WHERE 句で指定できる演算子は、<code>=</code>、<code>!=</code>、<code>&lt;&gt;</code>、<code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>、<code>&lt;=</code>、<code>LIKE</code> に限定されています。</p>
+<p><code>insert()</code> と <code>update()</code> は監査列を自動補完し、<code>update()</code> は空の条件を許さない設計です。一方、<code>delete()</code> は条件なしだと全削除になるので注意です。</p>
+<h3 id="item-3-26" class="m-3">insert</h3>
+<p><code>insert()</code> は、テーブル名と追加する値を引数に取ります。追加する値は、カラム名をキーとする配列で指定します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$affected = $db-&gt;insert('news', [
+    'title' =&gt; ['value' =&gt; $title, 'datatype' =&gt; PDO::PARAM_STR],
+    'body' =&gt; ['value' =&gt; $body, 'datatype' =&gt; PDO::PARAM_STR],
+    'publish_date' =&gt; ['value' =&gt; $publishDate, 'datatype' =&gt; PDO::PARAM_STR],
+    'publish_flg' =&gt; ['value' =&gt; 1, 'datatype' =&gt; PDO::PARAM_INT],
+]);
+</code></pre>
+<p>戻り値は、追加された行数です。自動採番された ID ではありません。通常、1件の追加に成功した場合は <code>1</code> が返ります。<br>
+作成監査列は自動補完されます。</p>
+<h3 id="item-3-27" class="m-3">update</h3>
+<p><code>update()</code> は、テーブル名、更新値、更新条件を引数に取ります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$affected = $db-&gt;update('news', [
+    'title' =&gt; ['value' =&gt; $title, 'datatype' =&gt; PDO::PARAM_STR],
+    'body' =&gt; ['value' =&gt; $body, 'datatype' =&gt; PDO::PARAM_STR],
+], [
+    'id' =&gt; ['value' =&gt; $id, 'datatype' =&gt; PDO::PARAM_INT],
+]);
+</code></pre>
+<p>監査列は自動的に補完されます。</p>
+<p><code>update()</code> は、業務上そのレコードを更新してよいかまでは判断しません。存在確認や競合確認は、アプリ側で行う必要があります。</p>
+<h3 id="item-3-28" class="m-3">delete</h3>
+<p><code>delete()</code> は、テーブル名と削除条件を引数に取ります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$affected = $db-&gt;delete('news', [
+    'id' =&gt; ['value' =&gt; $id, 'datatype' =&gt; PDO::PARAM_INT],
+]);
+</code></pre>
+<p>戻り値は、削除された行数です。</p>
+<p><code>delete()</code> は、指定された条件に一致するレコードを物理削除します。物理削除を許可するか、論理削除を採用するかといった方針は、アプリ側で決定する必要があります。論理削除を採用する場合は、<code>delete()</code> ではなく <code>update()</code> を使って削除フラグや削除日時を更新します。</p>
+<p>一覧画面からの削除や一括削除では、条件の指定漏れによる意図しない削除を防ぐため、実行前に対象レコードを確認しておくと安全です。</p>
+<h3 id="item-3-29" class="m-3">バインド値の指定方法  </h3>
+<p>バインド値とは、SQL 内のプレースホルダに対応させる実際の値です。値を SQL 文字列へ直接埋め込まず、プレースホルダと分けて渡すことで、安全に SQL を実行できます。</p>
+<p><code>fetchOne()</code> や <code>fetchList()</code> などで SQL を直接指定する場合は、プレースホルダをキーとして、<code>value</code> と <code>datatype</code> を指定できます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">[
+    ':id' =&gt; [
+        'value' =&gt; 10,
+        'datatype' =&gt; PDO::PARAM_INT,
+    ],
+    ':title' =&gt; [
+        'value' =&gt; 'hello',
+        'datatype' =&gt; PDO::PARAM_STR,
+    ],
+]
+</code></pre>
+<p><code>insert()</code>、<code>update()</code>、<code>delete()</code> では、カラム名をキーとして、追加・更新する値や対象レコードの条件を指定します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">[
+    'id' =&gt; [
+        'value' =&gt; 10,
+        'datatype' =&gt; PDO::PARAM_INT,
+    ],
+    'title' =&gt; [
+        'value' =&gt; 'hello',
+        'datatype' =&gt; PDO::PARAM_STR,
+    ],
+]
+</code></pre>
+<p>いずれも、値だけを指定する簡易形式を利用できます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">[
+    'id' =&gt; 10,
+    'title' =&gt; 'hello',
+]
+</code></pre>
+<p>整数や文字列などの型を明示したい場合は、<code>datatype</code> を指定すると、値の扱いが分かりやすくなります。</p>
+<h3 id="item-3-30" class="m-3">トランザクション</h3>
+<p>トランザクション制御は <code>PdoConnection</code> 側で行います。通常の DB 操作では SQL 文ごとに変更が自動的に確定されますが、複数の DB 操作をひとまとまりとして扱いたい場合は、<code>begin()</code> でトランザクションを開始し、成功時に <code>commit()</code>、失敗時に <code>rollback()</code> を呼びます。</p>
+<p>行ロック専用のヘルパーは用意されていません。行ロックが必要な場合は、<code>SELECT ... FOR UPDATE</code> のような SQL をトランザクション内で実行します。</p>
+<p>次の例では、現在の在庫数を取得してから1つ減らします。取得から更新までの間に、ほかの処理が同じ在庫を変更しないよう、対象レコードをロックしています。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$connection = PdoConnection::fromEnv();
+
+// Database にも同じ PdoConnection を渡します。
+// これにより、取得と更新が同じトランザクション内で実行されます。
+$db = new Database($connection, $logger);
+
+$pdo = $connection-&gt;getPdo();
+
+try {
+    // トランザクションを開始します。
+    $connection-&gt;begin();
+
+    // 対象の在庫を取得し、トランザクション終了まで行をロックします。
+    $before = $db-&gt;fetchOne(
+        'SELECT id, stock FROM stocks WHERE id = :id FOR UPDATE',
+        [
+            ':id' =&gt; ['value' =&gt; $id,'datatype' =&gt; PDO::PARAM_INT],
+        ]
+    );
+
+    // 在庫が残っているかを確認します。
+    if ((int) $before['stock'] &lt;= 0) {
+        throw new RuntimeException('在庫がありません。');
+    }
+
+    // 取得した在庫数から1を引いて更新します。
+    $affected = $db-&gt;update(
+        'stocks',
+        [
+            'stock' =&gt; ['value' =&gt; (int) $before['stock'] - 1,'datatype' =&gt; PDO::PARAM_INT],
+        ],
+        [
+            'id' =&gt; ['value' =&gt; $id,'datatype' =&gt; PDO::PARAM_INT],
+        ]
+    );
+
+    // 想定どおり1件更新されたことを確認します。
+    if ($affected !== 1) {
+        throw new RuntimeException('在庫を更新できませんでした。');
+    }
+
+    // すべて成功したため、変更を確定します。
+    $connection-&gt;commit();
+} catch (Throwable $e) {
+    // トランザクション中に失敗した場合は、変更を取り消します。
+    if ($pdo-&gt;inTransaction()) {
+        $connection-&gt;rollback();
+    }
+
+    throw $e;
+}
+</code></pre>
+<p>この例では、在庫の取得、在庫数の確認、更新のすべてが成功した場合だけ変更が確定します。途中で例外が発生した場合は、更新内容がロールバックされます。</p>
+<h4 id="item-3-31">更新時に確認すること</h4>
+<p>更新処理を実装するときは、必要に応じて次の点を確認します。</p>
+<ol>
+  <li>更新対象のレコードが存在するか</li>
+  <li>更新前の値が想定どおりか</li>
+  <li>更新された行数が想定どおりか</li>
+  <li>更新前後の差分を記録する必要があるか</li>
+</ol>
+<p>たとえば、対象レコードを確認してから更新する場合は、次の順序で処理します。</p>
+<ol>
+  <li><code>fetchOne()</code> で対象レコードを取得する</li>
+  <li>取得した内容を確認し、更新値を組み立てる</li>
+  <li><code>update()</code> を実行する</li>
+  <li>戻り値が想定した件数か確認する</li>
+</ol>
+<p>同時更新を防ぐ必要がある場合は、この処理をトランザクション内で行い、取得時に <code>SELECT ... FOR UPDATE</code> を使用します。</p>
+<h3 id="item-3-32" class="m-3">同時更新への対応  </h3>
+<p>複数の処理が同じレコードを同時に更新する可能性がある場合は、悲観ロックまたは楽観ロックを使って競合に対応します。</p>
+<p>これらのロックは、Chandra が自動的に適用するものではありません。悲観ロックに使用する SQL やトランザクション制御、楽観ロックに使用するカラムや競合発生時の処理は、アプリ側で実装します。</p>
+<h4 id="item-3-33">悲観ロック</h4>
+<p>悲観ロックは、トランザクション内で <code>SELECT ... FOR UPDATE</code> のような SQL を実行し、処理が終わるまでほかの更新を待たせる方法です。</p>
+<p>「現在このレコードを更新しているため、ほかの処理には完了まで待ってほしい」という場合に適しています。具体的なコードは、「トランザクション」節の例を参照してください。</p>
+<h4 id="item-3-34">楽観ロック</h4>
+<p>楽観ロックは、レコードを取得した時点の <code>updated_at</code> や <code>version</code> を <code>update()</code> の更新条件に含める方法です。</p>
+<h5 id="item-3-35">更新日時による楽観ロック</h5>
+<p>次の例では、編集前のレコードと更新日時を取得し、その更新日時も更新条件に含めることで、取得後にほかの処理で更新されていないことを確認します。</p>
+<p>更新までの間にほかの処理によってレコードが変更されていた場合は、<code>updated_at</code> が更新条件に一致しなくなるため、<code>update()</code> の戻り値は <code>0</code> になります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">// 編集前のレコードと更新日時を取得します。
+$before = $db-&gt;fetchOne(
+    'SELECT id, title, updated_at
+       FROM news
+      WHERE id = :id',
+    [
+        ':id' =&gt; [
+            'value' =&gt; $id,
+            'datatype' =&gt; PDO::PARAM_INT,
+        ],
+    ]
+);
+
+// id だけでなく、取得時点の updated_at も更新条件に含めます。
+$affected = $db-&gt;update(
+    'news',
+    [
+        'title' =&gt; [
+            'value' =&gt; $newTitle,
+            'datatype' =&gt; PDO::PARAM_STR,
+        ],
+    ],
+    [
+        'id' =&gt; [
+            'value' =&gt; $id,
+            'datatype' =&gt; PDO::PARAM_INT,
+        ],
+        'updated_at' =&gt; [
+            'value' =&gt; $before['updated_at'],
+            'datatype' =&gt; PDO::PARAM_STR,
+        ],
+    ]
+);
+
+// 取得後にほかの処理が更新していた場合は、更新件数が0になります。
+if ($affected !== 1) {
+    throw new RuntimeException('他の更新と競合しました。');
+}
+
+</code></pre>
+<h5 id="item-3-36">version による楽観ロック</h5>
+<p><code>updated_at</code> より厳密に更新回数を管理したい場合は、楽観ロック専用の <code>version</code> カラムを用意する方法があります。<br>
+レコードを更新するたびに <code>version</code> を1増やし、取得時点の値を更新条件に含めます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">// 編集前のレコードと version を取得します。
+$before = $db-&gt;fetchOne(
+    'SELECT id, title, version
+       FROM news
+      WHERE id = :id',
+    [
+        ':id' =&gt; [
+            'value' =&gt; $id,
+            'datatype' =&gt; PDO::PARAM_INT,
+        ],
+    ]
+);
+
+// 取得時点の version を条件にし、更新後の version を1増やします。
+$affected = $db-&gt;update(
+    'news',
+    [
+        'title' =&gt; [
+            'value' =&gt; $newTitle,
+            'datatype' =&gt; PDO::PARAM_STR,
+        ],
+        'version' =&gt; [
+            'value' =&gt; (int) $before['version'] + 1,
+            'datatype' =&gt; PDO::PARAM_INT,
+        ],
+    ],
+    [
+        'id' =&gt; [
+            'value' =&gt; $id,
+            'datatype' =&gt; PDO::PARAM_INT,
+        ],
+        'version' =&gt; [
+            'value' =&gt; $before['version'],
+            'datatype' =&gt; PDO::PARAM_INT,
+        ],
+    ]
+);
+
+if ($affected !== 1) {
+    throw new RuntimeException('他の更新と競合しました。');
+}
+</code></pre>
+<p><code>version</code> は更新ごとに必ず値が変わるため、同じ時刻に複数の更新が行われる可能性がある場合にも競合を判定しやすくなります。</p>
+<h3 id="item-3-37" class="m-3">例外</h3>
+<p>Database および PdoConnection の利用時には、次の例外が発生することがあります。</p>
+<h4 id="item-3-38">RecordNotFoundException</h4>
+<p><code>fetchOne()</code> の検索結果が0件だった場合に発生します。<br>
+指定した ID のレコードが存在しない場合や、すでに削除されていた場合などが該当します。</p>
+<h4 id="item-3-39">MultipleRecordsFoundException</h4>
+<p><code>fetchOne()</code> の検索結果が2件以上だった場合に発生します。<br>
+<code>fetchOne()</code> は、検索結果が必ず1件になることを前提とするメソッドです。複数件取得される可能性がある場合は、<code>fetchList()</code> を使用します。</p>
+<h4 id="item-3-40">InvalidArgumentException</h4>
+<p>Database へ渡した引数が、Chandra の想定する形式に合っていない場合に発生します。次のような場合が該当します。</p>
+<ul>
+  <li><code>insert()</code> の追加値が空である</li>
+  <li><code>update()</code> の更新値や更新条件が空である</li>
+  <li>テーブル名やカラム名に使用できない文字が含まれている</li>
+  <li>WHERE 句に対応していない演算子を指定した</li>
+  <li>バインド値に <code>value</code> が含まれていない</li>
+  <li><code>datatype</code> に整数以外を指定した</li>
+  <li>更新時に <code>created_at</code> または <code>created_by</code> を指定した</li>
+  <li><code>setCurrentUserId()</code> に空文字を指定した</li>
+</ul>
+<h4 id="item-3-41">PDOException</h4>
+<p>データベースへの接続や SQL の実行に失敗した場合に発生します。次のような場合が該当します。</p>
+<ul>
+  <li>データベースへ接続できない</li>
+  <li>SQL の構文に誤りがある</li>
+  <li>存在しないテーブルやカラムを指定した</li>
+  <li>UNIQUE 制約や外部キー制約に違反した</li>
+  <li>データベースとの通信中にエラーが発生した</li>
+</ul>
+<h4 id="item-3-42">RuntimeException</h4>
+<p>DB 設定ファイルや環境変数など、実行環境の設定に問題がある場合に発生します。次のような場合が該当します。</p>
+<ul>
+  <li>DB 設定ファイルを読み込めない</li>
+  <li>DB 設定ファイルに必要な項目がない</li>
+  <li>必要な環境変数が設定されていない</li>
+  <li>対応していない設定ソースを指定した</li>
+</ul>
+<p><code>RecordNotFoundException</code> と <code>MultipleRecordsFoundException</code> も <code>RuntimeException</code> を継承しています。そのため、これらを個別に処理する場合は、<code>RuntimeException</code> より先にキャッチしてください。</p>
+<h4 id="item-3-43">例外をキャッチする例</h4>
+<p>次の例では、ログへ記録する情報と、画面に表示するメッセージを分けています。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">use PDOException;
+use InvalidArgumentException;
+use RuntimeException;
+use Studiogau\Chandra\Database\RecordNotFoundException;
+use Studiogau\Chandra\Database\MultipleRecordsFoundException;
+
+try {
+    $news = $db-&gt;fetchOne(
+        'SELECT id, title, body
+           FROM news
+          WHERE id = :id',
+        [
+            ':id' =&gt; [
+                'value' =&gt; $id,
+                'datatype' =&gt; PDO::PARAM_INT,
+            ],
+        ]
+    );
+
+    // 取得したデータを使った処理
+} catch (RecordNotFoundException $e) {
+    // 想定される業務上のエラー
+    $logger-&gt;warn(
+        __METHOD__ . ' news was not found: ' . $e-&gt;getMessage()
+    );
+
+    $userMessage = '指定されたお知らせは見つかりませんでした。';
+} catch (MultipleRecordsFoundException $e) {
+    // 本来1件のはずの検索結果が複数件になった
+    $logger-&gt;error(
+        __METHOD__ . ' multiple records were found: ' . $e-&gt;getMessage()
+    );
+
+    $userMessage = 'データを正しく取得できませんでした。';
+} catch (InvalidArgumentException $e) {
+    // アプリ側から渡した引数や設定値に問題がある
+    $logger-&gt;error(
+        __METHOD__ . ' invalid database argument: ' . $e-&gt;getMessage()
+    );
+
+    $userMessage = '入力内容を確認してください。';
+} catch (PDOException $e) {
+    // DB 接続や SQL 実行に関するエラー
+    $logger-&gt;fatal(
+        __METHOD__ . ' database error: ' . $e-&gt;getMessage()
+    );
+
+    $userMessage = 'データベース処理中にエラーが発生しました。';
+} catch (RuntimeException $e) {
+    // DB 設定や実行環境に関するエラー
+    $logger-&gt;fatal(
+        __METHOD__ . ' runtime error: ' . $e-&gt;getMessage()
+    );
+
+    $userMessage = 'システムエラーが発生しました。';
+}
+</code></pre>
+<p>ログには調査に必要な例外メッセージを記録し、画面には内部情報を含まないユーザー向けメッセージを表示します。<br>
+画面に表示するメッセージについては<a href="#item-3-92">フラッシュメッセージ</a>も参照してください。</p>
+<hr>
+<h1 id="item-3-44" class="m-3">認証</h1>
+<p>Chandra の認証機能は、ログインに使う ID・パスワード、ログイン試行時の情報、ログイン前後のチェックや記録、ログイン済みユーザー情報の保持、ログインセッションの確立までの流れを制御します。<br>
+認証ロジックそのもの、たとえば「どのカラムでパスワード照合するか」「何回失敗でロックするか」といった具体的な実装はアプリ側で行います。</p>
+<p>図：AuthService と認証関連クラスの関係</p>
+<p><img src="img/AuthService.png" alt="AuthService と認証関連クラスの関係" class="img-fluid"></p>
+<h2 id="item-3-45" class="m-3">AuthService</h2>
+<p><code>AuthService</code> クラスは、<code>LoginCredentials</code>、<code>LoginAttempt</code>、<code>UserRepositoryInterface</code>、<code>LoginGuardInterface</code> を組み合わせてログイン処理を進めます。アプリ側は、ユーザー情報の取得やパスワード確認、ログイン前後のチェックや記録を実装し、<code>AuthService</code> が定めた流れの中で呼び出される形になります。</p>
+<p>ログイン前のチェックや、ログイン成功・失敗時の記録を差し込む仕組みが <code>LoginGuard</code> です。ユーザー情報の取得とパスワード確認は、アプリ側で実装した <code>UserRepositoryInterface</code> に委譲されます。ログイン後に保持するユーザー情報は、<code>LoginUser</code> として扱われます。</p>
+<h2 id="item-3-46" class="m-3">UserRepositoryInterface</h2>
+<p><code>UserRepositoryInterface</code> は、ログイン ID とパスワードをもとに、アプリ側のユーザー情報を取得するためのインターフェースです。</p>
+<p>アプリ側では、このインターフェースを実装したクラスを用意し、<code>findByCredentials(string $userId, string $password): ?array</code> を実装します。</p>
+<p><code>findByCredentials()</code> では、ログイン ID でユーザーを取得し、パスワードを照合します。認証に成功した場合は、Chandra が扱うログインユーザー情報として、少なくとも <code>id</code>、<code>login_id</code>、<code>user_name</code>、<code>permissions</code> を含む配列を返します。認証に失敗した場合は <code>null</code> を返します。</p>
+<p>以下は、<code>UserRepositoryInterface</code> を継承したクラスの例です。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">final class UserRepository implements UserRepositoryInterface
+{
+    public function findByCredentials(string $userId, string $password): ?array
+    {
+        // ログイン ID でユーザー取得
+        $row = $user-&gt;select($login_id);
+        // password_verify で照合
+        if (!$row || !password_verify($password, $row['password'])) {
+            return null;
+        }
+        // 認証成功時は Chandra が扱う形へ詰め替える
+        return [
+            'id' =&gt; $row['id'],
+            'login_id' =&gt; $row['login_id'],
+            'user_name' =&gt; $row['user_name'],
+            'permissions' =&gt; $this-&gt;buildPermissions($row),
+        ];
+    }
+}
+</code></pre>
+<h2 id="item-3-47" class="m-3">LoginCredentials  </h2>
+<p><code>LoginCredentials</code> は、ログインフォームで入力されたログイン ID とパスワードを表す値オブジェクトです。</p>
+<p>ログイン ID とパスワードは、認証そのものに使う情報です。IP アドレスや User-Agent など、ログイン試行時の周辺情報は <code>LoginAttempt</code> で扱います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$credentials = new LoginCredentials(
+    (string)($_POST['user'] ?? ''),
+    (string)($_POST['pass'] ?? '')
+);
+</code></pre>
+<p><code>LoginCredentials</code> に渡すパスワードは、フォームから送信された平文のパスワードです。パスワードの照合は、アプリ側で実装した <code>UserRepositoryInterface</code> の中で、<code>password_verify()</code> などを使って行います。</p>
+<p><code>LoginCredentials</code> は、ログイン処理に必要な値をまとめるためのクラスであり、入力チェックやパスワード照合そのものは行いません。</p>
+<h2 id="item-3-48" class="m-3">LoginAttempt  </h2>
+<p><code>LoginAttempt</code> は、1回のログイン試行に付随する情報を表します。</p>
+<p>ログイン ID とパスワードそのものは <code>LoginCredentials</code> で扱い、ログインを試みた IP アドレス、User-Agent、画面名などの周辺情報は <code>LoginAttempt</code> で扱います。</p>
+<p><code>LoginAttempt::fromServer()</code> を使うと、<code>$_SERVER</code> からクライアント IP と User-Agent を取り出して、<code>LoginAttempt</code> を組み立てられます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$attempt = LoginAttempt::fromServer(
+    $credentials-&gt;getUserId(),
+    $_SERVER
+);
+</code></pre>
+<p>画面名やルート名など、アプリ側で追加したい情報がある場合は、第3引数の <code>$attributes</code> に渡せます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$attempt = LoginAttempt::fromServer(
+    $credentials-&gt;getUserId(),
+    $_SERVER,
+    ['screen' =&gt; 'login']
+);
+</code></pre>
+<p>LoginGuard を使う場合は、この <code>LoginAttempt</code> に含まれるログイン ID、IP アドレス、User-Agent などをもとに、ログインを許可するか、失敗回数を記録するか、監査ログに残すかを判断します。</p>
+<h2 id="item-3-49" class="m-3">LoginUser  </h2>
+<p><code>LoginUser</code> は、ログイン済みユーザーの情報を保持する DTO です。</p>
+<p><code>AuthService</code> は、<code>UserRepositoryInterface</code> から返されたユーザー情報を <code>LoginUser</code> に変換し、セッションに保存します。ログイン中のユーザー情報を参照したい場合は、<code>AuthService::getCurrentUser()</code> から取得します。</p>
+<p><code>LoginUser</code> は、次の情報を持ちます。</p>
+<ul>
+  <li>アプリ内で一意なユーザー ID</li>
+  <li>ログイン時に入力する ID</li>
+  <li>ログイン後に表示するユーザー名</li>
+  <li>権限一覧</li>
+  <li>セッション開始時刻</li>
+</ul>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$currentUser = $auth-&gt;getCurrentUser();
+
+if ($currentUser === null) {
+    header('Location: index.php', true, 303);
+    exit;
+}
+
+echo 'こんにちは、' . Utility::h($currentUser-&gt;getUserName()) . 'さん';
+</code></pre>
+<p>ユーザー ID を取得する場合は <code>getId()</code>、ログイン時に入力された ID を取得する場合は <code>getLoginId()</code> を使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$userId = $currentUser-&gt;getId();
+$loginId = $currentUser-&gt;getLoginId();
+</code></pre>
+<p>権限を確認する場合は <code>can()</code> を使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if ($currentUser-&gt;can('news_create')) {
+    // お知らせ作成を許可する
+}
+</code></pre>
+<p>権限一覧の設計や <code>permissions</code> の持たせ方については、「認可」の章を参照してください。</p>
+<h2 id="item-3-50" class="m-3">LoginGuardInterface</h2>
+<p><code>LoginGuardInterface</code> は、ログイン前後の制限や記録を差し込むためのインターフェースです。ログイン制限や監査のためのフック機能を提供します。用途として以下を想定しています。</p>
+<ul>
+  <li>IP 単位の試行制限</li>
+  <li>アカウント単位の試行制限</li>
+  <li>アカウントロック</li>
+  <li>監査ログ記録</li>
+</ul>
+<p>Chandra 側は呼び出すタイミングを定めるにとどめており、具体的な制限ルールはアプリケーション側が実装します。</p>
+<p><code>LoginGuardInterface</code> を実装するクラスでは、以下の3つのメソッドを定義します。</p>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>メソッド</th><th>呼び出しタイミング</th><th>主な用途</th></tr></thead>
+<tbody>
+<tr><td><code>assertCanAttempt()</code></td><td>資格情報の照合前</td><td>レート制限、ロック確認</td></tr>
+<tr><td><code>recordSuccessfulLogin()</code></td><td>セッション確立後</td><td>失敗回数のクリア、ロック解除</td></tr>
+<tr><td><code>recordFailedLogin()</code></td><td>ログイン失敗時</td><td>失敗回数の記録、監査ログ</td></tr>
+<tr><td></td><td></td><td></td></tr>
+</tbody></table></div>
+<h3 id="item-3-51" class="m-3">assertCanAttempt()  </h3>
+<p><code>assertCanAttempt()</code> は、パスワード照合などの認証処理に入る前に呼ばれ、認証処理に進めてよいかを判定します。ここでは、すでにロック済みか、短時間の試行回数上限を超えていないか、IP が拒否対象になっていないか、といった前提条件を確認し、必要に応じてログイン試行を拒否します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">public function assertCanAttempt(LoginAttempt $attempt): void
+{
+    $ip = $attempt-&gt;getClientIp();
+    $loginId = trim($attempt-&gt;getUserId());
+
+    // IP またはアカウントがロック中なら例外
+    if ($this-&gt;isLocked($ip, $loginId)) {
+        throw new AuthException('ログイン試行が制限されています。');
+    }
+}
+</code></pre>
+<h3 id="item-3-52" class="m-3">recordSuccessfulLogin()  </h3>
+<p><code>recordSuccessfulLogin()</code> は、資格情報の照合に成功し、ログインユーザーをセッションへ保存した後に呼ばれます。失敗回数のクリアやロック解除など、ログイン成功後の後処理を行います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">public function recordSuccessfulLogin(LoginAttempt $attempt, LoginUser $user): void
+{
+    $this-&gt;repository-&gt;clearFailuresForLoginId($user-&gt;getLoginId());
+    $this-&gt;repository-&gt;clearLockForLoginId($user-&gt;getLoginId());
+}
+</code></pre>
+<h3 id="item-3-53" class="m-3">recordFailedLogin()  </h3>
+<p><code>recordFailedLogin()</code> は、ログイン失敗時に失敗理由を受け取って呼ばれます。<code>INVALID_CREDENTIALS</code> のときだけ失敗回数を加算し、<code>INTERNAL_ERROR</code> では監査ログだけにする、といった分岐が可能です。</p>
+<p>以下の例では、資格情報不一致の場合だけ失敗回数を加算しています。内部エラーは、ユーザーの入力ミスではないため、アカウントロックの判定には使わず、監査ログへ記録するだけにしています。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">public function recordFailedLogin(LoginAttempt $attempt, LoginFailure $failure): void
+{
+    $reason = $failure-&gt;getReason();
+
+    if ($reason === LoginFailureReason::INVALID_CREDENTIALS) {
+        // 通常の資格情報不一致は、失敗回数として記録する
+        $this-&gt;repository-&gt;incrementFailureCount(
+            $attempt-&gt;getUserId(),
+            $attempt-&gt;getClientIp()
+        );
+
+        return;
+    }
+
+    if ($reason === LoginFailureReason::INTERNAL_ERROR) {
+        // 内部エラーは、ログイン失敗回数には加算せず監査ログへ残す
+        $this-&gt;logger-&gt;error(
+            'login internal error'
+            . ' login_id=' . $attempt-&gt;getUserId()
+            . ' ip=' . ($attempt-&gt;getClientIp() ?? 'unknown')
+        );
+
+        return;
+    }
+
+    // セッション確立失敗など、その他の失敗理由も監査ログへ残す
+    $this-&gt;logger-&gt;warn(
+        'login failed'
+        . ' login_id=' . $attempt-&gt;getUserId()
+        . ' ip=' . ($attempt-&gt;getClientIp() ?? 'unknown')
+        . ' reason=' . $reason-&gt;value
+    );
+}
+</code></pre>
+<h3 id="item-3-54" class="m-3">AuthService への登録</h3>
+<p>作成した <code>LoginGuardInterface</code> の実装クラスは、<code>AuthService</code> のコンストラクタ第3引数に配列で渡します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$auth = new AuthService(
+    new AuthUser($database),
+    $logger,
+    [
+        new IpRateLimitLoginGuard($loginAttemptRepository),
+    ]
+);
+</code></pre>
+<p>複数の guard を登録する場合は、同じ配列に追加します。IP 単位の制限、アカウント単位の制限、監査ログ記録などを別々のクラスに分けて登録できます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$auth = new AuthService(
+    new AuthUser($database),
+    $logger,
+    [
+        new IpRateLimitLoginGuard($loginAttemptRepository),
+        new AccountLockLoginGuard($loginAttemptRepository),
+        new AuditLogLoginGuard($logger),
+    ]
+);
+</code></pre>
+<h3 id="item-3-55" class="m-3">LoginGuardInterface の実装例</h3>
+<h4 id="item-3-56">IP 単位の制限例  </h4>
+<p>以下の実装例は、資格情報不一致の失敗だけを IP ごとに記録し、直近10分間の失敗回数が10回以上になった場合に、その IP を5分間ロックしています。<br>
+ログイン失敗履歴やロック状態の保存は、<code>LoginAttemptRepository</code> を通じて行う想定です。保存先は Chandra 側では定めていないため、DB、Redis、ファイルなど、アプリケーションに合わせて実装できます。</p>
+<p>IP 単位の制限は、不特定多数からの機械的な試行を抑える目的では有効です。一方で、会社・学校・家庭内ネットワークなどでは複数人が同じ IP を共有することがあります。そのため、IP だけで長時間ロックするのではなく、短時間の制限にとどめたり、アカウント単位の制限と組み合わせたりする設計が考えられます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">final class IpRateLimitLoginGuard implements LoginGuardInterface
+{
+    private const WINDOW_MINUTES = 10;
+    private const MAX_FAILURES = 10;
+    private const LOCK_MINUTES = 5;
+
+    public function __construct(
+        private LoginAttemptRepository $repository
+    ) {
+    }
+
+    public function assertCanAttempt(LoginAttempt $attempt): void
+    {
+        $ip = $attempt-&gt;getClientIp();
+
+        // IP が取れない環境では、IP 単位の制限は行わない
+        if ($ip === null || $ip === '') {
+            return;
+        }
+
+        if ($this-&gt;repository-&gt;isIpLocked($ip, new DateTimeImmutable())) {
+            throw new AuthException('ログイン試行が一時的に制限されています。');
+        }
+    }
+
+    public function recordSuccessfulLogin(LoginAttempt $attempt, LoginUser $user): void
+    {
+        // IP 単位の制限では、成功時に IP 全体の失敗回数を消さない。
+        // 共有ネットワークでは、同じ IP を複数人が使う可能性があるため。
+        //
+        // 失敗回数は「一定時間内」の集計にしておき、
+        // 古い記録は集計対象外にするか、定期的に削除する。
+    }
+
+    public function recordFailedLogin(LoginAttempt $attempt, LoginFailure $failure): void
+    {
+        if ($failure-&gt;getReason() !== LoginFailureReason::INVALID_CREDENTIALS) {
+            return;
+        }
+
+        $ip = $attempt-&gt;getClientIp();
+
+        if ($ip === null || $ip === '') {
+            return;
+        }
+
+        $now = new DateTimeImmutable();
+
+        $this-&gt;repository-&gt;recordIpFailure(
+            ip: $ip,
+            failedAt: $now
+        );
+
+        $since = $now-&gt;modify('-' . self::WINDOW_MINUTES . ' minutes');
+
+        $failedCount = $this-&gt;repository-&gt;countIpFailuresSince(
+            ip: $ip,
+            since: $since
+        );
+
+        if ($failedCount &gt;= self::MAX_FAILURES) {
+            $this-&gt;repository-&gt;lockIp(
+                ip: $ip,
+                lockedUntil: $now-&gt;modify('+' . self::LOCK_MINUTES . ' minutes')
+            );
+        }
+    }
+}
+</code></pre>
+<h4 id="item-3-57">アカウント単位の制限例  </h4>
+<p>以下の実装例は、資格情報不一致の失敗だけを <code>login_id</code> ごとに記録し、連続失敗回数が5回以上になった場合に、その <code>login_id</code> を15分間ロックしています。<br>
+ログイン失敗回数やロック状態の保存は、<code>LoginAttemptRepository</code> を通じて行う想定です。保存先は Chandra 側では定めていないため、DB、Redis、ファイルなど、アプリケーションに合わせて実装できます。</p>
+<p>アカウント単位の制限は、特定のアカウントに対する総当たり攻撃や、パスワード推測を抑える目的で有効です。一方で、攻撃者が他人の <code>login_id</code> を使って意図的にロックさせる可能性もあります。そのため、長時間の完全なロックだけでなく、短時間の待機時間を設けたり、IP 単位の制限や監査ログ記録と組み合わせたりする設計が考えられます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">final class AccountLockLoginGuard implements LoginGuardInterface
+{
+    private const MAX_FAILURES = 5;
+    private const LOCK_MINUTES = 15;
+
+    public function __construct(
+        private LoginAttemptRepository $repository
+    ) {
+    }
+
+    public function assertCanAttempt(LoginAttempt $attempt): void
+    {
+        $loginId = trim($attempt-&gt;getUserId());
+
+        if ($loginId === '') {
+            return;
+        }
+
+        if ($this-&gt;repository-&gt;isLoginIdLocked($loginId, new DateTimeImmutable())) {
+            throw new AuthException('ログイン試行が一時的に制限されています。');
+        }
+    }
+
+    public function recordSuccessfulLogin(LoginAttempt $attempt, LoginUser $user): void
+    {
+        $loginId = $user-&gt;getLoginId();
+
+        $this-&gt;repository-&gt;clearFailuresForLoginId($loginId);
+        $this-&gt;repository-&gt;clearLockForLoginId($loginId);
+    }
+
+    public function recordFailedLogin(LoginAttempt $attempt, LoginFailure $failure): void
+    {
+        if ($failure-&gt;getReason() !== LoginFailureReason::INVALID_CREDENTIALS) {
+            return;
+        }
+
+        $loginId = trim($attempt-&gt;getUserId());
+
+        if ($loginId === '') {
+            return;
+        }
+
+        $now = new DateTimeImmutable();
+
+        $failedCount = $this-&gt;repository-&gt;incrementFailureCountForLoginId(
+            loginId: $loginId,
+            failedAt: $now
+        );
+
+        if ($failedCount &gt;= self::MAX_FAILURES) {
+            $this-&gt;repository-&gt;lockLoginId(
+                loginId: $loginId,
+                lockedUntil: $now-&gt;modify('+' . self::LOCK_MINUTES . ' minutes')
+            );
+        }
+    }
+}
+</code></pre>
+<h4 id="item-3-58">ロック状態の保存について</h4>
+<p>IP 単位の制限例やアカウント単位の制限例では、失敗回数が閾値を超えた場合に、<code>LoginAttemptRepository</code> を通じてロック状態を保存しています。<br>
+<code>LoginAttemptRepository</code> は Chandra が提供するクラスではなく、アプリケーション側で用意する保存処理の例です。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if ($failedCount &gt;= self::MAX_FAILURES) {
+    $this-&gt;repository-&gt;lockLoginId(
+        loginId: $loginId,
+        lockedUntil: $now-&gt;modify('+' . self::LOCK_MINUTES . ' minutes')
+    );
+}
+</code></pre>
+<p>ロック状態として最低限必要になるのは、「何をロックするか」と「いつまでロックするか」です。たとえばアカウント単位のロックであれば <code>login_id</code> と <code>locked_until</code>、IP 単位のロックであれば IP アドレスと <code>locked_until</code> を保存します。</p>
+<h4 id="item-3-59">監査ログだけを行う例</h4>
+<p>Chandra の <code>AuthService</code> では、ログイン成功やログイン失敗などの基本的なログを出力します。それとは別に、アプリケーション側で必要な形式や保存先に合わせて監査ログを残したい場合に、<code>LoginGuardInterface</code> の実装を利用することができます。ログイン失敗の発生状況を確認したい場合や、将来的に制限処理を追加する前段階として利用できます。</p>
+<p>以下の例では、ログイン ID、IP アドレス、失敗理由をログに記録しています。失敗回数の集計やロック処理は行わないため、利用者のログイン操作には影響しません。</p>
+<p><code>LoginFailure</code> には失敗理由が含まれているため、資格情報不一致、セッション確立失敗、内部エラーなどを区別して記録できます。必要に応じて、User-Agent や画面名など、<code>LoginAttempt</code> に含めた追加情報をあわせて出力することもできます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">final class AuditLogLoginGuard implements LoginGuardInterface
+{
+    public function __construct(
+        private Logger $logger
+    ) {
+    }
+
+    public function assertCanAttempt(LoginAttempt $attempt): void
+    {
+        // 監査ログだけの guard なので、事前制限は行わない。
+    }
+
+    public function recordSuccessfulLogin(LoginAttempt $attempt, LoginUser $user): void
+    {
+        // 成功ログが不要なため何もしない。
+    }
+
+    public function recordFailedLogin(LoginAttempt $attempt, LoginFailure $failure): void
+    {
+        $this-&gt;logger-&gt;warn(
+            'login failed login_id=' . $attempt-&gt;getUserId()
+            . ' ip=' . ($attempt-&gt;getClientIp() ?? 'unknown')
+            . ' reason=' . $failure-&gt;getReason()-&gt;value
+        );
+    }
+}
+</code></pre>
+<h2 id="item-3-60" class="m-3">AuthService::login()</h2>
+<p><code>login()</code> は <code>AuthService</code> クラスのログイン処理メソッドです。</p>
+<p>図：AuthService::login の役割</p>
+<p><img src="img/AuthService_login.png" alt="AuthService::login の役割" class="img-fluid"></p>
+<p>第1引数の <code>$credentials</code> は、ログイン ID とパスワードを表す <code>LoginCredentials</code> です。</p>
+<p>第2引数の <code>$attempt</code> は、今回のログイン試行に関する情報を表す <code>LoginAttempt</code> です。ログイン ID に加えて、IP アドレス、User-Agent、画面名など、ログイン制限や監査ログで使う周辺情報を持たせるために使います。</p>
+<p><code>LoginGuard</code> を使用する場合は、この <code>$attempt</code> に含まれる情報をもとに、ログイン前の制限判定、失敗回数の記録、成功時の記録などを行います。</p>
+<p><code>$attempt</code> は省略できます。省略した場合、<code>AuthService</code> 内で <code>LoginCredentials</code> のユーザー ID を使って <code>LoginAttempt</code> が作成されます。ただし、IP アドレスや User-Agent を使った制限・監査を行いたい場合は、<code>LoginAttempt::fromServer()</code> などで明示的に作成して渡します。</p>
+<p><code>login()</code> の戻り値は <code>LoginUser</code> です。ログインに成功した場合は、ログイン済みユーザー情報を表す <code>LoginUser</code> を返します。ログインに失敗した場合は <code>false</code> を返すのではなく、<code>AuthException</code> が発生します。</p>
+<p><code>login()</code> の処理は、次の流れで行われます。</p>
+<h4 id="item-3-61">1. 入力チェック</h4>
+<p><code>LoginCredentials</code> と <code>LoginAttempt</code> のログイン ID が一致しているかを確認します。</p>
+<p><code>$credentials</code> と <code>$attempt</code> のログイン ID が食い違っていると、ログイン試行の記録やアカウント単位の制限判定が正しく行えなくなるため、ここで不正な組み合わせを弾きます。</p>
+<h4 id="item-3-62">2. 事前チェック</h4>
+<p><code>LoginGuard</code> を使用している場合は、認証照合の前に Guard の事前チェックを実行します。</p>
+<p>ここでは、IP アドレスやログイン ID をもとに、ログイン試行を許可してよいかを判定できます。たとえば、短時間に失敗が続いている IP アドレスを一時的に制限する、一定回数以上失敗したアカウントをロックする、といった処理をアプリ側で実装できます。</p>
+<p>Guard を使用していない場合、この段階では追加のチェックは行われません。</p>
+<h4 id="item-3-63">3. 認証照合</h4>
+<p>アプリ側で実装した <code>UserRepositoryInterface::findByCredentials()</code> を呼び出し、ログイン ID とパスワードを照合します。</p>
+<p>認証に成功した場合は、ログインユーザー情報のもとになる配列が返されます。認証に失敗して <code>null</code> が返った場合は、資格情報不一致として <code>AuthException</code> が発生します。</p>
+<p>通常の資格情報不一致と、リポジトリ内で発生した内部エラーは分けて扱われます。そのため、LoginGuard 側では <code>INVALID_CREDENTIALS</code> と <code>INTERNAL_ERROR</code> を分けて処理できます。</p>
+<h4 id="item-3-64">4. ユーザー情報生成</h4>
+<p>認証照合が成功し、<code>findByCredentials()</code> がユーザー情報の配列を返した場合、その内容から <code>LoginUser</code> を構築します。</p>
+<p><code>LoginUser</code> には、ユーザー ID、ログイン ID、表示用ユーザー名、権限情報など、ログイン後にアプリ側で参照するユーザー情報が保持されます。</p>
+<h4 id="item-3-65">5. セッション再生成</h4>
+<p>ログイン成功後、<code>SessionHelper::regenerateSessionId()</code> が呼ばれます。</p>
+<p>これにより、ログイン前に使われていたセッション ID を引き継がず、ログイン後のセッション ID を新しく発行します。固定セッション攻撃への対策として、この処理はログイン成立時に行われます。</p>
+<p>セッション ID の再生成に失敗した場合は、安全なログイン状態を確立できなかったものとして <code>AuthException</code> が発生します。</p>
+<h4 id="item-3-66">6. セッション保存</h4>
+<p>構築された <code>LoginUser</code> がセッションに保存されます。</p>
+<p>以降の画面では、<code>AuthService::getCurrentUser()</code> などを通して、ログイン中のユーザー情報を取得できます。</p>
+<h4 id="item-3-67">7. 成功後処理</h4>
+<p>ログインユーザー情報をセッションに保存したあと、LoginGuard にログイン成功を通知します。</p>
+<p>ここでは、失敗回数のリセット、アカウントロックの解除、ログイン成功の監査記録など、ログイン成功後に行いたい処理をアプリ側で実装できます。</p>
+<p>Guard を使用していない場合、この段階では追加の処理は行われません。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$auth = new AuthService(new UserRepository(), $logger, []);
+
+try {
+    $loginUser = $auth-&gt;login($credentials, $attempt);
+
+    // 必要であれば、ログイン済みユーザー情報をここで参照できます。
+    // $loginUser-&gt;getUserName();
+
+    header('Location: menu.php', true, 303);
+    exit;
+} catch (AuthException $e) {
+    SessionHelper::flushError('ログインできませんでした。');
+    header('Location: index.php', true, 303);
+    exit;
+}
+</code></pre>
+<h2 id="item-3-68" class="m-3">AuthService::checkUserSession()  </h2>
+<p><code>checkUserSession()</code> は、有効なログインユーザーがいるかを確認するための、<code>AuthService</code> クラスのメソッドです。<br>
+<code>LOGIN_TIMEOUT</code> が有効な場合は最終アクセス時刻更新も行います。</p>
+<p>戻り値は <code>bool</code> です。有効なログインユーザーがセッションに保持されている場合は <code>true</code>、ログインユーザーが存在しない場合や、ログイン状態が有効ではない場合は <code>false</code> を返します。</p>
+<p><code>checkUserSession()</code> は、ログイン後に表示する各画面や、ログイン済みであることを前提にした処理の入口で呼び出すことを想定しています。ほかの処理をする前に呼び出し、ログイン状態が確認できない場合はログイン画面へ戻します。</p>
+<p><code>ChandraConst::LOGIN_TIMEOUT</code> の値が 0 より大きい場合に、ログインセッションの経過時間も確認します。タイムアウトしていない場合は最終アクセス時刻を更新し、タイムアウトしていた場合はログアウト処理を行ったうえで <code>false</code> を返します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (!$auth-&gt;checkUserSession()) {
+    header('Location: index.php', true, 303);
+    exit;
+}
+
+$currentUser = $auth-&gt;getCurrentUser();
+</code></pre>
+<p><code>checkUserSession()</code> はログイン状態を確認するためのメソッドであり、ログイン済みユーザー情報そのものを返すメソッドではありません。ログイン中のユーザー情報を取得したい場合は、<code>checkUserSession()</code> で確認したあとに <code>getCurrentUser()</code> を呼び出します。</p>
+<h2 id="item-3-69" class="m-3">AuthService::logout()  </h2>
+<p><code>logout()</code> は、ログアウトを行う <code>AuthService</code> クラスのメソッドです。<br>
+戻り値はありません。ログアウト処理として、現在のセッション情報を全削除します。<br>
+<code>logout()</code> は画面遷移は行わないため、ログイン画面やトップページなど、ログアウト後に表示したい画面へリダイレクトする必要があります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$auth-&gt;logout();
+header('Location: index.php', true, 303);
+exit;
+</code></pre>
+<h2 id="item-3-70" class="m-3">例外</h2>
+<p>認証に失敗したとき、または認証状態を安全に確立できなかったときは <code>AuthException</code> が発生します。<br>
+<code>AuthException</code> は、ログイン ID やパスワードが一致しない場合だけでなく、ログイン前の Guard チェックで拒否された場合、セッション ID の再生成に失敗した場合、ログイン成功後の処理に失敗した場合などにも発生します。</p>
+<p>ユーザー向けには、「ログインできませんでした」のような安全な文言で案内し、詳細な原因はログへ残します。例外メッセージをそのまま画面に表示すると、内部の処理や認証状態に関する情報が利用者へ見えてしまう可能性があるため避けます。</p>
+<h3 id="item-3-71" class="m-3">例外をキャッチする例</h3>
+<p>次の例では、ログイン処理で発生した <code>AuthException</code> をキャッチし、ログには詳細を記録しつつ、画面には一般的なメッセージだけを表示しています。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">try {
+    $loginUser = $auth-&gt;login($credentials, $attempt);
+
+    header('Location: menu.php', true, 303);
+    exit;
+} catch (AuthException $e) {
+    $logger-&gt;warn(
+        __METHOD__ . ' login failed: ' . $e-&gt;getMessage()
+    );
+    SessionHelper::flushError('ログインできませんでした。');
+
+    header('Location: index.php', true, 303);
+    exit;
+}
+</code></pre>
+<p>ログイン失敗の理由を利用者へ詳しく表示しないことで、ログイン ID の存在有無や内部エラーの発生状況を推測されにくくできます。</p>
+<p>LoginGuard を使用している場合は、Guard 側で失敗理由に応じた記録を行えます。具体例は「recordFailedLogin()」の節を参照してください。</p>
+<hr>
+<h1 id="item-3-72" class="m-3">認可</h1>
+<p>認可とは、ログイン済みのユーザーが特定の画面や操作を利用してよいかを確認する仕組みです。<br>
+Chandra は権限に関する情報を保持する基盤を提供します。 <code>UserRepositoryInterface</code> 実装から返却する <code>permissions</code> の値を、DB の任意のカラムから取得し、ログインユーザーの権限一覧として保持します。<code>permissions</code> は配列でも CSV 文字列でも扱えます。</p>
+<p>認可チェック時は、<code>LoginUser</code> の <code>can()</code> メソッドを使用し、ログインユーザーが保持する権限と合致することを確認します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if ($currentUser-&gt;can('news_create')) {
+    // 権限があります
+}
+</code></pre>
+<p>DB のどのカラムを permissions として扱うか、どの画面でどの権限を必要とするか、権限がない場合にどのように拒否するかといった認可ルールは、アプリケーション側で自由に実装できます。</p>
+<h3 id="item-3-73" class="m-3">permissions の持たせ方  </h3>
+<p>DB のテーブル構造をそのまま <code>permissions</code> に保持することもできますが、<code>UserRepositoryInterface</code> の中で変換することもできます。<br>
+DB では容量を考慮したビット列として保存している情報を、ロジックが扱いやすい文字列へ変換するといったことが可能です。</p>
+<h3 id="item-3-74" class="m-3">UserRepositoryInterface で返す値</h3>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">class AuthUser implements UserRepositoryInterface {
+    public function findByCredentials(string $login_id, string $password): ?array {
+
+		// ログインしたユーザーを$user とする処理を書きます
+
+		// 戻り値に permissions を含めます。
+		return [
+			'id' =&gt; $user['id'],
+			'login_id' =&gt; $user['login_id'],
+			'user_name' =&gt; $user['user_name'],
+		    'permissions' =&gt; ['news_list', 'news_create', 'news_edit'],
+		];
+	}
+}
+</code></pre>
+<h3 id="item-3-75" class="m-3">画面単位、または処理単位の認可の例</h3>
+<p>画面単位の認可は、ページの入口で <code>checkUserSession()</code> と <code>can()</code> を使って判定し、権限がなければ 403 や元の画面へ遷移させるのが一般的です。<br>
+処理単位の認可でも同様に、処理の入り口での判定を行います。表示だけ許可して更新は禁止する、削除だけ別途の認可にする、といった処理分けを行うことが考えられます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (!$currentUser-&gt;can('news_edit')) {
+    http_response_code(403);
+    exit('Forbidden');
+}
+</code></pre>
+<h3 id="item-3-76" class="m-3">メニュー表示の制御の例</h3>
+<p>以下のメニュー表示の制御例は、利用者に不要な導線を見せないための表示上の制御です。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php if ($currentUser-&gt;can('news_create')): ?&gt;
+    &lt;a href=&quot;news_create.php&quot;&gt;お知らせ作成&lt;/a&gt;
+&lt;?php endif; ?&gt;
+</code></pre>
+<p>URL を直接指定される可能性があるため、実際の画面表示や更新処理時に、別途 <code>can()</code> による認可チェックを行ってください。</p>
+<h3 id="item-3-77" class="m-3">管理者のみ許可する例</h3>
+<p><code>permissions</code> に入れる情報は、画面名や処理名に限りません。<code>admin</code> のように、アプリケーションの業務や役割に応じた権限名を決めておき、<code>can('admin')</code> で確認するといった書き方もできます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (!$currentUser-&gt;can('admin')) {
+    http_response_code(403);
+    exit('Forbidden');
+}
+</code></pre>
+<h3 id="item-3-78" class="m-3">対象データ単位の認可</h3>
+<p><code>permissions</code> は、「お知らせを作成できる」「管理画面を利用できる」といった権限名を確認する用途に向いています。一方で、「このデータを操作してよいか」は、権限名だけでは判断できない場合があります。</p>
+<p>例えば、自分が作成した記事だけ編集できるようにしたい場合は、ログインユーザーの ID と、対象データの所有者 ID を比較して判定します。以下の例では、対象データの <code>owner_user_id</code> と、ログインユーザーの <code>getId()</code> が一致する場合だけ操作を許可しています。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if ($currentUser-&gt;getId() !== (string)$row['owner_user_id']) {
+    http_response_code(403);
+    exit('Forbidden');
+}
+</code></pre>
+<p>実際のアプリケーションでは、両方を組み合わせることもあります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (
+    !$currentUser-&gt;can('news_edit')
+    || $currentUser-&gt;getId() !== (string)$row['owner_user_id']
+) {
+    http_response_code(403);
+    exit('Forbidden');
+}
+</code></pre>
+<p>この場合、<code>news_edit</code> 権限を持っていて、かつ対象データの所有者である場合だけ編集を許可します。</p>
+<hr>
+<h1 id="item-3-79" class="m-3">Session</h1>
+<p><code>SessionHelper</code> は、<code>$_SESSION</code> を扱うためのヘルパークラスです。<br>
+セッションキーには、プロジェクト名のプレフィックスが自動で付与されます。</p>
+<h2 id="item-3-80" class="m-3">メソッド一覧</h2>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>分類</th><th>メソッド</th><th>用途</th></tr></thead>
+<tbody>
+<tr><td>画面単位データ</td><td><code>setData()</code></td><td>画面・機能ごとの一時データを保存する</td></tr>
+<tr><td>画面単位データ</td><td><code>getData()</code></td><td>画面・機能ごとの一時データを取得する</td></tr>
+<tr><td>画面単位データ</td><td><code>delData()</code></td><td>指定した画面・機能のデータ、または指定キーのデータを削除する</td></tr>
+<tr><td>画面単位データ</td><td><code>clearDataExceptFunc()</code></td><td>指定した画面・機能のデータだけを残して、他を削除する</td></tr>
+<tr><td>画面単位データ</td><td><code>clearData()</code></td><td>画面単位データをすべて削除する</td></tr>
+<tr><td>ログインユーザー</td><td><code>setUser()</code></td><td>ログインユーザー情報を保存する</td></tr>
+<tr><td>ログインユーザー</td><td><code>getUser()</code></td><td>ログインユーザー情報を取得する</td></tr>
+<tr><td>フラッシュメッセージ</td><td><code>flushError()</code></td><td>エラーメッセージを一時保存する</td></tr>
+<tr><td>フラッシュメッセージ</td><td><code>hasFlushError()</code></td><td>エラーメッセージの有無を確認する</td></tr>
+<tr><td>フラッシュメッセージ</td><td><code>getFlushError()</code></td><td>エラーメッセージを取得し、セッションから削除する</td></tr>
+<tr><td>フラッシュメッセージ</td><td><code>flushSuccess()</code></td><td>成功メッセージを一時保存する</td></tr>
+<tr><td>フラッシュメッセージ</td><td><code>hasFlushSuccess()</code></td><td>成功メッセージの有無を確認する</td></tr>
+<tr><td>フラッシュメッセージ</td><td><code>getFlushSuccess()</code></td><td>成功メッセージを取得し、セッションから削除する</td></tr>
+<tr><td>preferences</td><td><code>setPref()</code></td><td>設定情報を保存する</td></tr>
+<tr><td>preferences</td><td><code>getPref()</code></td><td>設定情報を取得する</td></tr>
+<tr><td>preferences</td><td><code>delPref()</code></td><td>指定した設定情報、またはすべての設定情報を削除する</td></tr>
+<tr><td>preferences</td><td><code>clearPref()</code></td><td>設定情報をすべて削除する</td></tr>
+<tr><td>master</td><td><code>setMaster()</code></td><td>マスター情報を保存する</td></tr>
+<tr><td>master</td><td><code>getMaster()</code></td><td>マスター情報全体を取得する</td></tr>
+<tr><td>master</td><td><code>getMasterList()</code></td><td>マスター情報から指定キーの値を取得する</td></tr>
+<tr><td>セッション制御</td><td><code>regenerateSessionId()</code></td><td>セッション ID を再生成する</td></tr>
+<tr><td>セッション制御</td><td><code>delSessionAll()</code></td><td>セッション全体を破棄する</td></tr>
+<tr><td>セッション制御</td><td><code>invalidateSession()</code></td><td>既存セッションを無効化し、必要に応じて再開始する</td></tr>
+</tbody></table></div>
+<h2 id="item-3-81" class="m-3">session_start() について</h2>
+<p><code>SessionHelper</code> クラスは <code>session_start()</code> を自動で行いません。<br>
+認証、フラッシュメッセージ、画面単位データなど、セッションを利用する処理の前に、アプリケーション側でセッションを開始してください。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+</code></pre>
+<h2 id="item-3-82" class="m-3">セッションキーのプレフィックス</h2>
+<p><code>SessionHelper</code> は、内部的に使用するセッションキーへプロジェクト名のプレフィックスを付与します。<br>
+同じサーバー上で複数のアプリケーションを動かす場合でも、セッションキーが衝突しにくくなります。</p>
+<p>プレフィックスは、実行中スクリプトのパスをもとに決まります。アプリケーション側では、通常このプレフィックスを意識せずに <code>SessionHelper</code> の各メソッドを使用できます。</p>
+<h2 id="item-3-83" class="m-3">画面単位データ</h2>
+<p>画面単位データは、画面または機能ごとに一時的な値をセッションへ保存するための仕組みです。<br>
+入力内容や検索条件、確認画面へ渡す値など、画面固有の状態を一時的に保持したい場合に利用できます。</p>
+<p>保存時には、次の3つを指定します。</p>
+<ul>
+  <li>画面キー: データを保存する画面や機能を識別するためのキー</li>
+  <li>データのキー: 保存する値を識別するためのキー</li>
+  <li>データの値: 実際に保存する値</li>
+</ul>
+<p>画面キーを分けることで、同じ <code>title</code> というキーを使う場合でも、画面や機能ごとに異なる値を保存できます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::setData('news_edit', 'title', $title);
+SessionHelper::setData('news_edit', 'body', $body);
+
+$title = SessionHelper::getData('news_edit', 'title');
+$body  = SessionHelper::getData('news_edit', 'body');
+
+SessionHelper::delData('news_edit', 'title');
+</code></pre>
+<h3 id="item-3-84" class="m-3">setData()</h3>
+<p><code>SessionHelper::setData()</code> は、画面または機能ごとの一時データを保存するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::setData('news_edit', 'title', $title);
+</code></pre>
+<h3 id="item-3-85" class="m-3">getData()</h3>
+<p><code>SessionHelper::getData()</code> は、<code>setData()</code> で保存した画面単位データを取得するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$title = SessionHelper::getData('news_edit', 'title');
+</code></pre>
+<p>指定した値が存在しない場合は <code>null</code> が返ります。</p>
+<h3 id="item-3-86" class="m-3">delData()</h3>
+<p><code>SessionHelper::delData()</code> は、画面単位データのうち、指定したキーまたは画面全体のデータを削除するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">// news_edit 画面の title だけ削除する
+SessionHelper::delData('news_edit', 'title');
+
+// news_edit 画面のデータをまとめて削除する
+SessionHelper::delData('news_edit');
+</code></pre>
+<h3 id="item-3-87" class="m-3">clearDataExceptFunc()</h3>
+<p><code>SessionHelper::clearDataExceptFunc()</code> は、指定した画面または機能のデータだけを残し、それ以外の画面単位データを削除するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::clearDataExceptFunc('news_edit');
+</code></pre>
+<p>入力エラーで同じ画面へ戻す場合など、現在の画面に必要なデータだけを残し、他画面の一時データを消したい場合に利用できます。</p>
+<h3 id="item-3-88" class="m-3">clearData()</h3>
+<p><code>SessionHelper::clearData()</code> は、画面単位データをすべて削除するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::clearData();
+</code></pre>
+<p>画面遷移や処理完了後に、画面固有の一時データをまとめて消したい場合に利用できます。</p>
+<h2 id="item-3-89" class="m-3">ログインユーザー情報</h2>
+<p>ログインユーザー情報は内部的には <code>SessionHelper</code> に保存されますが、通常は <code>AuthService</code> を通して扱います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$currentUser = $auth-&gt;getCurrentUser();
+</code></pre>
+<p><code>SessionHelper::setUser()</code> と <code>SessionHelper::getUser()</code> は public メソッドですが、認証処理の流れの中で <code>AuthService</code> から利用されることを想定しています。アプリケーション側では、直接操作するよりも <code>AuthService</code> のメソッドを利用する方が扱いやすくなります。</p>
+<h3 id="item-3-90" class="m-3">setUser()</h3>
+<p><code>SessionHelper::setUser()</code> は、ログインユーザー情報をセッションへ保存するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::setUser($loginUser);
+</code></pre>
+<p>通常は、ログイン成功時に <code>AuthService</code> が内部で呼び出します。</p>
+<h3 id="item-3-91" class="m-3">getUser()</h3>
+<p><code>SessionHelper::getUser()</code> は、セッションに保存されているログインユーザー情報を取得するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$user = SessionHelper::getUser();
+</code></pre>
+<p>通常は、<code>AuthService::getCurrentUser()</code> を通して現在のログインユーザーを取得します。</p>
+<h2 id="item-3-92" class="m-3">フラッシュメッセージ</h2>
+<p>フラッシュメッセージは、リダイレクト後の画面などで一度だけ表示したいメッセージをセッションに保存するための仕組みです。<br>
+登録、更新、削除の完了メッセージや、エラー通知などに利用できます。</p>
+<p><code>flushError()</code> / <code>flushSuccess()</code> でメッセージを保存し、<code>hasFlushError()</code> / <code>hasFlushSuccess()</code> で有無を確認します。<br>
+<code>getFlushError()</code> / <code>getFlushSuccess()</code> は、メッセージを取得した後にセッションから削除します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::flushSuccess('更新しました。');
+header('Location: news_list.php', true, 303);
+exit;
+</code></pre>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php if (SessionHelper::hasFlushSuccess()): ?&gt;
+    &lt;p&gt;&lt;?= Utility::h(SessionHelper::getFlushSuccess()) ?&gt;&lt;/p&gt;
+&lt;?php endif; ?&gt;
+</code></pre>
+<h3 id="item-3-93" class="m-3">flushError()</h3>
+<p><code>SessionHelper::flushError()</code> は、エラーメッセージを一時保存するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::flushError('更新に失敗しました。');
+</code></pre>
+<h3 id="item-3-94" class="m-3">hasFlushError()</h3>
+<p><code>SessionHelper::hasFlushError()</code> は、エラーメッセージが保存されているかどうかを確認するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (SessionHelper::hasFlushError()) {
+    // エラーメッセージがあります
+}
+</code></pre>
+<h3 id="item-3-95" class="m-3">getFlushError()</h3>
+<p><code>SessionHelper::getFlushError()</code> は、保存されているエラーメッセージを取得し、セッションから削除するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$errorMessage = SessionHelper::getFlushError();
+</code></pre>
+<h3 id="item-3-96" class="m-3">flushSuccess()</h3>
+<p><code>SessionHelper::flushSuccess()</code> は、成功メッセージを一時保存するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::flushSuccess('更新しました。');
+</code></pre>
+<h3 id="item-3-97" class="m-3">hasFlushSuccess()</h3>
+<p><code>SessionHelper::hasFlushSuccess()</code> は、成功メッセージが保存されているかどうかを確認するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (SessionHelper::hasFlushSuccess()) {
+    // 成功メッセージがあります
+}
+</code></pre>
+<h3 id="item-3-98" class="m-3">getFlushSuccess()</h3>
+<p><code>SessionHelper::getFlushSuccess()</code> は、保存されている成功メッセージを取得し、セッションから削除するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$successMessage = SessionHelper::getFlushSuccess();
+</code></pre>
+<h2 id="item-3-99" class="m-3">preferences</h2>
+<p><code>preferences</code> は、セッションが保持されている間だけ利用する設定情報を保存するための領域です。<br>
+アプリケーション設定や画面表示に使う設定値など、リクエストをまたいで参照したい設定情報を保持する用途を想定しています。</p>
+<p>次の例は、データベースの設定テーブルから取得した値を <code>preferences</code> に保存する例です。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$rtnset = $config-&gt;list();
+
+foreach ($rtnset ?? [] as $wk) {
+    if (!is_null($wk['value']) &amp;&amp; $wk['value'] !== '') {
+        SessionHelper::setPref($wk['key'], $wk['value']);
+    }
+}
+</code></pre>
+<p>保存した値は、必要な場面で取得して利用します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (intval(SessionHelper::getPref('EXCEL_VAR')) === 1) {
+    $ext = '.xlsx';
+}
+</code></pre>
+<h3 id="item-3-100" class="m-3">setPref()</h3>
+<p><code>SessionHelper::setPref()</code> は、設定情報を <code>preferences</code> に保存するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::setPref('EXCEL_VAR', '1');
+</code></pre>
+<h3 id="item-3-101" class="m-3">getPref()</h3>
+<p><code>SessionHelper::getPref()</code> は、<code>preferences</code> に保存した設定情報を取得するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$excelVar = SessionHelper::getPref('EXCEL_VAR');
+</code></pre>
+<p>指定したキーが存在しない場合は <code>null</code> が返ります。</p>
+<h3 id="item-3-102" class="m-3">delPref()</h3>
+<p><code>SessionHelper::delPref()</code> は、指定した設定情報、または <code>preferences</code> 全体を削除するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">// 指定した設定だけ削除する
+SessionHelper::delPref('EXCEL_VAR');
+
+// preferences 全体を削除する
+SessionHelper::delPref();
+</code></pre>
+<h3 id="item-3-103" class="m-3">clearPref()</h3>
+<p><code>SessionHelper::clearPref()</code> は、<code>preferences</code> に保存されている設定情報をすべて削除するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::clearPref();
+</code></pre>
+<h2 id="item-3-104" class="m-3">master</h2>
+<p><code>master</code> は、セッションが保持されている間だけ利用するマスター情報を保存するための領域です。<br>
+カテゴリ一覧や店舗一覧など、複数の画面から参照する一覧データを保持する用途を想定しています。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::setMaster([
+    'categoryList' =&gt; [
+        [
+            'id' =&gt; 10,
+            'name' =&gt; '店舗10',
+        ],
+        [
+            'id' =&gt; 20,
+            'name' =&gt; '店舗20',
+        ],
+    ],
+]);
+
+$categoryList = SessionHelper::getMasterList('categoryList');
+</code></pre>
+<h3 id="item-3-105" class="m-3">setMaster()</h3>
+<p><code>SessionHelper::setMaster()</code> は、マスター情報をまとめて保存するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::setMaster([
+    'categoryList' =&gt; $categoryList,
+    'shopList' =&gt; $shopList,
+]);
+</code></pre>
+<h3 id="item-3-106" class="m-3">getMaster()</h3>
+<p><code>SessionHelper::getMaster()</code> は、保存されているマスター情報全体を取得するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$master = SessionHelper::getMaster();
+</code></pre>
+<h3 id="item-3-107" class="m-3">getMasterList()</h3>
+<p><code>SessionHelper::getMasterList()</code> は、マスター情報の中から指定したキーの値を取得するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$categoryList = SessionHelper::getMasterList('categoryList');
+</code></pre>
+<p>指定したキーが存在しない場合は <code>null</code> が返ります。</p>
+<h2 id="item-3-108" class="m-3">セッション ID 再生成</h2>
+<p>セッション固定攻撃への対策として、ログイン後や権限昇格後などにセッション ID の再生成を行います。<br>
+<code>SessionHelper::regenerateSessionId()</code> は、PHP のセッションが開始済みの場合にセッション ID を再生成します。</p>
+<h3 id="item-3-109" class="m-3">regenerateSessionId()</h3>
+<p><code>SessionHelper::regenerateSessionId()</code> は、現在のセッション ID を再生成するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (!SessionHelper::regenerateSessionId()) {
+    throw new RuntimeException('セッション ID の再生成に失敗しました。');
+}
+</code></pre>
+<p>引数には、旧セッションを削除するかどうかを指定できます。省略した場合は <code>true</code> です。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::regenerateSessionId(true);
+</code></pre>
+<h2 id="item-3-110" class="m-3">セッションの破棄・無効化</h2>
+<p>セッションの破棄・無効化は、ログアウト時やセッション異常時など、現在のセッションを使い続けない場合に行います。<br>
+<code>delSessionAll()</code> はセッション全体の破棄に、<code>invalidateSession()</code> は既存セッションの無効化と必要に応じた再開始に利用できます。</p>
+<h3 id="item-3-111" class="m-3">delSessionAll()</h3>
+<p><code>SessionHelper::delSessionAll()</code> は、セッション情報を空にし、セッション Cookie の失効とセッション破棄を試みるために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::delSessionAll();
+</code></pre>
+<p>ログアウト時や、セッション状態を完全に破棄したい場合に利用します。</p>
+<h3 id="item-3-112" class="m-3">invalidateSession()</h3>
+<p><code>SessionHelper::invalidateSession()</code> は、既存セッションを無効化し、必要に応じて新しいセッションを開始するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::invalidateSession();
+</code></pre>
+<p>無効化後に新しいセッションを開始したい場合は、引数に <code>true</code> を指定します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::invalidateSession(true);
+</code></pre>
+<hr>
+<h1 id="item-3-113" class="m-3">CSRF</h1>
+<p>Chandra では、<code>Utility</code> クラスを利用して CSRF 用の scope と token を発行し、POST 時に検証できます。</p>
+<p>主な使い方は、通常の HTML フォームに hidden input を出力する方法と、AJAX 用に CSRF 情報を配列または HTML コンテナとして発行する方法です。</p>
+<p>CSRF の検証は、登録、更新、削除、ログアウト、設定変更といった、状態を変える処理で行うことを想定しています。単なる表示、検索、一覧の並べ替え、ページ遷移など、状態を変更しない <code>GET</code> の処理では通常不要です。</p>
+<h2 id="item-3-114" class="m-3">scope とは</h2>
+<p>scope は、「どの画面・どの操作用の token か」を識別するための文字列です。</p>
+<p>たとえば、お知らせ登録用のフォームであれば <code>news.insert.exec</code>、お知らせ更新用の AJAX 処理であれば <code>news_update</code> のように、画面や操作ごとに区別できる名前を指定します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">Utility::renderCsrfHiddenInput('news.insert.exec');
+</code></pre>
+<p>同じ画面に複数の POST 処理がある場合は、操作ごとに scope を分けることで、それぞれの CSRF token を区別できます。</p>
+<h2 id="item-3-115" class="m-3">メソッド一覧</h2>
+<p><code>Utility</code> クラスで CSRF token を扱うメソッドは以下の通りです。</p>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>メソッド</th><th>用途</th></tr></thead>
+<tbody>
+<tr><td><code>getCsrfFieldName()</code></td><td>CSRF token 用フィールド名を取得する</td></tr>
+<tr><td><code>getCsrfScopeFieldName()</code></td><td>CSRF scope 用フィールド名を取得する</td></tr>
+<tr><td><code>issueCsrfToken()</code></td><td>指定 scope の CSRF token を発行する</td></tr>
+<tr><td><code>renderCsrfHiddenInput()</code></td><td>HTML フォーム用の hidden input を生成する</td></tr>
+<tr><td><code>renderCsrfContainer()</code></td><td>AJAX 用に hidden input を含むコンテナ HTML を生成する</td></tr>
+<tr><td><code>issueCsrfPostFields()</code></td><td>AJAX や JSON 応答に載せやすい CSRF 項目配列を生成する</td></tr>
+<tr><td><code>validateCsrfToken()</code></td><td>指定 scope と token の組み合わせを検証する</td></tr>
+<tr><td><code>validatePostedCsrfToken()</code></td><td>POST された scope と token の組み合わせを検証する</td></tr>
+</tbody></table></div>
+<h2 id="item-3-116" class="m-3">HTML フォームで使う</h2>
+<p>HTML フォームでは、<code>renderCsrfHiddenInput()</code> を使うと、scope と token の hidden input をまとめて出力できます。</p>
+<h3 id="item-3-117" class="m-3">renderCsrfHiddenInput()</h3>
+<p><code>Utility::renderCsrfHiddenInput()</code> は、HTML フォーム用の CSRF hidden input を生成するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;form method=&quot;post&quot; action=&quot;news_insert.php&quot; onsubmit=&quot;return window.confirm('登録してもいいですか？');&quot;&gt;
+    &lt;?= Utility::renderCsrfHiddenInput('news.insert.exec') ?&gt;
+
+    &lt;input type=&quot;text&quot; id=&quot;title&quot; name=&quot;title&quot; required&gt;
+    &lt;textarea id=&quot;body&quot; name=&quot;body&quot; required&gt;&lt;/textarea&gt;
+    &lt;button type=&quot;submit&quot;&gt;登録&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<p>この呼び出しにより、scope と token の hidden input が出力されます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-html">&lt;input type=&quot;hidden&quot; name=&quot;_csrf_scope&quot; value=&quot;news.insert.exec&quot;&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;_csrf_token&quot; value=&quot;0a42df3680279f2592b36fb0ae1228bf824347e10064d59a58ce89205977732c&quot;&gt;
+</code></pre>
+<p>通常のフォームでは、token を個別に発行するよりも <code>renderCsrfHiddenInput()</code> を使う方が簡単です。</p>
+<h2 id="item-3-118" class="m-3">POST 時に検証する</h2>
+<p>POST された CSRF token は、<code>validatePostedCsrfToken()</code> または <code>validateCsrfToken()</code> で検証します。</p>
+<p>フォームから scope と token の両方を受け取る場合は、<code>validatePostedCsrfToken()</code> を使うと分かりやすいです。scope をサーバー側で固定できる場合は、<code>validateCsrfToken()</code> を使うこともできます。</p>
+<h3 id="item-3-119" class="m-3">validatePostedCsrfToken()</h3>
+<p><code>Utility::validatePostedCsrfToken()</code> は、POST された scope と token の組み合わせを検証するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$csrfScope = (string)($_POST[Utility::getCsrfScopeFieldName()] ?? '');
+$csrfToken = (string)($_POST[Utility::getCsrfFieldName()] ?? '');
+
+if (!Utility::validatePostedCsrfToken($csrfScope, $csrfToken)) {
+    $logger-&gt;error('Invalid csrf token');
+    SessionHelper::flushError('システムエラーが発生しました');
+    header('Location: news_list.php', true, 303);
+    exit;
+}
+</code></pre>
+<p><code>renderCsrfHiddenInput()</code> で出力した hidden input をそのまま検証する場合は、この書き方が向いています。</p>
+<h3 id="item-3-120" class="m-3">validateCsrfToken()</h3>
+<p><code>Utility::validateCsrfToken()</code> は、指定した scope と POST された token の組み合わせを検証するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$csrfToken = (string)($_POST[Utility::getCsrfFieldName()] ?? '');
+
+if (!Utility::validateCsrfToken('news.insert.exec', $csrfToken)) {
+    $logger-&gt;error('Invalid csrf token');
+    SessionHelper::flushError('システムエラーが発生しました');
+    header('Location: news_list.php', true, 303);
+    exit;
+}
+</code></pre>
+<p>scope をフォームから受け取らず、処理側で固定したい場合に利用できます。</p>
+<p>CSRF token は検証時に破棄されるため、同じ token を繰り返し使うことはできません。検証後に同じ画面で再度 POST を行う場合は、新しい token を発行してください。</p>
+<h2 id="item-3-121" class="m-3">AJAX で使う</h2>
+<p>AJAX で CSRF token を扱う場合は、画面側に CSRF 情報を埋め込んでおき、JavaScript から読み取って送信します。</p>
+<p>Chandra では、AJAX 用に hidden input を含むコンテナ HTML を生成する <code>renderCsrfContainer()</code> と、JSON 応答に載せやすい配列を返す <code>issueCsrfPostFields()</code> を用意しています。</p>
+<h3 id="item-3-122" class="m-3">renderCsrfContainer()</h3>
+<p><code>Utility::renderCsrfContainer()</code> は、AJAX 用に CSRF scope と token の hidden input を含むコンテナ HTML を生成するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?= Utility::renderCsrfContainer('news_update', 'news_update') ?&gt;
+</code></pre>
+<p>第1引数には scope、第2引数にはコンテナ要素の id を指定します。第3引数で class 属性を指定できます。省略した場合は <code>d-none</code> です。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-html">&lt;div id=&quot;news_update&quot; class=&quot;d-none&quot;&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;_csrf_scope&quot; value=&quot;news_update&quot;&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;_csrf_token&quot; value=&quot;...&quot;&gt;
+&lt;/div&gt;
+</code></pre>
+<p>JavaScript 側では、このコンテナから CSRF 情報を読み取り、POST データに含めます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-javascript">document.addEventListener('DOMContentLoaded', () =&gt; {
+    const csrfJsonClient = window.ChandraCsrfFetch?.createJsonClient({
+        csrfContainerId: 'news_update',
+    });
+
+    async function postNewsUpdate(payload) {
+        if (!csrfJsonClient) {
+            throw new Error('ChandraCsrfFetch is not available.');
+        }
+
+        return csrfJsonClient.postJson('news_update.php', payload);
+    }
+
+    document.addEventListener('click', async (e) =&gt; {
+        const updateButton = e.target.closest('#btnUpdate');
+        if (!updateButton) {
+            return;
+        }
+
+        try {
+            const json = await postNewsUpdate({
+                title: '更新後のタイトル',
+            });
+
+            if (!json.ok) {
+                console.error('news update failed', json);
+                return;
+            }
+
+            // 後続処理を書く
+        } catch (err) {
+            console.error('news_update ajax error', err);
+        }
+    });
+});
+</code></pre>
+<h3 id="item-3-123" class="m-3">issueCsrfPostFields()</h3>
+<p><code>Utility::issueCsrfPostFields()</code> は、AJAX POST や JSON 応答に載せやすい CSRF 項目を配列で取得するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$csrf = Utility::issueCsrfPostFields('news_update');
+</code></pre>
+<p>戻り値には、scope と token の両方が含まれます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">[
+    '_csrf_scope' =&gt; 'news_update',
+    '_csrf_token' =&gt; '...',
+]
+</code></pre>
+<p>AJAX では、CSRF token を検証した後、レスポンスに次回用の CSRF 情報を含める使い方ができます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">// news_update.php
+
+$data = json_decode(file_get_contents('php://input'), true) ?? [];
+
+$csrfScope = (string)($data[Utility::getCsrfScopeFieldName()] ?? '');
+$csrfToken = (string)($data[Utility::getCsrfFieldName()] ?? '');
+
+if (!Utility::validatePostedCsrfToken($csrfScope, $csrfToken)) {
+    http_response_code(403);
+    echo json_encode([
+        'ok' =&gt; false,
+        'message' =&gt; 'Invalid csrf token',
+        'csrf' =&gt; Utility::issueCsrfPostFields('news_update'),
+    ]);
+    exit;
+}
+
+// 更新処理を書く
+
+echo json_encode([
+    'ok' =&gt; true,
+    'csrf' =&gt; Utility::issueCsrfPostFields('news_update'),
+]);
+</code></pre>
+<h2 id="item-3-124" class="m-3">CSRF token を個別に発行する</h2>
+<p>通常は、HTML フォームでは <code>renderCsrfHiddenInput()</code>、AJAX では <code>renderCsrfContainer()</code> または <code>issueCsrfPostFields()</code> を使います。</p>
+<p>token だけを個別に取得したい場合は、<code>issueCsrfToken()</code> を使います。</p>
+<h3 id="item-3-125" class="m-3">issueCsrfToken()</h3>
+<p><code>Utility::issueCsrfToken()</code> は、指定した scope 用の CSRF token を発行するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$token = Utility::issueCsrfToken('news.insert.exec');
+</code></pre>
+<p>指定した scope の token がすでにセッションに存在する場合は、その token を返します。存在しない場合は新しい token を発行し、セッションに保存します。</p>
+<h2 id="item-3-126" class="m-3">CSRF フィールド名を取得する</h2>
+<p>CSRF token と scope のフィールド名は、<code>Utility</code> のメソッドから取得できます。フォームや JSON のキー名を直接文字列で書かず、メソッドから取得することで、Chandra 側の定義に合わせて扱えます。</p>
+<h3 id="item-3-127" class="m-3">getCsrfFieldName()</h3>
+<p><code>Utility::getCsrfFieldName()</code> は、CSRF token 用のフィールド名を取得するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$tokenFieldName = Utility::getCsrfFieldName();
+</code></pre>
+<p>POST された token を取得する場合は、次のように使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$csrfToken = (string)($_POST[Utility::getCsrfFieldName()] ?? '');
+</code></pre>
+<h3 id="item-3-128" class="m-3">getCsrfScopeFieldName()</h3>
+<p><code>Utility::getCsrfScopeFieldName()</code> は、CSRF scope 用のフィールド名を取得するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$scopeFieldName = Utility::getCsrfScopeFieldName();
+</code></pre>
+<p>POST された scope を取得する場合は、次のように使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$csrfScope = (string)($_POST[Utility::getCsrfScopeFieldName()] ?? '');
+</code></pre>
+<hr>
+<h1 id="item-3-129" class="m-3">Utility</h1>
+<p><code>Utility</code> クラスには、CSRF トークンのほかにも、HTML エスケープ、文字列置換、入力チェック、画像ファイル処理、ファイル一覧取得などの helper メソッドが用意されています。</p>
+<p>CSRF token 関連のメソッドについては、「CSRF」章を参照してください。</p>
+<h2 id="item-3-130" class="m-3">メソッド一覧</h2>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>分類</th><th>メソッド</th><th>用途</th></tr></thead>
+<tbody>
+<tr><td>出力エスケープ</td><td><code>h()</code></td><td>HTML 本文や属性値へ出力する値をエスケープする</td></tr>
+<tr><td>文字列置換</td><td><code>replaceStr()</code></td><td>プレースホルダー付き文字列を置換する</td></tr>
+<tr><td>文字列置換</td><td><code>replacePlaceholders()</code></td><td><code>{0}</code> や <code>{name}</code> 形式のプレースホルダーを置換する</td></tr>
+<tr><td>入力チェック</td><td><code>checkNumeric()</code></td><td>数値形式と範囲を確認する</td></tr>
+<tr><td>入力チェック</td><td><code>checkAlphanumeric()</code></td><td>半角英数字とハイフンの形式を確認する</td></tr>
+<tr><td>入力チェック</td><td><code>checkDuplicate()</code></td><td>配列内の指定キーについて重複値を取得する</td></tr>
+<tr><td>画像ファイル</td><td><code>checkImageName()</code></td><td>画像ファイル名の形式を確認する</td></tr>
+<tr><td>画像ファイル</td><td><code>checkImageFileSize()</code></td><td>画像ファイルサイズが上限以内か確認する</td></tr>
+<tr><td>画像ファイル</td><td><code>checkImageCreate()</code></td><td>画像ファイルの存在を確認し、必要に応じてサムネイルを生成する</td></tr>
+<tr><td>画像ファイル</td><td><code>creatSmallImage()</code></td><td><code>s_</code> 付きのサムネイル画像を生成する</td></tr>
+<tr><td>画像ファイル</td><td><code>creatImageSize()</code></td><td>指定した横幅にリサイズした画像を生成する</td></tr>
+<tr><td>画像ファイル</td><td><code>creatImageSize34()</code></td><td>4:3 を上限とする比率で画像を生成する</td></tr>
+<tr><td>ファイル一覧</td><td><code>getFileName()</code></td><td>指定ディレクトリ内のファイル名やディレクトリ名を取得する</td></tr>
+</tbody></table></div>
+<h2 id="item-3-131" class="m-3">出力エスケープ</h2>
+<p>HTML に値を出力する場合は、意図しない HTML や JavaScript が解釈されないようにエスケープします。</p>
+<h3 id="item-3-132" class="m-3">h()</h3>
+<p><code>Utility::h()</code> は、HTML 本文や属性値へ出力する値をエスケープするために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?= Utility::h($title) ?&gt;
+</code></pre>
+<p>属性値へ出力する場合にも利用できます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;input type=&quot;text&quot; name=&quot;title&quot; value=&quot;&lt;?= Utility::h($title) ?&gt;&quot;&gt;
+</code></pre>
+<p><code>Utility::h()</code> は、HTML 本文や HTML 属性値への出力を想定した helper です。JavaScript 文字列、URL、SQL など、別の文脈でのエスケープには使用しないでください。</p>
+<h2 id="item-3-133" class="m-3">文字列置換 helper</h2>
+<p>文字列置換 helper は、テンプレート文字列に値を差し込むためのメソッドです。通知文、ログメッセージ、簡単な表示文言の生成などに利用できます。</p>
+<h3 id="item-3-134" class="m-3">replaceStr()</h3>
+<p><code>Utility::replaceStr()</code> は、プレースホルダー付きの文字列を置換するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$message = Utility::replaceStr(
+    'こんにちは、{0}さん。',
+    '山田'
+);
+</code></pre>
+<p>結果は次のようになります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">'こんにちは、山田さん。'
+</code></pre>
+<p><code>replaceStr()</code> は <code>replacePlaceholders()</code> のラッパーです。<code>null</code> を渡した場合は <code>null</code> を返します。</p>
+<h3 id="item-3-135" class="m-3">replacePlaceholders()</h3>
+<p><code>Utility::replacePlaceholders()</code> は、<code>{0}</code> や <code>{name}</code> 形式のプレースホルダーを指定値で置換するために使います。</p>
+<p>数値キーのプレースホルダーを使う例です。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$message = Utility::replacePlaceholders(
+    '{0}を{1}件登録しました。',
+    'お知らせ',
+    3
+);
+</code></pre>
+<p>結果は次のようになります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">'お知らせを3件登録しました。'
+</code></pre>
+<p>連想配列で名前付きのプレースホルダーを置換することもできます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$message = Utility::replacePlaceholders(
+    '{user_name}さんが{count}件更新しました。',
+    [
+        'user_name' =&gt; '山田',
+        'count' =&gt; 3,
+    ]
+);
+</code></pre>
+<h2 id="item-3-136" class="m-3">入力チェック</h2>
+<p>入力チェック helper は、フォームやリクエスト値の形式を確認するために使います。<br>
+アプリケーション側のバリデーションと組み合わせることで、業務上の妥当性チェックや、DB 登録前の入力確認に利用できます。</p>
+<h3 id="item-3-137" class="m-3">checkNumeric()</h3>
+<p><code>Utility::checkNumeric()</code> は、値が数値として扱えるかを確認するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (!Utility::checkNumeric($id)) {
+    SessionHelper::flushError('ID が不正です。');
+}
+</code></pre>
+<p>最小値と最大値を両方指定すると、範囲チェックも行います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (!Utility::checkNumeric($id, 1, 999999)) {
+    SessionHelper::flushError('ID が不正です。');
+}
+</code></pre>
+<h3 id="item-3-138" class="m-3">checkAlphanumeric()</h3>
+<p><code>Utility::checkAlphanumeric()</code> は、値が半角英数字とハイフンだけで構成されているかを確認するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (!Utility::checkAlphanumeric($loginId)) {
+    SessionHelper::flushError('ログイン ID の形式が不正です。');
+}
+</code></pre>
+<p>最小文字数と最大文字数を両方指定すると、文字数の範囲も確認します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (!Utility::checkAlphanumeric($loginId, 4, 16)) {
+    SessionHelper::flushError('ログイン ID は4文字以上16文字以下で入力してください。');
+}
+</code></pre>
+<h3 id="item-3-139" class="m-3">checkDuplicate()</h3>
+<p><code>Utility::checkDuplicate()</code> は、配列内の指定キーについて、重複している値を取得するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$rows = [
+    ['code' =&gt; 'A001', 'name' =&gt; '商品 A'],
+    ['code' =&gt; 'A002', 'name' =&gt; '商品 B'],
+    ['code' =&gt; 'A001', 'name' =&gt; '商品 C'],
+];
+
+$duplicates = Utility::checkDuplicate($rows, 'code');
+
+if ($duplicates !== []) {
+    SessionHelper::flushError('コードが重複しています。');
+}
+</code></pre>
+<p>この例では、<code>$duplicates</code> に <code>A001</code> が含まれます。重複がない場合は空配列が返ります。</p>
+<h2 id="item-3-140" class="m-3">画像ファイル helper</h2>
+<p>画像ファイル helper は、画像ファイル名やサイズのチェック、サムネイル生成、リサイズ画像の生成に利用できます。<br>
+画像生成系のメソッドを利用するには、PHP の GD 拡張が必要です。</p>
+<h3 id="item-3-141" class="m-3">checkImageName()</h3>
+<p><code>Utility::checkImageName()</code> は、画像ファイル名の形式を確認するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (!Utility::checkImageName($_FILES['image']['name'])) {
+    SessionHelper::flushError('画像ファイル名が不正です。');
+}
+</code></pre>
+<p>使用できる拡張子は <code>jpg</code>、<code>png</code>、<code>gif</code> です。ファイル名には、半角英数字、アンダースコア、ハイフン、ドットを使用できます。</p>
+<h3 id="item-3-142" class="m-3">checkImageFileSize()</h3>
+<p><code>Utility::checkImageFileSize()</code> は、画像ファイルサイズが上限以内かを確認するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (!Utility::checkImageFileSize($_FILES['image']['size'])) {
+    SessionHelper::flushError('画像サイズが上限を超えています。');
+}
+</code></pre>
+<p>上限を省略した場合は、<code>ChandraConst::MAX_UPLOAD_IMAGE_SIZE</code> が使われます。<br>
+個別に上限を指定することもできます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$maxBytes = 2 * 1024 * 1024;
+
+if (!Utility::checkImageFileSize($_FILES['image']['size'], $maxBytes)) {
+    SessionHelper::flushError('画像サイズは2MB 以内にしてください。');
+}
+</code></pre>
+<h3 id="item-3-143" class="m-3">checkImageCreate()</h3>
+<p><code>Utility::checkImageCreate()</code> は、画像ファイルの存在を確認し、必要に応じてサムネイルを生成するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (!Utility::checkImageCreate($uploadDir, $fileName, 240)) {
+    SessionHelper::flushError('サムネイルの生成に失敗しました。');
+}
+</code></pre>
+<p>指定したディレクトリに画像ファイルが存在し、<code>s_</code> 付きのサムネイルファイルがまだ存在しない場合に、サムネイル生成を試みます。</p>
+<h3 id="item-3-144" class="m-3">creatSmallImage()</h3>
+<p><code>Utility::creatSmallImage()</code> は、指定した画像から <code>s_</code> 付きのサムネイル画像を生成するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">Utility::creatSmallImage($uploadDir, $fileName, 240);
+</code></pre>
+<p>たとえば <code>$fileName</code> が <code>sample.jpg</code> の場合、同じディレクトリに <code>s_sample.jpg</code> を作成します。</p>
+<h3 id="item-3-145" class="m-3">creatImageSize()</h3>
+<p><code>Utility::creatImageSize()</code> は、指定した横幅にリサイズした画像を生成するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">Utility::creatImageSize(
+    $uploadDir . '/sample.jpg',
+    $uploadDir . '/sample_small.jpg',
+    240
+);
+</code></pre>
+<p>元画像の縦横比をもとに、指定した横幅の画像を作成します。</p>
+<h3 id="item-3-146" class="m-3">creatImageSize34()</h3>
+<p><code>Utility::creatImageSize34()</code> は、4:3 を上限とする比率で画像を生成するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">Utility::creatImageSize34(
+    $uploadDir . '/sample.jpg',
+    $uploadDir . '/sample_thumb.jpg',
+    240
+);
+</code></pre>
+<p>横幅を指定し、必要に応じて中央部分をトリミングして、縦方向が 4:3 の範囲に収まる画像を作成します。</p>
+<h2 id="item-3-147" class="m-3">ファイル一覧 helper</h2>
+<p>ファイル一覧 helper は、指定したディレクトリ配下のファイル名やディレクトリ名を取得するために使います。</p>
+<h3 id="item-3-148" class="m-3">getFileName()</h3>
+<p><code>Utility::getFileName()</code> は、指定したディレクトリ配下のファイル名やディレクトリ名を取得するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$fileNames = Utility::getFileName($uploadDir);
+</code></pre>
+<p>第2引数で、取得対象を指定できます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">// ファイルのみ取得する
+$fileNames = Utility::getFileName($uploadDir, 0);
+
+// ディレクトリのみ取得する
+$dirNames = Utility::getFileName($uploadDir, 1);
+
+// ファイルとディレクトリの両方を取得する
+$allNames = Utility::getFileName($uploadDir, 2);
+</code></pre>
+<p>指定したディレクトリが存在しない場合は、空配列が返ります。<code>.</code>、<code>..</code>、<code>.htaccess</code> は取得結果から除外されます。</p>
+<hr>
+<h1 id="item-3-149" class="m-3">Cookie</h1>
+<p><code>CookieHelper</code> は、Cookie の作成、取得、削除を補助する helper クラスです。<br>
+Symfony の <code>Cookie</code> と <code>Request</code> を使い、Cookie に保存する値を暗号化して扱います。</p>
+<p><code>CookieHelper::make()</code> で暗号化済みの Cookie を生成し、<code>CookieHelper::get()</code> で Request から Cookie を取得して復号します。削除用の Cookie を生成する場合は <code>CookieHelper::forget()</code> を使います。</p>
+<p>現段階では、暗号鍵と IV がクラス内の固定値です。安全のため、永続ログイン、認証情報、個人情報、重要な設定値の保存には使わないでください。<br>
+画面表示の設定や一時的な選択状態など、漏えいしても大きな影響がない軽い値の保存に利用することを想定しています。</p>
+<h2 id="item-3-150" class="m-3">メソッド一覧</h2>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>メソッド</th><th>用途</th></tr></thead>
+<tbody>
+<tr><td><code>make()</code></td><td>暗号化した値を持つ Cookie を生成する</td></tr>
+<tr><td><code>get()</code></td><td>Request から Cookie を取得し、復号して返す</td></tr>
+<tr><td><code>forget()</code></td><td>Cookie を削除するための失効済み Cookie を生成する</td></tr>
+</tbody></table></div>
+<h2 id="item-3-151" class="m-3">Cookie を作成する</h2>
+<p>Cookie を作成するには、<code>CookieHelper::make()</code> を使います。<br>
+戻り値は Symfony の <code>Cookie</code> オブジェクトです。レスポンスへセットすることで、ブラウザへ Cookie を送信できます。</p>
+<h3 id="item-3-152" class="m-3">make()</h3>
+<p><code>CookieHelper::make()</code> は、指定した名前と値から、暗号化済みの Cookie を生成するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$cookie = CookieHelper::make('theme', 'dark', 3600);
+$response-&gt;headers-&gt;setCookie($cookie);
+</code></pre>
+<p>第1引数には Cookie 名、第2引数には保存する値、第3引数には有効期限を秒数で指定します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">CookieHelper::make('theme', 'dark', 3600);
+</code></pre>
+<p>この例では、<code>theme</code> という名前の Cookie を作成し、値として <code>dark</code> を保存します。有効期限は 3600 秒です。</p>
+<p>第3引数に <code>null</code> を指定した場合は、セッションクッキーになります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$cookie = CookieHelper::make('theme', 'dark');
+$response-&gt;headers-&gt;setCookie($cookie);
+</code></pre>
+<p>第4引数で Cookie のオプションを上書きできます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$cookie = CookieHelper::make(
+    'theme',
+    'dark',
+    3600,
+    [
+        'path' =&gt; '/admin',
+        'secure' =&gt; true,
+        'httpOnly' =&gt; true,
+        'sameSite' =&gt; 'lax',
+    ]
+);
+
+$response-&gt;headers-&gt;setCookie($cookie);
+</code></pre>
+<h2 id="item-3-153" class="m-3">Cookie を取得する</h2>
+<p>Cookie を取得するには、<code>CookieHelper::get()</code> を使います。<br>
+<code>make()</code> で暗号化して保存した値を、Request から取得して復号します。</p>
+<h3 id="item-3-154" class="m-3">get()</h3>
+<p><code>CookieHelper::get()</code> は、Request から Cookie を取得し、復号した値を返すために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$theme = CookieHelper::get($request, 'theme', 'light');
+</code></pre>
+<p>第1引数には Symfony の <code>Request</code>、第2引数には Cookie 名、第3引数には Cookie が存在しない場合や復号できない場合のデフォルト値を指定します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if ($theme === 'dark') {
+    // ダークテーマとして表示する
+}
+</code></pre>
+<p><code>CookieHelper::get()</code> は、Cookie が存在しない場合や、値が空の場合にはデフォルト値を返します。</p>
+<h2 id="item-3-155" class="m-3">Cookie を削除する</h2>
+<p>Cookie を削除するには、<code>CookieHelper::forget()</code> を使います。<br>
+削除用の Cookie をレスポンスへセットすることで、ブラウザ側の Cookie を失効させます。</p>
+<h3 id="item-3-156" class="m-3">forget()</h3>
+<p><code>CookieHelper::forget()</code> は、指定した名前の Cookie を削除するための失効済み Cookie を生成するために使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$response-&gt;headers-&gt;setCookie(
+    CookieHelper::forget('theme')
+);
+</code></pre>
+<p>Cookie を作成したときに path を変更している場合は、削除時にも同じ path を指定してください。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$response-&gt;headers-&gt;setCookie(
+    CookieHelper::forget('theme', '/admin')
+);
+</code></pre>
+<h2 id="item-3-157" class="m-3">既定のオプション</h2>
+<p><code>CookieHelper::make()</code> で Cookie を作成する場合、既定では以下のオプションが使われます。</p>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>項目</th><th>既定値</th></tr></thead>
+<tbody>
+<tr><td><code>path</code></td><td><code>/</code></td></tr>
+<tr><td><code>secure</code></td><td>HTTPS 時は <code>true</code></td></tr>
+<tr><td><code>httpOnly</code></td><td><code>true</code></td></tr>
+<tr><td><code>sameSite</code></td><td><code>Lax</code></td></tr>
+</tbody></table></div>
+<p><code>ttlSeconds</code> を指定した場合は、現在時刻から指定秒数後が有効期限になります。<br>
+<code>ttlSeconds</code> を省略した場合、または <code>null</code> を指定した場合は、セッションクッキーになります。</p>
+<h2 id="item-3-158" class="m-3">利用上の注意</h2>
+<p><code>CookieHelper</code> は Cookie の値を暗号化しますが、現段階では暗号鍵と IV がクラス内の固定値です。<br>
+そのため、認証状態の保持、永続ログイン、個人情報、権限情報、決済やセキュリティに関わる情報など、重要な値の保存には使わないでください。</p>
+<p>Cookie はブラウザ側に保存されるため、サーバー側で信頼すべき情報はセッションやデータベースで管理してください。</p>
+<hr>
+<h1 id="item-3-159" class="m-3">Logger</h1>
+<p>Chandra のログ機能は、 <code>Logger</code> クラスで扱い、指定したログディレクトリに、ログレベルとともにログを記録します。<br>
+Chandra の <code>Logger</code> は、ログ収集基盤や外部サービスへの送信を行うものではありません。  アプリケーションの処理状況や例外の詳細を、ローカルのログファイルへ残すためのシンプルなロガーです。</p>
+<p><code>Logger</code> クラスは、指定ログディレクトリに、年月ごとのファイルを出力し、1行ずつログを追記します。<br>
+たとえば、2026年7月に既定のファイル名で出力する場合は、次のようなファイル名になります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>log/202607_Chandra.log
+</code></pre>
+<p>ログ1行には、日時、ログレベル、メッセージが出力されます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>2026/07/06 16:20:15 INFO news update started
+</code></pre>
+<h2 id="item-3-160" class="m-3">Logger の作成</h2>
+<p>通常は <code>Logger::createDefault()</code> を使って作成します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">use Studiogau\Chandra\Logging\Logger;
+$logger = Logger::createDefault(__DIR__);
+</code></pre>
+<p>createDefault() の第1引数には、アプリケーションのルートディレクトリを渡します。<br>
+この場合、指定したディレクトリの直下に log ディレクトリが作成され、その中にログファイルが出力されます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code>myapp/
+├── index.php
+├── config/
+└── log/
+    └── 202607_Chandra.log
+</code></pre>
+<p>log ディレクトリが存在しない場合は、自動的に作成されます。<br>
+ただし、ディレクトリを作成できない場合や、書き込み権限がない場合は例外が発生します。</p>
+<h2 id="item-3-161" class="m-3">基本的な使い方</h2>
+<p>ログを出力するには、ログレベルに対応したメソッドを呼び出します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$logger-&gt;info('news list opened');
+$logger-&gt;warn('news id was not specified');
+$logger-&gt;error('news update failed');
+</code></pre>
+<h2 id="item-3-162" class="m-3">ログレベル</h2>
+<p><code>Logger</code> は、次のログレベルを持ちます。</p>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>メソッド</th><th>レベル</th><th>主な用途</th></tr></thead>
+<tbody>
+<tr><td><code>debug()</code></td><td>DEBUG</td><td>開発中の詳細確認</td></tr>
+<tr><td><code>info()</code></td><td>INFO</td><td>通常の処理開始・終了</td></tr>
+<tr><td><code>warn()</code></td><td>WARN</td><td>想定内だが注意したい状態</td></tr>
+<tr><td><code>error()</code></td><td>ERROR</td><td>処理に失敗したエラー</td></tr>
+<tr><td><code>fatal()</code></td><td>FATAL</td><td>継続が難しい重大なエラー</td></tr>
+</tbody></table></div>
+<p>「例外処理のログレベルの使い分け」も参照してください。</p>
+<h3 id="item-3-163" class="m-3">debug()</h3>
+<p><code>debug()</code> は、開発中に変数の状態や処理の通過地点を確認したい場合に使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$logger-&gt;debug('search condition: ' . json_encode($condition, JSON_UNESCAPED_UNICODE));
+</code></pre>
+<p>本番環境では、通常 <code>DEBUG</code> レベルは出力しないことを想定しています。</p>
+<h3 id="item-3-164" class="m-3">info()</h3>
+<p><code>info()</code> は、通常の処理が行われたことを記録することを想定しています。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$logger-&gt;info('news insert started');
+
+$affected = $db-&gt;insert('news', [
+    'title' =&gt; ['value' =&gt; $title, 'datatype' =&gt; PDO::PARAM_STR],
+    'body' =&gt; ['value' =&gt; $body, 'datatype' =&gt; PDO::PARAM_STR],
+]);
+
+$logger-&gt;info('news insert completed affected=' . $affected);
+</code></pre>
+<h3 id="item-3-165" class="m-3">warn()</h3>
+<p><code>warn()</code> は、処理を継続できるものの、注意しておきたい状態を記録するために使います。<br>
+不正な入力、対象データなし、権限不足など、アプリケーションとして想定しうる失敗を記録する場合を想定しています。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if ($id === '') {
+    $logger-&gt;warn(__METHOD__ . ' id was empty');
+
+    SessionHelper::flushError('対象データが指定されていません。');
+    header('Location: news_list.php', true, 303);
+    exit;
+}
+</code></pre>
+<h3 id="item-3-166" class="m-3">error()</h3>
+<p><code>error()</code> は、DB 更新失敗や例外発生など、処理が正常に完了できなかった場合に使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">try {
+    $affected = $db-&gt;update(
+        'news',
+        ['title' =&gt; ['value' =&gt; $title, 'datatype' =&gt; PDO::PARAM_STR]],
+        ['id' =&gt; ['value' =&gt; $id, 'datatype' =&gt; PDO::PARAM_INT]]
+    );
+
+    if ($affected !== 1) {
+        throw new RuntimeException('news update affected rows was not 1.');
+    }
+} catch (Throwable $e) {
+    $logger-&gt;error(
+        __METHOD__ . ' news update failed: ' . $e-&gt;getMessage()
+    );
+
+    SessionHelper::flushError('お知らせを更新できませんでした。');
+    header('Location: news_edit.php?id=' . urlencode((string)$id), true, 303);
+    exit;
+}
+</code></pre>
+<p>画面には利用者向けの短いメッセージだけを表示し、調査に必要な詳細はログへ残す、という使い方を想定しています。<br>
+たとえば、DB 更新に失敗した場合、画面には「更新できませんでした」と表示し、ログには例外メッセージや処理箇所を記録します。</p>
+<h3 id="item-3-167" class="m-3">fatal()</h3>
+<p><code>fatal()</code> は、設定不備や DB 接続不可など、アプリケーションの処理を継続できない重大なエラーを記録する場合に使います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">try {
+    $db = Database::fromConfiguredSource(
+        __DIR__ . '/config/dbconfig.ini',
+        $logger
+    );
+} catch (Throwable $e) {
+    $logger-&gt;fatal(
+        __METHOD__ . ' database initialization failed: ' . $e-&gt;getMessage()
+    );
+
+    echo 'システムエラーが発生しました。';
+    exit;
+}
+</code></pre>
+<h2 id="item-3-168" class="m-3">出力する最小レベルを指定する</h2>
+<p>Logger 作成時にログレベルの最小値を指定します。既定では INFO です。最小値未満のログは出力されません。 </p>
+<p><img src="img/chandra_logger_loglevel.png" alt="Logger のログレベル" class="img-fluid"></p>
+<p><code>Logger::createDefault()</code> の第3引数に、出力する最小ログレベルを指定します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$logger = Logger::createDefault(
+    __DIR__,
+    'Chandra.log',
+    Logger::LEVEL_WARN
+);
+</code></pre>
+<p>この例では、<code>WARN</code>、<code>ERROR</code>、<code>FATAL</code> が出力され、<code>DEBUG</code> と <code>INFO</code> は出力されません。<br>
+開発環境では <code>DEBUG</code> や <code>INFO</code> まで出力し、本番環境では <code>WARN</code> 以上にする、といった使い分けができます。</p>
+<p>ログ出力を無効にしたい場合は、最小レベルに <code>0</code> を指定します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$logger = Logger::createDefault(
+    __DIR__,
+    'Chandra.log',
+    0
+);
+</code></pre>
+<p><code>createDefault()</code> の第2引数には、ログファイル名を指定できます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$logger = Logger::createDefault(
+    __DIR__,
+    'myapp.log'
+);
+</code></pre>
+<p>この場合、2026年7月のログは次のようなファイルに出力されます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-text">log/202607_myapp.log
+</code></pre>
+<p>アプリケーションごとにログファイル名を分けたい場合や、管理画面用と公開画面用でログを分けたい場合に利用できます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$adminLogger = Logger::createDefault(__DIR__, 'admin.log');
+$frontLogger = Logger::createDefault(__DIR__, 'front.log');
+</code></pre>
+<h2 id="item-3-169" class="m-3">任意のログディレクトリを指定する</h2>
+<p><code>createDefault()</code> は、プロジェクト直下の <code>log</code> ディレクトリを使うための簡易メソッドです。</p>
+<p>出力先ディレクトリを細かく指定したい場合は、<code>Logger</code> を直接生成します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$logger = new Logger(
+    __DIR__ . '/var/log',
+    'myapp.log',
+    Logger::LEVEL_INFO
+);
+</code></pre>
+<p>この場合は、次のようなファイルに出力されます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-text">var/log/202607_myapp.log
+</code></pre>
+<h2 id="item-3-170" class="m-3">Database / AuthService との連携</h2>
+<p><code>Database</code> と <code>AuthService</code> は、どちらも <code>Logger</code> を受け取れます。<br>
+アプリケーション側で作成した <code>Logger</code> を渡すと、DB 処理や認証処理で使うログ出力先をそろえられます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">use Studiogau\Chandra\Auth\AuthService;
+use Studiogau\Chandra\Database\Database;
+use Studiogau\Chandra\Logging\Logger;
+
+$logger = Logger::createDefault(__DIR__);
+
+$db = Database::fromConfiguredSource(
+    __DIR__ . '/config/dbconfig.ini',
+    $logger
+);
+
+$auth = new AuthService(
+    new UserRepository($db),
+    $logger
+);
+</code></pre>
+<p><code>Logger</code> を渡さなかった場合、各クラス内で既定のロガーが作成されますが、アプリケーションとしてログの出力先を明確にしたい場合は、最初に <code>Logger</code> を作成し、それを各クラスへ渡す形にしておくと管理しやすくなります。</p>
+<h2 id="item-3-171" class="m-3">例外処理でログを使う</h2>
+<p>例外処理では、ログへ残す内容と、画面に表示する内容を分けることを推奨します。<br>
+ログには、調査に必要な処理箇所や例外メッセージを記録し、画面には、内部情報を含まない利用者向けの文言だけを表示します。</p>
+<p>「例外処理 / エラーハンドリング」を参照してください。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">try {
+    $news = $db-&gt;fetchOne(
+        'SELECT id, title, body
+           FROM news
+          WHERE id = :id',
+        [
+            ':id' =&gt; ['value' =&gt; $id, 'datatype' =&gt; PDO::PARAM_INT],
+        ]
+    );
+} catch (RecordNotFoundException $e) {
+    $logger-&gt;warn(
+        __METHOD__ . ' news was not found: ' . $e-&gt;getMessage()
+    );
+
+    SessionHelper::flushError('指定されたお知らせは見つかりませんでした。');
+    header('Location: news_list.php', true, 303);
+    exit;
+} catch (Throwable $e) {
+    $logger-&gt;error(
+        __METHOD__ . ' news fetch failed: ' . $e-&gt;getMessage()
+    );
+
+    SessionHelper::flushError('お知らせを取得できませんでした。');
+    header('Location: news_list.php', true, 303);
+    exit;
+}
+</code></pre>
+<h3 id="item-3-172" class="m-3">ログに出してはいけない情報 </h3>
+<p>ログは、障害調査や運用確認に役立つ一方で、長く残る可能性があります。<br>
+そのため、次のような情報はログに出力しないようにします。</p>
+<ul>
+  <li>パスワード</li>
+  <li>CSRF token</li>
+  <li>セッション ID</li>
+  <li>Cookie の値</li>
+  <li>個人情報</li>
+  <li>認証情報</li>
+  <li>クレジットカード番号などの決済情報</li>
+  <li>API キーやアクセストークン</li>
+</ul>
+<p>たとえば、ログイン失敗時に、入力されたパスワードをログへ出してはいけません。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">// 悪い例
+❌ $logger-&gt;warn('login failed password=' . $password);
+</code></pre>
+<p>ログイン ID やユーザー ID を出す場合も、運用上必要な範囲にとどめます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$logger-&gt;warn('login failed login_id='.$loginId.' ip='.($clientIp ?? 'unknown'));
+</code></pre>
+<h3 id="item-3-173" class="m-3">Database / Auth との連携</h3>
+<p>Database と Auth はどちらも Logger を受け取れます。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$logger = Logger::createDefault(__DIR__);
+
+$db = Database::fromConfiguredSource(__DIR__ . '/config/dbconfig.ini', $logger);
+$auth = new AuthService(new UserRepository(), $logger, []);
+</code></pre>
+<p>アプリ全体で同じ Logger を渡すようにすると、ログ方針を揃えやすくなります。</p>
+<hr>
+<h1 id="item-3-174" class="m-3">例外処理 / エラーハンドリング</h1>
+<p>Chandra を使ったアプリケーションでは、例外が発生する可能性のある処理を <code>try</code> / <code>catch</code> で扱うことを想定しています。</p>
+<p>例外処理では、次のような対応を行います。</p>
+<ul>
+  <li>詳細をログへ記録する</li>
+  <li>利用者向けのメッセージを作成する</li>
+  <li>フラッシュメッセージへメッセージを保存する</li>
+  <li>適切な画面へリダイレクトする</li>
+  <li>必要に応じて処理を中断する</li>
+</ul>
+<p>例外発生時の情報の扱い方として、 <code>__METHOD__</code> や対象 ID のほか、SQL、ファイルパス、内部処理の状態など、調査に必要な情報はログへ残し、画面には利用者が正しく対処するための一般的で安全なメッセージを表示します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">try {
+    // 例外が発生する可能性のある処理
+} catch (Throwable $e) {
+    $logger-&gt;error(
+        __METHOD__ . ' failed: ' . $e-&gt;getMessage()
+    );
+
+    SessionHelper::flushError('処理中にエラーが発生しました。');
+    header('Location: index.php', true, 303);
+    exit;
+}
+</code></pre>
+<h2 id="item-3-175" class="m-3">Chandra で扱う例外</h2>
+<p>Chandra を利用する処理では、Chandra が独自に定義している例外に加えて、PHP や PDO が発生させる標準的な例外も扱います。</p>
+<p>Chandra が独自に定義している例外は、次のものです。</p>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>例外</th><th>主な発生箇所</th><th>扱い方の目安</th></tr></thead>
+<tbody>
+<tr><td><code>AuthException</code></td><td><code>AuthService::login()</code> など</td><td>ログイン失敗、ログイン状態の確立失敗として扱う</td></tr>
+<tr><td><code>RecordNotFoundException</code></td><td><code>Database::fetchOne()</code></td><td>対象データなしとして扱う</td></tr>
+<tr><td><code>MultipleRecordsFoundException</code></td><td><code>Database::fetchOne()</code></td><td>本来1件のはずの検索結果が複数件になった状態として扱う</td></tr>
+</tbody></table></div>
+<p>これらに加えて、Chandra の利用時には、次のような PHP / PDO 標準系の例外が発生する可能性があります。</p>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>例外</th><th>主な発生箇所</th><th>扱い方の目安</th></tr></thead>
+<tbody>
+<tr><td><code>InvalidArgumentException</code></td><td>Database へ不正な引数を渡した場合など</td><td>アプリ側の実装ミス、または入力値の扱いを確認する</td></tr>
+<tr><td><code>PDOException</code></td><td>DB 接続、SQL 実行</td><td>DB エラーとして扱う</td></tr>
+<tr><td><code>RuntimeException</code></td><td>設定不備、実行時エラーなど</td><td>システムエラーとして扱う</td></tr>
+<tr><td><code>Throwable</code></td><td>上記以外も含む最終的な捕捉</td><td>想定外のエラーとして扱う</td></tr>
+</tbody></table></div>
+<p><code>RecordNotFoundException</code> と <code>MultipleRecordsFoundException</code> は <code>RuntimeException</code> を継承しています。<br>
+そのため、個別に処理したい場合は、<code>RuntimeException</code> より先に <code>catch</code> します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">try {
+    $row = $db-&gt;fetchOne(...);
+} catch (RecordNotFoundException $e) {
+    // 先に個別の例外を処理する
+} catch (RuntimeException $e) {
+    // そのあとで広い例外を処理する
+}
+</code></pre>
+<h2 id="item-3-176" class="m-3">catch の順序</h2>
+<p><code>catch</code> は、具体的な例外から順に書きます。広い例外を先に書くと、その後ろに書いた具体的な例外が捕捉されなくなるためです。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">use InvalidArgumentException;
+use PDOException;
+use RuntimeException;
+use Throwable;
+use Studiogau\Chandra\Database\RecordNotFoundException;
+use Studiogau\Chandra\Database\MultipleRecordsFoundException;
+
+try {
+    $news = $db-&gt;fetchOne(
+        'SELECT id, title, body
+           FROM news
+          WHERE id = :id',
+        [
+            ':id' =&gt; ['value' =&gt; $id, 'datatype' =&gt; PDO::PARAM_INT],
+        ]
+    );
+} catch (RecordNotFoundException $e) {
+    $logger-&gt;warn(
+        __METHOD__ . ' news was not found: ' . $e-&gt;getMessage()
+    );
+
+    SessionHelper::flushError('指定されたお知らせは見つかりませんでした。');
+    header('Location: news_list.php', true, 303);
+    exit;
+} catch (MultipleRecordsFoundException $e) {
+    $logger-&gt;error(
+        __METHOD__ . ' multiple news records were found: ' . $e-&gt;getMessage()
+    );
+
+    SessionHelper::flushError('データを正しく取得できませんでした。');
+    header('Location: news_list.php', true, 303);
+    exit;
+} catch (InvalidArgumentException $e) {
+    $logger-&gt;error(
+        __METHOD__ . ' invalid argument: ' . $e-&gt;getMessage()
+    );
+
+    SessionHelper::flushError('入力内容を確認してください。');
+    header('Location: news_list.php', true, 303);
+    exit;
+} catch (PDOException $e) {
+    $logger-&gt;fatal(
+        __METHOD__ . ' database error: ' . $e-&gt;getMessage()
+    );
+
+    SessionHelper::flushError('データベース処理中にエラーが発生しました。');
+    header('Location: news_list.php', true, 303);
+    exit;
+} catch (RuntimeException $e) {
+    $logger-&gt;fatal(
+        __METHOD__ . ' runtime error: ' . $e-&gt;getMessage()
+    );
+
+    SessionHelper::flushError('システムエラーが発生しました。');
+    header('Location: news_list.php', true, 303);
+    exit;
+} catch (Throwable $e) {
+    $logger-&gt;fatal(
+        __METHOD__ . ' unexpected error: ' . $e-&gt;getMessage()
+    );
+
+    SessionHelper::flushError('予期しないエラーが発生しました。');
+    header('Location: news_list.php', true, 303);
+    exit;
+}
+</code></pre>
+<p>最後に <code>Throwable</code> を置くと、想定していない例外やエラーもまとめて捕捉できます。<br>
+ただし、すべてを <code>Throwable</code> だけで処理すると、例外ごとの意味が分かりにくくなるため、業務上分けたい例外は個別に <code>catch</code> します。</p>
+<h2 id="item-3-177" class="m-3">ログレベルの使い分け</h2>
+<p>例外処理では、発生した内容に応じてログレベルを使い分けます。</p>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>状況</th><th>ログレベルの目安</th></tr></thead>
+<tbody>
+<tr><td>対象データが存在しない</td><td><code>warn()</code></td></tr>
+<tr><td>入力値や遷移の不正</td><td><code>warn()</code> または <code>error()</code></td></tr>
+<tr><td>アプリ側の引数指定ミス</td><td><code>error()</code></td></tr>
+<tr><td>DB 接続失敗、SQL 実行失敗</td><td><code>error()</code> または <code>fatal()</code></td></tr>
+<tr><td>設定ファイルや環境変数の不備</td><td><code>fatal()</code></td></tr>
+<tr><td>想定外の例外</td><td><code>fatal()</code></td></tr>
+</tbody></table></div>
+<p>たとえば、利用者の操作によって起こりうる「対象データが見つからない」は <code>warn()</code>、DB 接続不能のようにシステム全体へ影響する問題は <code>fatal()</code> として扱います。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$logger-&gt;warn(__METHOD__ . ' target record was not found');
+$logger-&gt;fatal(__METHOD__ . ' database connection failed: ' . $e-&gt;getMessage());
+</code></pre>
+<h2 id="item-3-178" class="m-3">DB 取得時の例外処理</h2>
+<p><code>Database::fetchOne()</code> は、対象が1件だけ取得できることを前提にしたメソッドです。</p>
+<p>0件の場合は <code>RecordNotFoundException</code>、複数件の場合は <code>MultipleRecordsFoundException</code> が発生します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">try {
+    $news = $db-&gt;fetchOne(
+        'SELECT id, title, body
+           FROM news
+          WHERE id = :id',
+        [
+            ':id' =&gt; ['value' =&gt; $id, 'datatype' =&gt; PDO::PARAM_INT],
+        ]
+    );
+} catch (RecordNotFoundException $e) {
+    $logger-&gt;warn(
+        __METHOD__ . ' news not found id=' . $id
+    );
+
+    SessionHelper::flushError('指定されたお知らせは見つかりませんでした。');
+    header('Location: news_list.php', true, 303);
+    exit;
+}
+</code></pre>
+<p>「見つからない」ことが通常の業務上ありえる場合は、<code>fetchOne()</code> ではなく <code>fetchList()</code> を使って、0件を空配列として扱う設計も考えられます。</p>
+<h2 id="item-3-179" class="m-3">DB 更新時の例外処理</h2>
+<p>登録・更新・削除処理では、SQL 実行時の例外だけでなく、影響行数も確認します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">try {
+    $affected = $db-&gt;update(
+        'news',
+        [
+            'title' =&gt; ['value' =&gt; $title, 'datatype' =&gt; PDO::PARAM_STR],
+            'body' =&gt; ['value' =&gt; $body, 'datatype' =&gt; PDO::PARAM_STR],
+        ],
+        [
+            'id' =&gt; ['value' =&gt; $id, 'datatype' =&gt; PDO::PARAM_INT],
+        ]
+    );
+
+    if ($affected !== 1) {
+        throw new RuntimeException('news update affected rows was not 1.');
+    }
+
+    SessionHelper::flushSuccess('お知らせを更新しました。');
+    header('Location: news_detail.php?id=' . urlencode((string)$id), true, 303);
+    exit;
+} catch (Throwable $e) {
+    $logger-&gt;error(
+        __METHOD__ . ' news update failed id=' . $id . ': ' . $e-&gt;getMessage()
+    );
+
+    SessionHelper::flushError('お知らせを更新できませんでした。');
+    header('Location: news_edit.php?id=' . urlencode((string)$id), true, 303);
+    exit;
+}
+</code></pre>
+<p><code>update()</code> が例外を出さずに完了しても、更新件数が想定どおりとは限りません。<br>
+更新対象が1件の想定であれば、戻り値が <code>1</code> であることを確認することを推奨します。</p>
+<h2 id="item-3-180" class="m-3">トランザクション中の例外処理</h2>
+<p>複数の DB 操作をひとまとまりで扱う場合は、例外発生時に <code>rollback()</code> します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$connection = PdoConnection::fromConfiguredSource(
+    __DIR__ . '/config/dbconfig.ini'
+);
+
+$db = new Database($connection, $logger);
+$pdo = $connection-&gt;getPdo();
+
+try {
+    $connection-&gt;begin();
+
+    $db-&gt;insert('orders', [
+        'customer_name' =&gt; ['value' =&gt; $customerName, 'datatype' =&gt; PDO::PARAM_STR],
+    ]);
+
+    $db-&gt;update(
+        'stocks',
+        [
+            'stock' =&gt; ['value' =&gt; $newStock, 'datatype' =&gt; PDO::PARAM_INT],
+        ],
+        [
+            'id' =&gt; ['value' =&gt; $stockId, 'datatype' =&gt; PDO::PARAM_INT],
+        ]
+    );
+
+    $connection-&gt;commit();
+
+    SessionHelper::flushSuccess('注文を登録しました。');
+    header('Location: order_list.php', true, 303);
+    exit;
+} catch (Throwable $e) {
+    if ($pdo-&gt;inTransaction()) {
+        $connection-&gt;rollback();
+    }
+
+    $logger-&gt;error(
+        __METHOD__ . ' order registration failed: ' . $e-&gt;getMessage()
+    );
+
+    SessionHelper::flushError('注文を登録できませんでした。');
+    header('Location: order_input.php', true, 303);
+    exit;
+}
+</code></pre>
+<p>トランザクション中に例外が発生した場合は、途中まで行われた更新を取り消します。<br>
+<code>rollback()</code> の前に <code>inTransaction()</code> を確認すると、すでにトランザクションが終了している場合の二重ロールバックを避けられます。</p>
+<h2 id="item-3-181" class="m-3">認証処理の例外処理</h2>
+<p>ログイン処理では、<code>AuthService::login()</code> が失敗した場合に <code>AuthException</code> が発生します。</p>
+<p>ログイン失敗時は、利用者には詳しい理由を表示しすぎないようにします。<br>
+「ログイン ID が存在しない」「パスワードが違う」「アカウントがロックされている」などを細かく表示すると、攻撃者に手がかりを与える可能性があるためです。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">use Studiogau\Chandra\Auth\AuthException;
+
+try {
+    $loginUser = $auth-&gt;login($credentials, $attempt);
+
+    header('Location: menu.php', true, 303);
+    exit;
+} catch (AuthException $e) {
+    $logger-&gt;warn(
+        __METHOD__ . ' login failed: ' . $e-&gt;getMessage()
+    );
+
+    SessionHelper::flushError('ログインできませんでした。');
+    header('Location: index.php', true, 303);
+    exit;
+}
+</code></pre>
+<p>LoginGuard を使用すれば、失敗回数の記録やロック状態の保存などを Guard 側で行えます。<br>
+画面側では、基本的に <code>AuthException</code> を捕捉して、ログイン画面へ戻す処理にまとめることを想定しています。</p>
+<h2 id="item-3-182" class="m-3">入力エラーとシステムエラーを分ける</h2>
+<p>利用者の入力や操作によって起こるエラーと、システム側の問題で起こるエラーは分けて考えます。</p>
+<p>たとえば、入力チェックで検出できるものは、例外ではなく通常の分岐として扱う方が分かりやすい場合があります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if ($title === '') {
+    SessionHelper::flushError('タイトルを入力してください。');
+    header('Location: news_input.php', true, 303);
+    exit;
+}
+</code></pre>
+<p>一方、DB 接続失敗、SQL 実行失敗、設定ファイル不備などは、通常の入力エラーではなくシステム側のエラーとしてログへ記録します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">try {
+    $db = Database::fromConfiguredSource(
+        __DIR__ . '/config/dbconfig.ini',
+        $logger
+    );
+} catch (Throwable $e) {
+    $logger-&gt;fatal(
+        __METHOD__ . ' database initialization failed: ' . $e-&gt;getMessage()
+    );
+
+    echo 'システムエラーが発生しました。';
+    exit;
+}
+</code></pre>
+<h2 id="item-3-183" class="m-3">リダイレクトと exit</h2>
+<p>エラー発生後に別画面へリダイレクトする場合は、<code>header()</code> のあとに <code>exit</code> を呼びます。<br>
+POST 後に画面遷移する場合は、<code>303</code> を指定すると、再読み込み時のフォーム再送信を避けやすくなります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::flushError('処理に失敗しました。');
+header('Location: news_list.php', true, 303);
+exit;
+</code></pre>
+<h2 id="item-3-184" class="m-3">例外を再スローする場合</h2>
+<p>共通処理や下位のクラスでは、その場で画面遷移せず、ログだけ残して例外を再スローすることもあります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">try {
+    $this-&gt;repository-&gt;save($values);
+} catch (Throwable $e) {
+    $this-&gt;logger-&gt;error(
+        __METHOD__ . ' save failed: ' . $e-&gt;getMessage()
+    );
+
+    throw $e;
+}
+</code></pre>
+<p>画面へ戻すか、エラーページを表示するかは、呼び出し元で判断します。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">try {
+    $service-&gt;saveNews($values);
+
+    SessionHelper::flushSuccess('お知らせを保存しました。');
+    header('Location: news_list.php', true, 303);
+    exit;
+} catch (Throwable $e) {
+    SessionHelper::flushError('お知らせを保存できませんでした。');
+    header('Location: news_input.php', true, 303);
+    exit;
+}
+</code></pre>
+<p>画面遷移を行う層と、業務処理を行う層を分けると、例外処理の責務が整理しやすくなります。</p>
+<h2 id="item-3-185" class="m-3">エラーページを表示する場合</h2>
+<p>画面ごとに戻り先がない重大なエラーでは、共通のエラーページを表示する方法もあります。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">try {
+    // アプリケーション処理
+} catch (Throwable $e) {
+    $logger-&gt;fatal(
+        __METHOD__ . ' unexpected error: ' . $e-&gt;getMessage()
+    );
+
+    http_response_code(500);
+    require __DIR__ . '/error/500.php';
+    exit;
+}
+</code></pre>
+<p>エラーページでも、例外メッセージをそのまま表示しないようにします。</p>
+<pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;!-- error/500.php --&gt;
+&lt;h1&gt;システムエラー&lt;/h1&gt;
+&lt;p&gt;申し訳ありません。時間をおいて再度お試しください。&lt;/p&gt;
+</code></pre>
+<hr>
+<h1 id="item-3-186" class="m-3">索引</h1>
+<p>クラス名、インターフェース名、例外名、メソッド名から本文中の説明へ移動するための逆引きです。</p>
+<h2 id="item-3-187" class="m-3">クラス・インターフェース・例外</h2>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>名前</th><th>種別</th><th>説明</th></tr></thead>
+<tbody>
+<tr><td><a href="#item-3-45"><code>AuthService</code></a></td><td>クラス</td><td>ログイン、ログイン状態確認、ログアウトを扱う認証処理の中心です。</td></tr>
+<tr><td><a href="#item-3-46"><code>UserRepositoryInterface</code></a></td><td>インターフェース</td><td>ログイン ID とパスワードをもとにユーザー情報を取得・照合します。</td></tr>
+<tr><td><a href="#item-3-47"><code>LoginCredentials</code></a></td><td>クラス</td><td>ログインフォームから渡されたログイン ID とパスワードを表します。</td></tr>
+<tr><td><a href="#item-3-48"><code>LoginAttempt</code></a></td><td>クラス</td><td>ログイン試行時の IP アドレス、User-Agent、画面名などを表します。</td></tr>
+<tr><td><a href="#item-3-49"><code>LoginUser</code></a></td><td>クラス</td><td>ログイン済みユーザーの ID、ログイン ID、ユーザー名、権限を保持します。</td></tr>
+<tr><td><a href="#item-3-50"><code>LoginGuardInterface</code></a></td><td>インターフェース</td><td>ログイン前後の制限、失敗記録、監査処理を差し込むための契約です。</td></tr>
+<tr><td><a href="#item-3-70"><code>AuthException</code></a></td><td>例外</td><td>ログイン失敗やログイン状態の確立失敗を表します。</td></tr>
+<tr><td><a href="#item-3-17"><code>Database</code></a></td><td>クラス</td><td>PDO を使った読み取り、追加、更新、削除を補助します。</td></tr>
+<tr><td><a href="#item-3-19"><code>PdoConnection</code></a></td><td>クラス</td><td>PDO 接続の作成、取得、トランザクション制御を扱います。</td></tr>
+<tr><td><a href="#item-3-38"><code>RecordNotFoundException</code></a></td><td>例外</td><td><code>fetchOne()</code> の結果が 0 件だった場合に発生します。</td></tr>
+<tr><td><a href="#item-3-39"><code>MultipleRecordsFoundException</code></a></td><td>例外</td><td><code>fetchOne()</code> の結果が複数件だった場合に発生します。</td></tr>
+<tr><td><a href="#item-3-12"><code>MailConfig</code></a></td><td>クラス</td><td>SMTP 設定を ini ファイルまたは環境変数から読み込みます。</td></tr>
+<tr><td><a href="#item-3-16"><code>ChandraConst</code></a></td><td>クラス</td><td>Chandra 内で使う共通定数をまとめます。</td></tr>
+<tr><td><a href="#item-3-79"><code>SessionHelper</code></a></td><td>クラス</td><td>画面単位データ、ログインユーザー、フラッシュメッセージなどを扱います。</td></tr>
+<tr><td><a href="#item-3-129"><code>Utility</code></a></td><td>クラス</td><td>CSRF、HTML エスケープ、入力チェック、画像処理などの helper を提供します。</td></tr>
+<tr><td><a href="#item-3-149"><code>CookieHelper</code></a></td><td>クラス</td><td>Cookie の作成、取得、削除を補助します。</td></tr>
+<tr><td><a href="#item-3-159"><code>Logger</code></a></td><td>クラス</td><td>ログレベル付きでローカルファイルへログを出力します。</td></tr>
+<tr><td><a href="#item-3-175"><code>InvalidArgumentException</code></a></td><td>標準例外</td><td>不正な引数指定や入力値の扱いを確認したい場合に扱います。</td></tr>
+<tr><td><a href="#item-3-175"><code>PDOException</code></a></td><td>標準例外</td><td>DB 接続や SQL 実行時のエラーとして扱います。</td></tr>
+<tr><td><a href="#item-3-175"><code>RuntimeException</code></a></td><td>標準例外</td><td>設定不備や実行時エラーなどのシステムエラーとして扱います。</td></tr>
+<tr><td><a href="#item-3-175"><code>Throwable</code></a></td><td>標準インターフェース</td><td>想定外の例外やエラーを最後に捕捉するために扱います。</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="item-3-188" class="m-3">メソッド</h2>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>名前</th><th>所属</th><th>用途</th></tr></thead>
+<tbody>
+<tr><td><a href="#item-3-60"><code>login()</code></a></td><td><code>AuthService</code></td><td>資格情報を照合し、ログインセッションを確立します。</td></tr>
+<tr><td><a href="#item-3-68"><code>checkUserSession()</code></a></td><td><code>AuthService</code></td><td>ログイン状態とセッションタイムアウトを確認します。</td></tr>
+<tr><td><a href="#item-3-45"><code>getCurrentUser()</code></a></td><td><code>AuthService</code></td><td>現在ログインしているユーザー情報を取得します。</td></tr>
+<tr><td><a href="#item-3-69"><code>logout()</code></a></td><td><code>AuthService</code></td><td>ログインセッションを破棄します。</td></tr>
+<tr><td><a href="#item-3-46"><code>findByCredentials()</code></a></td><td><code>UserRepositoryInterface</code></td><td>ログイン ID とパスワードをもとにユーザー情報を返します。</td></tr>
+<tr><td><a href="#item-3-48"><code>fromServer()</code></a></td><td><code>LoginAttempt</code></td><td><code>$_SERVER</code> からログイン試行情報を組み立てます。</td></tr>
+<tr><td><a href="#item-3-51"><code>assertCanAttempt()</code></a></td><td><code>LoginGuardInterface</code></td><td>認証照合前にログイン試行を許可するか確認します。</td></tr>
+<tr><td><a href="#item-3-52"><code>recordSuccessfulLogin()</code></a></td><td><code>LoginGuardInterface</code></td><td>ログイン成功後の失敗回数クリアやロック解除を行います。</td></tr>
+<tr><td><a href="#item-3-53"><code>recordFailedLogin()</code></a></td><td><code>LoginGuardInterface</code></td><td>ログイン失敗時の失敗回数記録や監査ログ出力を行います。</td></tr>
+<tr><td><a href="#item-3-20"><code>fetchCount()</code></a></td><td><code>Database</code></td><td>SQL の結果から件数を取得します。</td></tr>
+<tr><td><a href="#item-3-20"><code>fetchList()</code></a></td><td><code>Database</code></td><td>SQL の結果を複数行の配列として取得します。</td></tr>
+<tr><td><a href="#item-3-20"><code>fetchOne()</code></a></td><td><code>Database</code></td><td>SQL の結果を 1 件だけ取得します。</td></tr>
+<tr><td><a href="#item-3-26"><code>insert()</code></a></td><td><code>Database</code></td><td>指定テーブルへレコードを追加します。</td></tr>
+<tr><td><a href="#item-3-27"><code>update()</code></a></td><td><code>Database</code></td><td>指定条件に一致するレコードを更新します。</td></tr>
+<tr><td><a href="#item-3-28"><code>delete()</code></a></td><td><code>Database</code></td><td>指定条件に一致するレコードを物理削除します。</td></tr>
+<tr><td><a href="#item-3-24"><code>setCurrentUserId()</code></a></td><td><code>Database</code></td><td>監査列へ反映する現在ユーザー ID を設定します。</td></tr>
+<tr><td><a href="#item-3-10"><code>fromIni()</code></a></td><td><code>PdoConnection</code></td><td>ini ファイルから DB 接続情報を読み込みます。</td></tr>
+<tr><td><a href="#item-3-11"><code>fromEnv()</code></a></td><td><code>PdoConnection</code></td><td>環境変数から DB 接続情報を読み込みます。</td></tr>
+<tr><td><a href="#item-3-9"><code>fromConfiguredSource()</code></a></td><td><code>PdoConnection</code></td><td>設定に応じて ini または環境変数から DB 接続情報を読み込みます。</td></tr>
+<tr><td><a href="#item-3-19"><code>getPdo()</code></a></td><td><code>PdoConnection</code></td><td>内部の PDO インスタンスを取得します。</td></tr>
+<tr><td><a href="#item-3-30"><code>begin()</code></a></td><td><code>PdoConnection</code></td><td>トランザクションを開始します。</td></tr>
+<tr><td><a href="#item-3-30"><code>commit()</code></a></td><td><code>PdoConnection</code></td><td>トランザクションを確定します。</td></tr>
+<tr><td><a href="#item-3-30"><code>rollback()</code></a></td><td><code>PdoConnection</code></td><td>トランザクションを取り消します。</td></tr>
+<tr><td><a href="#item-3-13"><code>fromConfiguredSource()</code></a></td><td><code>MailConfig</code></td><td>設定に応じて ini または環境変数からメール設定を読み込みます。</td></tr>
+<tr><td><a href="#item-3-14"><code>fromIni()</code></a></td><td><code>MailConfig</code></td><td>ini ファイルからメール設定を読み込みます。</td></tr>
+<tr><td><a href="#item-3-15"><code>fromEnv()</code></a></td><td><code>MailConfig</code></td><td>環境変数からメール設定を読み込みます。</td></tr>
+<tr><td><a href="#item-3-84"><code>setData()</code></a></td><td><code>SessionHelper</code></td><td>画面単位データを保存します。</td></tr>
+<tr><td><a href="#item-3-85"><code>getData()</code></a></td><td><code>SessionHelper</code></td><td>画面単位データを取得します。</td></tr>
+<tr><td><a href="#item-3-86"><code>delData()</code></a></td><td><code>SessionHelper</code></td><td>画面単位データを削除します。</td></tr>
+<tr><td><a href="#item-3-87"><code>clearDataExceptFunc()</code></a></td><td><code>SessionHelper</code></td><td>指定機能以外の画面単位データを削除します。</td></tr>
+<tr><td><a href="#item-3-88"><code>clearData()</code></a></td><td><code>SessionHelper</code></td><td>画面単位データをすべて削除します。</td></tr>
+<tr><td><a href="#item-3-90"><code>setUser()</code></a></td><td><code>SessionHelper</code></td><td>ログインユーザー情報をセッションへ保存します。</td></tr>
+<tr><td><a href="#item-3-91"><code>getUser()</code></a></td><td><code>SessionHelper</code></td><td>ログインユーザー情報を取得します。</td></tr>
+<tr><td><a href="#item-3-93"><code>flushError()</code></a></td><td><code>SessionHelper</code></td><td>エラーメッセージを一時保存します。</td></tr>
+<tr><td><a href="#item-3-95"><code>getFlushError()</code></a></td><td><code>SessionHelper</code></td><td>エラーメッセージを取得して削除します。</td></tr>
+<tr><td><a href="#item-3-96"><code>flushSuccess()</code></a></td><td><code>SessionHelper</code></td><td>成功メッセージを一時保存します。</td></tr>
+<tr><td><a href="#item-3-98"><code>getFlushSuccess()</code></a></td><td><code>SessionHelper</code></td><td>成功メッセージを取得して削除します。</td></tr>
+<tr><td><a href="#item-3-109"><code>regenerateSessionId()</code></a></td><td><code>SessionHelper</code></td><td>セッション ID を再生成します。</td></tr>
+<tr><td><a href="#item-3-112"><code>invalidateSession()</code></a></td><td><code>SessionHelper</code></td><td>セッションを無効化します。</td></tr>
+<tr><td><a href="#item-3-117"><code>renderCsrfHiddenInput()</code></a></td><td><code>Utility</code></td><td>HTML フォーム用の CSRF hidden input を生成します。</td></tr>
+<tr><td><a href="#item-3-119"><code>validatePostedCsrfToken()</code></a></td><td><code>Utility</code></td><td>POST された scope と token を検証します。</td></tr>
+<tr><td><a href="#item-3-120"><code>validateCsrfToken()</code></a></td><td><code>Utility</code></td><td>指定 scope と token を検証します。</td></tr>
+<tr><td><a href="#item-3-122"><code>renderCsrfContainer()</code></a></td><td><code>Utility</code></td><td>AJAX 用の CSRF コンテナ HTML を生成します。</td></tr>
+<tr><td><a href="#item-3-123"><code>issueCsrfPostFields()</code></a></td><td><code>Utility</code></td><td>CSRF scope と token の配列を生成します。</td></tr>
+<tr><td><a href="#item-3-125"><code>issueCsrfToken()</code></a></td><td><code>Utility</code></td><td>指定 scope 用の CSRF token を発行します。</td></tr>
+<tr><td><a href="#item-3-127"><code>getCsrfFieldName()</code></a></td><td><code>Utility</code></td><td>CSRF token 用フィールド名を取得します。</td></tr>
+<tr><td><a href="#item-3-128"><code>getCsrfScopeFieldName()</code></a></td><td><code>Utility</code></td><td>CSRF scope 用フィールド名を取得します。</td></tr>
+<tr><td><a href="#item-3-132"><code>h()</code></a></td><td><code>Utility</code></td><td>HTML 出力用に値をエスケープします。</td></tr>
+<tr><td><a href="#item-3-134"><code>replaceStr()</code></a></td><td><code>Utility</code></td><td>プレースホルダー付き文字列を置換します。</td></tr>
+<tr><td><a href="#item-3-135"><code>replacePlaceholders()</code></a></td><td><code>Utility</code></td><td><code>{0}</code> や <code>{name}</code> 形式のプレースホルダーを置換します。</td></tr>
+<tr><td><a href="#item-3-137"><code>checkNumeric()</code></a></td><td><code>Utility</code></td><td>数値形式と範囲を確認します。</td></tr>
+<tr><td><a href="#item-3-138"><code>checkAlphanumeric()</code></a></td><td><code>Utility</code></td><td>半角英数字とハイフンの形式を確認します。</td></tr>
+<tr><td><a href="#item-3-139"><code>checkDuplicate()</code></a></td><td><code>Utility</code></td><td>配列内の指定キーについて重複値を取得します。</td></tr>
+<tr><td><a href="#item-3-141"><code>checkImageName()</code></a></td><td><code>Utility</code></td><td>画像ファイル名の形式を確認します。</td></tr>
+<tr><td><a href="#item-3-142"><code>checkImageFileSize()</code></a></td><td><code>Utility</code></td><td>画像ファイルサイズが上限以内か確認します。</td></tr>
+<tr><td><a href="#item-3-143"><code>checkImageCreate()</code></a></td><td><code>Utility</code></td><td>画像ファイルの存在確認とサムネイル生成を補助します。</td></tr>
+<tr><td><a href="#item-3-148"><code>getFileName()</code></a></td><td><code>Utility</code></td><td>指定ディレクトリ配下のファイル名やディレクトリ名を取得します。</td></tr>
+<tr><td><a href="#item-3-152"><code>make()</code></a></td><td><code>CookieHelper</code></td><td>暗号化した値を持つ Cookie を生成します。</td></tr>
+<tr><td><a href="#item-3-154"><code>get()</code></a></td><td><code>CookieHelper</code></td><td>Request から Cookie を取得して復号します。</td></tr>
+<tr><td><a href="#item-3-156"><code>forget()</code></a></td><td><code>CookieHelper</code></td><td>Cookie を削除するための失効済み Cookie を生成します。</td></tr>
+<tr><td><a href="#item-3-160"><code>createDefault()</code></a></td><td><code>Logger</code></td><td>既定のログディレクトリを使う Logger を作成します。</td></tr>
+<tr><td><a href="#item-3-161"><code>log()</code></a></td><td><code>Logger</code></td><td>指定ログレベルでメッセージを出力します。</td></tr>
+<tr><td><a href="#item-3-163"><code>debug()</code></a></td><td><code>Logger</code></td><td>開発中の詳細確認ログを出力します。</td></tr>
+<tr><td><a href="#item-3-164"><code>info()</code></a></td><td><code>Logger</code></td><td>通常の処理開始・終了などを記録します。</td></tr>
+<tr><td><a href="#item-3-165"><code>warn()</code></a></td><td><code>Logger</code></td><td>想定内だが注意したい状態を記録します。</td></tr>
+<tr><td><a href="#item-3-166"><code>error()</code></a></td><td><code>Logger</code></td><td>処理失敗や例外発生を記録します。</td></tr>
+<tr><td><a href="#item-3-167"><code>fatal()</code></a></td><td><code>Logger</code></td><td>継続が難しい重大なエラーを記録します。</td></tr>
+</tbody>
+</table>
+</div>
 
                         <div id="item-1" class="row gx-0">
                             <div class="col-12 col-md-9 order-2 order-md-1">
@@ -85,9 +2898,7 @@
                             <div class="col-12 col-md-3 order-1 order-md-2">
                                 <img src="img/handson.svg" alt="ハンズオン">
                             </div>
-
                         </div>
-
 
                     </div>
                 </div>
@@ -100,3 +2911,4 @@
         <script src="../js/code-highlight.js"></script>
     </body>
 </html>
+
