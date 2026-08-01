@@ -492,8 +492,10 @@ SetEnv MAIL_FROM no-reply@example.com
   <li><code>LOGIN_TIMEOUT</code></li>
   <li><code>MAX_UPLOAD_IMAGE_SIZE</code></li>
 </ul>
-<p><code>LOGIN_TIMEOUT</code> は、認証セッションのタイムアウトに関係する定数です。<br>
-<code>MAX_UPLOAD_IMAGE_SIZE</code> は、画像アップロード補助で使われる既定のファイルサイズ上限です。</p>
+<p><code>LOGIN_TIMEOUT</code> は、認証セッションのタイムアウトに関係する定数です。Chandra v0.2.0 では値が <code>0</code> に固定されており、<code>AuthService</code> によるセッションタイムアウトは無効です。<br>
+現在、この値を <code>AuthService</code> のコンストラクター、設定ファイル、環境変数から変更する公開 API はありません。</p>
+<p>このタイムアウトは、PHP の <code>session.gc_maxlifetime</code> などによってセッションデータ自体が破棄される仕組みとは別の機能です。</p>
+<p><code>MAX_UPLOAD_IMAGE_SIZE</code> は、画像アップロード補助で使われる既定のファイルサイズ上限です。</p>
 <p>アプリ側から参照する場合は、次のように <code>use</code> して使えます。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code>use Studiogau\Chandra\Config\ChandraConst;
 
@@ -1386,11 +1388,11 @@ try {
 }
 </code></pre>
 <h2 id="item-3-68" class="m-3">AuthService::checkUserSession()  </h2>
-<p><code>checkUserSession()</code> は、有効なログインユーザーがいるかを確認するための、<code>AuthService</code> クラスのメソッドです。<br>
-<code>LOGIN_TIMEOUT</code> が有効な場合は最終アクセス時刻更新も行います。</p>
+<p><code>checkUserSession()</code> は、有効なログインユーザーがいるかを確認するための、<code>AuthService</code> クラスのメソッドです。</p>
 <p>戻り値は <code>bool</code> です。有効なログインユーザーがセッションに保持されている場合は <code>true</code>、ログインユーザーが存在しない場合や、ログイン状態が有効ではない場合は <code>false</code> を返します。</p>
 <p><code>checkUserSession()</code> は、ログイン後に表示する各画面や、ログイン済みであることを前提にした処理の入口で呼び出すことを想定しています。ほかの処理をする前に呼び出し、ログイン状態が確認できない場合はログイン画面へ戻します。</p>
-<p><code>ChandraConst::LOGIN_TIMEOUT</code> の値が 0 より大きい場合に、ログインセッションの経過時間も確認します。タイムアウトしていない場合は最終アクセス時刻を更新し、タイムアウトしていた場合はログアウト処理を行ったうえで <code>false</code> を返します。</p>
+<p>Chandra v0.2.0 では <code>ChandraConst::LOGIN_TIMEOUT</code> が <code>0</code> のため、タイムアウトの確認や最終アクセス時刻の更新は行われません。また、この値を変更する公開 API はありません。</p>
+<p>将来、<code>LOGIN_TIMEOUT</code> が <code>0</code> より大きい値で有効になった場合は、<code>checkUserSession()</code> を呼び出した時点で、最後のアクセスからの経過時間を確認します。指定された秒数以上が経過していればログアウト処理を行って <code>false</code> を返し、有効期間内であれば最終アクセス時刻を更新します。したがって、ログイン時からの通算時間ではなく、<code>checkUserSession()</code> を呼び出したリクエストを基準に有効期間を延長するアイドルタイムアウトとして動作します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">if (!$auth-&gt;checkUserSession()) {
     header('Location: index.php', true, 303);
     exit;
