@@ -1747,7 +1747,8 @@ $categoryList = SessionHelper::getMasterList('categoryList');
 </code></pre>
 <hr>
 <h1 id="item-3-113" class="m-3">CSRF</h1>
-<p>Chandra では、<code>Utility</code> クラスを利用して CSRF 用の scope と token を発行し、POST 時に検証できます。</p>
+<p>CSRF（Cross-Site Request Forgery）は、ログイン中の利用者に、攻撃者が用意した Web ページなどを経由して意図しないリクエストを送信させる攻撃です。ブラウザーは対象サイトのセッション Cookie を自動的に送信するため、サーバーがリクエストの送信元を確認しなければ、利用者本人の操作として処理される可能性があります。</p>
+<p>Chandra では、セッションに保存した CSRF token とリクエストに含まれる token を照合することで、アプリケーションが生成した画面から送信されたリクエストであることを確認します。<code>Utility</code> クラスを利用して CSRF 用の scope と token を発行し、POST 時に検証できます。</p>
 <p>主な使い方は、通常の HTML フォームに hidden input を出力する方法と、AJAX 用に CSRF 情報を配列または HTML コンテナとして発行する方法です。</p>
 <p>CSRF の検証は、登録、更新、削除、ログアウト、設定変更といった、状態を変える処理で行うことを想定しています。単なる表示、検索、一覧の並べ替え、ページ遷移など、状態を変更しない <code>GET</code> の処理では通常不要です。</p>
 <h2 id="item-3-114" class="m-3">scope とは</h2>
