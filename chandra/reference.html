@@ -1821,6 +1821,17 @@ if (!Utility::validateCsrfToken('news.insert.exec', $csrfToken)) {
 <h2 id="item-3-121" class="m-3">AJAX で使う</h2>
 <p>AJAX で CSRF token を扱う場合は、画面側に CSRF 情報を埋め込んでおき、JavaScript から読み取って送信します。</p>
 <p>Chandra では、AJAX 用に hidden input を含むコンテナ HTML を生成する <code>renderCsrfContainer()</code> と、JSON 応答に載せやすい配列を返す <code>issueCsrfPostFields()</code> を用意しています。</p>
+<h3 class="m-3">HTML フォーム送信との違い</h3>
+<p>CSRF token の発行と検証は、どちらの送信方法でもサーバー側で行います。JavaScript が CSRF token を生成するわけではありません。PHP 側で発行された scope と token を画面上の hidden input から読み取り、JSON データへ追加して送信します。</p>
+<div class="table-responsive">
+<table class="table table-bordered table-sm align-middle">
+<thead><tr><th>送信方法</th><th>token の送信方法</th></tr></thead>
+<tbody>
+<tr><td>HTML フォーム</td><td>hidden input をフォームの入力値として送信する</td></tr>
+<tr><td>JavaScript による JSON 送信</td><td>hidden input から読み取り、JSON へ追加して送信する</td></tr>
+</tbody></table></div>
+<p>Chandra の CSRF token は、検証するとセッションから破棄されるワンタイム token です。同じ画面から続けて JSON を POST できるように、サーバーはレスポンスに後続の JSON POST で使用する scope と token を含めます。<code>csrf.js</code> の JSON client はレスポンスから新しい値を取得し、画面上の hidden input を更新します。利用者が同じ画面で再び操作して JSON を POST するときは、この更新された scope と token が送信されます。</p>
+<p>以降では、画面に CSRF 情報を埋め込む <code>renderCsrfContainer()</code> と、レスポンス用の CSRF 情報を発行する <code>issueCsrfPostFields()</code> を順に説明します。</p>
 <h3 id="item-3-122" class="m-3">renderCsrfContainer()</h3>
 <p><code>Utility::renderCsrfContainer()</code> は、AJAX 用に CSRF scope と token の hidden input を含むコンテナ HTML を生成するために使います。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?= Utility::renderCsrfContainer('news_update', 'news_update') ?&gt;
@@ -1878,7 +1889,7 @@ if (!Utility::validateCsrfToken('news.insert.exec', $csrfToken)) {
     '_csrf_token' =&gt; '...',
 ]
 </code></pre>
-<p>AJAX では、CSRF token を検証した後、レスポンスに次回用の CSRF 情報を含める使い方ができます。</p>
+<p>サーバー側では、CSRF token の検証後に次回用の CSRF 情報を発行し、成功時と失敗時のレスポンスに含めます。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">// news_update.php
 
 $data = json_decode(file_get_contents('php://input'), true) ?? [];
