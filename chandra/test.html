@@ -3,22 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Chandra テストガイド | スタジオがう</title>
+        <title>テストガイド | Chandra | スタジオがう</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/github.min.css">
-        <link rel="stylesheet" href="../css/code-highlight.css">
-        <link rel="stylesheet" href="../css/style.css">
-        <style>
-            .test-guide-content { overflow-wrap: anywhere; }
-            .test-guide-content pre { overflow-wrap: normal; }
-        </style>
-    </head>
-    <body>
+        <link rel="stylesheet" href="../css/code-highlight.css?v=2">
+        <link rel="stylesheet" href="../css/guide.css">
 
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-md">
+        <meta name="description" content="PHPUnitで単体・データベース・HTTP機能テストを実践します。">
+    </head>
+<body>
+<nav class="navbar navbar-expand-md bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">スタジオがう</a>
+                <a class="navbar-brand" href="../index.html">スタジオがう</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="メニューを開く">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -28,10 +24,10 @@
                             <a class="nav-link" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Chandra</a>
+                            <a class="nav-link active" href="./index.html">Chandra</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../noblestock.html">Noblestock</a>
+                            <a class="nav-link" href="../noblestock/index.html">Noblestock</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../about.html">About</a>
@@ -41,119 +37,35 @@
                 </div><!-- navbar-collapse -->
             </div><!-- container-fluid -->
         </nav>
-        <!-- Navigation-->
+<header class="guide-header py-5"><div class="container documentation-guide">
+<a href="./index.html" class="text-success">Chandra</a>
+<div class="row g-3 align-items-center">
+    <div class="col-12 col-md-9 order-2 order-md-1">
+        <h1 id="test-guide" class="fw-bold mt-3">テストガイド</h1>
+        <p class="mb-0">PHPUnitで単体・データベース・HTTP機能テストを実践します。</p>
+    </div>
+    <div class="col-12 col-md-3 order-1 order-md-2">
+        <img src="img/test.svg" alt="テストガイド">
+    </div>
+</div>
+</div></header>
+<main class="container documentation-guide py-4">
+<div class="row g-4">
+<aside class="col-lg-3">
+<nav class="guide-toc" aria-label="このページの目次">
+<p class="fw-bold px-2">このページの内容</p>
+<a href="#test-section-1">1 Webアプリケーションのテストについて</a><a href="#test-section-2">2 PHPUnitを準備する</a><a href="#test-section-3">3 テスト環境を分離する</a><details class="guide-toc-details"><summary>3 テスト環境を分離するの詳細項目</summary><div><a href="#test-section-4">構成</a><a href="#test-section-5">テスト用データベースを作成する</a><a href="#test-section-6">開発用とテスト用のDB設定を作成する</a><a href="#test-section-7">テスト用データを用意する</a></div></details><a href="#test-section-8">4 単体テストを書く</a><details class="guide-toc-details"><summary>4 単体テストを書くの詳細項目</summary><div><a href="#test-section-9">テストクラスの基本</a><a href="#test-section-10">正常系をテストする</a><a href="#test-section-11">境界値をテストする</a><a href="#test-section-12">データプロバイダーを使う</a><a href="#test-section-13">例外をテストする</a><a href="#test-section-14">Databaseクラスをスタブに置き換える</a><a href="#test-section-15">Databaseクラスをモックに置き換える</a></div></details><a href="#test-section-16">5 データベーステストを準備する</a><details class="guide-toc-details"><summary>5 データベーステストを準備するの詳細項目</summary><div><a href="#test-section-17">設定ファイルとテストデータを用意する</a><a href="#test-section-18">テスト実行スクリプトを作成する</a><a href="#test-section-19">tests/run.phpの作成</a><a href="#test-section-20">テスト終了時のデータベース設定の復元</a><a href="#test-section-21">テスト実行スクリプトの実行</a><a href="#test-section-22">データベーステストクラスを作成する</a></div></details><a href="#test-section-23">6 データの取得・登録・更新・削除をテストする</a><details class="guide-toc-details"><summary>6 データの取得・登録・更新・削除をテストするの詳細項目</summary><div><a href="#test-section-24">データの取得をテストする</a><a href="#test-section-25">データの登録をテストする</a><a href="#test-section-26">AUTO_INCREMENTで採番された値の確認</a><a href="#test-section-27">ハッシュ化されたパスワードの確認</a><a href="#test-section-28">データの更新をテストする</a><a href="#test-section-29">ユーザーの登録・更新で監査情報が保存されることを確認する</a><a href="#test-section-30">データの削除をテストする</a></div></details><a href="#test-section-31">7 データベース制約をテストする</a><a href="#test-section-32">8 WebページをHTTP経由でテストする</a><details class="guide-toc-details"><summary>8 WebページをHTTP経由でテストするの詳細項目</summary><div><a href="#test-section-33">テスト対象のWebサーバーを起動する</a><a href="#test-section-34">GETでログイン画面を表示する</a><a href="#test-section-35">HTTPステータスを確認する</a><a href="#test-section-36">レスポンスヘッダーを確認する</a><a href="#test-section-37">HTMLの内容を確認する</a><a href="#test-section-38">レスポンス本文を文字列として確認する</a><a href="#test-section-39">HTMLの要素を確認する</a></div></details><a href="#test-section-40">9 フォーム処理をテストする</a><details class="guide-toc-details"><summary>9 フォーム処理をテストするの詳細項目</summary><div><a href="#test-section-41">BrowserKitからフォームを送信する</a><a href="#test-section-42">ユーザーフォームテストの共通部分を作る</a><a href="#test-section-43">登録処理をテストする</a><a href="#test-section-44">更新処理をテストする</a><a href="#test-section-45">削除処理をテストする</a><a href="#test-section-46">入力エラーと入力値の再表示を確認する</a><a href="#test-section-47">フラッシュメッセージを確認する</a><a href="#test-section-48">許可されないHTTPメソッドを確認する</a></div></details><a href="#test-section-49">10 ログインとセッションをテストする</a><details class="guide-toc-details"><summary>10 ログインとセッションをテストするの詳細項目</summary><div><a href="#test-section-50">Cookieでセッションを引き継ぐ</a><a href="#test-section-51">テスト用ユーザーを準備する</a><a href="#test-section-52">ログインとセッションのテストクラスを作る</a><a href="#test-section-53">ログイン成功を確認する</a><a href="#test-section-54">ログイン失敗を確認する</a><a href="#test-section-55">ログイン後の画面でセッションが引き継がれることを確認する</a><a href="#test-section-56">セッションIDの再生成を確認する</a><a href="#test-section-57">ログアウトを確認する</a><a href="#test-section-58">ログイン試行制限を確認する</a></div></details><a href="#test-section-59">11 セキュリティ機能をテストする</a><details class="guide-toc-details"><summary>11 セキュリティ機能をテストするの詳細項目</summary><div><a href="#test-section-60">セキュリティテストの共通部分を作る</a><a href="#test-section-61">未ログイン時の動作を確認する</a><a href="#test-section-62">権限不足時の動作を確認する</a><a href="#test-section-63">権限を持つ利用者の動作を確認する</a><a href="#test-section-64">ユーザー登録フォームのCSRF対策を確認する</a><a href="#test-section-65">POSTフォームにCSRFトークンが含まれることを確認する</a><a href="#test-section-66">正しいCSRFトークンでPOSTする</a><a href="#test-section-67">CSRFトークンがないPOSTを拒否する</a><a href="#test-section-68">不正なCSRFトークンを拒否する</a><a href="#test-section-69">使用済みCSRFトークンの再利用を拒否する</a><a href="#test-section-70">ユーザー名が確認画面で安全に表示されることを確認する</a><a href="#test-section-71">内部情報が画面に表示されないことを確認する</a><a href="#test-section-72">セキュリティテストで確認する範囲</a></div></details><a href="#test-section-73">12 レスポンスの内容を詳しく確認する</a><details class="guide-toc-details"><summary>12 レスポンスの内容を詳しく確認するの詳細項目</summary><div><a href="#test-section-74">レスポンス確認用のテストクラスを作る</a><a href="#test-section-75">レスポンス本文とHTMLのテキストを使い分ける</a><a href="#test-section-76">XPathで要素を探す</a><a href="#test-section-77">inputの値と入力エラーを確認する</a><a href="#test-section-78">確認画面の表の内容を確認する</a><a href="#test-section-79">一覧の件数、データ内容を確認する</a><a href="#test-section-80">一覧の並び順を確認する</a><a href="#test-section-81">ページに分かれた一覧を確認する</a><a href="#test-section-82">JSONレスポンスを確認する</a><a href="#test-section-83">JSONのエラー応答を確認する</a><a href="#test-section-84">テキスト形式のHTTPエラーを確認する</a></div></details><a href="#test-section-85">13 ファイルの送受信をテストする</a><details class="guide-toc-details"><summary>13 ファイルの送受信をテストするの詳細項目</summary><div><a href="#test-section-86">ファイルテストの共通部分を用意する</a><a href="#test-section-87">Excel以外のファイルを送信する</a><a href="#test-section-88">Excelのダウンロードを確認する</a><a href="#test-section-89">ファイル処理の後片付け</a></div></details><a href="#test-section-90">14 HTTPテストの共通部分をまとめる</a><details class="guide-toc-details"><summary>14 HTTPテストの共通部分をまとめるの詳細項目</summary><div><a href="#test-section-91">WebTestCaseを作成する</a><a href="#test-section-92">既存のテストで利用する</a></div></details><a href="#test-section-93">15 実装した機能に合わせてテストを追加する</a><details class="guide-toc-details"><summary>15 実装した機能に合わせてテストを追加するの詳細項目</summary><div><a href="#test-section-94">追加したテストを種類別に実行する</a></div></details>
+<hr><p class="fw-bold px-2">Chandraガイド</p>
+<a href="./quickstart.html">クイックスタート</a><a href="./handson.html">ハンズオン</a><a href="./reference.html">リファレンス</a><a href="./test.html" aria-current="page">テストガイド</a>
+<a href="./index.html">Chandraトップへ</a>
+</nav>
+</aside>
+<article class="col-lg-9 guide-content">
 
-        <main>
-            <div class="row gx-0">
-                <div class="col-12 col-md-4">
-                    <nav id="side-nav" aria-label="テストガイドの目次" class="h-100 flex-column align-items-stretch pe-4 border-end">
-                        <nav class="nav nav-pills flex-column">
-<a class="nav-link" href="#test-guide">Chandraを使ったWebアプリケーションのテストガイド</a>
-<a class="nav-link ms-3 my-1" href="#test-section-1">1 Webアプリケーションのテストについて</a>
-<a class="nav-link ms-3 my-1" href="#test-section-2">2 PHPUnitを準備する</a>
-<a class="nav-link ms-3 my-1" href="#test-section-3">3 テスト環境を分離する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-4">構成</a>
-<a class="nav-link ms-5 my-1" href="#test-section-5">テスト用データベースを作成する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-6">開発用とテスト用のDB設定を作成する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-7">テスト用データを用意する</a>
-<a class="nav-link ms-3 my-1" href="#test-section-8">4 単体テストを書く</a>
-<a class="nav-link ms-5 my-1" href="#test-section-9">テストクラスの基本</a>
-<a class="nav-link ms-5 my-1" href="#test-section-10">正常系をテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-11">境界値をテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-12">データプロバイダーを使う</a>
-<a class="nav-link ms-5 my-1" href="#test-section-13">例外をテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-14">Databaseクラスをスタブに置き換える</a>
-<a class="nav-link ms-5 my-1" href="#test-section-15">Databaseクラスをモックに置き換える</a>
-<a class="nav-link ms-3 my-1" href="#test-section-16">5 データベーステストを準備する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-17">設定ファイルとテストデータを用意する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-18">テスト実行スクリプトを作成する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-19">tests/run.phpの作成</a>
-<a class="nav-link ms-5 my-1" href="#test-section-20">テスト終了時のデータベース設定の復元</a>
-<a class="nav-link ms-5 my-1" href="#test-section-21">テスト実行スクリプトの実行</a>
-<a class="nav-link ms-5 my-1" href="#test-section-22">データベーステストクラスを作成する</a>
-<a class="nav-link ms-3 my-1" href="#test-section-23">6 データの取得・登録・更新・削除をテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-24">データの取得をテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-25">データの登録をテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-26">AUTO_INCREMENTで採番された値の確認</a>
-<a class="nav-link ms-5 my-1" href="#test-section-27">ハッシュ化されたパスワードの確認</a>
-<a class="nav-link ms-5 my-1" href="#test-section-28">データの更新をテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-29">ユーザーの登録・更新で監査情報が保存されることを確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-30">データの削除をテストする</a>
-<a class="nav-link ms-3 my-1" href="#test-section-31">7 データベース制約をテストする</a>
-<a class="nav-link ms-3 my-1" href="#test-section-32">8 WebページをHTTP経由でテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-33">テスト対象のWebサーバーを起動する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-34">GETでログイン画面を表示する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-35">HTTPステータスを確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-36">レスポンスヘッダーを確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-37">HTMLの内容を確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-38">レスポンス本文を文字列として確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-39">HTMLの要素を確認する</a>
-<a class="nav-link ms-3 my-1" href="#test-section-40">9 フォーム処理をテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-41">BrowserKitからフォームを送信する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-42">ユーザーフォームテストの共通部分を作る</a>
-<a class="nav-link ms-5 my-1" href="#test-section-43">登録処理をテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-44">更新処理をテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-45">削除処理をテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-46">入力エラーと入力値の再表示を確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-47">フラッシュメッセージを確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-48">許可されないHTTPメソッドを確認する</a>
-<a class="nav-link ms-3 my-1" href="#test-section-49">10 ログインとセッションをテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-50">Cookieでセッションを引き継ぐ</a>
-<a class="nav-link ms-5 my-1" href="#test-section-51">テスト用ユーザーを準備する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-52">ログインとセッションのテストクラスを作る</a>
-<a class="nav-link ms-5 my-1" href="#test-section-53">ログイン成功を確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-54">ログイン失敗を確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-55">ログイン後の画面でセッションが引き継がれることを確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-56">セッションIDの再生成を確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-57">ログアウトを確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-58">ログイン試行制限を確認する</a>
-<a class="nav-link ms-3 my-1" href="#test-section-59">11 セキュリティ機能をテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-60">セキュリティテストの共通部分を作る</a>
-<a class="nav-link ms-5 my-1" href="#test-section-61">未ログイン時の動作を確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-62">権限不足時の動作を確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-63">権限を持つ利用者の動作を確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-64">ユーザー登録フォームのCSRF対策を確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-65">POSTフォームにCSRFトークンが含まれることを確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-66">正しいCSRFトークンでPOSTする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-67">CSRFトークンがないPOSTを拒否する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-68">不正なCSRFトークンを拒否する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-69">使用済みCSRFトークンの再利用を拒否する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-70">ユーザー名が確認画面で安全に表示されることを確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-71">内部情報が画面に表示されないことを確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-72">セキュリティテストで確認する範囲</a>
-<a class="nav-link ms-3 my-1" href="#test-section-73">12 レスポンスの内容を詳しく確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-74">レスポンス確認用のテストクラスを作る</a>
-<a class="nav-link ms-5 my-1" href="#test-section-75">レスポンス本文とHTMLのテキストを使い分ける</a>
-<a class="nav-link ms-5 my-1" href="#test-section-76">XPathで要素を探す</a>
-<a class="nav-link ms-5 my-1" href="#test-section-77">inputの値と入力エラーを確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-78">確認画面の表の内容を確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-79">一覧の件数、データ内容を確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-80">一覧の並び順を確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-81">ページに分かれた一覧を確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-82">JSONレスポンスを確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-83">JSONのエラー応答を確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-84">テキスト形式のHTTPエラーを確認する</a>
-<a class="nav-link ms-3 my-1" href="#test-section-85">13 ファイルの送受信をテストする</a>
-<a class="nav-link ms-5 my-1" href="#test-section-86">ファイルテストの共通部分を用意する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-87">Excel以外のファイルを送信する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-88">Excelのダウンロードを確認する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-89">ファイル処理の後片付け</a>
-<a class="nav-link ms-3 my-1" href="#test-section-90">14 HTTPテストの共通部分をまとめる</a>
-<a class="nav-link ms-5 my-1" href="#test-section-91">WebTestCaseを作成する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-92">既存のテストで利用する</a>
-<a class="nav-link ms-3 my-1" href="#test-section-93">15 実装した機能に合わせてテストを追加する</a>
-<a class="nav-link ms-5 my-1" href="#test-section-94">追加したテストを種類別に実行する</a>
-                            <a class="nav-link" href="./quickstart.html">クイックスタート</a>
-                            <a class="nav-link" href="./handson.html">ハンズオン</a>
-                            <a class="nav-link" href="./reference.html">リファレンス</a>
-                        </nav>
-                    </nav>
-                </div>
-                <div class="col-12 col-md-8">
-                    <div data-bs-spy="scroll" data-bs-target="#side-nav" data-bs-smooth-scroll="true" class="m-3 scrollspy test-guide-content" tabindex="0">
-<h1 id="test-guide" class="m-3">Chandraを使ったWebアプリケーションのテストガイド</h1>
-<h2 id="test-section-1" class="m-3">1 Webアプリケーションのテストについて</h2>
+
+<h2 id="test-section-1">1 Webアプリケーションのテストについて</h2>
 <p>このドキュメントでは、Chandraを使って作成したWebアプリケーションをPHPUnitでテストする方法を紹介します。NobleStockを題材に、アプリに実装した入力チェック、データの保存、画面遷移、アクセス制御などが期待どおりに動作することを確認します。Chandraを利用する処理も、アプリ側の設定や呼び出しを含めてテストします。</p>
+<p>NobleStockの導入は、Windowsでの導入手順（準備中です）を参照してください。GitHubからの取得、DB設定、localhostでの起動・ログインまでを案内しています。</p>
 <p>ハンズオン（ <a href="./handson.html">./handson.html</a> ）では、CMSを作成しながら、各機能のテストをテストファーストで追加しました。このドキュメントでは、テストを対象機能別に整理し、以下の3種類に大別して解説します。</p>
 <div class="table-responsive"><table class="table table-bordered table-sm align-middle">
 <thead>
@@ -177,7 +89,7 @@
 </tbody></table>
 </div>
 <hr>
-<h2 id="test-section-2" class="m-3">2 PHPUnitを準備する</h2>
+<h2 id="test-section-2">2 PHPUnitを準備する</h2>
 <p>PHPのテストが行えるように準備します。<br>ComposerでPHPUnitと、HTTP機能テストに使うSymfony BrowserKit・HttpClient・Mimeをインストールします。BrowserKitでフォームやCookieを扱い、HttpClientでHTTP通信を行います。Mimeはフォームなどのリクエスト本文の組み立てに使用します。</p>
 <p>ターミナルから、対象のプロジェクトの直下のディレクトリに移動し、以下のcomposerコマンドを実行します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-bash">composer require --dev phpunit/phpunit symfony/browser-kit symfony/http-client symfony/mime
@@ -243,8 +155,8 @@ final class SampleTest extends TestCase
 </code></pre>
 <p>のように表示されます。</p>
 <hr>
-<h2 id="test-section-3" class="m-3">3 テスト環境を分離する</h2>
-<h3 id="test-section-4" class="m-3">構成</h3>
+<h2 id="test-section-3">3 テスト環境を分離する</h2>
+<h3 id="test-section-4">構成</h3>
 <p>テストでは、データの登録・更新・削除を繰り返します。開発中のデータを変更しないよう、テスト専用のデータベースを用意することをおすすめします。
 このドキュメントでは、NobleStock（<a href="https://github.com/learnchi/noblestock%EF%BC%89%E3%81%A8%E5%90%8C%E4%B8%80%E3%81%AE%E4%BB%A5%E4%B8%8B%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%80%81%E9%96%8B%E7%99%BA%E7%94%A8%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%8B%E3%82%89%E7%8B%AC%E7%AB%8B%E3%81%97%E3%81%9F%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%83%86%E3%82%B9%E3%83%88%E3%82%92%E5%AE%9F%E8%B7%B5%E3%81%97%E3%81%A6%E3%81%84%E3%81%8D%E3%81%BE%E3%81%99%E3%80%82">https://github.com/learnchi/noblestock）と同一の以下のプロジェクトを使用して、開発用データベースから独立したデータベーステストを実践していきます。</a></p>
 <pre class="bg-body-tertiary border rounded p-3"><code>C:\xampp\htdocs\noblestock
@@ -265,7 +177,7 @@ final class SampleTest extends TestCase
 <li>DB接続先: noblestock_test</li>
 </ul>
 <p>このほか、WebサーバのvirtualHostを設定したりPHP組み込みサーバを使用することでURLも分ける方法、環境変数によりDB接続先を振り分ける方法が考えられます。それぞれ「付録」で紹介します。本文では、DB接続設定（config/dbconfig.ini）を変更するのみの、最も簡易な方法で進めます。</p>
-<h3 id="test-section-5" class="m-3">テスト用データベースを作成する</h3>
+<h3 id="test-section-5">テスト用データベースを作成する</h3>
 <p>まず、次のSQLを実行してテスト用データベースを作成します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-sql">CREATE DATABASE IF NOT EXISTS noblestock_test
     DEFAULT CHARACTER SET utf8mb4
@@ -291,7 +203,7 @@ CREATE TABLE users (
 
 -- 以降も各テーブルのDROP TABLE文とCREATE TABLE文を記述
 </code></pre>
-<h3 id="test-section-6" class="m-3">開発用とテスト用のDB設定を作成する</h3>
+<h3 id="test-section-6">開発用とテスト用のDB設定を作成する</h3>
 <p>データベース設定は、<code>config\dbconfig.sample.ini</code> から、 <code>config\dbconfig.ini</code> を作成することを前提にしています。本ドキュメントでは、DB接続設定を、開発用とテスト用に分けます。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code>config
 ├─dbconfig.development.ini
@@ -327,7 +239,7 @@ dbconfig.test.ini
 dbconfig.development.ini
 mailconfig.ini
 </code></pre>
-<h3 id="test-section-7" class="m-3">テスト用データを用意する</h3>
+<h3 id="test-section-7">テスト用データを用意する</h3>
 <p>テスト用データは、<code>doc\testdata.sql</code> ( <a href="https://github.com/learnchi/noblestock/blob/main/doc/testdata.sql">https://github.com/learnchi/noblestock/blob/main/doc/testdata.sql</a> ) を使用します。テスト用データベースに実際にデータを挿入するのは、テスト実行スクリプトです。のちほど紹介します。</p>
 <p><code>doc\testdata.sql</code>の冒頭</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-sql">INSERT INTO categories (id, ...
@@ -346,7 +258,7 @@ mailconfig.ini
 <pre class="bg-body-tertiary border rounded p-3"><code>tests/Fixtures/testdata.sql
 </code></pre>
 <hr>
-<h2 id="test-section-8" class="m-3">4 単体テストを書く</h2>
+<h2 id="test-section-8">4 単体テストを書く</h2>
 <p>この章では、最もミニマルなメソッドのひとつ、<code>util\UtilCommon.php</code>の<code>isValidPassword</code>メソッド、および、例外が発生するメソッドのひとつ、<code>dblogic\Category.php</code>の<code>insert</code>メソッドをテストしながら、次のような処理をテストします。</p>
 <ul>
 <li>入力値に対する戻り値</li>
@@ -373,7 +285,7 @@ public static function isValidPassword(mixed $value, int $min = 8, int $max = 12
 	return preg_match('/[\x00-\x1F\x7F]/u', $value) !== 1;
 }
 </code></pre>
-<h3 id="test-section-9" class="m-3">テストクラスの基本</h3>
+<h3 id="test-section-9">テストクラスの基本</h3>
 <p>次のテストファイルを作成します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code>tests/Util/UtilCommonTest.php
 </code></pre>
@@ -407,7 +319,7 @@ final class UtilCommonTest extends TestCase
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-shell">OK (1 test, 1 assertion)
 </code></pre>
 <p>このテストでは、アサーション<code>assertTrue()</code>を使って、<code>UtilCommon::isValidPassword()</code>が<code>true</code>を返すことを確認しています。以降の例では、<code>false</code>の確認に<code>assertFalse()</code>、値と型の一致の確認に<code>assertSame()</code>も使用します。</p>
-<h3 id="test-section-10" class="m-3">正常系をテストする</h3>
+<h3 id="test-section-10">正常系をテストする</h3>
 <p><code>UtilCommon::isValidPassword()</code>に対応する正常系テストメソッドをもう1つ追加します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">public function testPasswordWithSymbolsIsAccepted(): void
 {
@@ -416,7 +328,7 @@ final class UtilCommonTest extends TestCase
     $this-&gt;assertTrue($actual);
 }
 </code></pre>
-<h3 id="test-section-11" class="m-3">境界値をテストする</h3>
+<h3 id="test-section-11">境界値をテストする</h3>
 <p><code>UtilCommon::isValidPassword()</code>が、8文字と128文字を許可し、範囲外の7文字と129文字を拒否することを確認します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * UtilCommon::isValidPasswordが7文字のパスワードを拒否することを確認するテスト
@@ -465,7 +377,7 @@ public function test129CharacterPasswordIsRejected(): void
     $this-&gt;assertFalse($actual);
 }
 </code></pre>
-<h3 id="test-section-12" class="m-3">データプロバイダーを使う</h3>
+<h3 id="test-section-12">データプロバイダーを使う</h3>
 <p>先ほどの境界値テストを、<code>DataProvider</code>属性で指定したデータプロバイダーを使ってまとめた例です。<code>UtilCommonTest</code>を次の内容に置き換え、制御文字を含むパスワードの確認も加えます。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">&lt;?php
 declare(strict_types=1);
@@ -518,7 +430,7 @@ final class UtilCommonTest extends TestCase
 }
 </code></pre>
 <p><code>DataProvider</code>属性で<code>passwordProvider()</code>を指定します。各配列の値が、テストメソッドの<code>$password</code>と<code>$expected</code>へ順に渡されます。</p>
-<h3 id="test-section-13" class="m-3">例外をテストする</h3>
+<h3 id="test-section-13">例外をテストする</h3>
 <p>NobleStockの<code>Category::insert()</code>は、カテゴリーIDが指定されていない場合に<code>InvalidArgumentException</code>を投げます。このメソッドについて単体テストを追加して、例外の種類とメッセージを確認します。
 <code>tests/DbLogic/CategoryTest.php</code>を作成し、以下の通り追記します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">&lt;?php
@@ -553,7 +465,7 @@ final class CategoryTest extends TestCase
 }
 </code></pre>
 <p>例外が発生する処理である、<code>Category::insert()</code>を呼び出す前に、<code>expectException()</code>で例外の種類、<code>expectExceptionMessage()</code>でメッセージを指定します。</p>
-<h3 id="test-section-14" class="m-3">Databaseクラスをスタブに置き換える</h3>
+<h3 id="test-section-14">Databaseクラスをスタブに置き換える</h3>
 <p>スタブとは、テスト対象が必要とするオブジェクトの代わりに渡す、テスト用の代替オブジェクトです。</p>
 <p>NobleStockの<code>Category</code>は、コンストラクタから<code>Database</code>と<code>Logger</code>を受け取ります。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">public function __construct(
@@ -580,7 +492,7 @@ $database
     ]);
 </code></pre>
 <p>この場合、テスト対象が<code>fetchList()</code>を呼び出すと、実際のSQLは実行されず、<code>willReturn()</code>で指定した配列が返されます。</p>
-<h3 id="test-section-15" class="m-3">Databaseクラスをモックに置き換える</h3>
+<h3 id="test-section-15">Databaseクラスをモックに置き換える</h3>
 <p>呼び出し回数や引数も検証したい場合は、<code>createStub()</code>ではなく、<code>createMock()</code>を使用します。</p>
 <p><code>Category::list()</code>から<code>Database::fetchList()</code>へ渡されるSQLと呼び出し回数を、<code>createMock()</code>を使って確認します。<code>CategoryTest</code>へ次のメソッドを追加します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -646,9 +558,9 @@ public function testCategoryListReturnsRowsFromDatabase(): void
 </div>
 <p><code>Category::list()</code>がこの配列を返すことを確認します。実際のSQLやトランザクションの動作は、次章以降のDB結合テストで扱います。</p>
 <hr>
-<h2 id="test-section-16" class="m-3">5 データベーステストを準備する</h2>
+<h2 id="test-section-16">5 データベーステストを準備する</h2>
 <p>この章では、テスト用データベース<code>noblestock_test</code>へ接続する準備をします。第6章では<code>DbLogic/User.php</code>の取得・登録・更新・削除と監査列をテストし、第7章ではデータベース制約の確認方針を説明します。</p>
-<h3 id="test-section-17" class="m-3">設定ファイルとテストデータを用意する</h3>
+<h3 id="test-section-17">設定ファイルとテストデータを用意する</h3>
 <p>第3章で用意した設定ファイルとSQLファイルを使用します。</p>
 <div class="table-responsive"><table class="table table-bordered table-sm align-middle">
 <thead>
@@ -677,9 +589,9 @@ public function testCategoryListReturnsRowsFromDatabase(): void
 </div>
 <p>SQLファイルの作成方法は、[[#テスト用データベースを作成する]]と[[#テスト用データを用意する]]を参照してください。</p>
 <p>NobleStockは<code>dbconfig.ini</code>から接続先を読み込みます。テスト開始前にこのファイルをバックアップし、<code>dbconfig.test.ini</code>の内容へ差し替えます。テスト終了後はバックアップから元の設定へ戻します。この一連の処理を<code>tests/run.php</code>にまとめます。</p>
-<h3 id="test-section-18" class="m-3">テスト実行スクリプトを作成する</h3>
+<h3 id="test-section-18">テスト実行スクリプトを作成する</h3>
 <p>テスト用DB設定への切り替え、データベースの初期化、PHPUnitの実行、設定の復元を行うスクリプトを<code>tests/run.php</code>にまとめて作成します。</p>
-<h4 id="test-section-19" class="m-3">tests/run.phpの作成</h4>
+<h4 id="test-section-19">tests/run.phpの作成</h4>
 <p>プロジェクトの<code>tests/run.php</code>に、次の内容を記述します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">&lt;?php
 
@@ -854,11 +766,11 @@ $restoreConfig();
 // PHPUnitの終了コードを返す
 exit($exitCode);
 </code></pre>
-<h4 id="test-section-20" class="m-3">テスト終了時のデータベース設定の復元</h4>
+<h4 id="test-section-20">テスト終了時のデータベース設定の復元</h4>
 <p><code>tests/run.php</code>では、PHPUnitテストが失敗した場合も、<code>dbconfig.ini</code>をテスト開始前の接続設定へ戻します。これにより、テスト終了後は通常の開発用データベースを使用できます。</p>
 <p><code>register_shutdown_function()</code>にも復元処理を登録し、途中でエラーが発生した場合に備えます。コピーやバックアップの削除に失敗した場合は、復元済みにせず例外を投げます。強制終了などでバックアップが残った場合は、次回の実行開始時に復元します。</p>
 <p>同じプロジェクトで複数の<code>tests/run.php</code>を同時に実行しないでください。また、設定を共有するため、テスト中はブラウザーから通常の開発操作を行わないようにします。</p>
-<h4 id="test-section-21" class="m-3">テスト実行スクリプトの実行</h4>
+<h4 id="test-section-21">テスト実行スクリプトの実行</h4>
 <p><code>tests/run.php</code>は、プロジェクトのルートディレクトリから、<code>vendor\bin\phpunit</code>コマンドに代えて実行することを想定しています。引数はPHPUnitへ引き渡されます。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-shell"># スクリプトの動作を確認する
 php tests/run.php tests/SampleTest.php
@@ -875,7 +787,7 @@ php tests/run.php tests/DbLogic/UserDatabaseTest.php
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-shell"># テストメソッドを指定する
 php tests/run.php --filter testExistingUserCanBeSelected
 </code></pre>
-<h3 id="test-section-22" class="m-3">データベーステストクラスを作成する</h3>
+<h3 id="test-section-22">データベーステストクラスを作成する</h3>
 <p><code>User</code>クラス(<code>dblogic\User.php</code>)のデータベース結合テストを、
 <code>tests/DbLogic/UserDatabaseTest.php</code>として作成します。
 PHPUnitの<code>TestCase</code>には、準備と後片付けを行う次のメソッドがあります。<code>User</code>のメソッドをテストする前に、これらのテンプレートメソッドを利用して、DB接続とテストデータの後片付けを用意します。</p>
@@ -1001,8 +913,8 @@ final class UserDatabaseTest extends TestCase
 <p>第6章のテストでは、このトランザクション内で専用データを登録・更新・削除します。<code>tearDown()</code>でロールバックするため、次のテストへ変更が残りません。共通の<code>testdata.sql</code>は書き換えず、各テストで必要なデータはテストメソッド内で登録します。</p>
 <p>テストメソッド内では<code>CREATE TABLE</code>や<code>DROP TABLE</code>を実行しないでください。これらのDDLは暗黙的なコミットを伴うため、テーブルの作成は<code>tests/run.php</code>でPHPUnitの起動前に済ませます。HTTP機能テストの後片付けは、接続が異なるため第9章で別に扱います。</p>
 <hr>
-<h2 id="test-section-23" class="m-3">6 データの取得・登録・更新・削除をテストする</h2>
-<h3 id="test-section-24" class="m-3">データの取得をテストする</h3>
+<h2 id="test-section-23">6 データの取得・登録・更新・削除をテストする</h2>
+<h3 id="test-section-24">データの取得をテストする</h3>
 <p><code>tests/DbLogic/UserDatabaseTest.php</code>に、以下のテストケースを追加し、初期データとして登録されているユーザーを取得します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * 既存のユーザーを選択できることを確認する。
@@ -1016,7 +928,7 @@ public function testExistingUserCanBeSelected(): void
     $this-&gt;assertSame('管理者がう', $actual['user_name']);
 }
 </code></pre>
-<h3 id="test-section-25" class="m-3">データの登録をテストする</h3>
+<h3 id="test-section-25">データの登録をテストする</h3>
 <p><code>tests/DbLogic/UserDatabaseTest.php</code>に、以下のテストケースを追加し、新しいユーザーを登録します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * 新しいユーザーを登録できることを確認する。
@@ -1048,12 +960,12 @@ public function testUserCanBeInserted(): void
 </code></pre>
 <p>このテストケースでは、最初に、<code>User::insert()</code>の戻り値を確認します。戻り値が<code>1</code>であれば、SQLによって1件のレコードが登録されたことを表します。
 続いて登録したデータを取得し、保存された値を確認します。</p>
-<h4 id="test-section-26" class="m-3">AUTO_INCREMENTで採番された値の確認</h4>
+<h4 id="test-section-26">AUTO_INCREMENTで採番された値の確認</h4>
 <p><code>users.id</code>にはテーブル定義で<code>AUTO_INCREMENT</code>が設定されています。このため、<code>User::insert()</code>へIDを渡さなくても、データベースが新しいIDを採番します。
 採番されたIDは、PDOの<code>lastInsertId()</code>で取得できます。<code>AUTO_INCREMENT</code>で採番されるIDは実行状況によって変わるため、特定の値になることは前提にしません。本テストでは、取得したIDを使って、登録したデータを検索しています。</p>
-<h4 id="test-section-27" class="m-3">ハッシュ化されたパスワードの確認</h4>
+<h4 id="test-section-27">ハッシュ化されたパスワードの確認</h4>
 <p>パスワードはハッシュ化して保存されるため、<code>password_verify()</code>を使用して、登録時のパスワードと保存されたハッシュ値が対応していることを確認します。</p>
-<h3 id="test-section-28" class="m-3">データの更新をテストする</h3>
+<h3 id="test-section-28">データの更新をテストする</h3>
 <p>ユーザーの更新テストでは、まず更新対象のユーザーを登録し、それから更新を行って結果を検証します。<code>tests/DbLogic/UserDatabaseTest.php</code>に、以下のプライベートメソッドを追加し、テスト対象のユーザーを登録する処理を記述します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * テスト対象となるユーザーを登録し、データベースが採番したIDを返す。
@@ -1095,7 +1007,7 @@ public function testUserCanBeUpdated(): void
 }
 </code></pre>
 <p>テスト終了後にはトランザクションがロールバックされるため、登録と更新の両方が取り消されます。</p>
-<h3 id="test-section-29" class="m-3">ユーザーの登録・更新で監査情報が保存されることを確認する</h3>
+<h3 id="test-section-29">ユーザーの登録・更新で監査情報が保存されることを確認する</h3>
 <p>ユーザーを登録・更新したときに、作成者・更新者と処理日時が<code>users</code>テーブルへ保存されることを確認します。対象はNobleStockの<code>User::insert()</code>と<code>User::update()</code>です。これらの処理では、Chandraの<code>Database</code>による監査列の自動設定を利用します。</p>
 <p><code>tests/DbLogic/UserDatabaseTest.php</code>に、以下のテストケースを追加し、登録時の監査列をテストします。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -1171,7 +1083,7 @@ public function testUserUpdateStoresAuditInformation(): void
 <p>このアプリの監査列は秒単位で日時を記録するため、登録直後に更新すると、更新前後で同じ日時になることがあります。</p>
 <p>そこで、このテストでは更新前の<code>updated_at</code>を古い固定日時に変更します。準備には、監査列を自動設定する<code>Database::update()</code>を使わず、PDOで直接SQLを実行します。</p>
 <p>その後、<code>User::update()</code>を実行し、<code>created_at</code>と<code>created_by</code>が変更されていないこと、<code>updated_by</code>に更新者が設定されることを確認します。<code>updated_at</code>については、所定の日時形式であり、更新前の固定日時より新しくなっていることを確認します。これにより、更新日時の設定漏れを検出します。</p>
-<h3 id="test-section-30" class="m-3">データの削除をテストする</h3>
+<h3 id="test-section-30">データの削除をテストする</h3>
 <p><code>tests/DbLogic/UserDatabaseTest.php</code>に、以下のテストケースを追加して、テスト用ユーザーの削除処理を確認します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * 既存のユーザーを削除できることを確認する。
@@ -1195,12 +1107,12 @@ public function testUserCanBeDeleted(): void
 </code></pre>
 <p>削除件数だけでなく、データベースから対象のユーザーがなくなっていることも確認します。</p>
 <hr>
-<h2 id="test-section-31" class="m-3">7 データベース制約をテストする</h2>
+<h2 id="test-section-31">7 データベース制約をテストする</h2>
 <p>NobleStockでは、<code>users.login_id</code>のUNIQUE制約でログインIDの重複を防ぎ、<code>stocks</code>の複合主キーで同じ商品・店舗の在庫レコードの重複を防いでいます。</p>
 <p>制約を確認する場合は、同じログインIDで2件目のユーザーを登録し、UNIQUE制約によって拒否されることをテストします。</p>
 <p>ユーザー登録画面にも重複チェックがあります。HTTP機能テストでは、重複時の入力エラーと、ユーザーが追加されていないことを確認します。事前チェック後の同時登録による重複はDBの制約で防ぐため、画面とDBそれぞれの動作を確認します。フォーム処理のテスト方法は第9章で扱います。</p>
 <hr>
-<h2 id="test-section-32" class="m-3">8 WebページをHTTP経由でテストする</h2>
+<h2 id="test-section-32">8 WebページをHTTP経由でテストする</h2>
 <p>前章までは、クラスやメソッドを直接呼び出すテストと、テスト用データベースへ接続するテストを作成しました。
 この章では、Webサーバー上で動作するNobleStockへ実際にHTTPリクエストを送り、利用者がアクセスしたときに近い状態でテストします。</p>
 <p>HTTP機能テストでは、次の一連の動作を確認します。</p>
@@ -1224,7 +1136,7 @@ public function testUserCanBeDeleted(): void
 └─run.php
 </code></pre>
 <p>この章では、ログイン前でも表示できる<code>public/index.php</code>を最初のテスト対象にします。</p>
-<h3 id="test-section-33" class="m-3">テスト対象のWebサーバーを起動する</h3>
+<h3 id="test-section-33">テスト対象のWebサーバーを起動する</h3>
 <p>HTTP機能テストでは、テストコードとは別にWebサーバーが動作している必要があります。
 XAMPP Control PanelからApacheを起動し、ブラウザーで次のURLを表示できることを確認してください。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-text">http://localhost/noblestock/public/index.php
@@ -1232,7 +1144,7 @@ XAMPP Control PanelからApacheを起動し、ブラウザーで次のURLを表�
 <p><img src="img/noblestock_login.png" alt="NobleStockのログイン画面" class="img-fluid border rounded my-3" loading="lazy">
 NobleStockのログイン画面が表示されれば準備完了です。</p>
 <p><code>tests/run.php</code>を使用する場合、接続先データベースが変更されます。テストの実行中にブラウザからのアクセスをすると、ブラウザからのアクセスもテスト用データベースになることに注意してください。</p>
-<h3 id="test-section-34" class="m-3">GETでログイン画面を表示する</h3>
+<h3 id="test-section-34">GETでログイン画面を表示する</h3>
 <p><code>tests/Http/LoginPageTest.php</code>を作成し、次のように記述します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">&lt;?php
 declare(strict_types=1);
@@ -1276,12 +1188,12 @@ final class LoginPageTest extends TestCase
 <code>request()</code>から返される値は、HTMLを検索するためのCrawlerです。HTTPステータスやレスポンスヘッダーなどを調べる場合は、<code>getInternalResponse()</code>でレスポンスを取得します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">$response = $this-&gt;browser-&gt;getInternalResponse();
 </code></pre>
-<h3 id="test-section-35" class="m-3">HTTPステータスを確認する</h3>
+<h3 id="test-section-35">HTTPステータスを確認する</h3>
 <p>正常にページを表示できた場合、HTTPステータスコードは<code>200</code>になります。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">// HTTPステータスを確認
 $this-&gt;assertSame(200, $response-&gt;getStatusCode());
 </code></pre>
-<h3 id="test-section-36" class="m-3">レスポンスヘッダーを確認する</h3>
+<h3 id="test-section-36">レスポンスヘッダーを確認する</h3>
 <p>ログイン画面がHTMLとして返されていることを確認します。先ほどのテストメソッドへ、次のアサーションを追加します。</p>
 <p>HTTPレスポンスの中のレスポンスヘッダーには、返されたデータの種類、文字コード、Cookie、リダイレクト先などの情報が記録されています。ここでは<code>Content-Type</code>を確認します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">// Content-Typeを確認
@@ -1290,15 +1202,15 @@ $this-&gt;assertNotNull($contentType);
 $this-&gt;assertStringStartsWith('text/html', strtolower($contentType));
 </code></pre>
 <p><code>Content-Type</code>には<code>charset=UTF-8</code>などが付く場合があるため、ヘッダーの存在を確認したうえで、<code>text/html</code>から始まることを検証します。</p>
-<h3 id="test-section-37" class="m-3">HTMLの内容を確認する</h3>
+<h3 id="test-section-37">HTMLの内容を確認する</h3>
 <p>HTTP本文が期待通りの画面であることを確認するため、ログイン画面に固有の文字列、タイトル、フォームも確認します。</p>
-<h4 id="test-section-38" class="m-3">レスポンス本文を文字列として確認する</h4>
+<h4 id="test-section-38">レスポンス本文を文字列として確認する</h4>
 <p>レスポンス本文は、<code>getContent()</code>で取得できます。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">// レスポンス本文を文字列として確認
 $html = $response-&gt;getContent();
 $this-&gt;assertStringContainsString('ログイン', $html);
 </code></pre>
-<h4 id="test-section-39" class="m-3">HTMLの要素を確認する</h4>
+<h4 id="test-section-39">HTMLの要素を確認する</h4>
 <p><code>request()</code>が返すCrawlerを使うと、XPath式でHTML要素を検索できます。</p>
 <p>テストメソッドの<code>request()</code>部分を、返り値を受け取るように変更します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">$crawler = $this-&gt;browser-&gt;request('GET', self::PUBLIC_URL . 'index.php');
@@ -1310,10 +1222,10 @@ $this-&gt;assertCount(1, $crawler-&gt;filterXPath('//form[@name=&quot;login&quot
 </code></pre>
 <p>タイトルの一致と、ログインフォームが1つ存在することを確認します。HTMLの詳しい調べ方は第12章を参照してください。</p>
 <hr>
-<h2 id="test-section-40" class="m-3">9 フォーム処理をテストする</h2>
+<h2 id="test-section-40">9 フォーム処理をテストする</h2>
 <p>前章では、GETでWebページへアクセスし、HTTPステータス、レスポンスヘッダー、HTMLの内容を確認しました。この章では、フォームからPOSTリクエストを送り、登録、更新、削除をテストします。</p>
 <p>この章では、NobleStockのユーザー登録、更新、削除画面を題材にします。これらの画面はログイン後に利用するため、テストの準備として管理者ユーザーでログインします。ログイン処理やCookie、セッションについては、次章で詳しく確認します。</p>
-<h3 id="test-section-41" class="m-3">BrowserKitからフォームを送信する</h3>
+<h3 id="test-section-41">BrowserKitからフォームを送信する</h3>
 <p>BrowserKitでは、<code>request()</code>へ<code>POST</code>メソッドと送信値を直接指定できます。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">$this-&gt;browser-&gt;request(
     'POST',
@@ -1346,7 +1258,7 @@ $crawler = $this-&gt;browser-&gt;submit($form);
 </code></pre>
 <p><code>selectButton(&#39;登録&#39;)-&gt;form()</code>で登録ボタンのあるフォームを取得し、入力値を指定します。<code>submit()</code>はフォームの<code>method</code>と<code>action</code>に従って送信します。</p>
 <p>指定していない項目はHTMLの値を使用するため、NobleStockがhidden項目として出力するCSRFトークンも送信されます。対象フォームのCSRF対策が機能することの確認は第11章で扱います。HTMLの<code>required</code>やJavaScriptによる入力検証は実行されません。</p>
-<h3 id="test-section-42" class="m-3">ユーザーフォームテストの共通部分を作る</h3>
+<h3 id="test-section-42">ユーザーフォームテストの共通部分を作る</h3>
 <p><code>tests/Http/UserFormTest.php</code>を作成します。</p>
 <p>最初に、共通の準備と後片付けを用意します。各メソッドの役割は次のとおりです。</p>
 <div class="table-responsive"><table class="table table-bordered table-sm align-middle">
@@ -1579,7 +1491,7 @@ final class UserFormTest extends TestCase
 そこでこのテストでは、ロールバックのかわりに、テストで追加したユーザーのログインIDを<code>cleanupLoginIds</code>へ記録し、<code>tearDown()</code>で明示的に削除します。</p>
 <p><code>login()</code>は、ログイン画面のフォームを送信してログインします。その後も同じ<code>HttpBrowser</code>インスタンスを使うことで、Cookieを引き継ぎ、ログイン済みのセッションでリクエストを送信できます。</p>
 <p>ログインに成功すると、<code>menu.php</code>のトップメニューが表示されます。ページタイトルに加えて、ログインユーザー名がナビゲーションへ表示されることも確認します。ユーザー名も確認することで、送信したログイン情報に対応するユーザーがセッションへ保存されたことを確かめられます。</p>
-<h3 id="test-section-43" class="m-3">登録処理をテストする</h3>
+<h3 id="test-section-43">登録処理をテストする</h3>
 <p>NobleStockのユーザー登録は、入力画面（user_create.php）と確認画面（user_confirm.php）の2段階になっています。
 <code>UserFormTest</code>クラスへ、次のテストメソッドを追加します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -1627,7 +1539,7 @@ public function test_user_can_be_registered(): void
 <p>最初の<code>submit()</code>では、入力値の検証と確認画面の表示までが行われます。この時点では、まだデータベースへ登録されていません。</p>
 <p>2回目の<code>submit()</code>で<code>mode=insert</code>が送信され、データベースへユーザーが登録されます。処理後は<code>user_list.php</code>へリダイレクトされます。<code>HttpBrowser</code>は初期状態でリダイレクト先まで移動するため、最後の<code>$crawler</code>はユーザー一覧画面を表します。</p>
 <p>登録後の画面と、DBに保存された値の両方を確認します。</p>
-<h3 id="test-section-44" class="m-3">更新処理をテストする</h3>
+<h3 id="test-section-44">更新処理をテストする</h3>
 <p>更新テストでは、テスト対象のユーザーをあらかじめ登録し、ユーザー一覧から更新画面（user_edit.php）を開きます。確認画面（user_edit_confirm.php）を経て更新されます。</p>
 <p><code>UserFormTest</code>クラスへ、次のテストメソッドを追加します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -1665,7 +1577,7 @@ public function test_user_can_be_updated(): void
 </code></pre>
 <p><code>form()</code>へ指定していない<code>login_id</code>、<code>sort_order</code>、権限などは、更新画面に表示されている値が送信されます。このため、変更したい項目だけをテストコードで指定できます。</p>
 <p>確認画面の実行ボタンは、現在のNobleStockでは「登録」と表示されていますが、送信される<code>mode</code>は<code>update</code>です。このテストでは実際のボタン表示に合わせて<code>selectButton(&#39;登録&#39;)</code>を使用しています。</p>
-<h3 id="test-section-45" class="m-3">削除処理をテストする</h3>
+<h3 id="test-section-45">削除処理をテストする</h3>
 <p>削除テストでも、削除専用のテストユーザーを先に登録します。
 <code>UserFormTest</code>クラスへ、次のテストメソッドを追加します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -1689,7 +1601,7 @@ public function test_user_can_be_deleted(): void
 </code></pre>
 <p>削除ボタンは、更新用フォームとは別の<code>delForm</code>を送信します。そのため、XPathで<code>id=&quot;delForm&quot;</code>のフォームを取得しています。</p>
 <p>ブラウザーでは削除前にJavaScriptの確認ダイアログが表示されますが、<code>HttpBrowser</code>はJavaScriptを実行しません。テストでは確認ダイアログを経由せず、削除フォームを直接送信します。</p>
-<h3 id="test-section-46" class="m-3">入力エラーと入力値の再表示を確認する</h3>
+<h3 id="test-section-46">入力エラーと入力値の再表示を確認する</h3>
 <p>ユーザー登録では、ログインIDが3～16文字の半角英数字またはハイフンであることなどをサーバー側で検証します。
 短すぎるログインIDを送信し、データベースに登録されないこと、入力画面へ戻ることを確認します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -1721,12 +1633,12 @@ public function test_invalid_input_is_redisplayed(): void
 }
 </code></pre>
 <p>Noblestockでは、単項目の入力チェックをHTMLの属性でチェックし、Submit前にユーザーに通知するようにしています。同時に、不正なリクエストに備えて、submit後のサーバ側でも同一のチェックをしています。BrowserKitはサーバ側のチェック処理をテストすることができます。</p>
-<h3 id="test-section-47" class="m-3">フラッシュメッセージを確認する</h3>
+<h3 id="test-section-47">フラッシュメッセージを確認する</h3>
 <p>登録、更新、削除の完了メッセージは、処理後のリダイレクト先で1度だけ表示するフラッシュメッセージです。リファレンスのフラッシュメッセージ（ <a href="./reference.html#item-3-92">./reference.html#item-3-92</a> ）を参照してください。</p>
 <p>登録テストでは、リダイレクト後のユーザー一覧画面にメッセージが含まれることを確認しています。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">$this-&gt;assertStringContainsString('ユーザーを登録しました', $crawler-&gt;text());
 </code></pre>
-<h3 id="test-section-48" class="m-3">許可されないHTTPメソッドを確認する</h3>
+<h3 id="test-section-48">許可されないHTTPメソッドを確認する</h3>
 <p>NobleStockの<code>user_export.php</code>はPOST専用です。GETでアクセスすると<code>405 Method Not Allowed</code>が返ることを確認します。</p>
 <p><code>UserFormTest</code>クラスへ、次のテストメソッドを追加します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -1742,7 +1654,7 @@ public function test_user_export_rejects_get(): void
 </code></pre>
 <p><code>Allow</code>ヘッダーが<code>POST</code>であることも確認します。</p>
 <hr>
-<h2 id="test-section-49" class="m-3">10 ログインとセッションをテストする</h2>
+<h2 id="test-section-49">10 ログインとセッションをテストする</h2>
 <p>この章では、<code>HttpBrowser</code>が保持するCookieを利用して、ログイン機能に関する次の一連の動作をHTTP経由でテストします。</p>
 <ol>
 <li>ログイン画面を表示する</li>
@@ -1752,7 +1664,7 @@ public function test_user_export_rejects_get(): void
 <li>ログアウト後は保護されたページを表示できないことを確認する</li>
 </ol>
 <p>さらに、ログイン成功時のセッションID再生成と、ログイン試行制限も確認します。</p>
-<h3 id="test-section-50" class="m-3">Cookieでセッションを引き継ぐ</h3>
+<h3 id="test-section-50">Cookieでセッションを引き継ぐ</h3>
 <p>ログインすると、サーバーはログイン状態をセッションへ保存し、クライアントへセッションIDをCookieとして返します。次のリクエストで同じCookieを送ることで、サーバーは同じ利用者からのアクセスであると判断します。</p>
 <p><code>HttpBrowser</code>は、受け取ったCookieを内部の<code>CookieJar</code>へ保存し、同じインスタンスから送る次のリクエストへ自動的に追加します。このため、ログイン画面の表示、ログイン情報の送信、ログイン後のページ表示には、必ず同じ<code>HttpBrowser</code>インスタンスを使用します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">$browser = new HttpBrowser();
@@ -1775,7 +1687,7 @@ private function sessionId(): string
 }
 </code></pre>
 <p>一般的なPHPの既定のセッションCookie名は<code>PHPSESSID</code>です。<code>php.ini</code>などで<code>session.name</code>を変更している場合は、ここも実際のCookie名に合わせてください。</p>
-<h3 id="test-section-51" class="m-3">テスト用ユーザーを準備する</h3>
+<h3 id="test-section-51">テスト用ユーザーを準備する</h3>
 <p>第3章で作成した<code>tests/Fixtures/testdata.sql</code>には、HTTPテストで使用できる管理者ユーザーが登録されています。テストコードでは、次の組み合わせを使用します。</p>
 <div class="table-responsive"><table class="table table-bordered table-sm align-middle">
 <thead>
@@ -1799,7 +1711,7 @@ private function sessionId(): string
 </tbody></table>
 </div>
 <p>テスト専用データベースのユーザーなので、テストコードへパスワードを記述しています。実際に運用しているユーザーのパスワードをテストコードに記述しないよう注意が必要です。</p>
-<h3 id="test-section-52" class="m-3">ログインとセッションのテストクラスを作る</h3>
+<h3 id="test-section-52">ログインとセッションのテストクラスを作る</h3>
 <p><code>tests/Http/LoginSessionTest.php</code>を作成します。</p>
 <p>各テストで新しい<code>HttpBrowser</code>を使う基本部分を用意します。このクラスへ、ログイン成功・失敗、セッションの継続、ログアウトのテストを追加します。後半のログイン試行制限のテストでは、DB接続と専用データの後片付けも追加します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">&lt;?php
@@ -1836,7 +1748,7 @@ final class LoginSessionTest extends TestCase
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-text">php tests/run.php tests/Http/LoginSessionTest.php
 </code></pre>
 <p>このテストでは、PHPUnitから送ったリクエストをApacheが処理します。XAMPP Control PanelからApacheを起動してから実行してください。</p>
-<h3 id="test-section-53" class="m-3">ログイン成功を確認する</h3>
+<h3 id="test-section-53">ログイン成功を確認する</h3>
 <p>ログインとその確認処理は<code>UserFormTest</code>クラスと同一です。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * 指定したユーザーでログインし、トップメニューが表示されたことを確認する。
@@ -1873,7 +1785,7 @@ public function test_login_succeeds_with_valid_credentials(): void
     $this-&gt;login();
 }
 </code></pre>
-<h3 id="test-section-54" class="m-3">ログイン失敗を確認する</h3>
+<h3 id="test-section-54">ログイン失敗を確認する</h3>
 <p>存在しないログインIDと誤ったパスワードを送信します。NobleStockはログインに失敗すると<code>index.php</code>へリダイレクトし、フラッシュメッセージを表示します。</p>
 <p>ログインIDが存在するかどうかでメッセージを変えると、第三者に有効なログインIDを推測されるおそれがあります。NobleStockでは、ログインIDが存在しない場合とパスワードが誤っている場合に同じメッセージを表示します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -1892,7 +1804,7 @@ public function test_login_fails_with_invalid_credentials(): void
     $this-&gt;assertStringContainsString('ログインID、または、パスワードを正しく入力してください', $crawler-&gt;text());
 }
 </code></pre>
-<h3 id="test-section-55" class="m-3">ログイン後の画面でセッションが引き継がれることを確認する</h3>
+<h3 id="test-section-55">ログイン後の画面でセッションが引き継がれることを確認する</h3>
 <p>ログイン後、同じ<code>HttpBrowser</code>から<code>user_list.php</code>を表示します。<code>HttpBrowser</code>は、ログインレスポンスから受け取ったセッションCookieを次のリクエストへ送ります。そのため、<code>user_list.php</code>はログイン済みのリクエストとして処理されます。セッションに保存したログインユーザーを次のリクエストで読み出すことで、セッションが引き継がれていることを確認します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * ログイン後のリクエストでもセッションが引き継がれる。
@@ -1906,7 +1818,7 @@ public function test_session_is_kept_after_login(): void
     $this-&gt;assertStringContainsString('管理者がう', $crawler-&gt;text());
 }
 </code></pre>
-<h3 id="test-section-56" class="m-3">セッションIDの再生成を確認する</h3>
+<h3 id="test-section-56">セッションIDの再生成を確認する</h3>
 <p>NobleStockのログインフォームを送信して認証に成功したときに、セッションIDが変わることを確認します。ログイン前のIDを使い続けないための動作です。アプリのログイン処理では、Chandraの<code>AuthService::login()</code>によるセッションIDの再生成を利用します。</p>
 <p>次のテストケースでは、ログイン画面を表示した直後と、その画面のフォームを送信してログインに成功した直後のセッションIDを、HttpBrowserが保持するCookieから取得して比較します。ログイン後の画面タイトルとユーザー名でログイン成功を確認し、セッションIDがログイン前とは異なる値になったことを確認します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -1953,7 +1865,7 @@ $this-&gt;login();
 $afterLogin = $this-&gt;sessionId();
 $this-&gt;assertNotSame($beforeLogin, $afterLogin);
 </code></pre>
-<h3 id="test-section-57" class="m-3">ログアウトを確認する</h3>
+<h3 id="test-section-57">ログアウトを確認する</h3>
 <p>NobleStockでは、<code>index.php</code>を表示するとログアウト処理をします。
 ログアウトでは、既存のセッションを無効化し、新しい未ログインのセッションを開始します。</p>
 <p>ナビゲーションにある「ログアウト」は<code>index.php</code>へのリンクです。テストでは、このリンクを取得してクリック処理を行うことでログアウトをします。</p>
@@ -1983,7 +1895,7 @@ public function test_logout_invalidates_session(): void
     $this-&gt;assertStringContainsString('セッションの有効期限が切れました 再ログインしてください', $crawler-&gt;text());
 }
 </code></pre>
-<h3 id="test-section-58" class="m-3">ログイン試行制限を確認する</h3>
+<h3 id="test-section-58">ログイン試行制限を確認する</h3>
 <p>NobleStockでは、同じアカウントで短時間にログインへ繰り返し失敗したときに、一時的にログインを拒否します。このアプリの<code>LoginRateLimitGuard</code>をログイン処理へ組み込み、指定した回数でロックされることを確認します。
 現在の<code>LoginRateLimitGuard</code>では、同じログインIDに対して15分以内に5回失敗すると、15分間のアカウントロックを作成します。
 <code>LoginSessionTest</code>クラスの最初に、必要な宣言を行います。</p>
@@ -2085,7 +1997,7 @@ private function cleanupRateLimitData(PDO $pdo): void
 <p>6回目は、パスワードを照合する前にロック判定で拒否されます。そのため、<code>login_attempts</code>の失敗履歴が5件のままであることを確認しています。画面に表示されるメッセージは通常のログイン失敗と同じなので、画面だけでロックの成立を判断せず、ロック状態と試行履歴をデータベースで確認します。</p>
 <p>試行制限のテストはデータベースへ状態を残します。テストケースの最初と最後で<code>cleanupRateLimitData()</code>を呼び出し、専用ログインIDの履歴とロックを削除します。</p>
 <hr>
-<h2 id="test-section-59" class="m-3">11 セキュリティ機能をテストする</h2>
+<h2 id="test-section-59">11 セキュリティ機能をテストする</h2>
 <p>前章では、ログイン、ログアウト、セッションの引き継ぎ、ログイン試行制限をテストしました。この章では、ログイン後の画面を保護するためのアクセス制御、CSRF対策、出力エスケープについて確認します。</p>
 <p>セキュリティ機能のテストでは、正しい操作が成功することだけでなく、不正なリクエストが拒否されることも確認します。</p>
 <ul>
@@ -2097,7 +2009,7 @@ private function cleanupRateLimitData(PDO $pdo): void
 <li>エラー時に内部情報を画面へ表示しない</li>
 </ul>
 <p>セキュリティテストもHTTP機能テストとして実行します。Apacheを起動し、テスト用データベースを使用してください。</p>
-<h3 id="test-section-60" class="m-3">セキュリティテストの共通部分を作る</h3>
+<h3 id="test-section-60">セキュリティテストの共通部分を作る</h3>
 <p><code>tests/Http/SecurityTest.php</code>を作成し、テストクラスの基本部分を記述します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">&lt;?php
 declare(strict_types=1);
@@ -2129,7 +2041,7 @@ final class SecurityTest extends TestCase
     }
 }
 </code></pre>
-<h3 id="test-section-61" class="m-3">未ログイン時の動作を確認する</h3>
+<h3 id="test-section-61">未ログイン時の動作を確認する</h3>
 <p>ログインが必要な画面へ未ログインの状態でアクセスした場合、ログイン画面へリダイレクトされることを確認します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * 未ログインではユーザー管理画面を表示できない。
@@ -2172,7 +2084,7 @@ public function test_guest_sees_login_message(): void
 }
 </code></pre>
 <p><code>followRedirect()</code>でリダイレクト先へ移動し、再ログインを案内するメッセージを確認します。</p>
-<h3 id="test-section-62" class="m-3">権限不足時の動作を確認する</h3>
+<h3 id="test-section-62">権限不足時の動作を確認する</h3>
 <p>正しくログインできても、権限不足であれば、対象画面を利用できません。
 未ログイン（認証）と権限不足（認可）とで、期待する動作を分けています。</p>
 <div class="table-responsive"><table class="table table-bordered table-sm align-middle">
@@ -2240,7 +2152,7 @@ public function test_user_without_permission_gets_forbidden(): void
 }
 </code></pre>
 <p>ユーザー<code>noauth</code>は、ユーザー管理画面の権限を持たないユーザーです。</p>
-<h3 id="test-section-63" class="m-3">権限を持つ利用者の動作を確認する</h3>
+<h3 id="test-section-63">権限を持つ利用者の動作を確認する</h3>
 <p>拒否される場合だけでなく、権限を持つ利用者が画面を表示できることも確認します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * 管理者はユーザー管理画面を表示できる。
@@ -2256,7 +2168,7 @@ public function test_admin_can_open_user_list(): void
     $this-&gt;assertSame('ユーザー管理 | NobleStock', $crawler-&gt;filterXPath('//title')-&gt;text());
 }
 </code></pre>
-<h3 id="test-section-64" class="m-3">ユーザー登録フォームのCSRF対策を確認する</h3>
+<h3 id="test-section-64">ユーザー登録フォームのCSRF対策を確認する</h3>
 <p>NobleStockのユーザー登録画面で、正しいフォーム送信は受け付け、不正なCSRF情報を持つ送信は拒否することを確認します。対象は、フォームへのCSRF情報の出力と、送信先での検証・エラー時の画面遷移です。</p>
 <p>ユーザー登録フォームには、次のhidden項目が出力されます。BrowserKitでフォームを取得して送信すると、これらの項目も送信内容に含まれます。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-html">&lt;input type=&quot;hidden&quot; name=&quot;_csrf_scope&quot; value=&quot;user_create.form&quot;&gt;
@@ -2265,7 +2177,7 @@ public function test_admin_can_open_user_list(): void
 <p>テストではフォームの情報を使って正常な送信を行い、トークンの欠落・改変・再送信によって拒否時の応答も確認します。NobleStockは、この検証にChandraのCSRF対策を利用しています。</p>
 <p>商品一覧のバーコード選択APIでは、同じ項目をJSONの本文へ含めます。第12章の<code>ResponseContentTest</code>では、画面から取得したCSRF情報でAPIを呼び出し、応答に次回用の情報が含まれることを確認します。連続してPOSTする場合は、その情報を次の送信に使います。</p>
 <p>CSRF対策の実装方法は、<a href="./reference.html#item-3-113">Chandraリファレンス「CSRF対策」</a>と<a href="./reference.html#item-3-121">「CSRFをAJAXで使う」</a>を参照してください。</p>
-<h4 id="test-section-65" class="m-3">POSTフォームにCSRFトークンが含まれることを確認する</h4>
+<h4 id="test-section-65">POSTフォームにCSRFトークンが含まれることを確認する</h4>
 <p>最初に、ユーザー登録フォームへCSRFスコープとトークンが出力されていることを確認します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * POSTフォームにCSRFトークンが含まれる。
@@ -2293,7 +2205,7 @@ public function test_user_form_contains_csrf_token(): void
 <li>トークンが空ではない</li>
 </ul>
 <p>トークンの具体的な値は実行時に発行されるため、固定値との一致は確認しません。また、トークンは秘密情報であるため、テスト結果やログへ値そのものを出力しないようにします。</p>
-<h4 id="test-section-66" class="m-3">正しいCSRFトークンでPOSTする</h4>
+<h4 id="test-section-66">正しいCSRFトークンでPOSTする</h4>
 <p>「BrowserKitからフォームを送信する」で紹介したように、Crawlerからフォームを取得して<code>submit()</code>で送信すると、hidden inputも送信内容へ含まれます。そのため、この方法でのフォーム送信テストは、正しいCSRFトークンを送信するテストにもなります。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * 正しいCSRFトークンを持つPOSTを受け付ける。
@@ -2321,7 +2233,7 @@ public function test_valid_csrf_token_is_accepted(): void
 }
 </code></pre>
 <p>正しいトークンが送信され、ユーザー登録確認画面へ進めることを確認しています。このテストでは登録を完了していないため、テストユーザーはデータベースへ保存されません。</p>
-<h4 id="test-section-67" class="m-3">CSRFトークンがないPOSTを拒否する</h4>
+<h4 id="test-section-67">CSRFトークンがないPOSTを拒否する</h4>
 <p>フォームを経由せずに直接POSTし、CSRFスコープとトークンがないリクエストを拒否することを確認します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * CSRFトークンのないPOSTを拒否する。
@@ -2345,7 +2257,7 @@ public function test_missing_csrf_token_is_rejected(): void
 </code></pre>
 <p><code>mode</code>に<code>reset</code>を指定することで、リセットボタンを押したときのリクエストを再現します。リセット処理はユーザー名などの入力値を必要としないため、送信項目を最小限にして、CSRF対策の動作に絞って確認できます。</p>
 <p>このテストではPOST後、NobleStockは処理を中止し、ユーザー登録画面へリダイレクトします。HTTPステータスと<code>Location</code>ヘッダーに加えて、リダイレクト先のエラーメッセージも確認します。</p>
-<h4 id="test-section-68" class="m-3">不正なCSRFトークンを拒否する</h4>
+<h4 id="test-section-68">不正なCSRFトークンを拒否する</h4>
 <p>フォームに含まれるトークンを意図的に書き換えて送信します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * 不正なCSRFトークンを拒否する。
@@ -2382,7 +2294,7 @@ public function test_invalid_csrf_token_is_rejected(): void
 }
 </code></pre>
 <p>このテストケースでも、CSRFトークンがない場合と同様に、ユーザー登録画面へリダイレクトされ、エラーメッセージが表示されることを確認します。</p>
-<h4 id="test-section-69" class="m-3">使用済みCSRFトークンの再利用を拒否する</h4>
+<h4 id="test-section-69">使用済みCSRFトークンの再利用を拒否する</h4>
 <p>ユーザー登録画面のリセット処理へ同じCSRF情報を2回送信し、1回目は受け付けられ、2回目は拒否されることを確認します。これにより、この画面に組み込んだCSRF対策が使用済みトークンの再送信を拒否することを確かめます。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * 使用済みCSRFトークンを再利用できない。
@@ -2432,7 +2344,7 @@ public function test_used_csrf_token_cannot_be_reused(): void
 <p>ここでもリセット処理を使用し、同じCSRFトークンを持つリクエストを2回送信します。</p>
 <p>1回目と2回目は、どちらもユーザー登録画面へのリダイレクトになります。そのため、HTTPステータスだけでは成功と失敗を区別できません。
 1回目のリダイレクト先にはエラーブロックがなく、同じトークンを再送信した2回目にはエラーブロックがあることを確認します。</p>
-<h3 id="test-section-70" class="m-3">ユーザー名が確認画面で安全に表示されることを確認する</h3>
+<h3 id="test-section-70">ユーザー名が確認画面で安全に表示されることを確認する</h3>
 <p>HTMLのタグを含むユーザー名を入力し、ユーザー登録確認画面で文字列として出力されることを確認します。アプリのテンプレートでは、Chandraの<code>Utility::h()</code>で入力値をHTMLエスケープします。</p>
 <p>テストではフォームを送信し、返されたHTMLとユーザー名のセルの内容を調べます。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -2472,7 +2384,7 @@ public function test_input_is_html_escaped(): void
 <p>レスポンスのHTMLに入力値がそのまま含まれず、特殊文字がHTMLエンティティへ変換されていることを確認します。</p>
 <p>次に、確認画面のユーザー名のセルを<code>text()</code>で読み取り、元の入力値と比較します。CrawlerはHTMLエンティティを元の文字へ戻してテキストを取得するため、エスケープ後も入力内容が保たれていることを確認できます。</p>
 <p><code>Utility::h()</code>はHTML本文とHTML属性値のみを対象としていることに注意してください。JavaScript、URL、CSS、SQLなどへ値を埋め込む場合は、それぞれの文脈に合った処理が必要です。</p>
-<h3 id="test-section-71" class="m-3">内部情報が画面に表示されないことを確認する</h3>
+<h3 id="test-section-71">内部情報が画面に表示されないことを確認する</h3>
 <p>権限不足で返される403のレスポンスに、DB接続情報やSQL、スタックトレースなどの内部情報が含まれないことを確認します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
  * 拒否レスポンスに内部情報を表示しない。
@@ -2497,7 +2409,7 @@ public function test_forbidden_response_does_not_expose_internal_information(): 
 
 }
 </code></pre>
-<h3 id="test-section-72" class="m-3">セキュリティテストで確認する範囲</h3>
+<h3 id="test-section-72">セキュリティテストで確認する範囲</h3>
 <p>HTTP機能テストは、すべての脆弱性を検出できるわけではないものの、アプリケーションのセキュリティ機能が期待どおりに動作することの確認が可能です。この章のテストで確認している範囲は、次の通りです。</p>
 <div class="table-responsive"><table class="table table-bordered table-sm align-middle">
 <thead>
@@ -2529,7 +2441,7 @@ public function test_forbidden_response_does_not_expose_internal_information(): 
 </tbody></table>
 </div>
 <hr>
-<h2 id="test-section-73" class="m-3">12 レスポンスの内容を詳しく確認する</h2>
+<h2 id="test-section-73">12 レスポンスの内容を詳しく確認する</h2>
 <p>前章までは、フォームの送信、ログイン、セキュリティ機能をHTTP経由でテストしました。この章では、返されたレスポンスの内容を詳しく調べます。</p>
 <p>HTTPステータスが<code>200</code>のレスポンスについて、文字列、HTMLの要素、JSONの値を取り出し、期待した結果と比較することで、必要な項目が要求通りの順序で表示されることなどを確認します。</p>
 <p>この章では、NobleStockのユーザー登録画面、ユーザー管理画面、バーコード選択用APIをテスト対象として、次の内容を確認します。</p>
@@ -2540,7 +2452,7 @@ public function test_forbidden_response_does_not_expose_internal_information(): 
 <li>JSONレスポンスの値と型</li>
 <li>エラー時のステータス、Content-Type、本文</li>
 </ul>
-<h3 id="test-section-74" class="m-3">レスポンス確認用のテストクラスを作る</h3>
+<h3 id="test-section-74">レスポンス確認用のテストクラスを作る</h3>
 <p><code>tests/Http/ResponseContentTest.php</code>を作成し、次の共通部分を記述します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">&lt;?php
 declare(strict_types=1);
@@ -2591,7 +2503,7 @@ final class ResponseContentTest extends TestCase
     }
 }
 </code></pre>
-<h3 id="test-section-75" class="m-3">レスポンス本文とHTMLのテキストを使い分ける</h3>
+<h3 id="test-section-75">レスポンス本文とHTMLのテキストを使い分ける</h3>
 <p>確認する内容に合わせて、次のメソッドを使い分けます。</p>
 <div class="table-responsive"><table class="table table-bordered table-sm align-middle">
 <thead>
@@ -2632,7 +2544,7 @@ public function test_login_page_text_is_displayed(): void
 <p>テストの実施は、<code>tests/run.php</code>を経由します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-shell">php tests/run.php tests/Http/ResponseContentTest.php
 </code></pre>
-<h3 id="test-section-76" class="m-3">XPathで要素を探す</h3>
+<h3 id="test-section-76">XPathで要素を探す</h3>
 <p><code>filterXPath()</code>は、見つかった要素を保持するCrawlerを返します。<code>text()</code>や<code>attr()</code>で要素を調べる場合は、先に<code>assertCount(1, $node)</code>で存在と個数を確認します。</p>
 <p>この章で使用する主なXPath式は、次の通りです。</p>
 <div class="table-responsive"><table class="table table-bordered table-sm align-middle">
@@ -2665,7 +2577,7 @@ public function test_login_page_text_is_displayed(): void
 </tbody></table>
 </div>
 <p><code>normalize-space(.)</code>は、要素のテキストの前後の空白を取り除き、連続する空白を1つにまとめます。空白を揃え、見出しの文字列を比較しています。</p>
-<h3 id="test-section-77" class="m-3">inputの値と入力エラーを確認する</h3>
+<h3 id="test-section-77">inputの値と入力エラーを確認する</h3>
 <p>第9章では、入力エラー時に入力画面へ戻ることを確認しました。ここでは、値が再表示されていることに加えて、対象の入力項目にエラー用クラスが付いていることと、その項目に対応するメッセージを確認します。</p>
 <p>Noblestockでは、Bootstrapの機能を利用して、エラー項目を<code>is-invalid</code>クラスにより明示しています。詳しくは、<a href="https://getbootstrap.jp/docs/5.3/forms/validation/">https://getbootstrap.jp/docs/5.3/forms/validation/</a> を参照してください。</p>
 <p>ユーザー登録画面（<code>user_create.php</code>）では、ログインIDの入力項目が以下のHTMLで出力されます。</p>
@@ -2738,7 +2650,7 @@ public function test_invalid_login_id_and_its_error_are_displayed(): void
 <p>入力値は<code>attr(&#39;value&#39;)</code>で取得します。
 クラス名の検索では、<code>class</code>属性に複数のクラス名が入ることを考慮します。<code>concat()</code>で前後に空白を補い、前後に空白を入れた状態のクラス名を検索対象とすることで照合します。</p>
 <p><code>following-sibling::div</code>で入力項目より後の兄弟要素を探し、<code>invalid-feedback</code>クラスを持つ要素のメッセージを確認します。実際に表示される色や配置はブラウザーで確認してください。</p>
-<h3 id="test-section-78" class="m-3">確認画面の表の内容を確認する</h3>
+<h3 id="test-section-78">確認画面の表の内容を確認する</h3>
 <p>入力チェックが正常に通ると、ユーザー登録確認画面（<code>user_confirm.php</code>）に遷移し、入力値を出力します。正常に確認画面が表示されることテストします。</p>
 <p><code>ResponseContentTest</code>クラスへ、次のテストメソッドを追加します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -2777,7 +2689,7 @@ public function test_confirmation_table_contains_input_values(): void
 }
 </code></pre>
 <p>一覧表示されている中から、「ユーザー名」という見出しを対象に探し、検証しています。</p>
-<h3 id="test-section-79" class="m-3">一覧の件数、データ内容を確認する</h3>
+<h3 id="test-section-79">一覧の件数、データ内容を確認する</h3>
 <p>ユーザー管理画面で、一覧の件数と、データの内容を確認します。
 テストで使用する<code>tests/Fixtures/testdata.sql</code>には、通常ユーザー4件と権限確認用ユーザー21件の、計25件が含まれています。ユーザー管理画面では、全てのユーザーが表示されるので、テーブルの<code>tbody</code>内のデータ行が25件あることを検査します。
 さらに、データの内容を検査する例として、管理者のログインIDと一致する行のユーザー名も確認します。</p>
@@ -2924,7 +2836,7 @@ public function test_user_list_contains_fixture_users(): void
 }
 </code></pre>
 <p>XPathの<code>td[2]</code>は2列目、Crawlerの<code>eq(2)</code>は3番目の要素を指します。</p>
-<h3 id="test-section-80" class="m-3">一覧の並び順を確認する</h3>
+<h3 id="test-section-80">一覧の並び順を確認する</h3>
 <p>ユーザー管理の一覧では、ユーザーを<code>sort_order</code>の昇順に表示します。テストデータのログインIDは、<code>admin</code>、<code>user1</code>、<code>user2</code>、<code>user3</code>、<code>noauth</code>、<code>perm00</code>～<code>perm19</code>の順になります。</p>
 <p><code>ResponseContentTest</code>クラスへ、次のテストメソッドを追加します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -2952,7 +2864,7 @@ public function test_user_list_is_displayed_in_sort_order(): void
 }
 </code></pre>
 <p><code>each()</code>でログインIDを表示順の配列にし、期待する並びと比較します。</p>
-<h3 id="test-section-81" class="m-3">ページに分かれた一覧を確認する</h3>
+<h3 id="test-section-81">ページに分かれた一覧を確認する</h3>
 <p>商品一覧画面（product_list.php）は1ページあたり20件のページネーションを行っています。<code>tests/Fixtures/testdata.sql</code>には、サンプル商品を25件用意しているため、1ページ目に20件、2ページ目に5件が表示されます。</p>
 <p>商品一覧はGETパラメーター<code>p</code>でページ番号、<code>s</code>で並び順を受け取ります。
 <code>ResponseContentTest</code>クラスへ、次のテストメソッドを追加します。</p>
@@ -3004,7 +2916,7 @@ public function test_product_list_pagination(): void
 }
 </code></pre>
 <p><code>s=5</code>は管理番号の昇順です。フォームの<code>p</code>と<code>s</code>を確認した上で送信し、2ページ目の商品と検索欄の値を確認します。検索条件<code>prn</code>はページ切り替え用フォームには含まれず、アプリのセッションから引き継がれます。総件数25件と、現在のページの表示件数を分けて確認しています。</p>
-<h3 id="test-section-82" class="m-3">JSONレスポンスを確認する</h3>
+<h3 id="test-section-82">JSONレスポンスを確認する</h3>
 <p>商品一覧画面での商品のチェックボックスは、<code>BarcodeOutput.js</code>で管理しています。チェックボックスへのチェックをトリガーとして、商品の管理番号と選択状態を、POSTで<code>BarcodeOutput.php</code>へ送信します。<code>BarcodeOutput.php</code>では、バーコード出力対象の管理番号をセッションへ保存します。</p>
 <p>ユーザーが商品一覧画面の「バーコード出力」ボタンを押すと、「バーコード選択出力」画面（<code>product_barcode_list.php</code>）へ遷移し、セッションに保存した選択内容を画面上に反映します。</p>
 <p>この画面で商品ごとの出力個数を指定し、「バーコード出力」ボタンを押すと、バーコードを作成し、<code>barcode_bulk_export.php</code>を呼び出して、Excelブックを生成・ダウンロードします。</p>
@@ -3075,7 +2987,7 @@ public function test_barcode_selection_returns_json(): void
     $this-&gt;assertNotSame('', $data['_csrf_token']);
 }
 </code></pre>
-<h3 id="test-section-83" class="m-3">JSONのエラー応答を確認する</h3>
+<h3 id="test-section-83">JSONのエラー応答を確認する</h3>
 <p>正常時と同じように、エラー時もHTTPステータスと本文を組み合わせて確認します。<code>BarcodeOutput.php</code>へ壊れたJSONを送ると、現在の実装では<code>400</code>と<code>invalid_json</code>を返します。</p>
 <p><code>ResponseContentTest</code>クラスへ、次のテストメソッドを追加します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -3109,7 +3021,7 @@ public function test_invalid_json_returns_error_details(): void
 </code></pre>
 <p>このAPIでは、認証・権限・HTTPメソッドを確認したあと、JSONを解析し、その後でCSRFトークンを検証します。管理者としてログインした上で解析できない本文を送ることで、JSONの解析エラーを確認しています。このケースでは、CSRFトークンの検証には進みません。</p>
 <p>HTTPステータスが<code>400</code>であることと、<code>error</code>の値が<code>invalid_json</code>であることを確認することで、JSONの解析エラーとして扱われたことを確かめます。</p>
-<h3 id="test-section-84" class="m-3">テキスト形式のHTTPエラーを確認する</h3>
+<h3 id="test-section-84">テキスト形式のHTTPエラーを確認する</h3>
 <p>NobleStockのユーザー管理画面は、権限が不足する場合、<code>403</code>とプレーンテキストのメッセージを返します。このため、レスポンスがHTMLやJSONではない場合も確認します。</p>
 <p><code>ResponseContentTest</code>クラスへ、次のテストメソッドを追加します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -3136,10 +3048,10 @@ public function test_forbidden_response_contains_plain_text_message(): void
 </code></pre>
 <p>本文はHTMLではないため、Crawlerの<code>text()</code>ではなく<code>getContent()</code>で取得します。HTTPステータスが<code>403</code>であることを確認し、本文が「この画面を表示する権限がありません」であることを確認します。</p>
 <hr>
-<h2 id="test-section-85" class="m-3">13 ファイルの送受信をテストする</h2>
+<h2 id="test-section-85">13 ファイルの送受信をテストする</h2>
 <p>NobleStockのユーザー管理画面には、Excelファイルの読込と出力があります。この章では、フォームからファイルを送る方法と、ダウンロードしたExcelの内容を確認します。</p>
 <p>HTTPでの送受信には、これまでと同じ<code>HttpBrowser</code>を使用します。Excelの読取には、NobleStockで導入済みのPhpSpreadsheetを使います。</p>
-<h3 id="test-section-86" class="m-3">ファイルテストの共通部分を用意する</h3>
+<h3 id="test-section-86">ファイルテストの共通部分を用意する</h3>
 <p><code>tests/Http/UserFileTest.php</code>を作成し、次の共通部分を記述します。後の節で、このクラスへテストメソッドを追加します。</p>
 <p>接続先の確認後に管理者としてログインします。テスト中に作るファイルはOSの一時ディレクトリへ保存し、<code>tearDown()</code>で削除します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">&lt;?php
@@ -3259,7 +3171,7 @@ final class UserFileTest extends TestCase
     }
 }
 </code></pre>
-<h3 id="test-section-87" class="m-3">Excel以外のファイルを送信する</h3>
+<h3 id="test-section-87">Excel以外のファイルを送信する</h3>
 <p>ユーザー一覧の読込処理は、拡張子が<code>.xls</code>または<code>.xlsx</code>のファイルを受け付けます。ここではテキストファイルを送信し、拡張子チェックで拒否されることを確認します。</p>
 <p><code>UserFileTest</code>へ次のメソッドを追加します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -3296,7 +3208,7 @@ public function test_non_excel_upload_is_rejected(): void
 <p><code>user_list.php</code>へフォームを送信する前に、<code>$form[&#39;upfile&#39;]-&gt;upload($path)</code>で、<code>upfile</code>項目に送信するファイルのパスを指定します。その後、<code>submit($form)</code>でファイルとフォームの値を送信します。</p>
 <p>このテストで送信するテキストファイルは、NobleStockの保存先へ移動する前に拡張子チェックで拒否されます。拒否の理由は、リダイレクト先のフラッシュメッセージで確認します。</p>
 <p>フォームの送信には読込ボタンの<code>mode=upload</code>と、対象フォームのCSRF情報も含まれます。また、このテストの対象は拡張子チェックなので、ファイルの内容検証や、PHPのアップロードサイズ制限までは確認していません。</p>
-<h3 id="test-section-88" class="m-3">Excelのダウンロードを確認する</h3>
+<h3 id="test-section-88">Excelのダウンロードを確認する</h3>
 <p>ユーザー一覧の「Excel出力」は、<code>user_export.php</code>へ<code>mode=export</code>をPOSTします。第3章で用意した初期データでは<code>EXCEL_VAR=1</code>のため、出力形式はXlsxです。テンプレート<code>file/userlist.xlsx</code>も必要になります。</p>
 <p>次のメソッドを<code>UserFileTest</code>へ追加します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">/**
@@ -3369,14 +3281,14 @@ public function test_user_list_can_be_downloaded_as_xlsx(): void
 <p>テストは次のコマンドで実行します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-shell">php tests/run.php tests/Http/UserFileTest.php
 </code></pre>
-<h3 id="test-section-89" class="m-3">ファイル処理の後片付け</h3>
+<h3 id="test-section-89">ファイル処理の後片付け</h3>
 <p>どちらのテストも、<code>tearDown()</code>で一時ファイルを削除します。Excel以外のアップロードでは、送信用に用意した元ファイルと、<code>upload()</code>が作った一時コピーが削除対象です。Excelのダウンロードでは、受信した本文を保存した一時ファイルが削除対象です。</p>
 <p>ダウンロードのテストでは、さらに<code>finally</code>でワークシートの参照を解放します。Excelの内容を確認するアサーションが失敗した場合も、この処理は実行されます。</p>
 <hr>
-<h2 id="test-section-90" class="m-3">14 HTTPテストの共通部分をまとめる</h2>
+<h2 id="test-section-90">14 HTTPテストの共通部分をまとめる</h2>
 <p>ここまでのHTTPテストでは、各クラスに同じ処理を繰り返し記述してきました。この章では、それらを<code>WebTestCase</code>クラスにまとめ、各テストクラスから継承して使えるようにします。</p>
 <p>共通化するのは、公開URLの指定、<code>HttpBrowser</code>の作成、ログイン処理です。また、テスト用DBへの接続と接続先の確認も、このクラスで行い、必要な子クラスから同じ接続を使えるようにします。テスト対象のユーザー作成や削除、一時ファイルの後片付けといった、テスト対象に固有の準備・操作・検証は、引き続き各テストクラスで管理します。</p>
-<h3 id="test-section-91" class="m-3">WebTestCaseを作成する</h3>
+<h3 id="test-section-91">WebTestCaseを作成する</h3>
 <p>HTTPテストの共通処理をまとめる基底クラスとして、<code>tests/Support/WebTestCase.php</code>を作成します。各テストクラスは、このクラスを継承して使います。</p>
 <p>第2章の<code>autoload-dev</code>設定により、<code>tests/Support</code>は<code>Noblestock\Tests\Support</code>名前空間に対応します。<code>phpunit.xml</code>のbootstrapは、これまでどおり<code>vendor/autoload.php</code>を使用します。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">&lt;?php
@@ -3470,7 +3382,7 @@ abstract class WebTestCase extends TestCase
 <p>この変数は、<code>$this-&gt;url()</code>でURLを指定するテストに適用されます。以前のテストにある<code>PUBLIC_URL</code>定数は、自動では切り替わりません。</p>
 <p><code>login()</code>は、ログインが必要なテストから呼び出す補助メソッドです。指定したユーザーでログインし、トップメニューとユーザー名が表示されたことを確認します。引数を省略すると管理者でログインします。ほかのユーザーで使う場合は、ログインID、パスワード、画面に表示されるユーザー名を渡します。</p>
 <p>ログイン失敗時の応答を調べるテストや、セッションIDを比較するテストでは、対象のフォームをテストメソッド内で送信してください。<code>login()</code>は<code>index.php</code>へのGETから始まるため、その時点で既存セッションが破棄されます。</p>
-<h3 id="test-section-92" class="m-3">既存のテストで利用する</h3>
+<h3 id="test-section-92">既存のテストで利用する</h3>
 <p>第8章で作成した<code>tests/Http/LoginPageTest.php</code>は、次の内容へ置き換えられます。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-php">&lt;?php
 declare(strict_types=1);
@@ -3600,7 +3512,7 @@ final class LoginPageTest extends WebTestCase
 </code></pre>
 <p><code>UserFileTest</code>の<code>setUp()</code>も、先頭で<code>parent::setUp()</code>を呼びます。その後に管理者でログインし、テスト専用の一時ディレクトリを作成します。<code>tearDown()</code>には、一時ファイルとディレクトリの削除、管理用プロパティの初期化を記述します。</p>
 <hr>
-<h2 id="test-section-93" class="m-3">15 実装した機能に合わせてテストを追加する</h2>
+<h2 id="test-section-93">15 実装した機能に合わせてテストを追加する</h2>
 <p>アプリに機能を追加したときは、その機能で期待する結果を確認するテストを追加します。画面操作から保存・表示までの流れはHTTP機能テストで確認し、メソッドを直接呼び出せる変換や判定は単体テストで確認できます。</p>
 <p>ファイルの送受信はHTTPで確認しましたが、セルへ値を設定する処理はメソッドを直接呼び出せます。NobleStockの<code>UtilExcel::setCellValue()</code>は、数式として解釈される文字列を明示的な文字列型で保存します。</p>
 <p><code>tests/Util/UtilExcelTest.php</code>を作成します。このテストはDBやWebサーバーへ接続しません。</p>
@@ -3647,7 +3559,7 @@ final class UtilExcelTest extends TestCase
 </code></pre>
 <p>値とセルの型を確認することで、数式として書き込まれる変更を検出します。第13章のHTTPテストは、フォーム送信からファイル生成までの確認として残します。</p>
 <p>画面からのファイル出力と、セルへ値を設定する処理を分けて確認すると、不具合が起きたときに原因を調べやすくなります。追加する機能でも、利用者の操作を通して確認する内容と、メソッドを直接呼び出して確認する内容を整理してください。</p>
-<h3 id="test-section-94" class="m-3">追加したテストを種類別に実行する</h3>
+<h3 id="test-section-94">追加したテストを種類別に実行する</h3>
 <p>追加したテストを単体・DB結合・HTTP機能テストに分けて実行できるよう、<code>phpunit.xml</code>を次の内容へ置き換えます。<code>CategoryTest</code>は<code>DbLogic</code>ディレクトリにありますが、DBをスタブやモックにするため、<code>unit</code>へ含めます。</p>
 <pre class="bg-body-tertiary border rounded p-3"><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;phpunit bootstrap=&quot;vendor/autoload.php&quot; colors=&quot;true&quot;&gt;
@@ -3677,13 +3589,12 @@ php tests/run.php --testsuite http
 </code></pre>
 <p>新しいDB結合テストを作成したときは、<code>database</code>へ<code>file</code>を追加してください。この構成では、<code>tests/DbLogic</code>全体を自動収集しません。</p>
 
-                    </div>
-                </div>
-            </div>
-        </main>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
-        <script src="../js/code-highlight.js"></script>
-    </body>
-</html>
 
+<div class="border-top pt-4 guide-related"><p class="fw-bold">Chandraガイド</p><a href="./quickstart.html">クイックスタート</a><a href="./handson.html">ハンズオン</a><a href="./reference.html">リファレンス</a><a href="./test.html" aria-current="page">テストガイド</a></div>
+</article></div></main>
+<footer class="container documentation-guide border-top py-4 text-muted small">スタジオがう · Chandraガイド</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+        <script src="../js/code-highlight.js?v=2"></script>
+
+</body></html>

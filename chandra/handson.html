@@ -3,18 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>スタジオがう</title>
+        <title>ハンズオン | Chandra | スタジオがう</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/github.min.css">
-        <link rel="stylesheet" href="../css/code-highlight.css">
-        <link rel="stylesheet" href="../css/style.css">
-    </head>
-    <body>
+        <link rel="stylesheet" href="../css/code-highlight.css?v=2">
+        <link rel="stylesheet" href="../css/guide.css">
 
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-md">
+        <meta name="description" content="喫茶チャンドラのCMSを作りながら、Chandraの各機能を学びます。">
+    </head>
+<body>
+<nav class="navbar navbar-expand-md bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">スタジオがう</a>
+                <a class="navbar-brand" href="../index.html">スタジオがう</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="メニューを開く">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -24,10 +24,10 @@
                             <a class="nav-link" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Chandra</a>
+                            <a class="nav-link active" href="./index.html">Chandra</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../noblestock.html">Noblestock</a>
+                            <a class="nav-link" href="../noblestock/index.html">Noblestock</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../about.html">About</a>
@@ -37,141 +37,47 @@
                 </div><!-- navbar-collapse -->
             </div><!-- container-fluid -->
         </nav>
-        <!-- Navigation-->
-
-        <main>
-<!-- 本文 -->
-            <div class="row gx-0">
-                <div class="col-12 col-md-4">
-                    <nav id="side-nav" class="h-100 flex-column align-items-stretch pe-4 border-end">
-                        <nav class="nav nav-pills flex-column">
-                            
-                            <a class="nav-link" href="#item-2">ハンズオン</a>
-                            <nav class="nav nav-pills flex-column">
-                                <a class="nav-link ms-3 my-1" href="#item-2-1">喫茶チャンドラサイトについて</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-2">プロジェクトを作る</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-3">データベースの作成</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-3-1">データベースを作成する前に</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-3-2">データベースについて</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-3-3">データベースとテーブルを作成する</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-3-4">テーブルにデータを入れる</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-3-5">接続設定を作る</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-4">テストの準備</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-4-1">PHPUnitの取り込み</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-5">表示画面</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-5-1">表示画面の概要</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-5-2">【テスト】 「表示画面を作成する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-5-3">表示画面を作成する</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-5-4">【テスト】 「データをセレクトする」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-5-5">データをセレクトする</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-5-6">データを表示する</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-6">管理画面：お知らせ一覧</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-6-1">管理画面の概要</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-6-2">【テスト】 「お知らせ一覧を取得する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-6-3">お知らせ一覧を取得する</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-6-4">【テスト】「お知らせ一覧を表示する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-6-5">お知らせ一覧を表示する</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-7">管理画面：お知らせ更新</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-7-1">データベースの更新について</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-7-2">【テスト】「お知らせ情報を取得する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-7-3">お知らせ情報を取得する</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-7-4">【テスト】「お知らせの編集画面を表示する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-7-5">お知らせの編集画面を表示する</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-7-6">お知らせの編集画面への遷移</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-7-7">【テスト】「お知らせ更新処理を追加する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-7-8">お知らせ更新処理を追加する</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-7-9">【テスト】「お知らせ更新リクエストを処理する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-7-10">お知らせ更新リクエストを処理する</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-8">管理画面：お知らせ登録</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-8-1">【テスト】「お知らせの登録画面を表示する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-8-2">お知らせの登録画面を表示する</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-8-3">お知らせ登録画面への遷移</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-8-4">【テスト】「お知らせ登録処理を追加する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-8-5">お知らせ登録処理を追加する</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-8-6">【テスト】「お知らせ登録リクエストを処理する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-8-7">お知らせ登録リクエストを処理する</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-9">管理画面：お知らせ削除</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-9-1">【テスト】「お知らせ削除処理を追加する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-9-2">お知らせ削除処理を追加する</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-9-3">【テスト】「お知らせ削除リクエストを処理する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-9-4">お知らせ削除リクエストを処理する</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-10">ログイン</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-10-1">Chandraを使った認証</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-10-2">【テスト】「ユーザーを取得する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-10-3">ユーザーを取得する</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-10-4">【テスト】「ユーザーを検証する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-10-5">ユーザーを検証する</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-10-6">【テスト】「ログイン画面を表示する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-10-7">ログイン画面を表示する</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-10-8">【テスト】「ログインを処理する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-10-9">ログインを処理する</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-11">認証</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-11-1">【テスト】「お知らせ一覧の認証チェック」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-11-2">お知らせ一覧の認証チェック</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-12">ログアウト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-12-1">【テスト】「ログアウトを処理する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-12-2">ログアウトを処理する</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-13">メッセージ表示</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-13-1">セッション経由のエラーメッセージ</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-13-2">セッション経由の成功メッセージ</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-13-3">処理成功メッセージを表示する</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-14">入力チェック</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-14-1">入力チェックについて</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-14-2">【テスト】「お知らせ更新リクエストの入力チェック」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-14-3">お知らせ更新リクエストの入力チェック</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-15">データの画面ごとのセッション保存</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-15-1">セッションについて</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-15-2">【テスト】「お知らせの編集画面に入力値を再現する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-15-3">お知らせの編集画面に入力値を再現する</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-16">例外処理</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-16-1">例外処理について</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-16-2">【テスト】「DB処理時の例外処理」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-16-3">DB処理時の例外処理</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-16-4">【テスト】「ログイン時の例外処理」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-16-5">ログイン時の例外処理</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-17">CSRFトークン</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-17-1">CSRFトークンについて</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-17-2">【テスト】「お知らせ編集でのCSRFトークンチェック」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-17-3">お知らせ編集でのCSRFトークンチェック</a>
-                                <a class="nav-link ms-3 my-1" href="#item-2-18">認可</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-18-1">認可について</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-18-2">【テスト】「お知らせ一覧の認可チェック」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-18-3">お知らせ一覧の認可チェック</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-18-4">【テスト】「監査列にログインユーザーを反映する」のテスト</a>
-                                <a class="nav-link ms-5 my-1" href="#item-2-18-5">監査列にログインユーザーを反映する</a>
-                            </nav>
-                            <a class="nav-link" href="./quickstart.html">クイックスタート</a>
-                            <a class="nav-link" href="./reference.html">リファレンス</a>
-
-                        </nav>
-                    </nav>
-                </div>
-                <div class="col-12 col-md-8">
-                    <div data-bs-spy="scroll" data-bs-target="#side-nav" data-bs-smooth-scroll="true" class="m-3 scrollspy" tabindex="0">
-
-                        
-
-                        <div id="item-2" class="row gx-0">
+<header class="guide-header py-5"><div class="container documentation-guide">
+<a href="./index.html" class="text-success">Chandra</a>
+<div id="item-2" class="row g-3 align-items-center">
                             <div class="col-12 col-md-9 order-2 order-md-1">
-                                <h1>ハンズオン</h1>
+                                <h1 class="fw-bold mt-3">ハンズオン</h1>
                                 <p>ここからは、もっと実践的なwebサイトを作成しながら、Chandraの各機能をご紹介します。<br />
 「喫茶チャンドラ」は老舗の喫茶店です。静的サイトとして作成したwebサイトをCMS（コンテンツ管理システム）にして、PCに不慣れなオーナーでも手軽に「お知らせ」を更新できるようにします。</p>
 <p>開発環境では、まず、クイックスタートで紹介しているXAMPP、Composerのインストールを実施してください。</p>
-<hr>
+
                             </div>
                             <div class="col-12 col-md-3 order-1 order-md-2">
                                 <img src="img/handson.svg" alt="ハンズオン">
                             </div>
                         </div>
+</div></header>
+<main class="container documentation-guide py-4">
+<div class="row g-4">
+<aside class="col-lg-3">
+<nav class="guide-toc" aria-label="このページの目次">
+<p class="fw-bold px-2">このページの内容</p>
+<a href="#item-2-1">喫茶チャンドラサイトについて</a><a href="#item-2-2">プロジェクトを作る</a><a href="#item-2-3">データベースの作成</a><details class="guide-toc-details"><summary>データベースの作成の詳細項目</summary><div><a href="#item-2-3-1">データベースを作成する前に</a><a href="#item-2-3-2">データベースについて</a><a href="#item-2-3-3">データベースとテーブルを作成する</a><a href="#item-2-3-4">テーブルにデータを入れる</a><a href="#item-2-3-5">接続設定を作る</a></div></details><a href="#item-2-4">テストの準備</a><details class="guide-toc-details"><summary>テストの準備の詳細項目</summary><div><a href="#item-2-4-1">PHPUnitの取り込み</a></div></details><a href="#item-2-5">表示画面</a><details class="guide-toc-details"><summary>表示画面の詳細項目</summary><div><a href="#item-2-5-1">表示画面の概要</a><a href="#item-2-5-2">【テスト】 「表示画面を作成する」のテスト</a><a href="#item-2-5-3">表示画面を作成する</a><a href="#item-2-5-4">【テスト】 「データをセレクトする」のテスト</a><a href="#item-2-5-5">データをセレクトする</a><a href="#item-2-5-6">データを表示する</a></div></details><a href="#item-2-6">管理画面：お知らせ一覧</a><details class="guide-toc-details"><summary>管理画面：お知らせ一覧の詳細項目</summary><div><a href="#item-2-6-1">管理画面の概要</a><a href="#item-2-6-2">【テスト】 「お知らせ一覧を取得する」のテスト</a><a href="#item-2-6-3">お知らせ一覧を取得する</a><a href="#item-2-6-4">【テスト】「お知らせ一覧を表示する」のテスト</a><a href="#item-2-6-5">お知らせ一覧を表示する</a></div></details><a href="#item-2-7">管理画面：お知らせ更新</a><details class="guide-toc-details"><summary>管理画面：お知らせ更新の詳細項目</summary><div><a href="#item-2-7-1">データベースの更新について</a><a href="#item-2-7-2">【テスト】「お知らせ情報を取得する」のテスト</a><a href="#item-2-7-3">お知らせ情報を取得する</a><a href="#item-2-7-4">【テスト】「お知らせの編集画面を表示する」のテスト</a><a href="#item-2-7-5">お知らせの編集画面を表示する</a><a href="#item-2-7-6">お知らせの編集画面への遷移</a><a href="#item-2-7-7">【テスト】「お知らせ更新処理を追加する」のテスト</a><a href="#item-2-7-8">お知らせ更新処理を追加する</a><a href="#item-2-7-9">【テスト】「お知らせ更新リクエストを処理する」のテスト</a><a href="#item-2-7-10">お知らせ更新リクエストを処理する</a></div></details><a href="#item-2-8">管理画面：お知らせ登録</a><details class="guide-toc-details"><summary>管理画面：お知らせ登録の詳細項目</summary><div><a href="#item-2-8-1">【テスト】「お知らせの登録画面を表示する」のテスト</a><a href="#item-2-8-2">お知らせの登録画面を表示する</a><a href="#item-2-8-3">お知らせ登録画面への遷移</a><a href="#item-2-8-4">【テスト】「お知らせ登録処理を追加する」のテスト</a><a href="#item-2-8-5">お知らせ登録処理を追加する</a><a href="#item-2-8-6">【テスト】「お知らせ登録リクエストを処理する」のテスト</a><a href="#item-2-8-7">お知らせ登録リクエストを処理する</a></div></details><a href="#item-2-9">管理画面：お知らせ削除</a><details class="guide-toc-details"><summary>管理画面：お知らせ削除の詳細項目</summary><div><a href="#item-2-9-1">【テスト】「お知らせ削除処理を追加する」のテスト</a><a href="#item-2-9-2">お知らせ削除処理を追加する</a><a href="#item-2-9-3">【テスト】「お知らせ削除リクエストを処理する」のテスト</a><a href="#item-2-9-4">お知らせ削除リクエストを処理する</a></div></details><a href="#item-2-10">ログイン</a><details class="guide-toc-details"><summary>ログインの詳細項目</summary><div><a href="#item-2-10-1">Chandraを使った認証</a><a href="#item-2-10-2">【テスト】「ユーザーを取得する」のテスト</a><a href="#item-2-10-3">ユーザーを取得する</a><a href="#item-2-10-4">【テスト】「ユーザーを検証する」のテスト</a><a href="#item-2-10-5">ユーザーを検証する</a><a href="#item-2-10-6">【テスト】「ログイン画面を表示する」のテスト</a><a href="#item-2-10-7">ログイン画面を表示する</a><a href="#item-2-10-8">【テスト】「ログインを処理する」のテスト</a><a href="#item-2-10-9">ログインを処理する</a></div></details><a href="#item-2-11">認証</a><details class="guide-toc-details"><summary>認証の詳細項目</summary><div><a href="#item-2-11-1">【テスト】「お知らせ一覧の認証チェック」のテスト</a><a href="#item-2-11-2">お知らせ一覧の認証チェック</a></div></details><a href="#item-2-12">ログアウト</a><details class="guide-toc-details"><summary>ログアウトの詳細項目</summary><div><a href="#item-2-12-1">【テスト】「ログアウトを処理する」のテスト</a><a href="#item-2-12-2">ログアウトを処理する</a></div></details><a href="#item-2-13">メッセージ表示</a><details class="guide-toc-details"><summary>メッセージ表示の詳細項目</summary><div><a href="#item-2-13-1">セッション経由のエラーメッセージ</a><a href="#item-2-13-2">セッション経由の成功メッセージ</a><a href="#item-2-13-3">処理成功メッセージを表示する</a></div></details><a href="#item-2-14">入力チェック</a><details class="guide-toc-details"><summary>入力チェックの詳細項目</summary><div><a href="#item-2-14-1">入力チェックについて</a><a href="#item-2-14-2">【テスト】「お知らせ更新リクエストの入力チェック」のテスト</a><a href="#item-2-14-3">お知らせ更新リクエストの入力チェック</a></div></details><a href="#item-2-15">データの画面ごとのセッション保存</a><details class="guide-toc-details"><summary>データの画面ごとのセッション保存の詳細項目</summary><div><a href="#item-2-15-1">セッションについて</a><a href="#item-2-15-2">【テスト】「お知らせの編集画面に入力値を再現する」のテスト</a><a href="#item-2-15-3">お知らせの編集画面に入力値を再現する</a></div></details><a href="#item-2-16">例外処理</a><details class="guide-toc-details"><summary>例外処理の詳細項目</summary><div><a href="#item-2-16-1">例外処理について</a><a href="#item-2-16-2">【テスト】「DB処理時の例外処理」のテスト</a><a href="#item-2-16-3">DB処理時の例外処理</a><a href="#item-2-16-4">【テスト】「ログイン時の例外処理」のテスト</a><a href="#item-2-16-5">ログイン時の例外処理</a></div></details><a href="#item-2-17">CSRFトークン</a><details class="guide-toc-details"><summary>CSRFトークンの詳細項目</summary><div><a href="#item-2-17-1">CSRFトークンについて</a><a href="#item-2-17-2">【テスト】「お知らせ編集でのCSRFトークンチェック」のテスト</a><a href="#item-2-17-3">お知らせ編集でのCSRFトークンチェック</a></div></details><a href="#item-2-18">認可</a><details class="guide-toc-details"><summary>認可の詳細項目</summary><div><a href="#item-2-18-1">認可について</a><a href="#item-2-18-2">【テスト】「お知らせ一覧の認可チェック」のテスト</a><a href="#item-2-18-3">お知らせ一覧の認可チェック</a><a href="#item-2-18-4">【テスト】「監査列にログインユーザーを反映する」のテスト</a><a href="#item-2-18-5">監査列にログインユーザーを反映する</a></div></details>
+<hr><p class="fw-bold px-2">Chandraガイド</p>
+<a href="./quickstart.html">クイックスタート</a><a href="./handson.html" aria-current="page">ハンズオン</a><a href="./reference.html">リファレンス</a><a href="./test.html">テストガイド</a>
+<a href="./index.html">Chandraトップへ</a>
+</nav>
+</aside>
+<article class="col-lg-9 guide-content">
 
-                        <h2 id="item-2-1" class="m-3">喫茶チャンドラサイトについて</h2>
+
+
+
+
+
+                        <h2 id="item-2-1">喫茶チャンドラサイトについて</h2>
 <p>「喫茶チャンドラ」サイトのデザインを見てみましょう。</p>
-<p><a href="../cafechandra_design/" target="_blank" rel="noopener noreferrer">../cafechandra_design/</a></p>
+<p><a href="https://learnchi.github.io/cafechandra_design/" target="_blank" rel="noopener noreferrer">https://learnchi.github.io/cafechandra_design/</a></p>
 <p>「お知らせ」の欄はこの時点では固定です。管理画面からデータを追加することで、お知らせを追加できるようにします。<br />
 訪問者が閲覧するのは、直下のindex.htmlページだけです。</p>
 <p>CMS化するにあたり、サイト管理者がコンテンツを管理するためのページを追加します。以下の機能を実現します。</p>
 <p><img src="img/CafeChandraCMSsitestructurediagram.png" alt="CafeChandra CMS サイト構成図" style="width: 720px;"></p>
-<h2 id="item-2-2" class="m-3">プロジェクトを作る</h2>
+<h2 id="item-2-2">プロジェクトを作る</h2>
 <p><code>cafechandra</code>プロジェクトを作成します。<code>C:\xampp\htdocs</code>（または<code>/Applications/XAMPP/xamppfiles/htdocs/</code>）に、<code>cafechandra</code>ディレクトリを作成してください。<br />
 Composerプロジェクトとして初期化します。ターミナルから<code>cafechandra</code>ディレクトリに移動し、</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code>composer init
@@ -221,8 +127,8 @@ Package nameは、<code>ユーザー名/cafechandra</code>が既定値として�
         ファイル名省略
 
 </code></pre>
-<h2 id="item-2-3" class="m-3">データベースの作成</h2>
-<h3 id="item-2-3-1" class="m-3">データベースを作成する前に</h3>
+<h2 id="item-2-3">データベースの作成</h2>
+<h3 id="item-2-3-1">データベースを作成する前に</h3>
 <p>XAMPP を使っている場合、MySQL の <code>root</code> ユーザーにパスワードが未設定のことがあります。開発機でもパスワードは設定しておいた方が扱いやすいです。</p>
 <p>phpMyAdmin（<code>[http://localhost/phpmyadmin/</code>）を開き、ユーザアカウントタブから、root@localhostの「権限を編集」リンクをクリックし、「Change](http://localhost/phpmyadmin/<code>）を開き、ユーザアカウントタブから、root@localhostの「権限を編集」リンクをクリックし、「Change) password」タブで変更します。 続けて、phpMyAdminをパスワードでログインできるよう、</code>C:\xampp\phpMyAdmin\config.inc.php`を編集します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">/* Authentication type and info */
@@ -234,7 +140,7 @@ $cfg[&#x27;Servers&#x27;][$i][&#x27;AllowNoPassword&#x27;] = false;  # true か�
 $cfg[&#x27;Lang&#x27;] = &#x27;&#x27;;
 </code></pre>
 <p>再びphpMyAdmin（<code>[http://localhost/phpmyadmin/</code>）を開いたとき、ログイン画面が表示されます。](http://localhost/phpmyadmin/`）を開いたとき、ログイン画面が表示されます。)</p>
-<h3 id="item-2-3-2" class="m-3">データベースについて</h3>
+<h3 id="item-2-3-2">データベースについて</h3>
 <p>このチュートリアルでは、次のデータベースを作成します。</p>
 <ul>
 <li>MySQL の管理ユーザー: <code>root</code></li>
@@ -246,7 +152,7 @@ $cfg[&#x27;Lang&#x27;] = &#x27;&#x27;;
 <li><code>users</code> … 管理画面ログイン用</li>
 <li><code>news</code> … お知らせ用</li>
 </ul>
-<h3 id="item-2-3-3" class="m-3">データベースとテーブルを作成する</h3>
+<h3 id="item-2-3-3">データベースとテーブルを作成する</h3>
 <p>cafechandraというデータベースに、以下の2つのテーブルを作成します。</p>
 <ul>
 <li><code>users</code> … 管理画面ログイン用</li>
@@ -289,7 +195,7 @@ updated_by VARCHAR(16),
 PRIMARY KEY (id)  
 );
 </code></pre>
-<h3 id="item-2-3-4" class="m-3">テーブルにデータを入れる</h3>
+<h3 id="item-2-3-4">テーブルにデータを入れる</h3>
 <p>以下のSQLを実行して、サンプルのお知らせ情報を作成します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-sql">INSERT INTO `news` (`id`, `title`, `body`, `published_at`, `is_published`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES 
 (NULL, &#x27;新しいケーキセットが登場しました&#x27;, &#x27;このたび、新しいケーキセットの提供を開始いたしました。\r\n季節のフルーツを使用したケーキと、当店自慢のコーヒーの組み合わせをお楽しみいただけます。\r\n\r\n午後のひとときを、ゆったりとした時間とともにお過ごしください。\r\n数量限定のため、売り切れの際はご容赦ください。&#x27;, &#x27;2026-04-05&#x27;, &#x27;1&#x27;, &#x27;2026-04-05 10:07:49.000000&#x27;, &#x27;admin&#x27;, NULL, NULL), 
@@ -325,7 +231,7 @@ NOW(),
 
 <p><img src="img/CafeChandraCMSTableUsersContents.png" alt="usersテーブルの内容" style="width:720px;"></p>
 
-<h3 id="item-2-3-5" class="m-3">接続設定を作る</h3>
+<h3 id="item-2-3-5">接続設定を作る</h3>
 <p>Chandraでは、MySQL 接続情報を <code>ini</code> ファイルまたは環境変数から読み込めます。今回は <code>ini</code> ファイルを使う方法で接続します。<br />
 プロジェクト内に<code>config</code> ディレクトリを作り、<code>dbconfig.ini</code> を置きます。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code>dbhost=127.0.0.1  
@@ -336,10 +242,10 @@ dbname=cafechandra
 charset=utf8mb4
 </code></pre>
 <p>【コミットポイント】ここまでの状態のコミットを「」で確認できます。コミットでは、<code>dbconfig.sample.ini</code>を確認できます。また、<code>.gitignore</code>で<code>dbconfig.ini</code> をpushしないよう設定しています。</p>
-<h2 id="item-2-4" class="m-3">テストの準備</h2>
+<h2 id="item-2-4">テストの準備</h2>
 <p>このハンズオンでは、PHPUnitを使ってテストを行いながらアプリを作成する手法を、同時にご紹介します。テストには、クラス単体を確認する単体テストのほか、実際のデータベースやWebページを使う結合テスト・HTTP機能テストも含まれます。本ハンズオンでは、これらをまとめて「テスト」と表記します。</p>
 <p>【テスト】と記載されている節は、テストファーストで開発したい方向けに書かれています。まずは開発を進めて全体を通したい場合、この節は読み飛ばして構いません。</p>
-<h3 id="item-2-4-1" class="m-3">PHPUnitの取り込み</h3>
+<h3 id="item-2-4-1">PHPUnitの取り込み</h3>
 <p>ComposerからPHPUnitを取得して、PHPのテストが行えるように準備します。<br />
 また、PHPUnit と一緒に Symfony BrowserKit と Symfony HttpClient をインストールします。<br />
 Symfony BrowserKit は、PHPのテストコードからブラウザのようにページへアクセスしたり、フォームを送信したりするためのライブラリです。Symfony HttpClient は、そのアクセスを実際のHTTP通信として行うために使います。</p>
@@ -389,11 +295,11 @@ final class SampleTest extends TestCase
 <pre class="bg-light border rounded p-3 overflow-auto"><code>OK (1 test, 1 assertion)
 </code></pre>
 <p>のように表示されます。</p>
-<h2 id="item-2-5" class="m-3">表示画面</h2>
-<h3 id="item-2-5-1" class="m-3">表示画面の概要</h3>
+<h2 id="item-2-5">表示画面</h2>
+<h3 id="item-2-5-1">表示画面の概要</h3>
 <p>表示画面はデザインページをほぼそのまま利用しますが、「お知らせ」内容はデータベースのデータを表示するように変更します。<br />
 データベースのデータを取得して、返却するロジックを新しく作成し、表示画面から呼び出します。</p>
-<h3 id="item-2-5-2" class="m-3">【テスト】 「表示画面を作成する」のテスト</h3>
+<h3 id="item-2-5-2">【テスト】 「表示画面を作成する」のテスト</h3>
 <p><code>tests\public\IndexPageTest.php</code>を追加して、表示画面が正しく表示されることを確認するテストとします。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 declare(strict_types=1);
@@ -430,7 +336,7 @@ final class IndexPageTest extends TestCase
 <pre class="bg-light border rounded p-3 overflow-auto"><code>.\vendor\bin\phpunit
 </code></pre>
 <p>結果が失敗することを確認します。</p>
-<h3 id="item-2-5-3" class="m-3">表示画面を作成する</h3>
+<h3 id="item-2-5-3">表示画面を作成する</h3>
 <p>‘cafechandra\public\index.html‘を、<code>index.php</code>に変更します。先頭にPHPタグを追記します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 date_default_timezone_set(&#x27;Asia/Tokyo&#x27;);
@@ -441,7 +347,7 @@ require_once(dirname(__DIR__) . &#x27;/vendor/autoload.php&#x27;);
 </code></pre>
 <p>ブラウザから<code>[http://localhost/cafechandra/public/</code>が変わらず表示されることを確認します。](http://localhost/cafechandra/public/`が変わらず表示されることを確認します。)<br />
 【テスト】結果が成功することを確認します。</p>
-<h3 id="item-2-5-4" class="m-3">【テスト】 「データをセレクトする」のテスト</h3>
+<h3 id="item-2-5-4">【テスト】 「データをセレクトする」のテスト</h3>
 <p>データベースのデータを取得して、返却するロジックについてのテストをあらかじめ作成します。<br />
 このテストでは、<code>Repositories\News</code>クラスの<code>getLatestForDisplay</code>というメソッドを呼ぶテストをします。実際にデータベースを呼び出すのではなく、インターフェースが期待通りであることを確認しています。<br />
 <code>tests\Repositories\NewsTest.php</code>を作成します。</p>
@@ -486,7 +392,7 @@ final class NewsTest extends TestCase
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 Newsクラスをまだ作成していないため、エラーとなります。</p>
-<h3 id="item-2-5-5" class="m-3">データをセレクトする</h3>
+<h3 id="item-2-5-5">データをセレクトする</h3>
 <p><code>Repositories\News.php</code>に、Newsクラスを作成します。<br />
 <code>getLatestForDisplay</code>関数を追加し、<code>Database</code>クラスの<code>fetchList</code>メソッドを実行して結果を戻り値にします。<code>fetchList</code>メソッドは、引数のSQLから、複数レコードのデータを取得します。<br />
 <code>getLatestForDisplay</code>では、is_publishedフラグが1のレコードのうち、更新日の新しい順で3レコードを取り出しています。</p>
@@ -520,7 +426,7 @@ class News {
 <pre class="bg-light border rounded p-3 overflow-auto"><code>composer dump-autoload
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
-<h3 id="item-2-5-6" class="m-3">データを表示する</h3>
+<h3 id="item-2-5-6">データを表示する</h3>
 <p><code>index.php</code>から、<code>Database</code>クラス、<code>Logger</code>クラス、<code>News</code>クラスを読み込みインスタンス化します。<br />
 <code>Utility</code>クラスは、HTML出力時に文字列をエスケープする<code>h</code>メソッドを使うために読み込みます。<br />
 Newsクラスの<code>getLatestForDisplay()</code>を呼び出して結果を<code>$newsList</code>に保持します。</p>
@@ -555,11 +461,11 @@ $newsList = $news-&gt;getLatestForDisplay();
 </code></pre>
 <p>ブラウザから<code>[http://localhost/cafechandra/public/</code>が表示されることを確認します。](http://localhost/cafechandra/public/<code>が表示されることを確認します。) </code>phpMyAdmin`からデータを操作し、変化を確認してください。</p>
 <hr>
-<h2 id="item-2-6" class="m-3">管理画面：お知らせ一覧</h2>
-<h3 id="item-2-6-1" class="m-3">管理画面の概要</h3>
+<h2 id="item-2-6">管理画面：お知らせ一覧</h2>
+<h3 id="item-2-6-1">管理画面の概要</h3>
 <p>管理画面では、管理者が「お知らせ」情報を編集します。まずは核となる「お知らせ」テーブルのレコードを追加、更新、削除する機能を作成します。その後、ログイン、CSRF トークンによるセキュリティ強化、エラー対応、認可について順に追加します。<br />
 管理者は、ログイン後、全てのお知らせが一覧表示されている画面から情報を選択して更新したり、新規のお知らせを追加したりします。これらの画面は、<code>admin</code>ディレクトリにまとめて管理しやすくします。</p>
-<h3 id="item-2-6-2" class="m-3">【テスト】 「お知らせ一覧を取得する」のテスト</h3>
+<h3 id="item-2-6-2">【テスト】 「お知らせ一覧を取得する」のテスト</h3>
 <p><code>Repositories\News</code>クラスに、全てのお知らせを一覧で取得する<code>listAll</code>メソッドを追加するので、あらかじめテストを作成します。<br />
 実際にデータベースを呼び出すのではなく、インターフェースが期待通りであることを確認しています。<br />
 <code>tests\Repositories\NewsTest.php</code>に、次のメソッドを追加します。</p>
@@ -598,7 +504,7 @@ public function testListAllFetchesAllNews(): void
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 <code>listAll()</code>メソッドをまだ作成していないため、エラーとなります。</p>
-<h3 id="item-2-6-3" class="m-3">お知らせ一覧を取得する</h3>
+<h3 id="item-2-6-3">お知らせ一覧を取得する</h3>
 <p><code>Repositories\news.php</code>に、以下の<code>listAll</code>メソッドを追加します。このメソッドは、newsテーブルからwhere条件指定なしで全てのレコードを取得し、そのまま返却しています。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">public function listAll() {
 
@@ -609,7 +515,7 @@ public function testListAllFetchesAllNews(): void
 }
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
-<h3 id="item-2-6-4" class="m-3">【テスト】「お知らせ一覧を表示する」のテスト</h3>
+<h3 id="item-2-6-4">【テスト】「お知らせ一覧を表示する」のテスト</h3>
 <p><code>tests\public\admin\NewsListPageTest.php</code>を追加して、表示画面が正しく表示されることを確認するテストとします。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 declare(strict_types=1);
@@ -642,7 +548,7 @@ final class NewsListPageTest extends TestCase
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 結果が失敗することを確認します。</p>
-<h3 id="item-2-6-5" class="m-3">お知らせ一覧を表示する</h3>
+<h3 id="item-2-6-5">お知らせ一覧を表示する</h3>
 <p>お知らせ一覧を表示する画面を作成します。<code>admin/news_list.php</code>を作成し、以下の無いようにしてください。<br />
 画面にアクセスした際、<code>News-&gt;listAll()</code>メソッドを呼び出し、結果を<code>$newsList</code>に格納します。foreach で1レコードずつ取り出して<code>$item</code>に格納し、更にデータベースのカラム名をキーとして、<code>$item['title']</code>のように値にアクセスします。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
@@ -695,12 +601,12 @@ $newsList = $news-&gt;listAll();
 
 </code></pre>
 <p>ブラウザから<code>[http://localhost/cafechandra/public/admin/news_list.php</code>が表示されることを確認します。](http://localhost/cafechandra/public/admin/news_list.php<code>が表示されることを確認します。) 【テスト】ターミナルから</code>cafechandra`ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
-<h2 id="item-2-7" class="m-3">管理画面：お知らせ更新</h2>
-<h3 id="item-2-7-1" class="m-3">データベースの更新について</h3>
+<h2 id="item-2-7">管理画面：お知らせ更新</h2>
+<h3 id="item-2-7-1">データベースの更新について</h3>
 <p>このハンズオンでは、小規模なプロジェクトをシンプルに実装することを目的としているため、更新処理は単純な UPDATE の実行にとどめています。<br />
 実際の業務システムでは、更新対象が存在するかの確認、同一トランザクション内での SELECT、更新前後の値の差分確認、同時更新時のロックなど、追加で検討すべき点があります。<br />
 これらの考え方については、「リファレンス」で詳しく解説します。</p>
-<h3 id="item-2-7-2" class="m-3">【テスト】「お知らせ情報を取得する」のテスト</h3>
+<h3 id="item-2-7-2">【テスト】「お知らせ情報を取得する」のテスト</h3>
 <p><code>Repositories\News</code>クラスに、idを引数にお知らせを1レコードだけ取得する<code>fetchById</code>メソッドを追加するので、あらかじめテストを作成します。<br />
 実際にデータベースを呼び出すのではなく、インターフェースが期待通りであることを確認しています。<br />
 <code>tests\Repositories\NewsTest.php</code>に、次のメソッドを追加します。</p>
@@ -742,7 +648,7 @@ $newsList = $news-&gt;listAll();
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 NewsクラスにfetchByIdメソッドをまだ作成していないため、エラーとなります。</p>
-<h3 id="item-2-7-3" class="m-3">お知らせ情報を取得する</h3>
+<h3 id="item-2-7-3">お知らせ情報を取得する</h3>
 <p><code>Repositories\news.php</code>に、以下の<code>fetchById</code>メソッドを追加します。<code>Database</code>クラスの<code>fetchOne</code>メソッドを実行して結果を戻り値にします。<code>fetchOne</code>メソッドは、引数のSQLやバインディング値から、1レコードだけ取得します。ここでは、newsテーブルのid項目を条件にしています。$bindings は、SQL内の <code>:id</code> などのバインド変数に対して、実際に渡す値と PDO のデータ型を指定する配列です。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">public function fetchById($id) {
 	$data = null;
@@ -755,7 +661,7 @@ NewsクラスにfetchByIdメソッドをまだ作成していないため、エ�
 }
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
-<h3 id="item-2-7-4" class="m-3">【テスト】「お知らせの編集画面を表示する」のテスト</h3>
+<h3 id="item-2-7-4">【テスト】「お知らせの編集画面を表示する」のテスト</h3>
 <p><code>tests\public\admin\newsEditPageTest.php</code>を追加して、表示画面が正しく表示されることを確認するテストとします。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 declare(strict_types=1);
@@ -789,7 +695,7 @@ final class NewsEditPageTest extends TestCase
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 結果が失敗することを確認します。</p>
-<h3 id="item-2-7-5" class="m-3">お知らせの編集画面を表示する</h3>
+<h3 id="item-2-7-5">お知らせの編集画面を表示する</h3>
 <p><code>public\admin\news_edit.php</code>を追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 date_default_timezone_set(&#x27;Asia/Tokyo&#x27;);
@@ -892,7 +798,7 @@ $newsData = [
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。<br />
 ブラウザから<code>[http://localhost/cafechandra/public/admin/news_edit.php?id=1</code>が表示されることを確認します。](http://localhost/cafechandra/public/admin/news_edit.php?id=1`が表示されることを確認します。)</p>
-<h3 id="item-2-7-6" class="m-3">お知らせの編集画面への遷移</h3>
+<h3 id="item-2-7-6">お知らせの編集画面への遷移</h3>
 <p>お知らせ一覧で、タイトルから編集画面に遷移できるようリンクを追加します。リンク先は、<code>news_edit.php</code>に、idをクエリパラメータとして付与します。</p>
 <p><code>public\admin\news_list.php</code>で、以下のようにタイトル部分を変更します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;td&gt;&lt;?= Utility::h($item[&#x27;title&#x27;]); ?&gt;&lt;/td&gt;
@@ -908,7 +814,7 @@ $newsData = [
 &lt;/div&gt;
 </code></pre>
 <p>一覧画面と編集画面とを行き来できることを確認します。</p>
-<h3 id="item-2-7-7" class="m-3">【テスト】「お知らせ更新処理を追加する」のテスト</h3>
+<h3 id="item-2-7-7">【テスト】「お知らせ更新処理を追加する」のテスト</h3>
 <p><code>Repositories\News</code>クラスに、idで特定したお知らせレコードを更新する<code>updateById</code>メソッドを追加するので、あらかじめテストを作成します。<br />
 実際にデータベースを呼び出すのではなく、インターフェースが期待通りであることを確認しています。<br />
 <code>tests\Repositories\NewsTest.php</code>に、次のメソッドを追加します。</p>
@@ -946,7 +852,7 @@ $newsData = [
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 NewsクラスにupdateByIdメソッドをまだ作成していないため、エラーとなります。</p>
-<h3 id="item-2-7-8" class="m-3">お知らせ更新処理を追加する</h3>
+<h3 id="item-2-7-8">お知らせ更新処理を追加する</h3>
 <p><code>Repositories\news.php</code>に、以下の<code>updateById</code>メソッドを追加します。<code>Database</code>クラスの<code>update</code>メソッドを実行します。<code>update</code>メソッドは、引数でテーブル名、値、where条件をそれぞれ指定することで、データベースのupdateを行います。Chandraでは、update時に監査列（作成者、作成日、更新者、更新日）を自動的に値を保管します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">public function updateById($id, array $newsData) {
 
@@ -964,7 +870,7 @@ NewsクラスにupdateByIdメソッドをまだ作成していないため、エ
 }
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
-<h3 id="item-2-7-9" class="m-3">【テスト】「お知らせ更新リクエストを処理する」のテスト</h3>
+<h3 id="item-2-7-9">【テスト】「お知らせ更新リクエストを処理する」のテスト</h3>
 <p>お知らせの編集画面から、更新ボタンを押すことで更新（news_update）処理を行い、一覧（news_list）に戻ります。<code>public\admin\news_update.php</code>に対するテストクラス<code>tests\public\admin\newsUpdatePageTest.php</code>を以下の通り作成します。このテストでは、<code>Repositories\news.php</code>の<code>updateById</code>メソッドを呼び出すため、その前後でテーブル情報を退避したり戻したりしています。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 declare(strict_types=1);
@@ -1119,7 +1025,7 @@ SQL;
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 <code>public\admin\news_update.php</code>をまだ作成していないため、テストは失敗となります。</p>
-<h3 id="item-2-7-10" class="m-3">お知らせ更新リクエストを処理する</h3>
+<h3 id="item-2-7-10">お知らせ更新リクエストを処理する</h3>
 <p>お知らせの編集画面から、更新ボタンを押すことで更新（news_update）処理を行い、一覧（news_list）に戻ります。news_updateには画面がありませんが、独立したphpファイルとして作成します。</p>
 <p><code>public\admin\news_update.php</code>を追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
@@ -1167,8 +1073,8 @@ header(&#x27;Location: news_list.php&#x27;, true, 303);
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。<br />
 お知らせ一覧から任意のお知らせを選択し、お知らせ編集画面を表示します。内容を編集し、更新ボタンを押すことで、編集したお知らせが保存できることを確認します。保存したお知らせを再度編集画面に表示し、更新日時、更新者が自動更新されていることを確認します。</p>
-<h2 id="item-2-8" class="m-3">管理画面：お知らせ登録</h2>
-<h3 id="item-2-8-1" class="m-3">【テスト】「お知らせの登録画面を表示する」のテスト</h3>
+<h2 id="item-2-8">管理画面：お知らせ登録</h2>
+<h3 id="item-2-8-1">【テスト】「お知らせの登録画面を表示する」のテスト</h3>
 <p>お知らせ編集画面に対して、登録をする画面を作成します。<br />
 <code>tests\public\admin\NewsCreatePageTest.php</code>を追加して、表示画面が正しく表示されることを確認するテストとします。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
@@ -1201,7 +1107,7 @@ final class NewsCreatePageTest extends TestCase
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 結果が失敗することを確認します。</p>
-<h3 id="item-2-8-2" class="m-3">お知らせの登録画面を表示する</h3>
+<h3 id="item-2-8-2">お知らせの登録画面を表示する</h3>
 <p><code>public\admin\news_create.php</code>を追加します。<code>public\admin\news_edit.php</code>と似ていますが、データベースからお知らせを呼び出しません。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 date_default_timezone_set(&#x27;Asia/Tokyo&#x27;);
@@ -1260,13 +1166,13 @@ $newsData = [
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。<br />
 ブラウザから<code>[http://localhost/cafechandra/public/admin/news_create.php</code>が表示されることを確認します。](http://localhost/cafechandra/public/admin/news_create.php`が表示されることを確認します。)</p>
-<h3 id="item-2-8-3" class="m-3">お知らせ登録画面への遷移</h3>
+<h3 id="item-2-8-3">お知らせ登録画面への遷移</h3>
 <p>お知らせの登録は、一覧画面から行えるようにリンクを追加します。<br />
 <code>news_list.php</code>のHTML内の任意の場所に、以下のリンクを追加してください。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;a href=&quot;news_create.php&quot;&gt;新規&lt;/a&gt;
 </code></pre>
 <p>ブラウザでお知らせ一覧画面を開き、「新規」リンクからお知らせ登録画面が表示できることを確認します。</p>
-<h3 id="item-2-8-4" class="m-3">【テスト】「お知らせ登録処理を追加する」のテスト</h3>
+<h3 id="item-2-8-4">【テスト】「お知らせ登録処理を追加する」のテスト</h3>
 <p><code>Repositories\News</code>クラスに、お知らせテーブルにレコードを登録する<code>insert</code>メソッドを追加するので、あらかじめテストを作成します。<br />
 実際にデータベースを呼び出すのではなく、インターフェースが期待通りであることを確認しています。<br />
 <code>tests\Repositories\NewsTest.php</code>に、次のメソッドを追加します。</p>
@@ -1301,7 +1207,7 @@ public function testInsertInsertsNews(): void
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 NewsクラスにupdateByIdメソッドをまだ作成していないため、エラーとなります。</p>
-<h3 id="item-2-8-5" class="m-3">お知らせ登録処理を追加する</h3>
+<h3 id="item-2-8-5">お知らせ登録処理を追加する</h3>
 <p><code>Repositories\news.php</code>に、以下の<code>insert</code>メソッドを追加します。<code>Database</code>クラスの<code>insert</code>メソッドを実行します。<br />
 <code>insert</code>メソッドは、引数でテーブル名と値を指定することで、データベースのinsertを行います。Chandraでは、insert時に監査列（作成者、作成日、更新者、更新日）を自動的に値を保管します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">public function insert(array $newsData) {
@@ -1318,7 +1224,7 @@ NewsクラスにupdateByIdメソッドをまだ作成していないため、エ
 
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
-<h3 id="item-2-8-6" class="m-3">【テスト】「お知らせ登録リクエストを処理する」のテスト</h3>
+<h3 id="item-2-8-6">【テスト】「お知らせ登録リクエストを処理する」のテスト</h3>
 <p>お知らせ登録画面から、登録ボタンを押すことで登録（news_insert）処理を行い、一覧（news_list）に戻ります。<code>public\admin\news_insert.php</code>に対するテストクラス<code>tests\public\admin\newsINsertPageTest.php</code>を以下の通り作成します。このテストでは、<code>Repositories\news.php</code>の<code>insert</code>メソッドを呼び出すため、その前後でテーブル情報を退避したり戻したりしています。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 declare(strict_types=1);
@@ -1428,7 +1334,7 @@ final class NewsInsertPageTest extends TestCase
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 <code>public\admin\news_insert.php</code>をまだ作成していないため、テストは失敗となります。</p>
-<h3 id="item-2-8-7" class="m-3">お知らせ登録リクエストを処理する</h3>
+<h3 id="item-2-8-7">お知らせ登録リクエストを処理する</h3>
 <p>お知らせの編集画面から、更新ボタンを押すことで更新（news_insert）処理を行い、一覧（news_list）に戻ります。news_insertには画面がありませんが、独立したphpファイルとして作成します。</p>
 <p><code>public\admin\news_insert.php</code>を追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
@@ -1473,8 +1379,8 @@ header(&#x27;Location: news_list.php&#x27;, true, 303);
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。<br />
 お知らせ一覧から登録ボタンを押下し、お知らせ登録画面を表示します。内容を入力し、登録ボタンを押すことで、お知らせが保存できることを確認します。保存したお知らせを編集画面に表示し、登録日時、登録者が自動登録されていることを確認します。</p>
-<h2 id="item-2-9" class="m-3">管理画面：お知らせ削除</h2>
-<h3 id="item-2-9-1" class="m-3">【テスト】「お知らせ削除処理を追加する」のテスト</h3>
+<h2 id="item-2-9">管理画面：お知らせ削除</h2>
+<h3 id="item-2-9-1">【テスト】「お知らせ削除処理を追加する」のテスト</h3>
 <p><code>Repositories\News</code>クラスに、お知らせテーブルにレコードを登録する<code>insert</code>メソッドを追加するので、あらかじめテストを作成します。<br />
 実際にデータベースを呼び出すのではなく、インターフェースが期待通りであることを確認しています。<br />
 <code>tests\Repositories\NewsTest.php</code>に、次のメソッドを追加します。</p>
@@ -1500,7 +1406,7 @@ header(&#x27;Location: news_list.php&#x27;, true, 303);
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 Newsクラスにdeleteメソッドをまだ作成していないため、エラーとなります。</p>
-<h3 id="item-2-9-2" class="m-3">お知らせ削除処理を追加する</h3>
+<h3 id="item-2-9-2">お知らせ削除処理を追加する</h3>
 <p><code>Repositories\news.php</code>に、以下の<code>delete</code>メソッドを追加します。<code>Database</code>クラスの<code>delete</code>メソッドを実行します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">public function delete($id) {
 	$conditions = [
@@ -1510,7 +1416,7 @@ Newsクラスにdeleteメソッドをまだ作成していないため、エラ�
 }
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
-<h3 id="item-2-9-3" class="m-3">【テスト】「お知らせ削除リクエストを処理する」のテスト</h3>
+<h3 id="item-2-9-3">【テスト】「お知らせ削除リクエストを処理する」のテスト</h3>
 <p>お知らせ編集画面から、削除ボタンを押すことで削除（news_delete）処理を行い、一覧（news_list）に戻ります。<code>public\admin\news_delete.php</code>に対するテストクラス<code>tests\public\admin\newsDeletePageTest.php</code>を以下の通り作成します。このテストでは、<code>Repositories\news.php</code>の<code>delete</code>メソッドを呼び出すため、その前後でテーブル情報を退避したり戻したりしています。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 declare(strict_types=1);
@@ -1620,7 +1526,7 @@ SQL;
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 <code>public\admin\news_delete.php</code>をまだ作成していないため、テストは失敗となります。</p>
-<h3 id="item-2-9-4" class="m-3">お知らせ削除リクエストを処理する</h3>
+<h3 id="item-2-9-4">お知らせ削除リクエストを処理する</h3>
 <p>お知らせの編集画面から、更新ボタンを押すことで更新（news_delkete）処理を行い、一覧（news_list）に戻ります。news_deleteには画面がありませんが、独立したphpファイルとして作成します。</p>
 <p><code>public\admin\news_delete.php</code>を追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
@@ -1660,8 +1566,8 @@ header(&#x27;Location: news_list.php&#x27;, true, 303);
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。<br />
 お知らせ一覧からタイトルリンクを押下し、お知らせ編集画面を表示します。削除ボタンを押すことで、お知らせが削除できることを確認します。</p>
-<h2 id="item-2-10" class="m-3">ログイン</h2>
-<h3 id="item-2-10-1" class="m-3">Chandraを使った認証</h3>
+<h2 id="item-2-10">ログイン</h2>
+<h3 id="item-2-10-1">Chandraを使った認証</h3>
 <p>ここまでで、管理画面で管理者が操作する機能を作成し終えました。次からは、管理画面を支えるログイン、セキュリティ強化、エラー対応、認可について順に追加します。<br />
 Chandra の認証は、<code>AuthService</code> クラスの <code>login</code> メソッドで行います。<br />
 ログイン時には、ユーザーIDとパスワードによる資格情報（<code>LoginCredentials</code>）と、ログイン試行時の状況（<code>LoginAttempt</code>）を渡します。<br />
@@ -1687,7 +1593,7 @@ Chandra の認証は、<code>AuthService</code> クラスの <code>login</code> 
 </ul>
 </li>
 </ul>
-<h3 id="item-2-10-2" class="m-3">【テスト】「ユーザーを取得する」のテスト</h3>
+<h3 id="item-2-10-2">【テスト】「ユーザーを取得する」のテスト</h3>
 <p><code>Repositories\User</code>クラスを追加するので、あらかじめテストを作成します。<br />
 実際にデータベースを呼び出すのではなく、インターフェースが期待通りであることを確認しています。<br />
 <code>tests\Repositories\UsersTest.php</code>を追加します。</p>
@@ -1737,7 +1643,7 @@ final class UsersTest extends TestCase
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 Usersクラスをまだ作成していないため、エラーとなります。</p>
-<h3 id="item-2-10-3" class="m-3">ユーザーを取得する</h3>
+<h3 id="item-2-10-3">ユーザーを取得する</h3>
 <p><code>Repositories\Users.php</code>は以下の通りです。<code>selectByLoginId</code>関数では<code>Database</code>クラスの<code>fetchOne</code>メソッドを実行して結果を戻り値にします。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 namespace Cafechandra\Repositories;
@@ -1770,7 +1676,7 @@ class Users {
 }
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
-<h3 id="item-2-10-4" class="m-3">【テスト】「ユーザーを検証する」のテスト</h3>
+<h3 id="item-2-10-4">【テスト】「ユーザーを検証する」のテスト</h3>
 <p><code>Repositories\AuthUser</code>クラスを追加するので、あらかじめテストを作成します。<br />
 実際にデータベースを呼び出すのではなく、インターフェースが期待通りであることを確認しています。<br />
 <code>tests\Repositories\AuthUserTest.php</code>を追加します。</p>
@@ -1827,7 +1733,7 @@ final class AuthUserTest extends TestCase
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 AuthUserクラスをまだ作成していないため、エラーとなります。</p>
-<h3 id="item-2-10-5" class="m-3">ユーザーを検証する</h3>
+<h3 id="item-2-10-5">ユーザーを検証する</h3>
 <p><code>AuthUser.php</code>は、<code>UserRepositoryInterface</code> を実装し、ログインIDとパスワードを使ったユーザー認証を担当するクラスです。ユーザー情報の取得自体は <code>Users</code>クラスに委ね、取得した情報をもとにパスワードを検証して、<code>LoginUser</code>の生成に必要な認証済みユーザー情報を返します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 namespace Cafechandra\Repositories;
@@ -1869,7 +1775,7 @@ class AuthUser implements UserRepositoryInterface {
 
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
-<h3 id="item-2-10-6" class="m-3">【テスト】「ログイン画面を表示する」のテスト</h3>
+<h3 id="item-2-10-6">【テスト】「ログイン画面を表示する」のテスト</h3>
 <p>ログインの画面と処理について、あらかじめテストを作成します。<br />
 <code>tests\public\admin\indexPageTest.php</code>を追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
@@ -1905,7 +1811,7 @@ final class AdminIndexPageTest extends TestCase
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 結果が失敗することを確認します。</p>
-<h3 id="item-2-10-7" class="m-3">ログイン画面を表示する</h3>
+<h3 id="item-2-10-7">ログイン画面を表示する</h3>
 <p>ログイン画面を作成します。<br />
 <code>public/admin/index.php</code>では、ログインIDとパスワードを入力し、ログインボタンを押下します。入力された情報は<code>public/admin/login.php </code>に POST 送信され、そこで<code>AuthService</code>クラスの <code>login</code>メソッドを使用してログイン処理を行います。認証に成功した場合はお知らせ一覧画面を表示します。</p>
 <p><code>public/admin/index.php</code>は以下の通りです。</p>
@@ -1935,7 +1841,7 @@ require_once(dirname(__DIR__,2).&#x27;/vendor/autoload.php&#x27;);
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。<br />
 ブラウザから<code>[http://localhost/cafechandra/public/admin/</code>が表示されることを確認します。](http://localhost/cafechandra/public/admin/`が表示されることを確認します。)</p>
-<h3 id="item-2-10-8" class="m-3">【テスト】「ログインを処理する」のテスト</h3>
+<h3 id="item-2-10-8">【テスト】「ログインを処理する」のテスト</h3>
 <p>ログイン画面から、ログインボタンを押すことでログイン（login）処理を行い、一覧（news_list）に遷移します。<code>public\admin\login.php</code>に対するテストクラス<code>tests\public\admin\loginPageTest.php</code>を以下の通り作成します。このテストではログインを行うため、その前後でテーブル情報を退避したり戻したりしています。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 declare(strict_types=1);
@@ -2092,7 +1998,7 @@ final class LoginPageTest extends TestCase
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 <code>public\admin\login.php</code>をまだ作成していないため、テストは失敗となります。</p>
-<h3 id="item-2-10-9" class="m-3">ログインを処理する</h3>
+<h3 id="item-2-10-9">ログインを処理する</h3>
 <p><code>login.php</code>には画面がありませんが、独立したphpファイルとして作成します。</p>
 <p><code>public\admin\login.php</code>を追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
@@ -2135,7 +2041,7 @@ header(&#x27;Location: news_list.php&#x27;, true, 303);
 お知らせ一覧画面が表示されることを確認します。<br />
 ログインページに戻り、IDやパスワードを変更してログインを試みると、エラーとなることも確認します。</p>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
-<h2 id="item-2-11" class="m-3">認証</h2>
+<h2 id="item-2-11">認証</h2>
 <p>管理画面を表示するときに、ログインされているかどうかをチェックします。この節では例として、<code>news_list.php</code>に適用させて紹介しますが、管理者がアクセスするページや機能には、全て適用する必要があります。</p>
 <ul>
 <li>public/admin/news_create.php  新規登録フォーム表示</li>
@@ -2144,7 +2050,7 @@ header(&#x27;Location: news_list.php&#x27;, true, 303);
 <li>public/admin/news_update.php  更新POST処理</li>
 <li>public/admin/news_delete.php  削除POST処理</li>
 </ul>
-<h3 id="item-2-11-1" class="m-3">【テスト】「お知らせ一覧の認証チェック」のテスト</h3>
+<h3 id="item-2-11-1">【テスト】「お知らせ一覧の認証チェック」のテスト</h3>
 <p><code>tests\public\admin\NewsListPageTest.php</code>を以下の通り変更し、ログインをしてからテストをするようにします。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 declare(strict_types=1);
@@ -2261,7 +2167,7 @@ final class NewsListPageTest extends TestCase
 }
 
 </code></pre>
-<h3 id="item-2-11-2" class="m-3">お知らせ一覧の認証チェック</h3>
+<h3 id="item-2-11-2">お知らせ一覧の認証チェック</h3>
 <p><code>public\admin\news_list.php</code>に、以下の通り変更します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 date_default_timezone_set(&#x27;Asia/Tokyo&#x27;);
@@ -2298,9 +2204,9 @@ $newsList = $news-&gt;listAll();
 &lt;!DOCTYPE html&gt;
 &lt;!-- 以下同一 --&gt;
 </code></pre>
-<h2 id="item-2-12" class="m-3">ログアウト</h2>
+<h2 id="item-2-12">ログアウト</h2>
 <p>Chandra ログアウトは、<code>AuthService</code> クラスの <code>login</code> メソッドを呼び出すだけです。</p>
-<h3 id="item-2-12-1" class="m-3">【テスト】「ログアウトを処理する」のテスト</h3>
+<h3 id="item-2-12-1">【テスト】「ログアウトを処理する」のテスト</h3>
 <p>一覧（news_list）画面から、ログアウトリンクを押すことでログアウト（logout）処理を行い、ログイン画面に遷移します。<code>public\admin\logout.php</code>に対するテストクラス<code>tests\public\admin\LogoutPageTest.php</code>を以下の通り作成します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 final class LogoutPageTest extends TestCase
@@ -2383,7 +2289,7 @@ final class LogoutPageTest extends TestCase
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 <code>public\admin\logout.php</code>をまだ作成していないため、テストは失敗となります。</p>
-<h3 id="item-2-12-2" class="m-3">ログアウトを処理する</h3>
+<h3 id="item-2-12-2">ログアウトを処理する</h3>
 <p><code>public\admin\logout.php</code>を追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 date_default_timezone_set(&#x27;Asia/Tokyo&#x27;);
@@ -2411,8 +2317,8 @@ exit;
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
 <hr>
 <p>これで管理者がお知らせを編集するための基本的な機能は全て実装できました。次からは、入力値チェックやエラー処理、セキュリティ対策といった、システムに必要な機能を実装していきます。</p>
-<h2 id="item-2-13" class="m-3">メッセージ表示</h2>
-<h3 id="item-2-13-1" class="m-3">セッション経由のエラーメッセージ</h3>
+<h2 id="item-2-13">メッセージ表示</h2>
+<h3 id="item-2-13-1">セッション経由のエラーメッセージ</h3>
 <p><code>SessionHelper::flushError</code> は、画面に表示するエラーメッセージをセッションに一時保存するためのメソッドです。最新の1件だけが保持（上書き）されます。取り出すときは<code>SessionHelper::getFlushError()</code>によりメッセージを取り出します。取り出したメッセージはセッションから破棄されます。</p>
 <p>メッセージのセット例。エラーを感知した時点でメッセージをセットしておきます。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::flushError(&quot;不正なIDです。&quot;);
@@ -2420,14 +2326,14 @@ exit;
 <p>メッセージの表示例。画面表示タイミングでメッセージがあれば1度だけ取り出して表示します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;h3 style=&quot;color:red;&quot;&gt;&lt;?= Utility::h(SessionHelper::getFlushError()) ?&gt;&lt;/h3&gt;
 </code></pre>
-<h3 id="item-2-13-2" class="m-3">セッション経由の成功メッセージ</h3>
+<h3 id="item-2-13-2">セッション経由の成功メッセージ</h3>
 <p><code>SessionHelper::flushSuccess</code>は、<code>SessionHelper::flushError</code> と同じ働きをしますが、別セッションに保存します。処理完了時に通知することを想定しています。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">SessionHelper::flushSuccess(&quot;お知らせを更新しました。&quot;);
 </code></pre>
 <p>画面表示タイミングでメッセージがあれば1度だけ取り出して表示します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;h3 style=&quot;color:green;&quot;&gt;&lt;?= Utility::h(SessionHelper::getFlushSuccess()) ?&gt;&lt;/h3&gt;
 </code></pre>
-<h3 id="item-2-13-3" class="m-3">処理成功メッセージを表示する</h3>
+<h3 id="item-2-13-3">処理成功メッセージを表示する</h3>
 <p>お知らせの登録、変更、削除それぞれが成功したときに、お知らせ一覧にメッセージを表示します。<br />
 <code>news_list.php</code>の画面部分に以下を追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-html">&lt;h3 style=&quot;color:red;&quot;&gt;&lt;?= Utility::h(SessionHelper::getFlushError()) ?&gt;&lt;/h3&gt;
@@ -2482,8 +2388,8 @@ SessionHelper::flushSuccess(&quot;お知らせを削除しました。&quot;);  
 header(&#x27;Location: news_list.php&#x27;, true, 303);
 </code></pre>
 <p>ブラウザからお知らせの登録、変更、削除を行い、完了時にお知らせ一覧画面にそれぞれメッセージが表示されることを確認します。</p>
-<h2 id="item-2-14" class="m-3">入力チェック</h2>
-<h3 id="item-2-14-1" class="m-3">入力チェックについて</h3>
+<h2 id="item-2-14">入力チェック</h2>
+<h3 id="item-2-14-1">入力チェックについて</h3>
 <p>ユーザーが画面のフォーム備品を通じて送信するデータから、意図しない形式のものをあらかじめ検知し、エラーメッセージを表示します。<code>$_POST</code> / <code>$_GET </code>で送信されたデータを信用せず、必須チェック、文字数や数値、日付形式のチェックなどをおこないます。エラー検出時にエラーメッセージをセッションにセットし、適切な画面にリダイレクトします。</p>
 <p>このプロジェクトでは、以下の入力値チェックを行います：</p>
 <ul>
@@ -2514,7 +2420,7 @@ header(&#x27;Location: news_list.php&#x27;, true, 303);
 </ul>
 </li>
 </ul>
-<h3 id="item-2-14-2" class="m-3">【テスト】「お知らせ更新リクエストの入力チェック」のテスト</h3>
+<h3 id="item-2-14-2">【テスト】「お知らせ更新リクエストの入力チェック」のテスト</h3>
 <p>例として、お知らせ更新リクエストでの入力チェックを実施します。</p>
 <p><code>tests\public\admin\newsUpdatePageTest.php</code>に、以下のテストケースを追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">
@@ -2736,7 +2642,7 @@ public function testNewsUpdatePageRejectsInvalidPublishedStatus(): void
 }
 
 </code></pre>
-<h3 id="item-2-14-3" class="m-3">お知らせ更新リクエストの入力チェック</h3>
+<h3 id="item-2-14-3">お知らせ更新リクエストの入力チェック</h3>
 <p><code>public\admin\news_update.php</code>に、以下の通り変更し、入力チェックをします。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">// ユーティリティクラスを使用
 use Studiogau\Chandra\Support\Utility;
@@ -2795,15 +2701,15 @@ use Studiogau\Chandra\Support\SessionHelper;
 &lt;h3 style=&quot;color:green;&quot;&gt;&lt;?= Utility::h(SessionHelper::getFlushSuccess()) ?&gt;&lt;/h3&gt;
 </code></pre>
 <p>ブラウザからお知らせの変更を行って確認する場合は、開発者ツールからHTMLを編集し、required属性を削除するなどの変更を行ったあとのあと、変更ボタンを押してください。お知らせ編集画面にエラーメッセージが表示されることを確認します。</p>
-<h2 id="item-2-15" class="m-3">データの画面ごとのセッション保存</h2>
-<h3 id="item-2-15-1" class="m-3">セッションについて</h3>
+<h2 id="item-2-15">データの画面ごとのセッション保存</h2>
+<h3 id="item-2-15-1">セッションについて</h3>
 <p>お知らせの編集や登録時に、入力エラー等で入力画面に戻ってエラーメッセージを表示する場合、ユーザーが入力した内容を再現すると、操作感が良くなります。入力内容を画面ごとにセッションに保存し、表示時に取り出しましょう。以下の通り機能を追加します。</p>
 <p>お知らせ更新リクエスト（<code>public\admin\news_update.php</code>）: エラー時に入力値をセッションに保存する<br />
 お知らせ編集画面（<code>public\admin\news_edit.php</code>）: セッションに保存された値がある場合は画面表示する</p>
 <p>お知らせ登録画面（<code>public\admin\news_create.php</code>）: エラー時に入力値をセッションに保存する<br />
 お知らせ登録リクエスト（<code>public\admin\news_insert.php</code>）: セッションに保存された値がある場合は画面表示する</p>
 <p>Chandraで、画面ごとに任意のデータをセッションに保存するには、<code>SessionHelper::setData</code>メソッドを使用します。</p>
-<h3 id="item-2-15-2" class="m-3">【テスト】「お知らせの編集画面に入力値を再現する」のテスト</h3>
+<h3 id="item-2-15-2">【テスト】「お知らせの編集画面に入力値を再現する」のテスト</h3>
 <p><code>tests\public\admin\NewsUpdatePageTest.php</code>に以下のテストを追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">
 // 入力エラーで編集画面へ戻ったとき、POSTされた入力値が一度だけ復元されることを確認する。
@@ -2859,7 +2765,7 @@ public function testNewsUpdatePageRestoresPostedValuesAfterValidationError(): vo
 </code></pre>
 <p>ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行します。<br />
 結果が失敗することを確認します。</p>
-<h3 id="item-2-15-3" class="m-3">お知らせの編集画面に入力値を再現する</h3>
+<h3 id="item-2-15-3">お知らせの編集画面に入力値を再現する</h3>
 <p><code>public\admin\news_edit.php</code>を以下の通り変更します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
 
@@ -2899,8 +2805,8 @@ if (is_array($sessionNewsData)) {
 ?&gt;
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
-<h2 id="item-2-16" class="m-3">例外処理</h2>
-<h3 id="item-2-16-1" class="m-3">例外処理について</h3>
+<h2 id="item-2-16">例外処理</h2>
+<h3 id="item-2-16-1">例外処理について</h3>
 <p>DB処理やログイン処理では、エラーが発生することがあります。<br />
 例外処理を行わないと、画面上にエラーの内容がそのまま表示されてしまい、ユーザーを混乱させる原因になります。</p>
 <p>そのため、エラーが投げられる可能性がある処理は try-catch で囲みます。<br />
@@ -2909,7 +2815,7 @@ catch では、必要に応じてエラー内容をログに残します。<br 
 <p>例外には、DBエラーのようにシステム上の問題によって発生するものと、パスワード不一致のようにアプリケーションの仕様として意図的に発生させるものがあります。<br />
 どちらの場合も、適切に try-catch で処理することで、ユーザーに不要な混乱を与えずに済みます。</p>
 <p>本ハンズオンでは、例として、お知らせ編集画面の表示時に、クエリーパラメータで指定されたIDがデータベースに存在しない場合の例外処理を行います。</p>
-<h3 id="item-2-16-2" class="m-3">【テスト】「DB処理時の例外処理」のテスト</h3>
+<h3 id="item-2-16-2">【テスト】「DB処理時の例外処理」のテスト</h3>
 <p><code>tests\public\admin\newsEditPageTest.php</code>に、以下のテストケースを追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">public function testNewsEditPageRedirectsToListWhenNewsIsNotFound(): void
 {
@@ -2931,7 +2837,7 @@ catch では、必要に応じてエラー内容をログに残します。<br 
     $this-&gt;assertStringContainsString(&#x27;対象のお知らせが見つかりません。&#x27;, $redirectResponse-&gt;getContent());
 }
 </code></pre>
-<h3 id="item-2-16-3" class="m-3">DB処理時の例外処理</h3>
+<h3 id="item-2-16-3">DB処理時の例外処理</h3>
 <p><code>public\admin\news_edit.php</code>で、次の処理をtry～catchで囲みます。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">// IDに該当するお知らせをデータベースから取得
 $storedNewsData = $news-&gt;fetchById((int)$id);
@@ -2948,7 +2854,7 @@ try {
 }
 </code></pre>
 <p><code>[http://localhost/cafechandra/public/admin/news_edit.php?id=12345</code>といった、IDとして存在しない数値をパラメータ指定してブラウザ表示すると、お知らせ一覧画面に「対象のお知らせが見つかりません。」メッセージが表示されることを確認します。](http://localhost/cafechandra/public/admin/news_edit.php?id=12345`といった、IDとして存在しない数値をパラメータ指定してブラウザ表示すると、お知らせ一覧画面に「対象のお知らせが見つかりません。」メッセージが表示されることを確認します。)</p>
-<h3 id="item-2-16-4" class="m-3">【テスト】「ログイン時の例外処理」のテスト</h3>
+<h3 id="item-2-16-4">【テスト】「ログイン時の例外処理」のテスト</h3>
 <p><code>tests\public\admin\loginPageTest.php</code>に、以下のテストケースを追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">public function testLoginPageRedirectsToIndexWhenAuthenticationFails(): void
 {
@@ -2978,7 +2884,7 @@ try {
     $this-&gt;assertStringContainsString(&#x27;ログインID、または、パスワードを正しく入力してください&#x27;, $indexResponse-&gt;getContent());
 }
 </code></pre>
-<h3 id="item-2-16-5" class="m-3">ログイン時の例外処理</h3>
+<h3 id="item-2-16-5">ログイン時の例外処理</h3>
 <p><code>public\admin\login.php</code>で、次の処理をtry～catchで囲みます。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$credentials = new LoginCredentials($loginData[&#x27;user&#x27;], $loginData[&#x27;pass&#x27;]);
 $attempt = LoginAttempt::fromServer($credentials-&gt;getUserId(), $_SERVER);
@@ -3001,11 +2907,11 @@ $auth-&gt;login($credentials, $attempt);
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">use Studiogau\Chandra\Auth\AuthException;
 </code></pre>
 <p>ログイン画面から、間違ったパスワード等を入力してログインボタンを押した場合、### ログインID、または、パスワードを正しく入力してください」メッセージが表示されることを確認します。</p>
-<h2 id="item-2-17" class="m-3">CSRFトークン</h2>
-<h3 id="item-2-17-1" class="m-3">CSRFトークンについて</h3>
+<h2 id="item-2-17">CSRFトークン</h2>
+<h3 id="item-2-17-1">CSRFトークンについて</h3>
 <p>Chandraの<code>Utility::validateCsrfToken</code> は、POST 送信された CSRF トークンがセッションに保存された正しいトークンかどうかを検証するメソッドです。  POST送信する場合は、画面にCSRFトークンを生成し、一緒にPOSTするようにします。POST値を受け取ったロジック側は、まずCSRFトークンの妥当性を検証することで、データの改ざんがないことを確認します。</p>
 <p>本チュートリアルでは、お知らせ編集画面でCSRFトークンをPOST送信し、そのPOSTを受けるお知らせ更新リクエスト処理で妥当性をチェックします。</p>
-<h3 id="item-2-17-2" class="m-3">【テスト】「お知らせ編集でのCSRFトークンチェック」のテスト</h3>
+<h3 id="item-2-17-2">【テスト】「お知らせ編集でのCSRFトークンチェック」のテスト</h3>
 <p><code>tests\public\admin\newsUpdatePageTest.php</code>に編集画面からCSRFトークンを取り出す補助メソッドを追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">/**
  * 編集画面で発行される更新用CSRFトークンを取得する。
@@ -3092,7 +2998,7 @@ public function testNewsUpdatePageRedirectsToListWhenCsrfTokenIsInvalid(): void
     $this-&gt;assertStringContainsString(&#x27;システムエラーが発生しました。再度お知らせ一覧からやり直してください。&#x27;, $redirectResponse-&gt;getContent());
 }
 </code></pre>
-<h3 id="item-2-17-3" class="m-3">お知らせ編集でのCSRFトークンチェック</h3>
+<h3 id="item-2-17-3">お知らせ編集でのCSRFトークンチェック</h3>
 <p><code>public\admin\news_edit.php</code>の更新用のForm内に以下のinputを追加します。これで、CSRFトークンを生成し、input hiddenとしてPOST送信されます。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-html">&lt;form id=&quot;news-update-form&quot; method=&quot;post&quot; action=&quot;news_update.php&quot; onsubmit=&quot;return window.confirm(&#x27;更新してもいいですか？&#x27;);&quot;&gt;
 	&lt;?= Utility::renderCsrfHiddenInput(&#x27;news.update.exec&#x27;) ?&gt;
@@ -3107,8 +3013,8 @@ if (!Utility::validateCsrfToken(&#x27;news.update.exec&#x27;, $csrfToken)) {
     exit;
 }
 </code></pre>
-<h2 id="item-2-18" class="m-3">認可</h2>
-<h3 id="item-2-18-1" class="m-3">認可について</h3>
+<h2 id="item-2-18">認可</h2>
+<h3 id="item-2-18-1">認可について</h3>
 <p>認可とは、ログイン済みのユーザーが特定の画面や操作を利用してよいかを確認する仕組みです。<br />
 Chandra は、アプリケーション側の UserRepositoryInterface 実装から返された permissions の値を、ログインユーザーの情報として保持し、<code>$currentUser-&gt;can('news_create') </code>で使えるようにします。どのように使うかの認可ルールは、アプリケーション側で自由に実装できます。<br />
 このシステムでは、<code>AuthUser</code>クラスでの戻り値として、permissions キーに対応する値が認可に使用する情報になります。認可が必要な画面や機能に入ったタイミングで確認し、権限がない場合は HTTP 403 を返し、画面表示や登録・更新・削除処理を実行しません。</p>
@@ -3136,7 +3042,7 @@ Chandra は、アプリケーション側の UserRepositoryInterface 実装か
 }
 
 </code></pre>
-<h3 id="item-2-18-2" class="m-3">【テスト】「お知らせ一覧の認可チェック」のテスト</h3>
+<h3 id="item-2-18-2">【テスト】「お知らせ一覧の認可チェック」のテスト</h3>
 <p><code>tests\public\admin\NewsListPageTest.php</code>に以下のメソッドを追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">private const NO_PERMISSION_LOGIN_ID = &#x27;phpunit_noauth&#x27;;
 
@@ -3204,7 +3110,7 @@ private function loginWithNoPermissionUser(HttpBrowser $browser): void
 	]);
 }
 </code></pre>
-<h3 id="item-2-18-3" class="m-3">お知らせ一覧の認可チェック</h3>
+<h3 id="item-2-18-3">お知らせ一覧の認可チェック</h3>
 <p><code>public\admin\news_list.php</code>の、認証チェックの後に、認可チェックを行うブロックを追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">// 認可チェック
 if (!$currentUser || !$currentUser-&gt;can(&#x27;news_list&#x27;)) {
@@ -3218,7 +3124,7 @@ if (!$currentUser || !$currentUser-&gt;can(&#x27;news_list&#x27;)) {
 <p>ブラウザでログイン時、usersテーブルのpermissionsカラムの値から、news_listを削除すると、ログイン後に「この画面を表示する権限がありません」文字が表示されることを確認します。</p>
 
 
-<h3 id="item-2-18-4" class="m-3">【テスト】「監査列にログインユーザーを反映する」のテスト</h3>
+<h3 id="item-2-18-4">【テスト】「監査列にログインユーザーを反映する」のテスト</h3>
 <p><code>tests\public\admin\newsInsertPageTest.php</code>の、testNewsInsertPageInsertsNewsTableWithPostedValuesテストメソッドにで、created_byカラムも検証対象とするよう修正します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">
 public function testNewsInsertPageInsertsNewsTableWithPostedValues(): void
@@ -3259,7 +3165,7 @@ public function testNewsUpdatePageUpdatesNewsTableWithPostedValues(): void
 </code></pre>
 
 
-<h3 id="item-2-18-5" class="m-3">監査列にログインユーザーを反映する</h3>
+<h3 id="item-2-18-5">監査列にログインユーザーを反映する</h3>
 <p>Chandra の <code>Database::insert()</code> と <code>Database::update()</code> は、監査列 <code>created_at</code>、<code>created_by</code>、<code>updated_at</code>、<code>updated_by</code> を自動的に設定します。
 ここまでの実装では、実行ユーザーを <code>Database</code> に指定していないため、<code>created_by</code> や <code>updated_by</code> には既定のユーザーとして <code>SYSTEM</code> が入ります。
 ログイン後の登録・更新処理では、<code>AuthService</code> から取得したログインユーザーを <code>Database</code> に渡しておくことで、監査列に実行者を記録できます。
@@ -3287,7 +3193,7 @@ if (($_SERVER[&#x27;REQUEST_METHOD&#x27;] ?? &#x27;GET&#x27;) !== &#x27;POST&#x2
 
                         <div id="item-1" class="row gx-0 mt-5">
                             <div class="col-12 col-md-9 order-2 order-md-1">
-                                <h1>クイックスタート</h1>
+                                <h2>クイックスタート</h2>
                                 <a href="./quickstart.html" class="btn btn-secondary">クイックスタートを見る</a>
                             </div>
                             <div class="col-12 col-md-3 order-1 order-md-2">
@@ -3296,7 +3202,7 @@ if (($_SERVER[&#x27;REQUEST_METHOD&#x27;] ?? &#x27;GET&#x27;) !== &#x27;POST&#x2
                         </div>
                         <div id="item-3" class="row gx-0">
                             <div class="col-12 col-md-9 order-2 order-md-1">
-                                <h1>リファレンス</h1>
+                                <h2>リファレンス</h2>
                                 <a href="./reference.html" class="btn btn-secondary">リファレンスを見る</a>
                             </div>
                             <div class="col-12 col-md-3 order-1 order-md-2">
@@ -3305,16 +3211,12 @@ if (($_SERVER[&#x27;REQUEST_METHOD&#x27;] ?? &#x27;GET&#x27;) !== &#x27;POST&#x2
                         </div>
 
 
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-
-        </main>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<div class="border-top pt-4 guide-related"><p class="fw-bold">Chandraガイド</p><a href="./quickstart.html">クイックスタート</a><a href="./handson.html" aria-current="page">ハンズオン</a><a href="./reference.html">リファレンス</a><a href="./test.html">テストガイド</a></div>
+</article></div></main>
+<footer class="container documentation-guide border-top py-4 text-muted small">スタジオがう · Chandraガイド</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
-        <script src="../js/code-highlight.js"></script>
-    </body>
-</html>
+        <script src="../js/code-highlight.js?v=2"></script>
+
+</body></html>

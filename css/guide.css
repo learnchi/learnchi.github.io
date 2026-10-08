@@ -1,0 +1,190 @@
+/* Shared documentation layout: Chandra and NobleStock. */
+
+/* Page width and header */
+.documentation-guide {
+    max-width: 1120px;
+}
+
+.guide-header {
+    background: #f2f5f1;
+    border-bottom: 1px solid #dce5da;
+}
+
+.guide-header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+}
+
+.guide-header img {
+    width: 100px;
+    max-width: 100%;
+    height: auto;
+}
+
+.guide-header p:last-child {
+    margin-bottom: 0;
+}
+
+/* Article headings and spacing */
+.guide-content {
+    max-width: 780px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.guide-content section {
+    margin-bottom: 3rem;
+}
+
+.guide-content [id] {
+    scroll-margin-top: 1rem;
+}
+
+.guide-content > h2,
+.guide-content > div[id] {
+    margin-top: 2.5rem;
+}
+
+.guide-content > h2:first-child,
+.guide-content > div[id]:first-child {
+    margin-top: 0;
+}
+
+.guide-content h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #dce5da;
+    padding-bottom: .65rem;
+    margin-bottom: 1rem;
+}
+
+.guide-content h3 {
+    font-size: 1.15rem;
+    margin-top: 1.6rem;
+}
+
+.guide-content h4 {
+    font-size: 1.05rem;
+    margin-top: 1.5rem;
+}
+
+.guide-content h5,
+.guide-content h6 {
+    font-size: 1rem;
+    margin-top: 1.25rem;
+}
+
+.guide-content p,
+.guide-content li {
+    line-height: 1.85;
+}
+
+/* Images, tables and code blocks */
+.guide-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.guide-content th {
+    min-width: 9rem;
+}
+
+.guide-content td {
+    line-height: 1.7;
+}
+
+.guide-content pre {
+    max-width: 100%;
+    background: #f8f9fa;
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: .4rem;
+    overflow-x: auto;
+    overflow-wrap: normal;
+}
+
+.guide-content code {
+    overflow-wrap: anywhere;
+}
+
+.guide-content pre code {
+    overflow-wrap: normal;
+}
+
+/* Table of contents */
+.guide-toc a {
+    display: block;
+    padding: .45rem .7rem;
+    color: #334d36;
+    text-decoration: none;
+    border-radius: .3rem;
+}
+
+.guide-toc a:hover,
+.guide-toc a:focus,
+.guide-toc a[aria-current="page"] {
+    background: #edf3eb;
+}
+
+.guide-toc a[aria-current="page"] {
+    font-weight: 600;
+}
+
+.guide-toc-details {
+    margin: 0 .7rem .4rem;
+}
+
+.guide-toc-details summary {
+    padding: .25rem 0 .4rem;
+    color: #5c685e;
+    font-size: .8rem;
+    cursor: pointer;
+}
+
+.guide-toc-details > div {
+    border-left: 2px solid #dce5da;
+    margin-top: .3rem;
+}
+
+.guide-toc-details a {
+    font-size: .85rem;
+    padding: .4rem .65rem;
+}
+
+/* Notes and related guides */
+.guide-note {
+    background: #f2f5f1;
+    border-left: 4px solid #6e8c69;
+    padding: 1rem;
+}
+
+.guide-content > .row {
+    margin-top: 3rem;
+}
+
+.guide-content > .row img {
+    max-width: 100px;
+}
+
+.guide-related a {
+    display: inline-block;
+    margin: 0 .6rem .6rem 0;
+    padding: .4rem .75rem;
+    border: 1px solid #6e8c69;
+    border-radius: .375rem;
+    color: #334d36;
+    text-decoration: none;
+}
+
+.guide-related a:hover,
+.guide-related a:focus {
+    background: #edf3eb;
+}
+
+/* Keep long chapter lists usable on desktop. */
+@media (min-width: 992px) {
+    .guide-toc {
+        position: sticky;
+        top: 1rem;
+        max-height: calc(100vh - 2rem);
+        overflow-y: auto;
+    }
+}

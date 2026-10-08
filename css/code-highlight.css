@@ -1,3 +1,4 @@
+/* highlight.jsのテーマの後に読み込み、背景と余白を調整する。 */
 pre code.hljs {
     background: transparent;
     overflow: visible;
@@ -6,4 +7,75 @@ pre code.hljs {
 
 pre code {
     display: block;
+}
+
+/* 7行以上のコードに使う共通の表示枠。 */
+.code-example {
+    position: relative;
+    min-width: 0;
+    margin-bottom: 1rem;
+}
+
+.code-example > pre {
+    margin-bottom: 0;
+}
+
+/* 折りたたみ中はスクロールバーを隠す。 */
+.code-example.is-collapsed > pre {
+    overflow: hidden !important;
+}
+
+/* 5行まで表示し、3〜5行目を徐々に透明にする。 */
+.code-example.is-collapsed > pre > code {
+    max-height: calc(var(--code-line-height) * 5);
+    overflow: hidden !important;
+    mask-image: linear-gradient(to bottom,
+        #000 0,
+        #000 calc(var(--code-line-height) * 2),
+        transparent calc(var(--code-line-height) * 5));
+    -webkit-mask-image: linear-gradient(to bottom,
+        #000 0,
+        #000 calc(var(--code-line-height) * 2),
+        transparent calc(var(--code-line-height) * 5));
+}
+
+/* 展開後はボタンをコードの下に置く。 */
+.code-example-controls {
+    display: flex;
+    justify-content: center;
+    padding-top: .5rem;
+}
+
+/* 折りたたみ中はボタンをコードに重ねる。 */
+.code-example.is-collapsed .code-example-controls {
+    position: absolute;
+    inset: auto 0 .75rem;
+    padding-top: 0;
+    pointer-events: none;
+}
+
+.code-example-toggle {
+    background: #fff;
+    pointer-events: auto;
+}
+
+/* キーボード操作時はボタンの枠を強調する。 */
+.code-example-toggle:focus-visible {
+    outline: 3px solid #6e8c69;
+    outline-offset: 3px;
+}
+
+/* 印刷時は全行を表示し、ボタンを隠す。 */
+@media print {
+    .code-example.is-collapsed > pre,
+    .code-example.is-collapsed > pre > code {
+        max-height: none;
+        overflow: visible !important;
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .code-example-controls {
+        display: none;
+    }
 }
