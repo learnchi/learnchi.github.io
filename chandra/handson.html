@@ -100,7 +100,7 @@ Package nameは、<code>ユーザー名/cafechandra</code>が既定値として�
 </code></pre>
 <p><code>composer.lock</code>ファイルと、<code>vendor</code>ディレクトリが作成されます。</p>
 <p>静的サイトのデザインをそのまま適用させます。公開用のディレクトリとして、<code>public</code>ディレクトリを作成し、この中に<code>cafechandra_design</code>内のファイルを設置してください。</p>
-<p>ブラウザから<code>[http://localhost/cafechandra/public/</code>を表示し、喫茶チャンドラの静的サイトが表示されることを確認します。](http://localhost/cafechandra/public/`を表示し、喫茶チャンドラの静的サイトが表示されることを確認します。)</p>
+<p>ブラウザから<a href="http://localhost/cafechandra/public/">http://localhost/cafechandra/public/</a>を表示し、喫茶チャンドラの静的サイトが表示されることを確認します。</p>
 <p>現時点でディレクトリ構成は以下のようになっています：</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code>cafechandra
 │  composer.json
@@ -130,7 +130,7 @@ Package nameは、<code>ユーザー名/cafechandra</code>が既定値として�
 <h2 id="item-2-3">データベースの作成</h2>
 <h3 id="item-2-3-1">データベースを作成する前に</h3>
 <p>XAMPP を使っている場合、MySQL の <code>root</code> ユーザーにパスワードが未設定のことがあります。開発機でもパスワードは設定しておいた方が扱いやすいです。</p>
-<p>phpMyAdmin（<code>[http://localhost/phpmyadmin/</code>）を開き、ユーザアカウントタブから、root@localhostの「権限を編集」リンクをクリックし、「Change](http://localhost/phpmyadmin/<code>）を開き、ユーザアカウントタブから、root@localhostの「権限を編集」リンクをクリックし、「Change) password」タブで変更します。 続けて、phpMyAdminをパスワードでログインできるよう、</code>C:\xampp\phpMyAdmin\config.inc.php`を編集します。</p>
+<p>phpMyAdmin（<a href="http://localhost/phpmyadmin/">http://localhost/phpmyadmin/</a>）を開き、ユーザアカウントタブから、<code>root@localhost</code>の「権限を編集」リンクをクリックし、「Change password」タブで変更します。続けて、phpMyAdminをパスワードでログインできるよう、<code>C:\xampp\phpMyAdmin\config.inc.php</code>を編集します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">/* Authentication type and info */
 $cfg[&#x27;Servers&#x27;][$i][&#x27;auth_type&#x27;] = &#x27;cookie&#x27;; # configから変更
 $cfg[&#x27;Servers&#x27;][$i][&#x27;user&#x27;] = &#x27;root&#x27;;
@@ -139,7 +139,7 @@ $cfg[&#x27;Servers&#x27;][$i][&#x27;extension&#x27;] = &#x27;mysqli&#x27;;
 $cfg[&#x27;Servers&#x27;][$i][&#x27;AllowNoPassword&#x27;] = false;  # true から変更
 $cfg[&#x27;Lang&#x27;] = &#x27;&#x27;;
 </code></pre>
-<p>再びphpMyAdmin（<code>[http://localhost/phpmyadmin/</code>）を開いたとき、ログイン画面が表示されます。](http://localhost/phpmyadmin/`）を開いたとき、ログイン画面が表示されます。)</p>
+<p>再びphpMyAdmin（<a href="http://localhost/phpmyadmin/">http://localhost/phpmyadmin/</a>）を開いたとき、ログイン画面が表示されます。</p>
 <h3 id="item-2-3-2">データベースについて</h3>
 <p>このチュートリアルでは、次のデータベースを作成します。</p>
 <ul>
@@ -345,7 +345,7 @@ require_once(dirname(__DIR__) . &#x27;/vendor/autoload.php&#x27;);
 &lt;!DOCTYPE html&gt;    &lt;!-- 以下省略 --&gt;
 
 </code></pre>
-<p>ブラウザから<code>[http://localhost/cafechandra/public/</code>が変わらず表示されることを確認します。](http://localhost/cafechandra/public/`が変わらず表示されることを確認します。)<br />
+<p>ブラウザから<a href="http://localhost/cafechandra/public/">http://localhost/cafechandra/public/</a>が変わらず表示されることを確認します。<br />
 【テスト】結果が成功することを確認します。</p>
 <h3 id="item-2-5-4">【テスト】 「データをセレクトする」のテスト</h3>
 <p>データベースのデータを取得して、返却するロジックについてのテストをあらかじめ作成します。<br />
@@ -459,7 +459,7 @@ $newsList = $news-&gt;getLatestForDisplay();
   &lt;div class=&quot;wooden-button&quot;&gt;&lt;button&gt;お知らせ一覧へ&lt;/button&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;!-- news-box --&gt;
 </code></pre>
-<p>ブラウザから<code>[http://localhost/cafechandra/public/</code>が表示されることを確認します。](http://localhost/cafechandra/public/<code>が表示されることを確認します。) </code>phpMyAdmin`からデータを操作し、変化を確認してください。</p>
+<p>ブラウザから<a href="http://localhost/cafechandra/public/">http://localhost/cafechandra/public/</a>が表示されることを確認します。phpMyAdminからデータを操作し、変化を確認してください。</p>
 <hr>
 <h2 id="item-2-6">管理画面：お知らせ一覧</h2>
 <h3 id="item-2-6-1">管理画面の概要</h3>
@@ -600,7 +600,7 @@ $newsList = $news-&gt;listAll();
 &lt;/html&gt;
 
 </code></pre>
-<p>ブラウザから<code>[http://localhost/cafechandra/public/admin/news_list.php</code>が表示されることを確認します。](http://localhost/cafechandra/public/admin/news_list.php<code>が表示されることを確認します。) 【テスト】ターミナルから</code>cafechandra`ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
+<p>ブラウザから<a href="http://localhost/cafechandra/public/admin/news_list.php">http://localhost/cafechandra/public/admin/news_list.php</a>が表示されることを確認します。【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
 <h2 id="item-2-7">管理画面：お知らせ更新</h2>
 <h3 id="item-2-7-1">データベースの更新について</h3>
 <p>このハンズオンでは、小規模なプロジェクトをシンプルに実装することを目的としているため、更新処理は単純な UPDATE の実行にとどめています。<br />
@@ -797,7 +797,7 @@ $newsData = [
 &lt;/html&gt;
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。<br />
-ブラウザから<code>[http://localhost/cafechandra/public/admin/news_edit.php?id=1</code>が表示されることを確認します。](http://localhost/cafechandra/public/admin/news_edit.php?id=1`が表示されることを確認します。)</p>
+ブラウザから<a href="http://localhost/cafechandra/public/admin/news_edit.php?id=1">http://localhost/cafechandra/public/admin/news_edit.php?id=1</a>が表示されることを確認します。</p>
 <h3 id="item-2-7-6">お知らせの編集画面への遷移</h3>
 <p>お知らせ一覧で、タイトルから編集画面に遷移できるようリンクを追加します。リンク先は、<code>news_edit.php</code>に、idをクエリパラメータとして付与します。</p>
 <p><code>public\admin\news_list.php</code>で、以下のようにタイトル部分を変更します。</p>
@@ -1165,7 +1165,7 @@ $newsData = [
 &lt;/html&gt;
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。<br />
-ブラウザから<code>[http://localhost/cafechandra/public/admin/news_create.php</code>が表示されることを確認します。](http://localhost/cafechandra/public/admin/news_create.php`が表示されることを確認します。)</p>
+ブラウザから<a href="http://localhost/cafechandra/public/admin/news_create.php">http://localhost/cafechandra/public/admin/news_create.php</a>が表示されることを確認します。</p>
 <h3 id="item-2-8-3">お知らせ登録画面への遷移</h3>
 <p>お知らせの登録は、一覧画面から行えるようにリンクを追加します。<br />
 <code>news_list.php</code>のHTML内の任意の場所に、以下のリンクを追加してください。</p>
@@ -1840,7 +1840,7 @@ require_once(dirname(__DIR__,2).&#x27;/vendor/autoload.php&#x27;);
 &lt;/html&gt;
 </code></pre>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。<br />
-ブラウザから<code>[http://localhost/cafechandra/public/admin/</code>が表示されることを確認します。](http://localhost/cafechandra/public/admin/`が表示されることを確認します。)</p>
+ブラウザから<a href="http://localhost/cafechandra/public/admin/">http://localhost/cafechandra/public/admin/</a>が表示されることを確認します。</p>
 <h3 id="item-2-10-8">【テスト】「ログインを処理する」のテスト</h3>
 <p>ログイン画面から、ログインボタンを押すことでログイン（login）処理を行い、一覧（news_list）に遷移します。<code>public\admin\login.php</code>に対するテストクラス<code>tests\public\admin\loginPageTest.php</code>を以下の通り作成します。このテストではログインを行うため、その前後でテーブル情報を退避したり戻したりしています。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">&lt;?php
@@ -2037,7 +2037,7 @@ header(&#x27;Location: news_list.php&#x27;, true, 303);
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">$auth-&gt;login($credentials, $attempt);
 </code></pre>
 <p>ログイン成功したユーザー情報をセッションに保存するため、 <code>session_start() </code>が必要です。これにより、以降の画面でログイン成功情報が引き継がれます。</p>
-<p>ブラウザから<code>[http://localhost/cafechandra/public/admin/</code>を表示し、ログインIDに<code>admin</code>、パスワードに<code>admin1234</code>（password_hash作成時に使用したパスワード）を入力してログインボタンを押します。](http://localhost/cafechandra/public/admin/<code>を表示し、ログインIDに</code>admin<code>、パスワードに</code>admin1234`（password_hash作成時に使用したパスワード）を入力してログインボタンを押します。)<br />
+<p>ブラウザから<a href="http://localhost/cafechandra/public/admin/">http://localhost/cafechandra/public/admin/</a>を表示し、ログインIDに<code>admin</code>、パスワードに<code>admin1234</code>（password_hash作成時に使用したパスワード）を入力してログインボタンを押します。<br />
 お知らせ一覧画面が表示されることを確認します。<br />
 ログインページに戻り、IDやパスワードを変更してログインを試みると、エラーとなることも確認します。</p>
 <p>【テスト】ターミナルから<code>cafechandra</code>ディレクトリに移動し、PHPUnitを実行して、テストが成功することを確認します。</p>
@@ -2853,7 +2853,7 @@ try {
     exit;
 }
 </code></pre>
-<p><code>[http://localhost/cafechandra/public/admin/news_edit.php?id=12345</code>といった、IDとして存在しない数値をパラメータ指定してブラウザ表示すると、お知らせ一覧画面に「対象のお知らせが見つかりません。」メッセージが表示されることを確認します。](http://localhost/cafechandra/public/admin/news_edit.php?id=12345`といった、IDとして存在しない数値をパラメータ指定してブラウザ表示すると、お知らせ一覧画面に「対象のお知らせが見つかりません。」メッセージが表示されることを確認します。)</p>
+<p><a href="http://localhost/cafechandra/public/admin/news_edit.php?id=12345">http://localhost/cafechandra/public/admin/news_edit.php?id=12345</a>といった、IDとして存在しない数値をパラメータ指定してブラウザ表示すると、お知らせ一覧画面に「対象のお知らせが見つかりません。」メッセージが表示されることを確認します。</p>
 <h3 id="item-2-16-4">【テスト】「ログイン時の例外処理」のテスト</h3>
 <p><code>tests\public\admin\loginPageTest.php</code>に、以下のテストケースを追加します。</p>
 <pre class="bg-light border rounded p-3 overflow-auto"><code class="language-php">public function testLoginPageRedirectsToIndexWhenAuthenticationFails(): void

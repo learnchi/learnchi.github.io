@@ -105,6 +105,14 @@
     overflow-wrap: anywhere;
 }
 
+/* 本文中のコードは、薄い緑の背景と左右の余白で見分けやすくする。 */
+code:not(pre code) {
+    color: inherit;
+    background: #edf3eb;
+    padding: .1em .3em;
+    border-radius: .2rem;
+}
+
 .guide-content pre code {
     overflow-wrap: normal;
 }

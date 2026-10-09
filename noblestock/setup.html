@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Windowsでの導入手順 | Noblestock | スタジオがう</title><meta name="description" content="GitHubから取得して、Windowsのlocalhostでログインするまで。">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="../css/guide.css">
+<link rel="stylesheet" href="../css/code-highlight.css?v=2"></head><body>
+<nav class="navbar navbar-expand-md bg-body-tertiary" aria-label="サイトメニュー">
+<div class="container-fluid"><a class="navbar-brand" href="../index.html">スタジオがう</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="メニューを開く"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="../chandra/index.html">Chandra</a></li>
+<li class="nav-item"><a class="nav-link active" href="./index.html">Noblestock</a></li><li class="nav-item"><a class="nav-link" href="../about.html">About</a></li></ul><span class="navbar-text">便利なシステムでお手伝い</span></div></div></nav>
+<header class="guide-header py-5"><div class="container documentation-guide"><a href="./index.html" class="text-success">Noblestock</a><h1 class="fw-bold mt-3">Windowsでの導入手順</h1><p class="mb-0">GitHubから取得して、Windowsのlocalhostでログインするまで。</p></div></header>
+<main class="container documentation-guide py-4"><div class="row g-4"><aside class="col-lg-3"><nav class="guide-toc" aria-label="このページの目次"><p class="fw-bold px-2">このページの内容</p>
+<a href="#environment">1. Windowsの環境を準備する</a>
+<a href="#download">2. GitHubから取得して配置する</a>
+<a href="#dependencies">3. 依存ライブラリを入れる</a>
+<a href="#database">4. データベースを作成する</a>
+<a href="#config">5. DB接続を設定する</a>
+<a href="#paths">6. 動作に必要なパスを作成する</a>
+<a href="#launch">7. localhostでログインする</a><hr><a class="disabled" href="guide.html" aria-disabled="true" tabindex="-1" onclick="return false;">機能と使い方を見る</a><a href="./index.html">Noblestockトップへ</a></nav></aside>
+<article class="col-lg-9 guide-content">
+<section id="environment">
+<h2>1. Windowsの環境を準備する</h2>
+<p>Noblestockは、Chandra上で動くPHPの在庫管理アプリです。このドキュメントでは、XAMPPのPHPとMySQL（MariaDB）、Composerを使い、Windowsマシンのlocalhostで動かす手順をご紹介します。</p>
+<p>環境のインストールは、Chandraのクイックスタートをご覧ください。以下の手順を順に行ってください。</p>
+<ul><li><a href="../chandra/quickstart.html#item-1-1">前提条件</a></li><li><a href="../chandra/quickstart.html#item-1-2">XAMPPのインストール</a></li><li><a href="../chandra/quickstart.html#item-1-3">Composerのインストール</a></li></ul>
+<p>以降はXAMPPを<code>C:\xampp</code>にインストールした例です。XAMPP Control PanelでApacheとMySQLを起動し、<a href="http://localhost/phpmyadmin/">phpMyAdmin</a>を開けることを確認してください。NoblestockではDBを使うため、MySQLは起動したままにします。</p>
+</section>
+<section id="download">
+<h2>2. GitHubから取得して配置する</h2>
+<p>NobleStockは<a href="https://github.com/learnchi/noblestock">learnchi/noblestockのGitHubリポジトリ</a>から取得します。Gitでクローンする方法と、ZIPをダウンロードする方法があります。本手順では、どちらの場合も、<code>C:\xampp\htdocs\noblestock</code>へ配置します。</p>
+<h3>Gitでクローンする</h3>
+<p>クローンにはGitが必要です。Gitが入っていない場合は、<a href="https://git-scm.com/downloads/win">Git for Windows</a>をインストールしてください。</p>
+<p>コマンドプロンプトで次を実行します。</p>
+<pre><code class="language-bat">cd /d C:\xampp\htdocs
+git clone https://github.com/learnchi/noblestock.git noblestock</code></pre>
+<p><code>C:\xampp\htdocs\noblestock</code>フォルダーが作成され、その中にプロジェクトが取得されます。</p>
+<h3>ZIPをダウンロードする</h3>
+<p>ZIPで取得することもできます。</p>
+<ol><li><a href="https://github.com/learnchi/noblestock">GitHubリポジトリ</a>を開き、「Code」ボタンから「Download ZIP」を選びます。</li><li>ZIPを展開し、<code>composer.json</code>と<code>public</code>フォルダーが入っているフォルダーの名前を<code>noblestock</code>に変更します。</li><li>そのフォルダーを<code>C:\xampp\htdocs</code>へ移動し、<code>C:\xampp\htdocs\noblestock</code>となるように配置します。</li></ol>
+<h3>配置を確認する</h3>
+<p>どちらの方法でも、次のファイルがあることを確認してください。</p>
+<ul><li><code>C:\xampp\htdocs\noblestock\composer.json</code></li><li><code>C:\xampp\htdocs\noblestock\public\index.php</code></li></ul>
+<p>以降のコマンドは、<code>C:\xampp\htdocs\noblestock\</code>ディレクトリで実行します。</p>
+</section>
+<section id="dependencies">
+<h2>3. 依存ライブラリを入れる</h2>
+<p>コマンドプロンプトを開き、次を実行します。</p>
+<pre><code>cd /d C:\xampp\htdocs\noblestock
+composer install</code></pre>
+<p><code>composer install</code>で、Chandra、Excelの入出力、バーコード生成などに必要なライブラリを<code>vendor</code>にインストールします。</p>
+<p>以下のコマンドで、PHPのバージョンや拡張機能がライブラリの要件を満たしているか確認します。</p>
+<pre><code>composer check-platform-reqs</code></pre>
+<h3>エラーが出る場合</h3>
+<p>PHP拡張の不足の場合、<code>composer install</code>コマンドがエラーとなります。この場合は、<code>C:\xampp\php\php.ini</code>で該当する拡張を有効にします。</p>
+<h4>例1 gdが不足している</h4>
+<p>gdはExcel内の画像処理や画像サイズの取得などで利用しています。以下のようなエラーが出力される場合、gdの拡張が必要です。</p>
+<pre><code>phpoffice/phpspreadsheet 2.4.3 requires ext-gd * -&gt; it is missing from your system. Install or enable PHP&#x27;s gd extension.</code></pre>
+<p>この場合、次の手順でgdの拡張を有効にします。</p>
+<ol><li><code>C:\xampp\php\php.ini</code> を開く</li><li>次の行を探す</li></ol>
+<pre><code>;extension=gd</code></pre>
+<ol start="3"><li>先頭の <code>;</code> を外す</li></ol>
+<pre><code>extension=gd</code></pre>
+<ol start="4"><li>保存後、以下のコマンドで確認</li></ol>
+<pre><code>php -m | findstr /i gd</code></pre>
+<p>次のように表示されれば成功です。</p>
+<pre><code>gd</code></pre>
+<p>PHP拡張の設定を変更した場合は、Apacheの再起動が必要です。XAMPP Control PanelでApacheをStop → Startしてください。
+その後、<code>composer install</code>コマンドを改めて実行します。</p>
+<h4>例2 zipが不足している</h4>
+<pre><code>phpoffice/phpspreadsheet[2.1.18, ..., 2.4.7] require ext-zip * -&gt; it is missing from your system. Install or enable PHP&#x27;s zip extension.</code></pre>
+<p>この場合は、例1のようにを開き、以下の設定になるように編集します。</p>
+<pre><code>extension=zip</code></pre>
+<p>Apacheの再起動後、<code>composer install</code>コマンドを実行します。</p>
+</section>
+<section id="database">
+<h2>4. データベースを作成する</h2>
+<p>まずは、rootにパスワードを設定します。</p>
+<p>ハンズオンの「<a href="../chandra/handson.html#item-2-3">データベースを作成する前に</a>」を参照しながら、 <code>root</code> ユーザーにパスワードを設定し、<a href="http://localhost/phpmyadmin/">phpMyAdmin</a>へのログインをパスワードでできるようにします。</p>
+<p>次に、NobleStockに必要なデータベースとテーブルを作成します。</p>
+<p><a href="http://localhost/phpmyadmin/">phpMyAdmin</a>を開き、<code>C:\xampp\htdocs\noblestock\doc\create_db_tables.sql</code>をインポートして実行します。<code>noblestock</code>データベースとテーブルが作成されます。</p>
+<p>引き続きデータベースから<code>noblestock</code>を選び、<code>doc\set_data.sql</code>をインポートします。管理ユーザーと機能設定が入ります。これでNobleStockを動作させるのに必要なデータが揃います。</p>
+<p><code>doc\testdata.sql</code>は商品情報等のサンプルデータです。<a class="disabled" href="guide.html" aria-disabled="true" tabindex="-1" onclick="return false;">NobleStockのドキュメント 機能と使い方</a>を参考に、実際にNobleStockを操作する時に利用してください。</p>
+</section>
+<section id="config">
+<h2>5. DB接続を設定する</h2>
+<p>DB接続設定の例が、<code>config\dbconfig.sample.ini</code>です。実際に動作させる場合はこの設定をコピーして利用してください。
+コマンドプロンプトでサンプル設定をコピーします。</p>
+<pre><code>copy config\dbconfig.sample.ini config\dbconfig.ini</code></pre>
+<p><code>config\dbconfig.ini</code>をテキストエディターで開き、接続先を設定します。</p>
+<pre><code>dbhost=127.0.0.1
+dbuser=root
+dbpass=[rootのパスワード]
+dbname=noblestock</code></pre>
+</section>
+<section id="paths">
+<h2>6. 動作に必要なパスを作成する</h2>
+<p>Excelや画像の読み込みで使う<code>tmp</code>、<code>log</code>、<code>public\uploads</code>フォルダーを、プロジェクト内に作成してください。</p>
+<ul><li><code>C:\xampp\htdocs\noblestock\tmp</code></li><li><code>C:\xampp\htdocs\noblestock\log</code></li><li><code>C:\xampp\htdocs\noblestock\public\uploads</code></li></ul>
+</section>
+<section id="launch">
+<h2>7. localhostでログインする</h2>
+<p>ブラウザで<a href="http://localhost/noblestock/public/index.php">http://localhost/noblestock/public/index.php</a>を表示します。Noblestockのログイン画面が出たら、初期データの管理ユーザーでログインしてください。</p>
+<ul><li>ログインID：<code>admin</code></li><li>初期パスワード：<code>admin000</code></li></ul>
+<p>トップメニューが表示されれば導入完了です。</p>
+<p><img src="../chandra/img/noblestock_login.png" alt="NobleStockの画面" class="img-fluid" loading="lazy"></p>
+<p>操作方法は、<a class="disabled" href="guide.html" aria-disabled="true" tabindex="-1" onclick="return false;">NobleStockのドキュメント 機能と使い方</a>を参照してください。</p>
+</section>
+<div class="border-top pt-4"><a class="disabled btn btn-outline-success" href="guide.html" aria-disabled="true" tabindex="-1" onclick="return false;">機能と使い方を見る</a></div></article></div></main>
+<footer class="container documentation-guide border-top py-4 text-muted small">スタジオがう · Noblestockガイド</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="../js/code-highlight.js?v=2"></script>
+</body></html>
