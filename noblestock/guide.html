@@ -12,23 +12,104 @@
 <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="../chandra/index.html">Chandra</a></li>
 <li class="nav-item"><a class="nav-link active" href="./index.html">Noblestock</a></li><li class="nav-item"><a class="nav-link" href="../about.html">About</a></li></ul><span class="navbar-text">便利なシステムでお手伝い</span></div></div></nav>
 <header class="guide-header py-5"><div class="container documentation-guide"><a href="./index.html" class="text-success">Noblestock</a><h1 class="fw-bold mt-3">機能と使い方</h1><p class="mb-0">商品登録から入出庫、棚卸まで。主な画面の役割を紹介します。</p></div></header>
-<main class="container documentation-guide py-4"><div class="row g-4"><aside class="col-lg-3"><nav class="guide-toc" aria-label="このページの目次"><p class="fw-bold px-2">このページの内容</p><a href="#overview">Noblestockでできること</a>
-<a href="#first-steps">最初に試す順番</a>
-<a href="#products">商品と在庫を見る</a>
-<a href="#stock">入庫・出庫・店舗間の移動</a>
-<a href="#barcodes">バーコードを作る</a>
-<a href="#check-history">棚卸と実績・履歴の確認</a>
-<a href="#maintenance">マスタメンテナンス</a>
-<a href="#account">ユーザー情報と日々の操作</a><hr><a href="setup.html">Windowsでの導入手順を見る</a><a href="./index.html">Noblestockトップへ</a></nav></aside>
-<article class="col-lg-9 guide-content"><section id="overview"><h2>Noblestockでできること</h2><p>Noblestockは、商品情報と店舗ごとの在庫を管理するWebアプリです。商品を登録してバーコードを用意し、入庫・出庫・店舗間の移動を記録できます。棚卸の在庫チェックや、Excelによる一括登録・出力にも対応しています。</p><p>アプリ本体は<a href="https://github.com/learnchi/noblestock">GitHubのlearnchi/noblestock</a>から取得してください。まだ起動していない方は<a href="setup.html">Windowsでの導入手順</a>をご覧ください。</p><div class="guide-note">このページでは、ログイン後のメニューに沿って主な画面を紹介します。表示されるメニューや操作できる画面は、ユーザーの権限と機能設定によって変わります。</div></section>
-<section id="first-steps"><h2>最初に試す順番</h2><ol><li><strong>マスタを用意する</strong>：マスタメンテナンスの「マスタ登録」で、店舗、カテゴリ、メーカー、単位などを登録します。</li><li><strong>商品を登録する</strong>：商品一覧から商品を登録するか、「商品一括登録」でExcelを読み込みます。</li><li><strong>バーコードを用意する</strong>：「バーコード生成」や商品一覧のバーコード出力で、商品・店舗などのラベルを用意します。</li><li><strong>商品入庫を試す</strong>：店舗と商品を指定して数量を入力し、商品一覧や店舗別商品一覧で在庫を確認します。</li><li><strong>出庫・移動・棚卸を試す</strong>：出庫や移動の結果を確認し、在庫チェックで実数と照合します。</li></ol><p>最初は店舗1つと商品1つから始めると、在庫の増減を追いやすくなります。Excelを使う場合は、リポジトリの<a href="https://github.com/learnchi/noblestock/tree/main/doc">docフォルダー</a>にある「お試し用Excel」を参考にし、画面が求める列や形式に合わせてください。</p></section>
-<section id="products"><h2>商品と在庫を見る</h2><div class="table-responsive"><table class="table align-middle"><thead><tr><th scope="col">画面</th><th scope="col">できること・使いどころ</th></tr></thead><tbody><tr><th scope="row">商品表示</th><td>管理番号や商品バーコードを使って、商品の詳細を確認します。商品名や価格、在庫などを1件ずつ調べたいときに使います。</td></tr><tr><th scope="row">商品一覧</th><td>商品を検索して一覧表示します。商品登録や詳細表示・編集へ進めるほか、Excel出力やバーコード出力を行えます。</td></tr><tr><th scope="row">店舗別商品一覧</th><td>店舗ごとの商品と在庫を確認します。どの店舗にいくつあるかを調べるときに使います。</td></tr></tbody></table></div><p>商品情報を編集するときは、確認画面の内容を確かめてから登録・更新します。商品全体の在庫と店舗ごとの在庫は、それぞれの一覧で確認できます。</p></section>
-<section id="stock"><h2>入庫・出庫・店舗間の移動</h2><div class="table-responsive"><table class="table align-middle"><thead><tr><th scope="col">画面</th><th scope="col">できること・使いどころ</th></tr></thead><tbody><tr><th scope="row">商品入庫</th><td>入庫先の店舗、商品、数量を指定して在庫を増やします。商品の受け入れを記録するときに使います。</td></tr><tr><th scope="row">商品出庫</th><td>出庫元の店舗、商品、数量を指定して在庫を減らします。商品の払い出しを記録するときに使います。</td></tr><tr><th scope="row">商品移動</th><td>移動元と移動先の店舗を指定して、商品を店舗間で移動します。</td></tr></tbody></table></div><h3>バーコードを使った操作</h3><p>各画面の案内に従って、店舗・商品・数量のバーコードを入力します。読み取り機器を使うときは、画面のバーコード入力欄にカーソルを置き、読み取った文字列が入力されることを確かめてください。操作用のバーコードはマスタ登録などから出力できます。</p><p>処理が終わったら画面の結果メッセージを確認し、店舗別商品一覧で在庫を確かめます。一部の商品でエラーが出た場合は、成功した分と失敗した分を確認してから再操作してください。</p></section>
-<section id="barcodes"><h2>バーコードを作る</h2><div class="table-responsive"><table class="table align-middle"><thead><tr><th scope="col">画面</th><th scope="col">できること・使いどころ</th></tr></thead><tbody><tr><th scope="row">バーコード生成</th><td>入力したコードからバーコードを生成します。ラベルを作るときや、読み取りを試すときに使います。</td></tr><tr><th scope="row">バーコード一括出力</th><td>Excelファイルを読み込み、複数のバーコードをまとめて出力します。</td></tr><tr><th scope="row">商品・マスタからの出力</th><td>商品一覧やマスタ登録などから、商品や店舗、操作用のバーコードを出力できます。</td></tr></tbody></table></div><p>ラベルサイズやラベルに表示する項目は「設定」で選びます。印刷前に出力内容と用紙サイズを確認し、まずは少量を印刷して読み取れるか試してください。</p></section>
-<section id="check-history"><h2>棚卸と実績・履歴の確認</h2><div class="table-responsive"><table class="table align-middle"><thead><tr><th scope="col">画面</th><th scope="col">できること・使いどころ</th></tr></thead><tbody><tr><th scope="row">在庫チェック</th><td>店舗を指定して実際の商品を数え、システム上の在庫数とチェック数を比較します。一致・不足・超過を確認し、結果をExcelへ出力できます。</td></tr><tr><th scope="row">実績一覧</th><td>入出庫の実績を一覧で確認します。対象を絞って実績の詳細を表示し、Excelへ出力できます。</td></tr><tr><th scope="row">履歴一覧</th><td>入出庫と商品情報の登録・更新などの履歴を確認します。在庫が変わった経緯を調べるときに使います。</td></tr></tbody></table></div><p>在庫チェックは実数と登録済み在庫を照合する画面です。チェックした数がそのまま在庫数へ置き換わるわけではありません。差が出たら入出庫や移動の記録を確認し、原因を調べてください。次の棚卸を始める前に、前回のチェック結果を保存してからチェック数をクリアします。</p></section>
-<section id="maintenance"><h2>マスタメンテナンス</h2><div class="table-responsive"><table class="table align-middle"><thead><tr><th scope="col">画面</th><th scope="col">できること・使いどころ</th></tr></thead><tbody><tr><th scope="row">商品一括登録</th><td>Excelから商品情報をまとめて読み込みます。読み込み結果と確認内容を見てから登録します。</td></tr><tr><th scope="row">在庫一括登録</th><td>Excelから在庫データをまとめて登録します。導入時などに使い、更新前に既存の在庫を確認します。</td></tr><tr><th scope="row">画像一括登録</th><td>複数の画像をアップロードします。商品に画像を設定するときの準備に使います。</td></tr><tr><th scope="row">マスタ登録</th><td>カテゴリ・メーカー・単位・店舗などのマスタを選び、Excelによる登録や出力を行います。対応するマスタではバーコードも出力できます。</td></tr><tr><th scope="row">設定</th><td>Excelの出力形式、ラベルサイズ、ラベルの上段・下段に表示する項目を選びます。</td></tr><tr><th scope="row">ユーザー管理</th><td>管理者がユーザーを登録・編集し、利用できる画面の権限を設定します。</td></tr><tr><th scope="row">機能設定</th><td>管理者がバーコード出力や履歴表示などの機能設定値を管理します。</td></tr></tbody></table></div><p>一括登録では、ファイルの読み込みとDBへの登録が別の段階になっている画面があります。読み込んだだけで完了とせず、確認画面と結果メッセージまで確認してください。</p></section>
-<section id="account"><h2>ユーザー情報と日々の操作</h2><p>ユーザー情報の画面で自分の登録情報を確認・編集し、パスワードを変更できます。初期管理ユーザーでログインした場合は、使い始める前に初期パスワードを変更してください。</p><p>日々の作業は「入庫・出庫・移動 → 商品一覧で在庫確認 → 必要に応じて実績・履歴確認」の順で進めると把握しやすくなります。画面にアクセスできない場合は、管理者にユーザーの権限を確認してもらってください。</p><p class="small text-muted">参照：GitHubの<a href="https://github.com/learnchi/noblestock/blob/main/README.md">公式README</a>と<a href="https://github.com/learnchi/noblestock/tree/main/public">画面の実装</a>に基づく概要です。</p></section>
-<div class="border-top pt-4"><a class="btn btn-outline-success" href="setup.html">Windowsでの導入手順を見る</a></div></article></div></main>
+<main class="container documentation-guide py-4"><div class="row g-4"><aside class="col-lg-3"><nav class="guide-toc" aria-label="このページの目次"><p class="fw-bold px-2">このページの内容</p>
+<a href="#overview">NobleStockの特徴</a>
+<a href="#masters">マスタ情報の登録</a>
+<a href="#products">商品情報の登録</a>
+<a href="#images">商品画像の登録</a>
+<a href="#stock">商品の入出庫、店舗間移動</a>
+<a href="#stock-in" class="small ps-4">商品入庫</a>
+<a href="#stock-out" class="small ps-4">商品出庫</a>
+<a href="#stock-transfer" class="small ps-4">商品移動</a>
+<a href="#users">ユーザーと権限の管理</a><hr><a href="setup.html">Windowsでの導入手順を見る</a><a href="./index.html">Noblestockトップへ</a></nav></aside>
+<article class="col-lg-9 guide-content">
+<section id="overview">
+<h2>NobleStockの特徴</h2>
+<p>Noblestockは、商品情報と店舗ごとの在庫を管理するWebアプリです。商品の登録、入出庫・店舗間の移動をバーコードで記録、操作できます。棚卸の在庫チェックや、Excelによる一括登録・出力にも対応しています。主な画面の役割を紹介します。</p>
+<p>アプリ本体は<a href="https://github.com/learnchi/noblestock">GitHubのlearnchi/noblestock</a>から取得してください。導入方法は<a href="setup.html">NobleStockのドキュメント Windowsでの導入手順</a>を参照してください。</p>
+<p>ログインすると、トップメニューが表示されます。<br>
+次の画像は、権限が最大のユーザーでの表示です。</p>
+<figure class="my-4"><img src="img/menu.png" alt="トップメニュー（最大権限のユーザー）" class="img-fluid rounded border" loading="lazy"></figure>
+<p class="guide-note">【バーコードポイント】 マスターメンテナンスからマスタ登録画面に移動し、ドロップダウンリストに「メニュー」が表示されている状態で「バーコード出力」ボタンを押すと、メニュー操作がバーコードリーダーから可能になるバーコードがExcelファイル形式で出力されます。バーコードリーダーを端末に接続することで、倉庫や店舗などで素早く操作できるようになります。</p>
+<figure class="my-4"><img src="img/menu_barcode002.png" alt="メニュー操作用バーコードの出力例" class="img-fluid rounded border" loading="lazy"></figure>
+</section>
+<section id="masters">
+<h2>マスタ情報の登録</h2>
+<p>導入手順を終えた状態では、商品情報や在庫ばかりでなく、店舗情報、メーカー、単位といったマスター情報も登録されていません。これらは業務に適した情報を精査し、NoblesStock利用開始前に「マスタメンテナンス」画面から登録します。</p>
+<p>マスタメンテナンスからマスタ登録画面を表示し、「カテゴリ」「メーカー」「単位」「店舗」マスターを順に登録します。</p>
+<p>ドロップダウンリストから「カテゴリ」を選択し、「選択」ボタンを押すと、ファイルアップロードが促されます。</p>
+<figure class="my-4"><img src="img/master_bulk_edit001.png" alt="カテゴリマスタのファイル選択画面" class="img-fluid rounded border" loading="lazy"></figure>
+<p>カテゴリ情報を記入したExcelファイルを登録することができます。見本が<code>noblestock\doc\お試し用Excel\category.xlsx</code>にありますので、これを選択し、「登録」ボタンを押すと、Excelファイルの内容を表示し、登録かのうかどうかチェックします。</p>
+<figure class="my-4"><img src="img/master_bulk_edit002.png" alt="カテゴリマスタの読み込み結果とチェック" class="img-fluid rounded border" loading="lazy"></figure>
+<p>確認したら、「マスターに登録」ボタンを押して登録してください。</p>
+<figure class="my-4"><img src="img/master_bulk_edit003.png" alt="カテゴリマスタの登録結果" class="img-fluid rounded border" loading="lazy"></figure>
+<p>「メーカー」「単位」「店舗」マスターを、同様に登録します。</p>
+</section>
+<section id="products">
+<h2>商品情報の登録</h2>
+<p>商品一覧から「登録」ボタンを押して商品登録画面に移動し、商品を1つ1つ登録するか、マスタメンテナンスから商品一括登録でExcelを読み込んで一括登録します。</p>
+<p>商品一括登録画面では、ファイル選択で商品情報の一覧を読み込みます。見本が<code>noblestock\doc\お試し用Excel\product.xlsx</code>にありますので、選択して読み込みボタンを押します。登録後、商品一覧画面を表示すると、商品が登録されていることを確認できます。</p>
+<p class="guide-note">【バーコードポイント】 バーコード生成、商品一覧のバーコード出力で、商品のバーコードラベルを印刷することができます。印刷したバーコードを商品に貼付することで、在庫管理をバーコードリーダーで行うことができるようになります。</p>
+<p>商品一覧画面から、「全選択」ボタンを押して選択後、「バーコード出力」ボタンを押して「バーコード選択出力」画面を表示後、個数を確認して「リスト出力」ボタンを押すと、バーコードが並んだExcelファイルが出力されます。</p>
+<figure class="my-4"><img src="img/product_barcode.png" alt="商品のバーコード出力例" class="img-fluid rounded border" loading="lazy"></figure>
+</section>
+<section id="images">
+<h2>商品画像の登録</h2>
+<p>1商品につき画像を1点登録できます。商品登録画面、更新画面で画像をアップロードできるほか、画像をまとめて登録後、商品に関連付けることも可能です。マスタメンテナンスから「画像一括登録」画面で、複数の画像ファイルを一度にアップロードすることが可能です。</p>
+<p>商品登録/更新画面から画像登録画面に移動できます。ここには既に登録した画像が表示され、画像のアップロードも可能です。また、「この画像を使用」ボタンを押すことで、商品に関連付けることができます。画像を削除する場合は、現状、画像を選択後にのみ可能です。</p>
+<figure class="my-4"><img src="img/image_create.png" alt="商品画像の登録・選択画面" class="img-fluid rounded border" loading="lazy"></figure>
+<p>「戻る」ボタンで商品登録/更新画面に戻ったら、登録/更新処理をしてください。</p>
+</section>
+<section id="stock">
+<h2>商品の入出庫、店舗間移動</h2>
+<p>商品情報を登録しただけでは在庫がゼロです。商品の入出庫、店舗間移動を実際に試して、在庫状況を確認します。</p>
+<p class="guide-note">【バーコードポイント】 入出庫と移動は、バーコード入力による操作が便利です。メニュー操作のバーコードをマスタメンテナンスから出力し、バーコードリーダーから読み取ることで、素早く操作できるようになります。</p>
+<h3 id="stock-in">商品入庫</h3>
+<p>商品入庫画面は、以下の入力順に入力します。</p>
+<p><strong>① 店舗バーコードの入力</strong><br>
+店舗バーコードは、店舗であることを示すキーワード&quot;PLP&quot;に続けて店舗IDを繋げます。<br>
+例：PLP10</p>
+<p><strong>② 商品コードの入力</strong><br>
+管理番号を入力します。<br>
+例：ABC001</p>
+<p><strong>③ 入庫数の入力</strong><br>
+取消　PCPO または<br>
+個数　&quot;PVP&quot;+ 個数を1桁ずつ<br>
+例：10個の場合はPVP1とPVP0を順に入力します。</p>
+<p><strong>④ 完了コードの入力</strong><br>
+完了　PCPP<br>
+キャンセル　PCPN</p>
+<p>店舗10（PLP10）に 商品サンプルABC001（ABC001） を10個（PVP1 PVP0）個入庫した結果が以下の通りです。</p>
+<figure class="my-4"><img src="img/stock_in.png" alt="商品入庫の処理結果" class="img-fluid rounded border" loading="lazy"></figure>
+<p>商品一覧や店舗別商品一覧で、在庫数を確認できます。実績一覧や履歴一覧にも捜査結果が記録されます。</p>
+<figure class="my-4"><img src="img/sales_list.png" alt="在庫と実績の一覧画面" class="img-fluid rounded border" loading="lazy"></figure>
+<h3 id="stock-out">商品出庫</h3>
+<p>商品出庫でも、入庫と同様に店舗と商品、数量を入力することで、在庫数を減らすことができます。出庫数が在庫を上回る場合は、在庫が足りない旨のエラーとなります。</p>
+<h3 id="stock-transfer">商品移動</h3>
+<p>店舗間で商品を移動する場合に行う操作です。</p>
+<p><strong>① 店舗バーコード（From）の入力</strong><br>
+移動元の店舗情報を入力します。<br>
+例：PLP10</p>
+<p><strong>② 店舗バーコード（To）の入力</strong><br>
+移動先の店舗情報を入力します。<br>
+例：PLP20</p>
+<p><strong>③ 商品コードの入力</strong><br>
+管理番号を入力します。<br>
+例：ABC001</p>
+<p><strong>④ 入庫数の入力</strong><br>
+取消　PCPO または<br>
+個数　&quot;PVP&quot;+ 個数を1桁ずつ<br>
+例：PVP5（5個）</p>
+<p><strong>⑤ 完了コードの入力</strong><br>
+完了　PCPP<br>
+キャンセル　PCPN</p>
+</section>
+<section id="users">
+<h2>ユーザーと権限の管理</h2>
+<p>マスタメンテナンスのユーザー管理では、ログインユーザーの登録や更新を行います。Noblestockでは、権限管理を画面ごとに管理しています。対象ユーザーが操作可能な画面をチェックすることで、権限を付与します。</p>
+<p><a href="setup.html">Windowsでの導入手順を見る</a></p>
+</section>
+</article></div></main>
 <footer class="container documentation-guide border-top py-4 text-muted small">スタジオがう · Noblestockガイド</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <script src="../js/code-highlight.js?v=2"></script>

@@ -19,7 +19,7 @@
 <a href="#database">4. データベースを作成する</a>
 <a href="#config">5. DB接続を設定する</a>
 <a href="#paths">6. 動作に必要なパスを作成する</a>
-<a href="#launch">7. localhostでログインする</a><hr><a class="disabled" href="guide.html" aria-disabled="true" tabindex="-1" onclick="return false;">機能と使い方を見る</a><a href="./index.html">Noblestockトップへ</a></nav></aside>
+<a href="#launch">7. localhostでログインする</a><hr><a href="guide.html">機能と使い方を見る</a><a href="./index.html">Noblestockトップへ</a></nav></aside>
 <article class="col-lg-9 guide-content">
 <section id="environment">
 <h2>1. Windowsの環境を準備する</h2>
@@ -81,8 +81,8 @@ composer install</code></pre>
 <p>ハンズオンの「<a href="../chandra/handson.html#item-2-3">データベースを作成する前に</a>」を参照しながら、 <code>root</code> ユーザーにパスワードを設定し、<a href="http://localhost/phpmyadmin/">phpMyAdmin</a>へのログインをパスワードでできるようにします。</p>
 <p>次に、NobleStockに必要なデータベースとテーブルを作成します。</p>
 <p><a href="http://localhost/phpmyadmin/">phpMyAdmin</a>を開き、<code>C:\xampp\htdocs\noblestock\doc\create_db_tables.sql</code>をインポートして実行します。<code>noblestock</code>データベースとテーブルが作成されます。</p>
-<p>引き続きデータベースから<code>noblestock</code>を選び、<code>doc\set_data.sql</code>をインポートします。管理ユーザーと機能設定が入ります。これでNobleStockを動作させるのに必要なデータが揃います。</p>
-<p><code>doc\testdata.sql</code>は商品情報等のサンプルデータです。<a class="disabled" href="guide.html" aria-disabled="true" tabindex="-1" onclick="return false;">NobleStockのドキュメント 機能と使い方</a>を参考に、実際にNobleStockを操作する時に利用してください。</p>
+<p>引き続きデータベースから<code>noblestock</code>を選び、<code>doc\set_data.sql</code>をインポートします。管理ユーザーと機能設定が入ります。これで、NobleStockへのログインで必要なデータが作成されます。</p>
+<p><code>doc\testdata.sql</code>は商品情報等のサンプルデータです。<a href="guide.html">NobleStockのドキュメント 機能と使い方</a>を参考に、実際にNobleStockを操作する時に利用してください。</p>
 </section>
 <section id="config">
 <h2>5. DB接続を設定する</h2>
@@ -106,9 +106,9 @@ dbname=noblestock</code></pre>
 <ul><li>ログインID：<code>admin</code></li><li>初期パスワード：<code>admin000</code></li></ul>
 <p>トップメニューが表示されれば導入完了です。</p>
 <p><img src="../chandra/img/noblestock_login.png" alt="NobleStockの画面" class="img-fluid" loading="lazy"></p>
-<p>操作方法は、<a class="disabled" href="guide.html" aria-disabled="true" tabindex="-1" onclick="return false;">NobleStockのドキュメント 機能と使い方</a>を参照してください。</p>
+<p>操作方法は、<a href="guide.html">NobleStockのドキュメント 機能と使い方</a>を参照してください。</p>
 </section>
-<div class="border-top pt-4"><a class="disabled btn btn-outline-success" href="guide.html" aria-disabled="true" tabindex="-1" onclick="return false;">機能と使い方を見る</a></div></article></div></main>
+<div class="border-top pt-4"><a class="btn btn-outline-success" href="guide.html">機能と使い方を見る</a></div></article></div></main>
 <footer class="container documentation-guide border-top py-4 text-muted small">スタジオがう · Noblestockガイド</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <script src="../js/code-highlight.js?v=2"></script>
